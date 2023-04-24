@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Muscle {
 	@Id
-	@Column(name = "ALBUM_ID")
+	@Column(name = "MUSCLE_ID")
 	@GeneratedValue
 	Long id;
 	String name;
