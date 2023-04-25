@@ -1,13 +1,16 @@
 package de.htmlfit.domain;
 
+import java.util.Collection;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import de.picsheep.domain.Album;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +26,6 @@ public class Muscle {
 	String name;
 		
 	@JsonProperty("exercise")
-	@ManyToOne()
-	private Exercise exercise;
+	@ManyToMany(mappedBy = "Muscles")
+	private Collection<Exercise> exercise;
 }

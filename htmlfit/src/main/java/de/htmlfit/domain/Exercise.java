@@ -10,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,6 @@ public class Exercise {
 	@GeneratedValue
 	Long id;
 	
-	@OneToMany(targetEntity = Muscle.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "exercise_muscle", referencedColumnName = "EXERCISE_ID")
+	@ManyToMany(targetEntity = Muscle.class, cascade = CascadeType.ALL)
 	Collection<Muscle> Muscles;
 }
