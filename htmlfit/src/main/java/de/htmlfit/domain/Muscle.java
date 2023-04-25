@@ -25,7 +25,7 @@ public class Muscle {
 	Long id;
 	String name;
 		
-	@JsonProperty("exercise")
+	@JsonIgnore
 	@ManyToMany(mappedBy = "Muscles")
 	private Collection<Exercise> exercise;
 }

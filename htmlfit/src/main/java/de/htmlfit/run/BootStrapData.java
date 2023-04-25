@@ -34,6 +34,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle shoulders = new Muscle();
 		shoulders.setName("shoulders");
+		mr.save(shoulders);
 		
 		Muscle triceps = new Muscle();
 		triceps.setName("triceps");

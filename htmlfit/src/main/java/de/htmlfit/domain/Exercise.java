@@ -25,6 +25,6 @@ public class Exercise {
 	@GeneratedValue
 	Long id;
 	String name;
-	@ManyToMany(targetEntity = Muscle.class, cascade = CascadeType.ALL)
+	@ManyToMany()
 	Collection<Muscle> Muscles;
 }
