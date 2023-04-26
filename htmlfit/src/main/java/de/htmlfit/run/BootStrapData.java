@@ -22,9 +22,7 @@ public class BootStrapData implements CommandLineRunner{
 	@Autowired
 	ExerciseRepository er;
 	
-	@Override
-	public void run(String... args) throws Exception {
-		System.out.println("Hello World!");
+	public void init() {
 		Exercise burpees = new Exercise();
 		burpees.setName("Burpees");
 		
@@ -67,6 +65,27 @@ public class BootStrapData implements CommandLineRunner{
 		
 		burpees.setMuscles(burpeesMuscles);
 		er.save(burpees);
+		
+		Exercise mountainClimbers = new Exercise();
+		
+		Muscle hamstrings = new Muscle();
+		hamstrings.setName("hamstrings");
+		mr.save(hamstrings);
+		
+		Collection<Muscle> mountainClimbersMuscles = new ArrayList<Muscle>();
+		mountainClimbersMuscles.add(shoulders);
+		mountainClimbersMuscles.add(triceps);
+		mountainClimbersMuscles.add(abs);
+		mountainClimbersMuscles.add(legs);
+		mountainClimbersMuscles.add(shoulders);
+		
+		mountainClimbers.setMuscles(mountainClimbersMuscles);
+	}
+	
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Hello World!");
+		
 		
 	}
 }
