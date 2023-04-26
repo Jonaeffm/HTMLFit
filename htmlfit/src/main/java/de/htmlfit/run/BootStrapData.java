@@ -67,6 +67,7 @@ public class BootStrapData implements CommandLineRunner{
 		er.save(burpees);
 		
 		Exercise mountainClimbers = new Exercise();
+		mountainClimbers.setName("Mountain Climbers");
 		
 		Muscle hamstrings = new Muscle();
 		hamstrings.setName("hamstrings");
@@ -78,8 +79,31 @@ public class BootStrapData implements CommandLineRunner{
 		mountainClimbersMuscles.add(abs);
 		mountainClimbersMuscles.add(legs);
 		mountainClimbersMuscles.add(shoulders);
+		mountainClimbersMuscles.add(hamstrings);
 		
 		mountainClimbers.setMuscles(mountainClimbersMuscles);
+		er.save(mountainClimbers);
+		
+		Exercise jumpingJacks = new Exercise();
+		jumpingJacks.setName("Jumping Jacks");
+		
+		Muscle glutes = new Muscle();
+		glutes.setName("Glutes");
+		mr.save(glutes);
+		
+		Muscle hipFlexors = new Muscle();
+		hipFlexors.setName("Hip Flexors");
+		mr.save(hipFlexors);
+		
+		Collection<Muscle> jumpingJackMuscles = new ArrayList<Muscle>();
+		jumpingJackMuscles.add(hipFlexors);
+		jumpingJackMuscles.add(glutes);
+		jumpingJackMuscles.add(legs);
+		jumpingJackMuscles.add(abs);
+		jumpingJackMuscles.add(hamstrings);
+		jumpingJackMuscles.add(shoulders);
+		jumpingJacks.setMuscles(jumpingJackMuscles);
+		er.save(jumpingJacks);
 	}
 	
 	@Override
