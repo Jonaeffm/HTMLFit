@@ -142,6 +142,59 @@ public class BootStrapData implements CommandLineRunner{
 		
 		squatJumps.setMuscles(squatJumpsMuscles);
 		er.save(squatJumps);
+		
+		//__________________
+		Exercise plank = new Exercise();
+		plank.setName("Plank");
+		
+		Muscle trapezius = new Muscle();
+		trapezius.setName("Trapezius");
+		mr.save(trapezius);
+		
+		Muscle rhomboid = new Muscle();
+		rhomboid.setName("Rhomboid");
+		mr.save(rhomboid);
+		
+
+		Muscle major = new Muscle();
+		major.setName("Major");
+		mr.save(major);
+		
+
+		Muscle minor = new Muscle();
+		minor.setName("Minor");
+		mr.save(minor);
+		
+		Muscle latissimus = new Muscle();
+		latissimus.setName("Latissimus");
+		mr.save(latissimus);
+
+		Muscle pectorals = new Muscle();
+		pectorals.setName("Pectorals");
+		mr.save(pectorals);
+		
+		Muscle serratusAnterior = new Muscle();
+		serratusAnterior.setName("Serratus Anterior");
+		mr.save(serratusAnterior);
+		
+		Muscle deltoids = new Muscle();
+		deltoids.setName("Deltoids");
+		mr.save(deltoids);
+		
+		Collection<Muscle> plankMuscles = new ArrayList<Muscle>();
+		plankMuscles.add(trapezius);
+		plankMuscles.add(rhomboid);
+		plankMuscles.add(major);
+		plankMuscles.add(minor);
+		plankMuscles.add(latissimus);
+		plankMuscles.add(pectorals);
+		plankMuscles.add(biceps);
+		plankMuscles.add(serratusAnterior);
+		plankMuscles.add(triceps);
+		plankMuscles.add(deltoids);
+		
+		plank.setMuscles(plankMuscles);
+		er.save(plank);
 	}
 	
 	@Override
