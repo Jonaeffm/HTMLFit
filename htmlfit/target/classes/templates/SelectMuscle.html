@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Select muscles</title>
 </head>
 <body>
   
@@ -16,11 +16,11 @@
   
    
       
- <input type="text" th:value="${images.name}" name="name"/>                    
              
-<select class="form-control" id="dropDownList" th:field="${imagePath.albumId}">
+             
+<select class="form-control" id="dropDownList" th:field="${musclesList}">
     
-    <option th:each="option : ${albums}" th:value="${option.id}" th:text="${option.name}" ></option>
+    <option th:each="muscle : ${muscles}" th:value="${muscle.id}" th:text="${muscle.name}" ></option>
 </select>
          
 <!--    <button type="submit" class="btn btn-primary">Sign in</button> -->
