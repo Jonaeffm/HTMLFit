@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.services.MuscleService;
@@ -27,7 +28,7 @@ public class HtmlfitController {
 		List<Muscle> muscleList;
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
-		return "SelectMuscle";
+		return "selectMuscle";
 	}
 
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
@@ -41,6 +42,6 @@ public class HtmlfitController {
 	public String test(Model model) {
 		
 		
-		return "Success";
+		return "success";
 	}
 }

@@ -1,0 +1,32 @@
+       			<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Select muscles</title>
+</head>
+<body>
+  
+   <form method="post">
+
+
+  
+                       
+                        
+                      
+  
+   
+      
+             
+             
+<select class="form-control" id="dropDownList" th:field="${resultMuscle.id}">
+    
+    <option th:each="muscle : ${muscles}" th:value="${muscle.id}" th:text="${muscle.name}" ></option>
+</select>
+         
+<!--    <button type="submit" class="btn btn-primary">Sign in</button> -->
+
+<input type="submit" value="Submit" class="btn btn-primary" />
+</body>
+
+
+</html>
