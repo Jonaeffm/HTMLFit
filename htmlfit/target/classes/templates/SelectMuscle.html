@@ -1,0 +1,32 @@
+       			<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  
+   <form method="post">
+
+
+  
+                       
+                        
+                      
+  
+   
+      
+ <input type="text" th:value="${images.name}" name="name"/>                    
+             
+<select class="form-control" id="dropDownList" th:field="${imagePath.albumId}">
+    
+    <option th:each="option : ${albums}" th:value="${option.id}" th:text="${option.name}" ></option>
+</select>
+         
+<!--    <button type="submit" class="btn btn-primary">Sign in</button> -->
+
+<input type="submit" value="Submit" class="btn btn-primary" />
+</body>
+
+
+</html>
