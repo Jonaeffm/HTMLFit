@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import de.htmlfit.domain.Muscle;
 
-@Service
+
 public interface MuscleService{
 	
 public void deleteById(long ID);
