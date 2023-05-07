@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.repositories.MuscleRepository;
 
-
+@Service
 public class MuscleServiceImpl implements MuscleService{
 	@Autowired
 	private MuscleRepository repository;
