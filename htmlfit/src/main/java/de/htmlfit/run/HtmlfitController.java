@@ -32,7 +32,7 @@ public class HtmlfitController {
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
 	public String addImage2Post(@ModelAttribute("resultMuscle") Muscle muscle) {
 		
-		String returnStr = "SelectMuscle";
+		String returnStr = "Success";
 		return returnStr;
 	}
 }
