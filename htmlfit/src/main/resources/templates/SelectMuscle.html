@@ -18,7 +18,7 @@
       
              
              
-<select class="form-control" id="dropDownList" th:field="${musclesList}">
+<select class="form-control" id="dropDownList" th:field="${resultMuscle.id}">
     
     <option th:each="muscle : ${muscles}" th:value="${muscle.id}" th:text="${muscle.name}" ></option>
 </select>

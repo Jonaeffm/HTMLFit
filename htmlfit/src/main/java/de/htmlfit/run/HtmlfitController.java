@@ -20,19 +20,19 @@ public class HtmlfitController {
 	@Autowired
 	private MuscleService muscleService;
 	
-	@RequestMapping(value = "/select", method = RequestMethod.GET)
+	@RequestMapping(value = "/select/", method = RequestMethod.GET)
 	public String addImage2Get(Model model) {
 		
 		List<Muscle> muscleList;
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
-		return "selectMuscle";
+		return "SelectMuscle";
 	}
 
-	@RequestMapping(value = "/select", method = RequestMethod.POST)
-	public String addImage2Post(@ModelAttribute("musclesList") List<Muscle> muscles) {
+	@RequestMapping(value = "/select/", method = RequestMethod.POST)
+	public String addImage2Post(@ModelAttribute("resultMuscle") Muscle muscle) {
 		
-		String returnStr = "redirect:/";
+		String returnStr = "SelectMuscle";
 		return returnStr;
 	}
 }
