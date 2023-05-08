@@ -17,6 +17,7 @@ import de.htmlfit.services.MuscleService;
 
 
 @Controller
+@RequestMapping("/")
 public class HtmlfitController {
 	
 	@Autowired
