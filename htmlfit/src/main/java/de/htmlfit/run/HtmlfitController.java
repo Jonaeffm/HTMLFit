@@ -1,6 +1,7 @@
 package de.htmlfit.run;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +32,13 @@ public class HtmlfitController {
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
 		
-		Muscle m = new Muscle();
-		model.addAttribute("resultMuscle",m);
+		List<Integer> m = new ArrayList<Integer>();
+		model.addAttribute("resultMuscles",m);
 		return "selectMuscle";
 	}
 
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
-	public String addImage2Post(@ModelAttribute("resultMuscle") Muscle muscle) {
+	public String addImage2Post(@ModelAttribute("resultMuscles") List<Integer> muscles) {
 		
 		String returnStr = "success";
 		return returnStr;
