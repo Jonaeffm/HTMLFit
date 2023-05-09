@@ -30,6 +30,9 @@ public class HtmlfitController {
 		List<Muscle> muscleList;
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
+		
+		Muscle m = new Muscle();
+		model.addAttribute("resultMuscle",m);
 		return "selectMuscle";
 	}
 
