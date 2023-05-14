@@ -231,6 +231,22 @@ public class BootStrapData implements CommandLineRunner{
 		sjMuscles.add(calves);
 		splitJumps.setMuscles(sjMuscles);
 		er.save(splitJumps);
+		
+		Exercise pushup = new Exercise();
+		pushup.setName("Pushup");
+		
+		Muscle pectoral = new Muscle();
+		pectoral.setName("Pectoral Muscles");
+		mr.save(pectoral);
+		
+		Collection<Muscle> pMuscles = new ArrayList<Muscle>();
+		pMuscles.add(triceps);
+		pMuscles.add(pectoral);
+		pMuscles.add(shoulders);
+		pMuscles.add(back);
+		
+		pushup.setMuscles(pMuscles);
+		er.save(pushup);
 	}
 	
 	@Override
