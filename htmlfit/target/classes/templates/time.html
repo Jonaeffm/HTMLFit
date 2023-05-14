@@ -11,10 +11,13 @@ function init(){
 }
 
 async function hiit(){
+	time = 45;
+	isTraining = true;
 	while(true)
 	{
 		await delay(1000);
-		document.getElementById('container').innerHTML = "";
+		document.getElementById('container').innerHTML = time;
+		time--
 	}
 }
 </script>

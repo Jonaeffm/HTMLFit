@@ -50,4 +50,11 @@ public class HtmlfitController {
 		
 		return "success";
 	}
+	
+	@GetMapping(value = "/hiit/")
+	public String time() {
+		
+		
+		return "time";
+	}
 }
