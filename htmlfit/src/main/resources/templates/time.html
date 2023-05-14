@@ -2,13 +2,19 @@
 <html>
 <head>
 <script layout:fragment="script" th:inline="javascript">
+var time;
+var isTraining ;
 
+function init(){
+	time = 45;
+	isTraining = true;
+}
 
 async function hiit(){
 	while(true)
 	{
 		await delay(1000);
-		
+		document.getElementById('container').innerHTML = "";
 	}
 }
 </script>
@@ -17,6 +23,6 @@ async function hiit(){
 </head>
 <body>
 <h1>HIIT training</h1>
-<p>training: 45s</p>
+<p id="container">training: 45s</p>
 </body>
 </html>
