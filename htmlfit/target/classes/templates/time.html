@@ -5,6 +5,8 @@
 var time;
 var isTraining ;
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 function init(){
 	time = 45;
 	isTraining = true;
