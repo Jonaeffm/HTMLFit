@@ -3,6 +3,7 @@ package de.htmlfit.run;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,7 +41,12 @@ public class HtmlfitController {
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
 	public String addImage2Post(Model model,@ModelAttribute("resultMuscles") ArrayList<Integer> muscles) {
 		
-		model.addAttribute("muscles", muscles);
+		ArrayList<Muscle> musclesAsObject = new ArrayList<Muscle>();
+		for(int i=0;i<muscles.size();i++) {
+			Optional<Muscle> m = muscleService.findById((long) muscles.get(i));
+			musclesAsObject.add(m.get());
+		}
+		model.addAttribute("resultMuscles",musclesAsObject);
 		String returnStr = "showMuscles";
 		return returnStr;
 	}
