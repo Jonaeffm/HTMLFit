@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>selected muscles</title>
+</head>
+<body>
+	 <table>
+            <tr>
+                <th>muscle</th>
+            </tr>
+            <tr th:each="muscle, stat : ${resultMuscles}">
+                 <td th:text = "${muscle.text}"></td>
+                
+            
+            </tr>
+            </table>
+</body>
+</html>
