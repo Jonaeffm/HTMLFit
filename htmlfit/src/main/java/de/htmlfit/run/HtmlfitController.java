@@ -44,7 +44,7 @@ public class HtmlfitController {
 		
 		
 		for(int i=0;i<muscles.size();i++) {
-			Optional<Muscle> m = muscleService.findById((long) muscles.get(i));
+			Optional<Muscle> m = muscleService.findById(Integer.toUnsignedLong( muscles.get(i)));
 			musclesAsObject.add(m.get());
 		}
 		String returnStr="redirect:/show/";
