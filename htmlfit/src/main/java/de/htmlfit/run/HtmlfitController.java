@@ -38,8 +38,9 @@ public class HtmlfitController {
 	}
 
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
-	public String addImage2Post(@ModelAttribute("resultMuscles") ArrayList<Integer> muscles) {
+	public String addImage2Post(Model model,@ModelAttribute("resultMuscles") ArrayList<Integer> muscles) {
 		
+		model.addAttribute("muscles", muscles);
 		String returnStr = "showMuscles";
 		return returnStr;
 	}
