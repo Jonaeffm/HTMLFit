@@ -7,11 +7,12 @@
 <body>
 	 <table>
             <tr>
-                <th>muscle</th>
+               <th>Id</th>
+                <th>Name</th>
             </tr>
             <tr th:each="muscle, stat : ${resultMuscles}">
+                 <td th:text = "${muscle.id}"></td>
                  <td th:text = "${muscle.name}"></td>
-                
             
             </tr>
             </table>
