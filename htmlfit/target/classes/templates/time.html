@@ -15,21 +15,30 @@ function init(){
 async function hiit(){
 	time = 45;
 	isTraining = true;
-
-		while(time >0)
-		{
-			await delay(1000);
-			document.getElementById('container').innerHTML = "training: "+time;
-			time--
+	rounds = 4;
+	exercises=4;
+	while (rounds>0)
+	{
+		while (exercises>0)
+		{	
+			while(time >0)
+			{
+				await delay(1000);
+				document.getElementById('container').innerHTML = "training: "+time;
+				time--
+			}
+			isTraining=false;
+			time = 15;
+			while(time >0)
+			{
+				await delay(1000);
+				document.getElementById('container').innerHTML = "pause: "+time;
+				time--
+			}
+			exercises--;
 		}
-		isTraining=false;
-		time = 15;
-		while(time >0)
-		{
-			await delay(1000);
-			document.getElementById('container').innerHTML = "pause: "+time;
-			time--
-		}
+		rounds--;
+	}
 }
 </script>
 <meta charset="UTF-8">
