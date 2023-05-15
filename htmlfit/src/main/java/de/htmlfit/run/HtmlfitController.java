@@ -22,6 +22,7 @@ import de.htmlfit.services.MuscleService;
 
 @Controller
 public class HtmlfitController {
+	ArrayList<Muscle> musclesAsObject = new ArrayList<Muscle>();
 	
 	@Autowired
 	private MuscleService muscleService;
@@ -39,15 +40,14 @@ public class HtmlfitController {
 	}
 
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
-	public String addImage2Post(Model model,@ModelAttribute("resultMuscles") ArrayList<Integer> muscles) {
+	public String addImage2Post(@ModelAttribute("resultMuscles") ArrayList<Integer> muscles) {
 		
-		ArrayList<Muscle> musclesAsObject = new ArrayList<Muscle>();
+		
 		for(int i=0;i<muscles.size();i++) {
 			Optional<Muscle> m = muscleService.findById((long) muscles.get(i));
 			musclesAsObject.add(m.get());
 		}
-		model.addAttribute("resultMuscles",musclesAsObject);
-		String returnStr = "showMuscles";
+		String returnStr="redirect:/show/";
 		return returnStr;
 	}
 
@@ -63,5 +63,12 @@ public class HtmlfitController {
 		
 		
 		return "time";
+	}
+	@GetMapping(value = "/show/")
+	public String show(Model model) {
+		model.addAttribute("resultMuscles",musclesAsObject);
+		String returnStr = "showMuscles";
+		
+		return returnStr;
 	}
 }
