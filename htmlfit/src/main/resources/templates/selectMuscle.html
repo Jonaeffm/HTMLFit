@@ -11,17 +11,20 @@
 
   
                        
-                        
+     <select class="form-control" th:field="*{resultMuscles}" multiple="multiple" >
+        <option th:each="muscle : ${resultMuscles}"
+                th:field="*{muscle}" 
+                th:value="${muscle.id}" 
+                th:text="${muscle.name} + ${part.serial}">                   
+        </option>
+</select>                   
                       
   
    
       
              
              
-<select class="form-control" id="dropDownList" th:field="${resultMuscles}" multiple="multiple">
-    
-    <option th:each="muscle : ${muscles}" th:value="${muscle.id}" th:text="${muscle.name}" ></option>
-</select>
+
          
 <!--    <button type="submit" class="btn btn-primary">Sign in</button> -->
 
