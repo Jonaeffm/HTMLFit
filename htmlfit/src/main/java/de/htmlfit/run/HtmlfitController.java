@@ -1,6 +1,7 @@
 package de.htmlfit.run;
 
 
+import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -9,12 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.services.MuscleService;
@@ -26,6 +29,9 @@ public class HtmlfitController {
 	
 	@Autowired
 	private MuscleService muscleService;
+	
+	
+	
 	
 	@RequestMapping(value = "/select/", method = RequestMethod.GET)
 	public String addImage2Get(Model model) {
@@ -40,15 +46,15 @@ public class HtmlfitController {
 	}
 
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
-	public String addImage2Post(@ModelAttribute("resultMuscles") ArrayList<Muscle> muscles) {
+	public String addImage2Post(@ModelAttribute("muscleIds")  ArrayList<String> muscleIds) {
 		
-		System.out.println(muscles.size()+" muscles selected");
+		System.out.println(muscleIds.size()+" muscles selected");
 		/*for(int i=0;i<muscles.size();i++) {
 			Optional<Muscle> m = muscleService.findById((long)( muscles.get(i)));
 			musclesAsObject.add(m.get());
 			System.out.println(i);
 		}*/
-		musclesAsObject=muscles;
+		
 		String returnStr="redirect:/show/";
 		return returnStr;
 	}

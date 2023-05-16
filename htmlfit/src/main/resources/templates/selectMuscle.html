@@ -10,14 +10,9 @@
 
 
   
-                       
-     <select class="form-control" th:field="*{resultMuscles}" multiple="multiple" >
-        <option th:each="muscle : ${resultMuscles}"
-                th:field="*{muscle}" 
-                th:value="${muscle.id}" 
-                th:text="${muscle.name} ">                   
-        </option>
-</select>                   
+    <select  th:field="*{muscleIds}" ID="txtCategoryName" class="m-wrap large" multiple="multiple">
+    <option th:each="muscle : ${muscles}" th:value="${muscle.get('id')}" th:text="${muscle.get('name')}" ></option>
+ </select>               
                       
   
    
