@@ -15,7 +15,7 @@
         <option th:each="muscle : ${resultMuscles}"
                 th:field="*{muscle}" 
                 th:value="${muscle.id}" 
-                th:text="${muscle.name} + ${part.serial}">                   
+                th:text="${muscle.name} ">                   
         </option>
 </select>                   
                       
