@@ -40,12 +40,13 @@ public class HtmlfitController {
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
 		
-		
+		List<Muscle> muscleListForResult=new ArrayList<Muscle>();
+		model.addAttribute("muscleList",muscleListForResult);
 		return "selectMuscle";
 	}
 
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
-	public String addImage2Post(@ModelAttribute("muscles")  ArrayList<Muscle> muscleList) {
+	public String addImage2Post(@ModelAttribute("musclesList")  ArrayList<Muscle> muscleList) {
 		
 		System.out.println(muscleList.size()+" muscles selected");
 		/*for(int i=0;i<muscles.size();i++) {
