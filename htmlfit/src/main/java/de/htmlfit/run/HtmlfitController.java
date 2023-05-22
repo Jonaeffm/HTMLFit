@@ -41,7 +41,7 @@ public class HtmlfitController {
 		model.addAttribute("muscles", muscleList);
 		
 		List<Muscle> muscleListForResult=new ArrayList<Muscle>();
-		model.addAttribute("muscleList",muscleListForResult);
+		model.addAttribute("musclesList",muscleListForResult);
 		return "selectMuscle";
 	}
 
