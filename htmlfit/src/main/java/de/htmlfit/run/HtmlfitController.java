@@ -46,7 +46,7 @@ public class HtmlfitController {
 	}
 
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
-	public String addImage2Post(@ModelAttribute("muscleIds")  ArrayList<Long> muscleIdList) {
+	public String addImage2Post(@ModelAttribute("muscleIdList")  ArrayList<Long> muscleIdList) {
 		
 		System.out.println(muscleIdList.size()+" muscles selected");
 		/*for(int i=0;i<muscles.size();i++) {
