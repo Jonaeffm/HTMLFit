@@ -11,7 +11,7 @@
 
   
     <select  th:field="*{musclesList}"  class="m-wrap large" multiple="multiple">
-    <option  th:each="muscle : ${muscles}"  th:value="muscle" th:text="${muscle.name}" ></option>
+    <option  th:each="muscle : ${muscles}"  th:field="*{musclesList}" th:value="${{muscle}}" th:text="${muscle.name}" ></option>
  </select>               
                   
   
