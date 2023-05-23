@@ -8,7 +8,7 @@
   
  <form method="post">
   
-    <select  th:field="*{musclesList}"  class="m-wrap large" multiple="multiple">
+    <select  th:field="*{musclesList}"  class="form-control selectpicker" multiple="multiple">
     <option  th:each="muscle : ${muscles}"  th:field="*{musclesList}" th:value="${{muscle}}" th:text="${muscle.name}" ></option>
  </select>               
                   
