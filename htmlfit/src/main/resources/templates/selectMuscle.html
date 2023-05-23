@@ -10,8 +10,8 @@
 
 
   
-    <select  th:field="*{musclesList}"  class="m-wrap large" multiple="multiple">
-    <option  th:each="muscle : ${muscles}" th:value="${muscle.id}" th:text="${muscle.name}" ></option>
+    <select  th:field="*{{musclesList}}"  class="m-wrap large" multiple="multiple">
+    <option  th:each="muscle : ${muscles}"  th:field="*{muscleList}" th:value="${muscle.id}" th:text="${muscle.name}" ></option>
  </select>               
                   
   
