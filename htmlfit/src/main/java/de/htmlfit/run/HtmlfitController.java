@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.services.MuscleService;
+import de.picsheep.domain.Image;
 
 
 @Controller
@@ -40,8 +41,8 @@ public class HtmlfitController {
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
 		
-		List<Muscle> muscleListForResult=new ArrayList<Muscle>();
-		model.addAttribute("musclesList",muscleListForResult);
+		Muscle muscleForResult=new Muscle();
+		model.addAttribute("muscle",muscleForResult);
 		return "selectMuscle";
 	}
 	
@@ -51,13 +52,12 @@ public class HtmlfitController {
         model.addAttribute("order", order);
         return "saved";
 	 * @param muscleList
-	 * @return
+	 * @return@ModelAttribute("images") Image imageToAdd
 	 */
 
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
-	public String addImage2Post(ArrayList<Muscle> muscleListForResult, Model model) {
-		model.addAttribute("musclesList", muscleListForResult);
-		System.out.println(muscleListForResult.size()+" muscles selected");
+	public String addImage2Post(@ModelAttribute("muscle") Muscle muscleForResult) { 
+		System.out.println(muscleForResult.getName()+" selected");
 		/*for(int i=0;i<muscles.size();i++) {
 			Optional<Muscle> m = muscleService.findById((long)( muscles.get(i)));
 			musclesAsObject.add(m.get());
