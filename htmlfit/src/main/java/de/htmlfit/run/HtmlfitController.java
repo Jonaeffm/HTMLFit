@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.services.MuscleService;
+import de.picsheep.domain.Album;
 import de.picsheep.domain.Image;
 
 
@@ -54,10 +55,9 @@ public class HtmlfitController {
 	 * @param muscleList
 	 * @return@ModelAttribute("images") Image imageToAdd
 	 */
-
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
 	public String addImage2Post(@ModelAttribute("muscle") Muscle muscleForResult) { 
-		System.out.println(muscleForResult.getName()+" selected");
+		System.out.println(muscleService.findById(muscleForResult.getId()).get().getName()+" selected");
 		/*for(int i=0;i<muscles.size();i++) {
 			Optional<Muscle> m = muscleService.findById((long)( muscles.get(i)));
 			musclesAsObject.add(m.get());
