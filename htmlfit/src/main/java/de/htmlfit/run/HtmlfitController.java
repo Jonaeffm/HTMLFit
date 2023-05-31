@@ -21,8 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.services.MuscleService;
-import de.picsheep.domain.Album;
-import de.picsheep.domain.Image;
+
 
 
 @Controller
@@ -63,7 +62,7 @@ public class HtmlfitController {
 			musclesAsObject.add(m.get());
 			System.out.println(i);
 		}*/
-		
+		musclesAsObject.add(muscleForResult);
 		String returnStr="redirect:/show/";
 		return returnStr;
 	}
