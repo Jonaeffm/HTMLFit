@@ -56,13 +56,13 @@ public class HtmlfitController {
 	 */
 	@RequestMapping(value = "/select/", method = RequestMethod.POST)
 	public String addImage2Post(@ModelAttribute("muscle") Muscle muscleForResult) { 
-		System.out.println(muscleService.findById(muscleForResult.getId()).get().getName()+" selected");
+		Optional<Muscle> m =muscleService.findById(muscleForResult.getId());
 		/*for(int i=0;i<muscles.size();i++) {
 			Optional<Muscle> m = muscleService.findById((long)( muscles.get(i)));
 			musclesAsObject.add(m.get());
 			System.out.println(i);
 		}*/
-		musclesAsObject.add(muscleForResult);
+		musclesAsObject.add(m.get());
 		String returnStr="redirect:/show/";
 		return returnStr;
 	}
