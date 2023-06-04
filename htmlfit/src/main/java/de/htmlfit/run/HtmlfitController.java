@@ -62,6 +62,7 @@ public class HtmlfitController {
 	    			if(musclesForSelect.size()==0) {
 	    				musclesForSelect=musclesAsObject;
 	    			}
+	    			selectedExercises.add(toAdd);
 	    		}
 		}
 	}
