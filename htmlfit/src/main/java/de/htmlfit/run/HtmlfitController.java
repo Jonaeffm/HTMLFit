@@ -42,9 +42,12 @@ public class HtmlfitController {
 		musclesForSelect=musclesAsObject;
 		int i=0;
 		int j=0;
+		int exerc=4;
 		Exercise toAdd=new Exercise();
 		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseService.findAll();
-		for (Exercise element : exercises){
+		for(int k=0;k<exerc;k++)
+		{
+			for (Exercise element : exercises){
 		    	for(Muscle mElement: musclesForSelect ) {
 		    		if(element.getMuscles().contains(mElement)) {
 		    			i++;
@@ -55,17 +58,18 @@ public class HtmlfitController {
 	    			j=i;
 	    			i=0;
 	    		}
-		}
-
-		for (Muscle mElement:musclesForSelect) {
-			if(toAdd.getMuscles().contains(mElement)) {
-				musclesForSelect.remove(mElement);
 			}
+
+			for (Muscle mElement:musclesForSelect) {
+				if(toAdd.getMuscles().contains(mElement)) {
+					musclesForSelect.remove(mElement);
+				}
+			}
+			if(musclesForSelect.size()==0) {
+				musclesForSelect=musclesAsObject;
+			}
+			selectedExercises.add(toAdd);
 		}
-		if(musclesForSelect.size()==0) {
-			musclesForSelect=musclesAsObject;
-		}
-		selectedExercises.add(toAdd);
 	}
 	
 	
