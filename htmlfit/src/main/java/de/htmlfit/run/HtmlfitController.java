@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.services.MuscleService;
 
@@ -31,7 +32,13 @@ public class HtmlfitController {
 	@Autowired
 	private MuscleService muscleService;
 	
+	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
+	ArrayList<Exercise> selectedExercises = new ArrayList<Exercise>();
 	
+	void selectExercise()
+	{
+		
+	}
 	
 	
 	@RequestMapping(value = "/select/", method = RequestMethod.GET)
