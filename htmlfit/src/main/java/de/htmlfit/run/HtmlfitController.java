@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.Muscle;
+import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 
 
@@ -31,14 +32,19 @@ public class HtmlfitController {
 	
 	@Autowired
 	private MuscleService muscleService;
-	private exerciseService exerciseService;
+	private ExerciseService exerciseService;
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	ArrayList<Exercise> selectedExercises = new ArrayList<Exercise>();
 	
 	void selectExercise()
 	{
-		ArraList<Exercise> exercises = e
+		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseService.findAll();
+		for (Exercise element : exercises){
+		    	for(Muscle mElement: musclesAsObject ) {
+		    		
+		    	}
+		}
 	}
 	
 	
