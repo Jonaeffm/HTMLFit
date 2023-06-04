@@ -31,13 +31,14 @@ public class HtmlfitController {
 	
 	@Autowired
 	private MuscleService muscleService;
+	private exerciseService exerciseService;
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	ArrayList<Exercise> selectedExercises = new ArrayList<Exercise>();
 	
 	void selectExercise()
 	{
-		
+		ArraList<Exercise> exercises = e
 	}
 	
 	
