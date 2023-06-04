@@ -32,6 +32,7 @@ public class HtmlfitController {
 	
 	@Autowired
 	private MuscleService muscleService;
+	@Autowired
 	private ExerciseService exerciseService;
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
@@ -126,4 +127,14 @@ public class HtmlfitController {
 		
 		return returnStr;
 	}
+	
+	@GetMapping(value = "/exerc/")
+	public String showExerc(Model model) {
+		selectExercise();
+		model.addAttribute("exercises",selectedExercises);
+		String returnStr = "showExerciss";
+		
+		return returnStr;
+	}
+	
 }
