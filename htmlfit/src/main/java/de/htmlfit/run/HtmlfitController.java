@@ -39,11 +39,21 @@ public class HtmlfitController {
 	
 	void selectExercise()
 	{
+		int i=0;
+		int j=0;
+		Exercise toAdd;
 		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseService.findAll();
 		for (Exercise element : exercises){
 		    	for(Muscle mElement: musclesAsObject ) {
-		    		
+		    		if(element.getMuscles().contains(mElement)) {
+		    			i++;
+		    		}
 		    	}
+		    	if(i>j) {
+	    			toAdd=element;
+	    			j=i;
+	    			i=0;
+	    		}
 		}
 	}
 	
