@@ -3,6 +3,7 @@ package de.htmlfit.run;
 
 import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,6 +67,17 @@ public class HtmlfitController {
 					musclesForSelect.remove(mElement2);
 				}
 			}
+			
+			Iterator<Muscle> iter = musclesForSelect.iterator();
+
+			while (iter.hasNext()) {
+			    Muscle m = iter.next();
+
+			    if(toAdd.getMuscles().contains(m)) {
+			        iter.remove();
+			    }
+			}
+			
 			if(musclesForSelect.size()==0) {
 				musclesForSelect=musclesAsObject;
 			}
