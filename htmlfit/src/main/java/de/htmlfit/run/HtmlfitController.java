@@ -62,11 +62,11 @@ public class HtmlfitController {
 	    		}
 			}
 
-			for (Muscle mElement2:musclesForSelect) {
+/*			for (Muscle mElement2:musclesForSelect) {
 				if(toAdd.getMuscles().contains(mElement2)) {
 					musclesForSelect.remove(mElement2);
 				}
-			}
+			}*/
 			
 			Iterator<Muscle> iter = musclesForSelect.iterator();
 
