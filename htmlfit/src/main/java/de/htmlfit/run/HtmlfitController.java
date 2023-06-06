@@ -61,9 +61,9 @@ public class HtmlfitController {
 	    		}
 			}
 
-			for (Muscle mElement:musclesForSelect) {
-				if(toAdd.getMuscles().contains(mElement)) {
-					musclesForSelect.remove(mElement);
+			for (Muscle mElement2:musclesForSelect) {
+				if(toAdd.getMuscles().contains(mElement2)) {
+					musclesForSelect.remove(mElement2);
 				}
 			}
 			if(musclesForSelect.size()==0) {
