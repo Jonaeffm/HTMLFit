@@ -49,21 +49,24 @@ public class HtmlfitController {
 		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseService.findAll();
 		for(int k=0;k<exerc;k++)
 		{
+			
 			for (Exercise element : exercises){
 		    	for(Muscle mElement: musclesForSelect ) {
 		    		if(element.getMuscles().contains(mElement)) {
 		    			i++;
 		    		}
 		    	}
-		    	if(i>j) {
+		    	
+		    	if(i>=j) {
 	    			toAdd=element;
 	    			
 	    			j=i;
 	    			i=0;
 	    		}
-		    	
 			}
-			exercises.remove(toAdd.getId());
+			boolean test = exercises.remove(exerciseService.findById(toAdd.getId()).get());
+			System.out.println("Test:gelöscht="+test);
+			j=0;
 
 /*			for (Muscle mElement2:musclesForSelect) {
 				if(toAdd.getMuscles().contains(mElement2)) {
