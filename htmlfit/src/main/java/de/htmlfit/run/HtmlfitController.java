@@ -57,10 +57,13 @@ public class HtmlfitController {
 		    	}
 		    	if(i>j) {
 	    			toAdd=element;
+	    			
 	    			j=i;
 	    			i=0;
 	    		}
+		    	
 			}
+			exercises.remove(toAdd.getId());
 
 /*			for (Muscle mElement2:musclesForSelect) {
 				if(toAdd.getMuscles().contains(mElement2)) {
