@@ -152,9 +152,14 @@ public class HtmlfitController {
 	
 	@GetMapping(value = "/exerc/")
 	public String showExerc(Model model) {
-		selectExercise();
-		model.addAttribute("exercises",selectedExercises);
 		String returnStr = "showExerciss";
+		if (musclesAsObject.size()>0)
+		{
+			selectExercise();
+			musclesAsObject=new ArrayList<Muscle>();
+			model.addAttribute("exercises",selectedExercises);
+			
+		}
 		
 		return returnStr;
 	}
