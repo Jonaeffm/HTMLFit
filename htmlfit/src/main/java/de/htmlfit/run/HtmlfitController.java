@@ -95,6 +95,10 @@ public class HtmlfitController {
 	@RequestMapping(value = "/select/", method = RequestMethod.GET)
 	public String addImage2Get(Model model) {
 		
+		if(selectedExercises.size()>0) {
+			selectedExercises=new ArrayList<Exercise>();
+		}
+		
 		List<Muscle> muscleList;
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
