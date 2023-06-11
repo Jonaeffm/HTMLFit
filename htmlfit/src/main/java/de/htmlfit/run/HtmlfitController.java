@@ -150,6 +150,13 @@ public class HtmlfitController {
 		return returnStr;
 	}
 	
+	@GetMapping(value = "/delete/")
+	public String delete() {
+		musclesAsObject=new ArrayList<Muscle>();
+		String returnStr="redirect:/select/";
+		return returnStr;
+	}
+	
 	@GetMapping(value = "/exerc/")
 	public String showExerc(Model model) {
 		String returnStr = "showExerciss";
