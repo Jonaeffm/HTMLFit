@@ -137,9 +137,8 @@ public class HtmlfitController {
 	}
 	
 	@GetMapping(value = "/hiit/")
-	public String time() {
-		
-		
+	public String time(Model model) {
+		model.addAttribute("exercises",selectedExercises);
 		return "time";
 	}
 	@GetMapping(value = "/show/")
