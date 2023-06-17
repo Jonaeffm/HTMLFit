@@ -23,8 +23,8 @@ public class Exercise {
 	@Id
 	@Column(name = "EXERCISE_ID")
 	@GeneratedValue
-	Long id;
-	String name;
+	private Long id;
+	private String name;
 	@ManyToMany()
-	Collection<Muscle> Muscles;
+	private Collection<Muscle> Muscles;
 }

@@ -4,23 +4,27 @@
 <script layout:fragment="script" th:inline="javascript">
 var time;
 var isTraining ;
+var exercises;
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 function init(){
 	time = 45;
 	isTraining = true;
+	exercises = /*[[${exercises}]]*/ 'default' ;
+
+	rounds = 4;
+	exercisesCount=4;
 }
 
 async function hiit(){
-	time = 45;
-	isTraining = true;
-	rounds = 4;
-	exercises=4;
+	init();
+
 	while (rounds>0)
 	{
-		while (exercises>0)
+		while (exercisesCount>0)
 		{	
+			document.getElementById('exerciseText').innerHTML = exercises[exercisesCount-1].name
 			while(time >0)
 			{
 				await delay(1000);
@@ -35,7 +39,8 @@ async function hiit(){
 				document.getElementById('container').innerHTML = "pause: "+time;
 				time--
 			}
-			exercises--;
+			time =45; 
+			exercisesCount--;
 		}
 		rounds--;
 	}
@@ -46,6 +51,7 @@ async function hiit(){
 </head>
 <body>
 <h1>HIIT training</h1>
+<p id="exerciseText"></p>
 <p id="container">training: 45s</p>
 <button th:onclick="hiit()">start</button>
 </body>
