@@ -17,8 +17,12 @@ function init(){
 	exercisesCount=4;
 }
 
-async function hiit(){
+async function initAndHiit(){
 	init();
+	hiit();
+}
+
+async function hiit(){
 
 	while (rounds>0)
 	{
@@ -53,6 +57,6 @@ async function hiit(){
 <h1>HIIT training</h1>
 <p id="exerciseText"></p>
 <p id="container">training: 45s</p>
-<button th:onclick="hiit()">start</button>
+<button th:onclick="initAndHiit()">start</button>
 </body>
 </html>
