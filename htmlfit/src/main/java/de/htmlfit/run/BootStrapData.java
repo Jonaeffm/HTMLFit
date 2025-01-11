@@ -47,11 +47,11 @@ public class BootStrapData implements CommandLineRunner{
 		mr.save(back);
 		
 		Muscle abs = new Muscle();
-		abs.setName("abs");
+		abs.setName("rectus abdominis");
 		mr.save(abs);
 		
 		Muscle buttocks = new Muscle();
-		buttocks.setName("buttocks");
+		buttocks.setName("gluteus maximus");
 		mr.save(buttocks);
 		
 		Muscle hamstrings = new Muscle();
