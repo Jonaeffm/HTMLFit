@@ -26,8 +26,12 @@ public class BootStrapData implements CommandLineRunner{
 		
 		//-------------------muscles--------------------------
 		
+		Muscle gastrocnemius = new Muscle();
+		gastrovnemius.setName("gastrocnemius");
+		mr.save(gastrocnemius);
+		
 		Muscle legs = new Muscle();
-		legs.setName("legs");
+		legs.setName("quadriceps femoris");
 		mr.save(legs);
 		
 		Muscle shoulders = new Muscle();
