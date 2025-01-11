@@ -31,7 +31,7 @@ public class BootStrapData implements CommandLineRunner{
 		mr.save(legs);
 		
 		Muscle shoulders = new Muscle();
-		shoulders.setName("shoulders");
+		shoulders.setName("deltoideus");
 		mr.save(shoulders);
 		
 		Muscle triceps = new Muscle();
@@ -39,7 +39,7 @@ public class BootStrapData implements CommandLineRunner{
 		mr.save(triceps);
 		 
 		Muscle breast = new Muscle();
-		breast.setName("breast");
+		breast.setName("pectoralis major");
 		mr.save(breast);
 		
 		Muscle back = new Muscle();
