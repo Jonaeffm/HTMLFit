@@ -32,6 +32,10 @@ public class Muscle {
 	@JsonIgnore
 	@ManyToMany(mappedBy = "Muscles")
 	private Collection<Exercise> exercise;
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "Muscles")
+	private Collection<ExerciseBuild> exerciseBuild;
 
 	@Override
 	public String toString() {
