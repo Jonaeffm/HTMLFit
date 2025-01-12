@@ -2,6 +2,8 @@ package de.htmlfit.domain;
 
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,14 +15,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class ExerciseBuild {
+public class TrainingEquipment {
 	@Id
 	@Column(name = "EXERCISE_ID")
 	@GeneratedValue
 	private Long id;
 	private String name;
-	@ManyToMany()
-	private Collection<Muscle> Muscles;
-	@ManyToMany()
-	private Collection<TrainingEquipment> TrainingEquipment;
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "TrainingEquipment")
+	private Collection<ExerciseBuild> exerciseBuild;
+
 }
