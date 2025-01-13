@@ -11,9 +11,11 @@ import org.springframework.stereotype.Component;
 import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
+import de.htmlfit.domain.TrainingEquipment;
 import de.htmlfit.repositories.ExerciseBuildRepository;
 import de.htmlfit.repositories.ExerciseRepository;
 import de.htmlfit.repositories.MuscleRepository;
+import de.htmlfit.repositories.TrainingEquipmentRepository;
 
 @EnableAutoConfiguration
 @Component
@@ -27,7 +29,20 @@ public class BootStrapData implements CommandLineRunner{
 	@Autowired
 	ExerciseBuildRepository ebr;
 	
+	@Autowired
+	TrainingEquipmentRepository ter;
+	
 	public void init() {
+		
+		//-------------------training equipment---------------
+		
+		TrainingEquipment dumbbell = new TrainingEquipment();
+		dumbbell.setName("Dumbbell");
+		ter.save(dumbbell);
+		
+		TrainingEquipment pullupbar = new TrainingEquipment();
+		pullupbar.setName("Pull-Up Bar");
+		ter.save(pullupbar);
 		
 		//-------------------muscles--------------------------
 		
@@ -284,25 +299,36 @@ public class BootStrapData implements CommandLineRunner{
 		ExerciseBuild curls = new ExerciseBuild();
 		curls.setName("Curls");
 		
+		Collection<TrainingEquipment> curlEquipment = new ArrayList<TrainingEquipment>();
+		curlEquipment.add(dumbbell);
+		
 		Collection<Muscle> curlsMuscles = new ArrayList<Muscle>();
 		curlsMuscles.add(biceps);
 		
 		curls.setMuscles(curlsMuscles);
+		curls.setTrainingEquipment(curlEquipment);
 		ebr.save(curls);
 		
 		//------------------------concentration curls--------------------------------
 		ExerciseBuild ccurls = new ExerciseBuild();
 		ccurls.setName("Concentration Curls");
+		
+		Collection<TrainingEquipment> ccurlEquipment = new ArrayList<TrainingEquipment>();
+		ccurlEquipment.add(dumbbell);
 				
 		Collection<Muscle> ccurlsMuscles = new ArrayList<Muscle>();
 		ccurlsMuscles.add(biceps);
 				
+		ccurls.setTrainingEquipment(ccurlEquipment);
 		ccurls.setMuscles(ccurlsMuscles);
 		ebr.save(ccurls);
 		
 		//-----------------------pullup-----------------------------------------
 		ExerciseBuild pullup = new ExerciseBuild();
 		pullup.setName("Pull Up");
+		
+		Collection<TrainingEquipment> pullUpEquipment = new ArrayList<TrainingEquipment>();
+		pullUpEquipment.add(pullupbar);
 		
 		Collection<Muscle> pullUpMuscles = new ArrayList<Muscle>();
 		pullUpMuscles.add(biceps);
@@ -315,6 +341,7 @@ public class BootStrapData implements CommandLineRunner{
 		pullUpMuscles.add(teresMajor);
 		
 		pullup.setMuscles(pullUpMuscles);
+		pullup.setTrainingEquipment(pullUpEquipment);
 		ebr.save(pullup);
 		
 				
