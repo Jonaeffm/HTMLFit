@@ -9,7 +9,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Component;
 
 import de.htmlfit.domain.Exercise;
+import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
+import de.htmlfit.repositories.ExerciseBuildRepository;
 import de.htmlfit.repositories.ExerciseRepository;
 import de.htmlfit.repositories.MuscleRepository;
 
@@ -21,6 +23,9 @@ public class BootStrapData implements CommandLineRunner{
 	
 	@Autowired
 	ExerciseRepository er;
+	
+	@Autowired
+	ExerciseBuildRepository ebr;
 	
 	public void init() {
 		
@@ -103,10 +108,6 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle minor = new Muscle();
 		minor.setName("Minor");
 		mr.save(minor);
-		
-		Muscle pectoral = new Muscle();
-		pectoral.setName("Pectoral Muscles");
-		mr.save(pectoral);
 		
 		Muscle latissimus = new Muscle();
 		latissimus.setName("Latissimus");
@@ -272,12 +273,51 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Collection<Muscle> pMuscles = new ArrayList<Muscle>();
 		pMuscles.add(triceps);
-		pMuscles.add(pectoral);
+		pMuscles.add(pectorals);
 		pMuscles.add(shoulders);
 		pMuscles.add(back);
 		
 		pushup.setMuscles(pMuscles);
 		er.save(pushup);
+		
+		//------------------------curls--------------------------------
+		ExerciseBuild curls = new ExerciseBuild();
+		curls.setName("Curls");
+		
+		Collection<Muscle> curlsMuscles = new ArrayList<Muscle>();
+		curlsMuscles.add(biceps);
+		
+		curls.setMuscles(curlsMuscles);
+		ebr.save(curls);
+		
+		//------------------------concentration curls--------------------------------
+		ExerciseBuild ccurls = new ExerciseBuild();
+		ccurls.setName("Concentration Curls");
+				
+		Collection<Muscle> ccurlsMuscles = new ArrayList<Muscle>();
+		ccurlsMuscles.add(biceps);
+				
+		ccurls.setMuscles(ccurlsMuscles);
+		ebr.save(ccurls);
+		
+		//-----------------------pullup-----------------------------------------
+		ExerciseBuild pullup = new ExerciseBuild();
+		pullup.setName("Pull Up");
+		
+		Collection<Muscle> pullUpMuscles = new ArrayList<Muscle>();
+		pullUpMuscles.add(biceps);
+		pullUpMuscles.add(deltoids);
+		pullUpMuscles.add(pectorals);
+		pullUpMuscles.add(triceps);
+		pullUpMuscles.add(mra);
+		pullUpMuscles.add(moa);
+		pullUpMuscles.add(teresMinor);
+		pullUpMuscles.add(teresMajor);
+		
+		pullup.setMuscles(pullUpMuscles);
+		ebr.save(pullup);
+		
+				
 	}
 	
 	@Override
