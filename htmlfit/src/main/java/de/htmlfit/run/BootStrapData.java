@@ -124,6 +124,21 @@ public class BootStrapData implements CommandLineRunner{
 		deltoids.setName("Deltoids");
 		mr.save(deltoids);
 		
+		Muscle mra = new Muscle();
+		mra.setName("Musculus Rectus Abdominis");	
+		mr.save(mra);
+		
+		Muscle moa = new Muscle();
+		moa.setName("Musculus Obliquus abdominis");
+		mr.save(moa);
+		
+		Muscle teresMajor = new Muscle();
+		teresMajor.setName("Teres Major");
+		mr.save(teresMajor);
+		
+		Muscle teresMinor = new Muscle();
+		teresMinor.setName("Teres Minor");
+		mr.save(teresMinor);
 		//---------------------------Burpees--------------------------------
 		Exercise burpees = new Exercise();
 		burpees.setName("Burpees");
