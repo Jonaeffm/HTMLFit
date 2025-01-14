@@ -44,6 +44,10 @@ public class BootStrapData implements CommandLineRunner{
 		pullupbar.setName("Pull-Up Bar");
 		ter.save(pullupbar);
 		
+		TrainingEquipment trainingBench = new TrainingEquipment();
+		trainingBench.setName("Training Bench");
+		ter.save(trainingBench);
+		
 		//-------------------muscles--------------------------
 		
 		Muscle gastrocnemius = new Muscle();
@@ -343,6 +347,26 @@ public class BootStrapData implements CommandLineRunner{
 		pullup.setMuscles(pullUpMuscles);
 		pullup.setTrainingEquipment(pullUpEquipment);
 		ebr.save(pullup);
+		
+		//-----------------------one armed rowing---------------------------
+		ExerciseBuild oar = new ExerciseBuild();
+		oar.setName("One Armed Rowing");
+		
+		Collection<TrainingEquipment> oarEquipment = new ArrayList<TrainingEquipment>();
+		oarEquipment.add(dumbbell);
+		oarEquipment.add(trainingBench);
+		
+		Collection<Muscle> oarMuscles = new ArrayList<Muscle>();
+		oarMuscles.add(trapezius);
+		oarMuscles.add(teresMinor);
+		oarMuscles.add(latissimus);
+		oarMuscles.add(rhomboid);
+		oarMuscles.add(teresMinor);
+		
+		
+		oar.setMuscles(oarMuscles);
+		oar.setTrainingEquipment(oarEquipment);
+		ebr.save(oar);
 		
 				
 	}
