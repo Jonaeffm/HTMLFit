@@ -390,6 +390,21 @@ public class BootStrapData implements CommandLineRunner{
 		dur.setTrainingEquipment(durEquipment);
 		ebr.save(dur);
 				
+		//-----------------------close grip pullup-----------------------------------------
+		ExerciseBuild cgpullup = new ExerciseBuild();
+		cgpullup.setName("Close Grip Pull Up");
+				
+		Collection<TrainingEquipment> cgpullUpEquipment = new ArrayList<TrainingEquipment>();
+		cgpullUpEquipment.add(pullupbar);
+				
+		Collection<Muscle> cgpullUpMuscles = new ArrayList<Muscle>();
+		cgpullUpMuscles.add(latissimus);
+		cgpullUpMuscles.add(biceps);
+		cgpullUpMuscles.add(pectorals);
+				
+		cgpullup.setMuscles(cgpullUpMuscles);
+		cgpullup.setTrainingEquipment(cgpullUpEquipment);
+		ebr.save(cgpullup);
 	}
 	
 	@Override
