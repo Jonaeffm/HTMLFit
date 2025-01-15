@@ -58,9 +58,9 @@ public class BootStrapData implements CommandLineRunner{
 		legs.setName("quadriceps femoris");
 		mr.save(legs);
 		
-		Muscle shoulders = new Muscle();
+		/*Muscle shoulders = new Muscle();
 		shoulders.setName("deltoideus");
-		mr.save(shoulders);
+		mr.save(shoulders);*/
 		
 		Muscle triceps = new Muscle();
 		triceps.setName("triceps");
@@ -159,6 +159,10 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle teresMinor = new Muscle();
 		teresMinor.setName("Teres Minor");
 		mr.save(teresMinor);
+		
+		Muscle brachialis = new Muscle();
+		brachialis.setName("Brachialis");
+		mr.save(brachialis);
 		//---------------------------Burpees--------------------------------
 		Exercise burpees = new Exercise();
 		burpees.setName("Burpees");
@@ -169,7 +173,7 @@ public class BootStrapData implements CommandLineRunner{
 		burpeesMuscles.add(back);
 		burpeesMuscles.add(breast);
 		burpeesMuscles.add(triceps);
-		burpeesMuscles.add(shoulders);
+		burpeesMuscles.add(deltoids);
 		burpeesMuscles.add(legs);
 		
 		burpees.setMuscles(burpeesMuscles);
@@ -180,11 +184,10 @@ public class BootStrapData implements CommandLineRunner{
 		mountainClimbers.setName("Mountain Climbers");
 		
 		Collection<Muscle> mountainClimbersMuscles = new ArrayList<Muscle>();
-		mountainClimbersMuscles.add(shoulders);
+		mountainClimbersMuscles.add(deltoids);
 		mountainClimbersMuscles.add(triceps);
 		mountainClimbersMuscles.add(abs);
 		mountainClimbersMuscles.add(legs);
-		mountainClimbersMuscles.add(shoulders);
 		mountainClimbersMuscles.add(hamstrings);
 		
 		mountainClimbers.setMuscles(mountainClimbersMuscles);
@@ -200,7 +203,7 @@ public class BootStrapData implements CommandLineRunner{
 		jumpingJackMuscles.add(legs);
 		jumpingJackMuscles.add(abs);
 		jumpingJackMuscles.add(hamstrings);
-		jumpingJackMuscles.add(shoulders);
+		jumpingJackMuscles.add(deltoids);
 		jumpingJacks.setMuscles(jumpingJackMuscles);
 		er.save(jumpingJacks);
 		
@@ -293,7 +296,7 @@ public class BootStrapData implements CommandLineRunner{
 		Collection<Muscle> pMuscles = new ArrayList<Muscle>();
 		pMuscles.add(triceps);
 		pMuscles.add(pectorals);
-		pMuscles.add(shoulders);
+		pMuscles.add(deltoids);
 		pMuscles.add(back);
 		
 		pushup.setMuscles(pMuscles);
@@ -368,6 +371,24 @@ public class BootStrapData implements CommandLineRunner{
 		oar.setTrainingEquipment(oarEquipment);
 		ebr.save(oar);
 		
+		//-----------------------dumbbell upright row---------------------------
+		ExerciseBuild dur = new ExerciseBuild();
+		dur.setName("Dumbbell Upright Row");
+				
+		Collection<TrainingEquipment> durEquipment = new ArrayList<TrainingEquipment>();
+		durEquipment.add(dumbbell);
+				
+		Collection<Muscle> durMuscles = new ArrayList<Muscle>();
+		durMuscles.add(trapezius);
+		durMuscles.add(deltoids);
+		durMuscles.add(biceps);
+		durMuscles.add(brachialis);
+		durMuscles.add(serratusAnterior);
+				
+				
+		dur.setMuscles(durMuscles);
+		dur.setTrainingEquipment(durEquipment);
+		ebr.save(dur);
 				
 	}
 	
