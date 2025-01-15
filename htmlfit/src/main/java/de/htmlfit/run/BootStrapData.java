@@ -405,6 +405,27 @@ public class BootStrapData implements CommandLineRunner{
 		cgpullup.setMuscles(cgpullUpMuscles);
 		cgpullup.setTrainingEquipment(cgpullUpEquipment);
 		ebr.save(cgpullup);
+		
+		//-----------------------push-ups-----------------------------------------
+		ExerciseBuild pushupBuild = new ExerciseBuild();
+		pushupBuild.setName("Push-Ups");
+						
+		Collection<TrainingEquipment> pushUpEquipment = new ArrayList<TrainingEquipment>();
+		pushUpEquipment.add(trainingBench);
+						
+		Collection<Muscle> pushUpMuscles = new ArrayList<Muscle>();
+		pushUpMuscles.add(triceps);
+		pushUpMuscles.add(deltoids);
+		pushUpMuscles.add(abs);
+		pushUpMuscles.add(breast);
+		pushUpMuscles.add(serratusAnterior);
+		pushUpMuscles.add(legs);
+		pushUpMuscles.add(buttocks);
+				
+						
+		pushupBuild.setMuscles(pushUpMuscles);
+		pushupBuild.setTrainingEquipment(pushUpEquipment);
+		ebr.save(pushupBuild);
 	}
 	
 	@Override
