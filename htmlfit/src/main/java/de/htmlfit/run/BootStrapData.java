@@ -503,6 +503,20 @@ public class BootStrapData implements CommandLineRunner{
 																
 		prisonerSquats.setMuscles(pSquatMuscles);
 		ebr.save(prisonerSquats);
+		
+		//-----------------------kick back-----------------------------------------
+		ExerciseBuild kickBack = new ExerciseBuild();
+		kickBack.setName("Kick Back");
+		
+		Collection<TrainingEquipment> kickBackEquipment = new ArrayList<TrainingEquipment>();
+		kickBackEquipment.add(dumbbell);
+																
+		Collection<Muscle> kickBackMuscles = new ArrayList<Muscle>();
+		kickBackMuscles.add(triceps);
+							
+		kickBack.setTrainingEquipment(kickBackEquipment);
+		kickBack.setMuscles(kickBackMuscles);
+		ebr.save(kickBack);
 	}
 	
 	@Override
