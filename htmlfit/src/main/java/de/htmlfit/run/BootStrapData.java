@@ -456,6 +456,16 @@ public class BootStrapData implements CommandLineRunner{
 		lateralRaise.setMuscles(lrMuscles);
 		lateralRaise.setTrainingEquipment(lrEquipment);
 		ebr.save(lateralRaise);
+		
+		//-----------------------crunches-----------------------------------------
+		ExerciseBuild crunches = new ExerciseBuild();
+		crunches.setName("Crunches");
+												
+		Collection<Muscle> crunchesMuscles = new ArrayList<Muscle>();
+		crunchesMuscles.add(abs);
+												
+		crunches.setMuscles(crunchesMuscles);
+		ebr.save(crunches);
 	}
 	
 	@Override
