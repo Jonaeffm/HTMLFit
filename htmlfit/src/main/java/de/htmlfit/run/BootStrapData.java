@@ -426,6 +426,22 @@ public class BootStrapData implements CommandLineRunner{
 		pushupBuild.setMuscles(pushUpMuscles);
 		pushupBuild.setTrainingEquipment(pushUpEquipment);
 		ebr.save(pushupBuild);
+		
+		//-----------------------standing shoulder press-----------------------------------------
+		ExerciseBuild ssp = new ExerciseBuild();
+		ssp.setName("Standing Shoulder Press");
+								
+		Collection<TrainingEquipment> sspEquipment = new ArrayList<TrainingEquipment>();
+		sspEquipment.add(dumbbell);
+								
+		Collection<Muscle> sspMuscles = new ArrayList<Muscle>();
+		sspMuscles.add(trapezius);
+		sspMuscles.add(deltoids);
+		sspMuscles.add(triceps);
+								
+		ssp.setMuscles(pushUpMuscles);
+		ssp.setTrainingEquipment(pushUpEquipment);
+//		ebr.save(ssp);
 	}
 	
 	@Override
