@@ -144,10 +144,6 @@ public class BootStrapData implements CommandLineRunner{
 		deltoids.setName("Deltoids");
 		mr.save(deltoids);
 		
-		Muscle mra = new Muscle();
-		mra.setName("Musculus Rectus Abdominis");	
-		mr.save(mra);
-		
 		Muscle moa = new Muscle();
 		moa.setName("Musculus Obliquus abdominis");
 		mr.save(moa);
@@ -342,7 +338,7 @@ public class BootStrapData implements CommandLineRunner{
 		pullUpMuscles.add(deltoids);
 		pullUpMuscles.add(pectorals);
 		pullUpMuscles.add(triceps);
-		pullUpMuscles.add(mra);
+		pullUpMuscles.add(abs);
 		pullUpMuscles.add(moa);
 		pullUpMuscles.add(teresMinor);
 		pullUpMuscles.add(teresMajor);
@@ -463,9 +459,21 @@ public class BootStrapData implements CommandLineRunner{
 												
 		Collection<Muscle> crunchesMuscles = new ArrayList<Muscle>();
 		crunchesMuscles.add(abs);
+		crunchesMuscles.add(moa);
 												
 		crunches.setMuscles(crunchesMuscles);
 		ebr.save(crunches);
+		
+		//-----------------------side crunches-----------------------------------------
+		ExerciseBuild sCrunches = new ExerciseBuild();
+		sCrunches.setName("Side Crunches");
+												
+		Collection<Muscle> sCrunchesMuscles = new ArrayList<Muscle>();
+		sCrunchesMuscles.add(abs);
+		sCrunchesMuscles.add(moa);
+												
+		sCrunches.setMuscles(sCrunchesMuscles);
+		ebr.save(sCrunches);
 	}
 	
 	@Override
