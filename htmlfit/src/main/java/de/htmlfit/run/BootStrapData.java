@@ -491,6 +491,18 @@ public class BootStrapData implements CommandLineRunner{
 														
 		zombieSquats.setMuscles(zSquatMuscles);
 		ebr.save(zombieSquats);
+		
+		//-----------------------prisoner squats-----------------------------------------
+		ExerciseBuild prisonerSquats = new ExerciseBuild();
+		prisonerSquats.setName("Prisoner Squats");
+																
+		Collection<Muscle> pSquatMuscles = new ArrayList<Muscle>();
+		pSquatMuscles.add(legs);
+		pSquatMuscles.add(glutes);
+		pSquatMuscles.add(hamstrings);
+																
+		prisonerSquats.setMuscles(pSquatMuscles);
+		ebr.save(prisonerSquats);
 	}
 	
 	@Override
