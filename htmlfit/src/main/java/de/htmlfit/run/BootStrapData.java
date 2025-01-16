@@ -159,6 +159,10 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle brachialis = new Muscle();
 		brachialis.setName("Brachialis");
 		mr.save(brachialis);
+		
+		Muscle hipAdductor = new Muscle();
+		hipAdductor.setName("Hip Adductor");
+		mr.save(hipAdductor);
 		//---------------------------Burpees--------------------------------
 		Exercise burpees = new Exercise();
 		burpees.setName("Burpees");
@@ -474,6 +478,19 @@ public class BootStrapData implements CommandLineRunner{
 												
 		sCrunches.setMuscles(sCrunchesMuscles);
 		ebr.save(sCrunches);
+		
+		//-----------------------zombie squats-----------------------------------------
+		ExerciseBuild zombieSquats = new ExerciseBuild();
+		zombieSquats.setName("Zombie Squats");
+														
+		Collection<Muscle> zSquatMuscles = new ArrayList<Muscle>();
+		zSquatMuscles.add(legs);
+		zSquatMuscles.add(glutes);
+		zSquatMuscles.add(calves);
+		zSquatMuscles.add(hipAdductor);
+														
+		zombieSquats.setMuscles(zSquatMuscles);
+		ebr.save(zombieSquats);
 	}
 	
 	@Override
