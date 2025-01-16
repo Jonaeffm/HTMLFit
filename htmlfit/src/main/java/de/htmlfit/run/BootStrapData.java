@@ -439,9 +439,23 @@ public class BootStrapData implements CommandLineRunner{
 		sspMuscles.add(deltoids);
 		sspMuscles.add(triceps);
 								
-		ssp.setMuscles(pushUpMuscles);
-		ssp.setTrainingEquipment(pushUpEquipment);
-//		ebr.save(ssp);
+		ssp.setMuscles(sspMuscles);
+		ssp.setTrainingEquipment(sspEquipment);
+		ebr.save(ssp);
+		
+		//-----------------------lateral raise-----------------------------------------
+		ExerciseBuild lateralRaise = new ExerciseBuild();
+		lateralRaise.setName("Lateral Raise");
+										
+		Collection<TrainingEquipment> lrEquipment = new ArrayList<TrainingEquipment>();
+		lrEquipment.add(dumbbell);
+										
+		Collection<Muscle> lrMuscles = new ArrayList<Muscle>();
+		lrMuscles.add(deltoids);
+										
+		lateralRaise.setMuscles(lrMuscles);
+		lateralRaise.setTrainingEquipment(lrEquipment);
+		ebr.save(lateralRaise);
 	}
 	
 	@Override
