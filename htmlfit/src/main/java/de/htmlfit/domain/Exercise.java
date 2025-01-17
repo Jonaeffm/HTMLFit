@@ -27,4 +27,6 @@ public class Exercise {
 	private String name;
 	@ManyToMany()
 	private Collection<Muscle> Muscles;
+	@ManyToMany()
+	private Collection<TrainingDay> TrainingDays;
 }

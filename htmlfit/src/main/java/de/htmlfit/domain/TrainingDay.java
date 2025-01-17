@@ -2,31 +2,32 @@ package de.htmlfit.domain;
 
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
-public class ExerciseBuild {
+public class TrainingDay {
 	@Id
-	@Column(name = "EXERCISE_ID")
+	@Column(name = "TRAININGDAY_ID")
 	@GeneratedValue
 	private Long id;
-	private String name;
+
+	@JsonIgnore
+	@ManyToMany(mappedBy = "TrainingDays")
+	private Collection<Exercise> exercise;
 	
-	@ManyToOne()
-	private TrainingDay TrainingDay;
+	@JsonIgnore
+	@OneToMany(mappedBy="TrainingDay")
+	private Collection<ExerciseBuild> exerciseBuild;
 	
-	@ManyToMany()
-	private Collection<Muscle> Muscles;
-	
-	@ManyToMany()
-	private Collection<TrainingEquipment> TrainingEquipment;
 }
