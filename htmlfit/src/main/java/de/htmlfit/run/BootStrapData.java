@@ -16,12 +16,13 @@ import de.htmlfit.repositories.ExerciseBuildRepository;
 import de.htmlfit.repositories.ExerciseRepository;
 import de.htmlfit.repositories.MuscleRepository;
 import de.htmlfit.repositories.TrainingEquipmentRepository;
+import de.htmlfit.services.MuscleService;
 
 @EnableAutoConfiguration
 @Component
 public class BootStrapData implements CommandLineRunner{
 	@Autowired 
-	MuscleRepository mr;
+	MuscleService ms;
 	
 	@Autowired
 	ExerciseRepository er;
@@ -52,11 +53,11 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle gastrocnemius = new Muscle();
 		gastrocnemius.setName("gastrocnemius");
-		mr.save(gastrocnemius);
+		ms.save(gastrocnemius);
 		
 		Muscle legs = new Muscle();
 		legs.setName("quadriceps femoris");
-		mr.save(legs);
+		ms.save(legs);
 		
 		/*Muscle shoulders = new Muscle();
 		shoulders.setName("deltoideus");
@@ -64,105 +65,105 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle triceps = new Muscle();
 		triceps.setName("triceps");
-		mr.save(triceps);
+		ms.save(triceps);
 		 
 		Muscle breast = new Muscle();
 		breast.setName("pectoralis major");
-		mr.save(breast);
+		ms.save(breast);
 		
 		Muscle back = new Muscle();
 		back.setName("back");
-		mr.save(back);
+		ms.save(back);
 		
 		Muscle abs = new Muscle();
 		abs.setName("rectus abdominis");
-		mr.save(abs);
+		ms.save(abs);
 		
 		Muscle buttocks = new Muscle();
 		buttocks.setName("gluteus maximus");
-		mr.save(buttocks);
+		ms.save(buttocks);
 		
 		Muscle hamstrings = new Muscle();
 		hamstrings.setName("hamstrings");
-		mr.save(hamstrings);
+		ms.save(hamstrings);
 		
 		Muscle glutes = new Muscle();
 		glutes.setName("Glutes");
-		mr.save(glutes);
+		ms.save(glutes);
 		
 		Muscle hipFlexors = new Muscle();
 		hipFlexors.setName("Hip Flexors");
-		mr.save(hipFlexors);
+		ms.save(hipFlexors);
 		
 		Muscle calves = new Muscle();
 		calves.setName("Calves");
-		mr.save(calves);
+		ms.save(calves);
 		
 		Muscle quads = new Muscle();
 		quads.setName("Quads");
-		mr.save(quads);
+		ms.save(quads);
 		
 		Muscle biceps = new Muscle();
 		biceps.setName("Biceps");
-		mr.save(biceps);
+		ms.save(biceps);
 		
 		Muscle propel = new Muscle();
 		propel.setName("Propel");
-		mr.save(propel);
+		ms.save(propel);
 		
 		Muscle trapezius = new Muscle();
 		trapezius.setName("Trapezius");
-		mr.save(trapezius);
+		ms.save(trapezius);
 		
 		Muscle rhomboid = new Muscle();
 		rhomboid.setName("Rhomboid");
-		mr.save(rhomboid);
+		ms.save(rhomboid);
 		
 
 		Muscle major = new Muscle();
 		major.setName("Major");
-		mr.save(major);
+		ms.save(major);
 		
 
 		Muscle minor = new Muscle();
 		minor.setName("Minor");
-		mr.save(minor);
+		ms.save(minor);
 		
 		Muscle latissimus = new Muscle();
 		latissimus.setName("Latissimus");
-		mr.save(latissimus);
+		ms.save(latissimus);
 
 		Muscle pectorals = new Muscle();
 		pectorals.setName("Pectorals");
-		mr.save(pectorals);
+		ms.save(pectorals);
 		
 		Muscle serratusAnterior = new Muscle();
 		serratusAnterior.setName("Serratus Anterior");
-		mr.save(serratusAnterior);
+		ms.save(serratusAnterior);
 		
 		Muscle deltoids = new Muscle();
 		deltoids.setName("Deltoids");
-		mr.save(deltoids);
+		ms.save(deltoids);
 		
 		Muscle moa = new Muscle();
 		moa.setName("Musculus Obliquus abdominis");
-		mr.save(moa);
+		ms.save(moa);
 		
 		Muscle teresMajor = new Muscle();
 		teresMajor.setName("Teres Major");
-		mr.save(teresMajor);
+		ms.save(teresMajor);
 		
 		Muscle teresMinor = new Muscle();
 		teresMinor.setName("Teres Minor");
-		mr.save(teresMinor);
+		ms.save(teresMinor);
 		
 		Muscle brachialis = new Muscle();
 		brachialis.setName("Brachialis");
-		mr.save(brachialis);
+		ms.save(brachialis);
 		
 		Muscle hipAdductor = new Muscle();
 		hipAdductor.setName("Hip Adductor");
-		mr.save(hipAdductor);
+		ms.save(hipAdductor);
 		//---------------------------Burpees--------------------------------
 		Exercise burpees = new Exercise();
 		burpees.setName("Burpees");
