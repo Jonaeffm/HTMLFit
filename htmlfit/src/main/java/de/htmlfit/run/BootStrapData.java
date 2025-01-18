@@ -19,6 +19,7 @@ import de.htmlfit.repositories.TrainingEquipmentRepository;
 import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
+import de.htmlfit.services.TrainingEquipmentService;
 
 @EnableAutoConfiguration
 @Component
@@ -33,7 +34,7 @@ public class BootStrapData implements CommandLineRunner{
 	ExerciseBuildService ebs;
 	
 	@Autowired
-	TrainingEquipmentRepository ter;
+	TrainingEquipmentService tes;
 	
 	public void init() {
 		
@@ -41,15 +42,15 @@ public class BootStrapData implements CommandLineRunner{
 		
 		TrainingEquipment dumbbell = new TrainingEquipment();
 		dumbbell.setName("Dumbbell");
-		ter.save(dumbbell);
+		tes.save(dumbbell);
 		
 		TrainingEquipment pullupbar = new TrainingEquipment();
 		pullupbar.setName("Pull-Up Bar");
-		ter.save(pullupbar);
+		tes.save(pullupbar);
 		
 		TrainingEquipment trainingBench = new TrainingEquipment();
 		trainingBench.setName("Training Bench");
-		ter.save(trainingBench);
+		tes.save(trainingBench);
 		
 		//-------------------muscles--------------------------
 		
