@@ -6,14 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import de.htmlfit.domain.Exercise;
-import de.htmlfit.domain.Muscle;
-import de.htmlfit.repositories.ExerciseRepository;
-import de.htmlfit.repositories.MuscleRepository;
+import de.htmlfit.domain.ExerciseBuild;
+import de.htmlfit.repositories.ExerciseBuildRepository;
+
 @Service
-public class ExerciseServiceImpl implements ExerciseService{
+public class ExerciseBuildServiceImpl implements ExerciseBuildService{
 	@Autowired
-	private ExerciseRepository repository;
+	private ExerciseBuildRepository repository;
 
 	@Override
 	public void deleteById(long ID) {
@@ -21,17 +20,17 @@ public class ExerciseServiceImpl implements ExerciseService{
 		repository.deleteById(ID);
 	}
 	
-	public List<Exercise> findAll()
+	public List<ExerciseBuild> findAll()
 	{
 		return repository.findAll();
 	}
 	
-	public Optional<Exercise> findById(Long exerciseId)
+	public Optional<ExerciseBuild> findById(Long exerciseId)
 	{
 		return repository.findById(exerciseId);
 	}
 	
-	public Exercise save(Exercise e)
+	public ExerciseBuild save(ExerciseBuild e)
 	{
 		return repository.save(e);
 	}

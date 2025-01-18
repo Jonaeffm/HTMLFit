@@ -16,6 +16,7 @@ import de.htmlfit.repositories.ExerciseBuildRepository;
 import de.htmlfit.repositories.ExerciseRepository;
 import de.htmlfit.repositories.MuscleRepository;
 import de.htmlfit.repositories.TrainingEquipmentRepository;
+import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 
@@ -29,7 +30,7 @@ public class BootStrapData implements CommandLineRunner{
 	ExerciseService es;
 	
 	@Autowired
-	ExerciseBuildRepository ebr;
+	ExerciseBuildService ebs;
 	
 	@Autowired
 	TrainingEquipmentRepository ter;
@@ -316,7 +317,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		curls.setMuscles(curlsMuscles);
 		curls.setTrainingEquipment(curlEquipment);
-		ebr.save(curls);
+		ebs.save(curls);
 		
 		//------------------------concentration curls--------------------------------
 		ExerciseBuild ccurls = new ExerciseBuild();
@@ -330,7 +331,7 @@ public class BootStrapData implements CommandLineRunner{
 				
 		ccurls.setTrainingEquipment(ccurlEquipment);
 		ccurls.setMuscles(ccurlsMuscles);
-		ebr.save(ccurls);
+		ebs.save(ccurls);
 		
 		//-----------------------pullup-----------------------------------------
 		ExerciseBuild pullup = new ExerciseBuild();
@@ -351,7 +352,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		pullup.setMuscles(pullUpMuscles);
 		pullup.setTrainingEquipment(pullUpEquipment);
-		ebr.save(pullup);
+		ebs.save(pullup);
 		
 		//-----------------------one armed rowing---------------------------
 		ExerciseBuild oar = new ExerciseBuild();
@@ -371,7 +372,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		oar.setMuscles(oarMuscles);
 		oar.setTrainingEquipment(oarEquipment);
-		ebr.save(oar);
+		ebs.save(oar);
 		
 		//-----------------------dumbbell upright row---------------------------
 		ExerciseBuild dur = new ExerciseBuild();
@@ -390,7 +391,7 @@ public class BootStrapData implements CommandLineRunner{
 				
 		dur.setMuscles(durMuscles);
 		dur.setTrainingEquipment(durEquipment);
-		ebr.save(dur);
+		ebs.save(dur);
 				
 		//-----------------------close grip pullup-----------------------------------------
 		ExerciseBuild cgpullup = new ExerciseBuild();
@@ -406,7 +407,7 @@ public class BootStrapData implements CommandLineRunner{
 				
 		cgpullup.setMuscles(cgpullUpMuscles);
 		cgpullup.setTrainingEquipment(cgpullUpEquipment);
-		ebr.save(cgpullup);
+		ebs.save(cgpullup);
 		
 		//-----------------------push-ups-----------------------------------------
 		ExerciseBuild pushupBuild = new ExerciseBuild();
@@ -427,7 +428,7 @@ public class BootStrapData implements CommandLineRunner{
 						
 		pushupBuild.setMuscles(pushUpMuscles);
 		pushupBuild.setTrainingEquipment(pushUpEquipment);
-		ebr.save(pushupBuild);
+		ebs.save(pushupBuild);
 		
 		//-----------------------diamond push-ups-----------------------------------------
 		ExerciseBuild dPushupBuild = new ExerciseBuild();
@@ -445,7 +446,7 @@ public class BootStrapData implements CommandLineRunner{
 								
 		dPushupBuild.setMuscles(dPushUpMuscles);
 		dPushupBuild.setTrainingEquipment(dPushUpEquipment);
-		ebr.save(dPushupBuild);
+		ebs.save(dPushupBuild);
 		
 		//-----------------------standing shoulder press-----------------------------------------
 		ExerciseBuild ssp = new ExerciseBuild();
@@ -461,7 +462,7 @@ public class BootStrapData implements CommandLineRunner{
 								
 		ssp.setMuscles(sspMuscles);
 		ssp.setTrainingEquipment(sspEquipment);
-		ebr.save(ssp);
+		ebs.save(ssp);
 		
 		//-----------------------lateral raise-----------------------------------------
 		ExerciseBuild lateralRaise = new ExerciseBuild();
@@ -475,7 +476,7 @@ public class BootStrapData implements CommandLineRunner{
 										
 		lateralRaise.setMuscles(lrMuscles);
 		lateralRaise.setTrainingEquipment(lrEquipment);
-		ebr.save(lateralRaise);
+		ebs.save(lateralRaise);
 		
 		//-----------------------crunches-----------------------------------------
 		ExerciseBuild crunches = new ExerciseBuild();
@@ -486,7 +487,7 @@ public class BootStrapData implements CommandLineRunner{
 		crunchesMuscles.add(moa);
 												
 		crunches.setMuscles(crunchesMuscles);
-		ebr.save(crunches);
+		ebs.save(crunches);
 		
 		//-----------------------side crunches-----------------------------------------
 		ExerciseBuild sCrunches = new ExerciseBuild();
@@ -497,7 +498,7 @@ public class BootStrapData implements CommandLineRunner{
 		sCrunchesMuscles.add(moa);
 												
 		sCrunches.setMuscles(sCrunchesMuscles);
-		ebr.save(sCrunches);
+		ebs.save(sCrunches);
 		
 		//-----------------------zombie squats-----------------------------------------
 		ExerciseBuild zombieSquats = new ExerciseBuild();
@@ -510,7 +511,7 @@ public class BootStrapData implements CommandLineRunner{
 		zSquatMuscles.add(hipAdductor);
 														
 		zombieSquats.setMuscles(zSquatMuscles);
-		ebr.save(zombieSquats);
+		ebs.save(zombieSquats);
 		
 		//-----------------------prisoner squats-----------------------------------------
 		ExerciseBuild prisonerSquats = new ExerciseBuild();
@@ -522,7 +523,7 @@ public class BootStrapData implements CommandLineRunner{
 		pSquatMuscles.add(hamstrings);
 																
 		prisonerSquats.setMuscles(pSquatMuscles);
-		ebr.save(prisonerSquats);
+		ebs.save(prisonerSquats);
 		
 		//-----------------------kick back-----------------------------------------
 		ExerciseBuild kickBack = new ExerciseBuild();
@@ -536,7 +537,7 @@ public class BootStrapData implements CommandLineRunner{
 							
 		kickBack.setTrainingEquipment(kickBackEquipment);
 		kickBack.setMuscles(kickBackMuscles);
-		ebr.save(kickBack);
+		ebs.save(kickBack);
 	}
 	
 	@Override
