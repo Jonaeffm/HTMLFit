@@ -16,6 +16,7 @@ import de.htmlfit.repositories.ExerciseBuildRepository;
 import de.htmlfit.repositories.ExerciseRepository;
 import de.htmlfit.repositories.MuscleRepository;
 import de.htmlfit.repositories.TrainingEquipmentRepository;
+import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 
 @EnableAutoConfiguration
@@ -25,7 +26,7 @@ public class BootStrapData implements CommandLineRunner{
 	MuscleService ms;
 	
 	@Autowired
-	ExerciseRepository er;
+	ExerciseService es;
 	
 	@Autowired
 	ExerciseBuildRepository ebr;
@@ -178,7 +179,7 @@ public class BootStrapData implements CommandLineRunner{
 		burpeesMuscles.add(legs);
 		
 		burpees.setMuscles(burpeesMuscles);
-		er.save(burpees);
+		es.save(burpees);
 		
 		//-----------------------Mountain Climbers--------------------------------
 		Exercise mountainClimbers = new Exercise();
@@ -192,7 +193,7 @@ public class BootStrapData implements CommandLineRunner{
 		mountainClimbersMuscles.add(hamstrings);
 		
 		mountainClimbers.setMuscles(mountainClimbersMuscles);
-		er.save(mountainClimbers);
+		es.save(mountainClimbers);
 		
 		//-----------------------Jumping Jack--------------------------------
 		Exercise jumpingJacks = new Exercise();
@@ -206,7 +207,7 @@ public class BootStrapData implements CommandLineRunner{
 		jumpingJackMuscles.add(hamstrings);
 		jumpingJackMuscles.add(deltoids);
 		jumpingJacks.setMuscles(jumpingJackMuscles);
-		er.save(jumpingJacks);
+		es.save(jumpingJacks);
 		
 		//-----------------------High Knees--------------------------------
 		Exercise highKnees = new Exercise();
@@ -219,7 +220,7 @@ public class BootStrapData implements CommandLineRunner{
 		highKneesMuscles.add(calves);
 		
 		highKnees.setMuscles(highKneesMuscles);
-		er.save(highKnees);
+		es.save(highKnees);
 		
 		//-----------------------Squat Jumps--------------------------------
 		Exercise squatJumps = new Exercise();
@@ -234,7 +235,7 @@ public class BootStrapData implements CommandLineRunner{
 		squatJumpsMuscles.add(triceps);
 		
 		squatJumps.setMuscles(squatJumpsMuscles);
-		er.save(squatJumps);
+		es.save(squatJumps);
 		
 		//-----------------------Plank--------------------------------
 		Exercise plank = new Exercise();
@@ -253,7 +254,7 @@ public class BootStrapData implements CommandLineRunner{
 		plankMuscles.add(deltoids);
 		
 		plank.setMuscles(plankMuscles);
-		er.save(plank);
+		es.save(plank);
 		
 		//-----------------------Jumps--------------------------------
 		Exercise jumps = new Exercise();
@@ -266,7 +267,7 @@ public class BootStrapData implements CommandLineRunner{
 		jumpsMuscles.add(glutes);
 		jumpsMuscles.add(propel);
 		jumps.setMuscles(jumpsMuscles);
-		er.save(jumps);
+		es.save(jumps);
 		
 		//-----------------------Burpees Without Jumps--------------------------------
 		Exercise burpeesWJ = new Exercise();
@@ -277,7 +278,7 @@ public class BootStrapData implements CommandLineRunner{
 		bwjMuscles.add(hamstrings);
 		bwjMuscles.add(glutes);
 		burpeesWJ.setMuscles(bwjMuscles);
-		er.save(burpeesWJ);
+		es.save(burpeesWJ);
 	
 		//-----------------------Split Jumps--------------------------------
 		Exercise splitJumps = new Exercise();
@@ -288,7 +289,7 @@ public class BootStrapData implements CommandLineRunner{
 		sjMuscles.add(glutes);
 		sjMuscles.add(calves);
 		splitJumps.setMuscles(sjMuscles);
-		er.save(splitJumps);
+		es.save(splitJumps);
 		
 		//-----------------------Pushup--------------------------------
 		Exercise pushup = new Exercise();
@@ -301,7 +302,7 @@ public class BootStrapData implements CommandLineRunner{
 		pMuscles.add(back);
 		
 		pushup.setMuscles(pMuscles);
-		er.save(pushup);
+		es.save(pushup);
 		
 		//------------------------curls--------------------------------
 		ExerciseBuild curls = new ExerciseBuild();
