@@ -3,7 +3,7 @@ package de.htmlfit.services;
 import java.util.List;
 import java.util.Optional;
 
-import de.htmlfit.domain.ExerciseBuild;
+
 import de.htmlfit.domain.TrainingEquipment;
 
 public interface TrainingEquipmentService {

@@ -3,7 +3,6 @@ package de.htmlfit.services;
 import java.util.List;
 import java.util.Optional;
 
-import de.htmlfit.domain.TrainingDay;
 import de.htmlfit.domain.TrainingPlan;
 
 public interface TrainingPlanService {
