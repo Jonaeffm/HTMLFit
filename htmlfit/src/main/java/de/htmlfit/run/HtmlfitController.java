@@ -21,7 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import de.htmlfit.domain.Exercise;
+import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
+import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 
@@ -36,8 +38,12 @@ public class HtmlfitController {
 	@Autowired
 	private ExerciseService exerciseService;
 	
+	@Autowired
+	private ExerciseBuildService exerciseBuildService;
+	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	ArrayList<Exercise> selectedExercises = new ArrayList<Exercise>();
+	ArrayList<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
 	
 	void selectExercise()
 	{
@@ -90,19 +96,19 @@ public class HtmlfitController {
 			selectedExercises.add(toAdd);
 		}
 	}
-	/*
+	
 	void selectExerciseBuild()
 	{
 		musclesForSelect=musclesAsObject;
 		int i=0;
 		int j=0;
 		int exerc=4;
-		Exercise toAdd=new Exercise();
-		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseService.findAll();
+		ExerciseBuild toAdd=new ExerciseBuild();
+		ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
 		for(int k=0;k<exerc;k++)
 		{
 			
-			for (Exercise element : exercises){
+			for (ExerciseBuild element : exercisesBuild){
 		    	for(Muscle mElement: musclesForSelect ) {
 		    		if(element.getMuscles().contains(mElement)) {
 		    			i++;
@@ -116,7 +122,7 @@ public class HtmlfitController {
 	    			i=0;
 	    		}
 			}
-			boolean test = exercises.remove(exerciseService.findById(toAdd.getId()).get());
+			boolean test = exercisesBuild.remove(exerciseBuildService.findById(toAdd.getId()).get());
 			System.out.println("Test:gelöscht="+test);
 			j=0;
 			
@@ -133,9 +139,9 @@ public class HtmlfitController {
 			if(musclesForSelect.size()==0) {
 				musclesForSelect=musclesAsObject;
 			}
-			selectedExercises.add(toAdd);
+			selectedExercisesBuild.add(toAdd);
 		}
-	}*/
+	}
 	
 	@RequestMapping(value = "/select/", method = RequestMethod.GET)
 	public String addImage2Get(Model model) {
