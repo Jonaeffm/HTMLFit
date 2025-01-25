@@ -221,4 +221,18 @@ public class HtmlfitController {
 		return returnStr;
 	}
 	
+	@GetMapping(value = "/exercB/")
+	public String showExercB(Model model) {
+		String returnStr = "showExercisesBuild";
+		if (musclesAsObject.size()>0)
+		{
+			selectExerciseBuild();
+			musclesAsObject=new ArrayList<Muscle>();
+			model.addAttribute("exercisesBuild",selectedExercisesBuild);
+			
+		}
+		
+		return returnStr;
+	}
+	
 }
