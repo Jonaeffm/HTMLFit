@@ -122,11 +122,13 @@ public class HtmlfitController {
 	    			i=0;
 	    		}
 			}
+			
 			boolean test = exercisesBuild.remove(exerciseBuildService.findById(toAdd.getId()).get());
+			
 			System.out.println("Test:gelöscht="+test);
 			j=0;
 			
-			Iterator<Muscle> iter = musclesForSelect.iterator();
+			/*Iterator<Muscle> iter = musclesForSelect.iterator();
 
 			while (iter.hasNext()) {
 			    Muscle m = iter.next();
@@ -140,7 +142,7 @@ public class HtmlfitController {
 			
 			if(musclesForSelect.size()==0) {
 				musclesForSelect=musclesAsObject;
-			}
+			}*/
 			selectedExercisesBuild.add(toAdd);
 		}
 	}
