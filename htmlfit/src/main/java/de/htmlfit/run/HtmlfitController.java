@@ -132,7 +132,9 @@ public class HtmlfitController {
 			    Muscle m = iter.next();
 
 			    if(toAdd.getMuscles().contains(m)) {
-			        iter.remove();
+			        //todo:
+			    	//und wenn keine weiteren Übungen mit entspr. Muskel
+			    	iter.remove();
 			    }
 			}
 			
