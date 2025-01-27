@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
+import de.htmlfit.domain.NumberBean;
 import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
@@ -204,14 +205,14 @@ public class HtmlfitController {
 		return "showMuscles";
 	}
 	
-	@RequestMapping(value = "/show/", method = RequestMethod.POST) 
-	public String show(@ModelAttribute("count") int count) {
+	/*@RequestMapping(value = "/show/", method = RequestMethod.POST) 
+	public String show(@ModelAttribute("count") NumberBean count) {
 
 		
 		String returnStr = "showMuscles";
-		System.out.println("eingegeben :"+count );
+		System.out.println("eingegeben :"+count.getCount() );
 		return returnStr;
-	}
+	}*/
 	
 	@GetMapping(value = "/delete/")
 	public String delete() {
