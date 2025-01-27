@@ -196,11 +196,20 @@ public class HtmlfitController {
 		model.addAttribute("exercises",selectedExercises);
 		return "time";
 	}
-	@GetMapping(value = "/show/")
-	public String show(Model model) {
-		model.addAttribute("resultMuscles",musclesAsObject);
-		String returnStr = "showMuscles";
+	
+	@RequestMapping(value = "/show/", method = RequestMethod.GET)
+	public String showGet(Model model) {
 		
+		model.addAttribute("resultMuscles",musclesAsObject);
+		return "showMuscles";
+	}
+	
+	@RequestMapping(value = "/show/", method = RequestMethod.POST) 
+	public String show(@ModelAttribute("count") int count) {
+
+		
+		String returnStr = "showMuscles";
+		System.out.println("eingegeben :"+count );
 		return returnStr;
 	}
 	
