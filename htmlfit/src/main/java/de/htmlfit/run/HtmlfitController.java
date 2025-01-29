@@ -32,7 +32,7 @@ import de.htmlfit.services.MuscleService;
 
 @Controller
 public class HtmlfitController {
-	ArrayList<Muscle> musclesAsObject = new ArrayList<Muscle>();
+	ArrayList<Muscle> musclesAsObject;
 	
 	@Autowired
 	private MuscleService muscleService;
@@ -153,6 +153,7 @@ public class HtmlfitController {
 	@RequestMapping(value = "/select/", method = RequestMethod.GET)
 	public String addImage2Get(Model model) {
 		
+
 		if(selectedExercises.size()>0) {
 			selectedExercises=new ArrayList<Exercise>();
 		}
@@ -188,10 +189,13 @@ public class HtmlfitController {
 	}
 
 	@GetMapping(value = "/")
-	public String test() {
+	public String start() {
 		
+		musclesAsObject  = new ArrayList<Muscle>();
 		
-		return "success";
+		String returnStr="redirect:/select/";
+		
+		return returnStr;
 	}
 	
 	@GetMapping(value = "/hiit/")
@@ -224,13 +228,16 @@ public class HtmlfitController {
 		return returnStr;
 	}
 	
-	@GetMapping(value = "/exerc/")
+	@RequestMapping(value = "/exerc/",method = RequestMethod.GET)
 	public String showExerc(Model model) {
 		String returnStr = "showExerciss";
 		if (musclesAsObject.size()>0)
 		{
+			
+			model.addAttribute("resultMuscles",musclesAsObject);
+			
 			selectExercise();
-			musclesAsObject=new ArrayList<Muscle>();
+
 			model.addAttribute("exercises",selectedExercises);
 			
 			selectExerciseBuild();
@@ -247,7 +254,7 @@ public class HtmlfitController {
 		if (musclesAsObject.size()>0)
 		{
 			selectExerciseBuild();
-			musclesAsObject=new ArrayList<Muscle>();
+			//musclesAsObject=new ArrayList<Muscle>();
 			model.addAttribute("exercisesBuild",selectedExercisesBuild);
 			
 		}
