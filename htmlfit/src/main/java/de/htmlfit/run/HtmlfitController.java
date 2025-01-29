@@ -42,6 +42,8 @@ public class HtmlfitController {
 	@Autowired
 	private ExerciseBuildService exerciseBuildService;
 	
+	private int countEx;
+	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	ArrayList<Exercise> selectedExercises = new ArrayList<Exercise>();
 	ArrayList<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
@@ -51,7 +53,7 @@ public class HtmlfitController {
 		musclesForSelect=musclesAsObject;
 		int i=0;
 		int j=0;
-		int exerc=4;
+		int exerc=countEx;
 		Exercise toAdd=new Exercise();
 		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseService.findAll();
 		for(int k=0;k<exerc;k++)
@@ -103,7 +105,7 @@ public class HtmlfitController {
 		musclesForSelect=musclesAsObject;
 		int i=0;
 		int j=0;
-		int exerc=4;
+		int exerc=countEx;
 		ExerciseBuild toAdd=new ExerciseBuild();
 		ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
 		for(int k=0;k<exerc;k++)
@@ -209,8 +211,8 @@ public class HtmlfitController {
 	@RequestMapping(value = "/show/", method = RequestMethod.POST) 
 	public String show(@ModelAttribute("count") NumberBean count) {
 
-		
-		String returnStr = "redirect:/exerc/";
+		countEx = count.getCount();
+		String returnStr = "redirect:/exercB/";
 		System.out.println("eingegeben :"+count.getCount() );
 		return returnStr;
 	}
