@@ -47,6 +47,7 @@ public class HtmlfitController {
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	ArrayList<Exercise> selectedExercises = new ArrayList<Exercise>();
 	ArrayList<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
+	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
 	
 	void selectExercise()
 	{
@@ -183,6 +184,7 @@ public class HtmlfitController {
 			musclesAsObject.add(m.get());
 			System.out.println(i);
 		}*/
+		musclesSelected.add(m.get());
 		musclesAsObject.add(m.get());
 		String returnStr="redirect:/show/";
 		return returnStr;
@@ -223,7 +225,7 @@ public class HtmlfitController {
 	
 	@GetMapping(value = "/delete/")
 	public String delete() {
-		musclesAsObject=new ArrayList<Muscle>();
+		//musclesAsObject=new ArrayList<Muscle>();
 		String returnStr="redirect:/select/";
 		return returnStr;
 	}
@@ -234,7 +236,7 @@ public class HtmlfitController {
 		if (musclesAsObject.size()>0)
 		{
 			
-			model.addAttribute("resultMuscles",musclesAsObject);
+			model.addAttribute("resultMusclesA",musclesSelected);
 			
 			selectExercise();
 

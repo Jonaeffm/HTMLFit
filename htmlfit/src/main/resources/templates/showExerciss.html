@@ -1,3 +1,4 @@
+<html>
 <head>
 <meta charset="UTF-8">
 <title>selected exercises</title>
@@ -8,9 +9,9 @@
                <th>Id</th>
                 <th>Muscle Name</th>
             </tr>
-            <tr th:each="muscle, stat :${resultMuscles}">
-                 <td th:text = "${muscle.id}"></td>
-                 <td th:text = "${muscle.name}"></td>
+            <tr th:each="muscleA, stat :${resultMusclesA}">
+                 <td th:text = "${muscleA.id}"></td>
+                 <td th:text = "${muscleA.name}"></td>
             
             </tr>
             </table>
