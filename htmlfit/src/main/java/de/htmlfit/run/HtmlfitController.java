@@ -53,7 +53,7 @@ public class HtmlfitController {
 		musclesForSelect=musclesAsObject;
 		int i=0;
 		int j=0;
-		int exerc=countEx;
+		int exerc=4;
 		Exercise toAdd=new Exercise();
 		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseService.findAll();
 		for(int k=0;k<exerc;k++)
@@ -212,7 +212,7 @@ public class HtmlfitController {
 	public String show(@ModelAttribute("count") NumberBean count) {
 
 		countEx = count.getCount();
-		String returnStr = "redirect:/exercB/";
+		String returnStr = "redirect:/exerc/";
 		System.out.println("eingegeben :"+count.getCount() );
 		return returnStr;
 	}
@@ -232,6 +232,9 @@ public class HtmlfitController {
 			selectExercise();
 			musclesAsObject=new ArrayList<Muscle>();
 			model.addAttribute("exercises",selectedExercises);
+			
+			selectExerciseBuild();
+			model.addAttribute("exercisesBuild",selectedExercisesBuild);
 			
 		}
 		
