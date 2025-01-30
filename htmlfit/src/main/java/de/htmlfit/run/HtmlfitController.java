@@ -103,7 +103,7 @@ public class HtmlfitController {
 	
 	void selectExerciseBuild()
 	{
-		musclesForSelect=musclesAsObject;
+		musclesForSelect=musclesSelected;
 		int i=0;
 		int j=0;
 		int exerc=countEx;
@@ -121,6 +121,7 @@ public class HtmlfitController {
 		    	
 		    	if(i>=j) {
 	    			toAdd=element;
+	    			
 	    			
 	    			j=i;
 	    			i=0;
