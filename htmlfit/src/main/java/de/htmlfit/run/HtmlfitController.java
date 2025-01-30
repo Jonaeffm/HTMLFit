@@ -48,10 +48,11 @@ public class HtmlfitController {
 	ArrayList<Exercise> selectedExercises = new ArrayList<Exercise>();
 	ArrayList<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
 	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
+	ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
 	
 	void selectExercise()
 	{
-		musclesForSelect=musclesAsObject;
+		musclesForSelect=musclesSelected2;
 		int i=0;
 		int j=0;
 		int exerc=4;
@@ -186,6 +187,7 @@ public class HtmlfitController {
 			System.out.println(i);
 		}*/
 		musclesSelected.add(m.get());
+		musclesSelected2.add(m.get());
 		musclesAsObject.add(m.get());
 		String returnStr="redirect:/show/";
 		return returnStr;
