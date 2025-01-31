@@ -2,12 +2,16 @@ package de.htmlfit.domain;
 
 import java.util.Collection;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -27,7 +31,11 @@ public class TrainingDay {
 	private TrainingPlan trainingPlan;
 
 	@JsonIgnore
-	@ManyToMany(mappedBy = "TrainingDays")
+	@ManyToMany
+	@JoinTable(
+			  name = "exercises", 
+			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
+			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<Exercise> exercise;
 	
 	@JsonIgnore

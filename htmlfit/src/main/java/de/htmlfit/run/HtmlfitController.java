@@ -258,10 +258,13 @@ public class HtmlfitController {
 			ArrayList<Exercise> ExTrDay = new ArrayList<Exercise>();
 			ArrayList<ExerciseBuild> ExBTrDay = new ArrayList<ExerciseBuild>();
 			
-			ExTrDay = selectedExercises;
-			ExBTrDay = selectedExercisesBuild;
-			trDay.setExercise(ExTrDay);
-			trDay.setExerciseBuild(ExBTrDay);
+			/*ExTrDay = selectedExercises;
+			ExBTrDay = selectedExercisesBuild;*/
+			trDay.setExercise(selectedExercises);
+			
+			trDay.setExerciseBuild(selectedExercisesBuild);
+			
+			
 			trainingDaysService.save(trDay);
 			
 		}

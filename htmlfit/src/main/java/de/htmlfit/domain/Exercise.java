@@ -3,6 +3,8 @@ package de.htmlfit.domain;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import de.htmlfit.domain.Muscle;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -16,6 +18,7 @@ import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -27,6 +30,6 @@ public class Exercise {
 	private String name;
 	@ManyToMany()
 	private Collection<Muscle> Muscles;
-	@ManyToMany()
+	@ManyToMany(mappedBy = "exercise")
 	private Collection<TrainingDay> TrainingDays;
 }
