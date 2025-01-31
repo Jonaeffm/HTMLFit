@@ -24,9 +24,11 @@ import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.domain.NumberBean;
+import de.htmlfit.domain.TrainingDay;
 import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
+import de.htmlfit.services.TrainingDayService;
 
 
 
@@ -42,6 +44,9 @@ public class HtmlfitController {
 	@Autowired
 	private ExerciseBuildService exerciseBuildService;
 	
+	@Autowired
+	private TrainingDayService trainingDaysService;
+	
 	private int countEx;
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
@@ -49,6 +54,7 @@ public class HtmlfitController {
 	ArrayList<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
 	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
 	ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
+	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
 	
 	void selectExercise()
 	{
@@ -248,9 +254,26 @@ public class HtmlfitController {
 			selectExerciseBuild();
 			model.addAttribute("exercisesBuild",selectedExercisesBuild);
 			
+			TrainingDay trDay = new TrainingDay();
+			ArrayList<Exercise> ExTrDay = new ArrayList<Exercise>();
+			ArrayList<ExerciseBuild> ExBTrDay = new ArrayList<ExerciseBuild>();
+			
+			ExTrDay = selectedExercises;
+			ExBTrDay = selectedExercisesBuild;
+			trDay.setExercise(ExTrDay);
+			trDay.setExerciseBuild(ExBTrDay);
+			trainingDaysService.save(trDay);
+			
 		}
 		
 		return returnStr;
+	}
+	
+	@RequestMapping(value = "/tDays/",method = RequestMethod.GET)
+	public String showTDays(Model model) {
+		String returnStr = "showTrainingDays";
+		model.addAttribute("resultMusclesA",trainingDays);
+		return null;
 	}
 	
 	@GetMapping(value = "/exercB/")

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+    	<tr>
+        	<th>Id</th>
+            <th>Training Day</th>
+        </tr>
+        <tr th:each="TD, stat :${trainingDays}">
+             <td th:text = "${TD.id}"></td>
+             <td th:text = "${TD.name}"></td>
+        </tr>
+     </table>
+</body>
+</html>

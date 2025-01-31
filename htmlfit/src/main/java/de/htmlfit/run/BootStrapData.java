@@ -19,6 +19,7 @@ import de.htmlfit.repositories.TrainingEquipmentRepository;
 import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
+import de.htmlfit.services.TrainingDayService;
 import de.htmlfit.services.TrainingEquipmentService;
 
 @EnableAutoConfiguration
@@ -35,6 +36,7 @@ public class BootStrapData implements CommandLineRunner{
 	
 	@Autowired
 	TrainingEquipmentService tes;
+	
 	
 	public void init() {
 		
