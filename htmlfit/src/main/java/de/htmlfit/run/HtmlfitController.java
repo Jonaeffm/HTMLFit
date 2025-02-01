@@ -266,7 +266,7 @@ public class HtmlfitController {
 			
 			
 			trainingDaysService.save(trDay);
-			trainingDays.add(trDay);
+
 			
 		}
 		
@@ -276,6 +276,7 @@ public class HtmlfitController {
 	@RequestMapping(value = "/tDays/",method = RequestMethod.GET)
 	public String showTDays(Model model) {
 		String returnStr = "showTrainingDays";
+		trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findAll();
 		model.addAttribute("trainingDays",trainingDays);
 		return returnStr;
 	}
