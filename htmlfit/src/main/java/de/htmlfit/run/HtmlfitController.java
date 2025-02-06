@@ -203,7 +203,12 @@ public class HtmlfitController {
 	public String start() {
 		
 		musclesAsObject  = new ArrayList<Muscle>();
-		
+		musclesForSelect = new ArrayList<Muscle>();
+		selectedExercises = new ArrayList<Exercise>();
+		selectedExercisesBuild = new ArrayList<ExerciseBuild>();
+		musclesSelected = new ArrayList<Muscle>();
+		musclesSelected2 = new ArrayList<Muscle>();
+		trainingDays=new ArrayList<TrainingDay>();
 		String returnStr="redirect:/select/";
 		
 		return returnStr;
