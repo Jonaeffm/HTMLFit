@@ -12,6 +12,7 @@
         </tr>
         <tr th:each="TD, stat :${trainingDays}">
              <td th:text = "${TD.id}"></td>
+             <td> <a th:href="@{/show/{id}(id=${TD.id})}">open</a></td>
 
         </tr>
      </table>
