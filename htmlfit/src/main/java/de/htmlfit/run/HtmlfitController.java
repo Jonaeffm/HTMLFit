@@ -3,6 +3,7 @@ package de.htmlfit.run;
 
 import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -51,8 +52,8 @@ public class HtmlfitController {
 	private int countEx;
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
-	ArrayList<Exercise> selectedExercises = new ArrayList<Exercise>();
-	ArrayList<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
+	Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
+	Collection<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
 	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
 	ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
@@ -287,27 +288,26 @@ public class HtmlfitController {
 		return returnStr;
 	}
 	
-	@GetMapping(value = "/exercB/")
+	/*@GetMapping(value = "/exercB/")
 	public String showExercB(Model model) {
-		String returnStr = "showExercisesBuild";
-		if (musclesAsObject.size()>0)
-		{
-			selectExerciseBuild();
-			//musclesAsObject=new ArrayList<Muscle>();
-			model.addAttribute("exercisesBuild",selectedExercisesBuild);
+		String returnStr = "showExerciss";
+		
+			model.addAttribute("resultMusclesA",musclesSelected);
 			
-		}
+			model.addAttribute("exercises",selectedExercises);
+
+			model.addAttribute("exercisesBuild",selectedExercisesBuild);
 		
 		return returnStr;
 	}
-	
+	*/
 	@GetMapping("/show/{id}")
 	public String showTd(@PathVariable("id") long id, Model model) {
-
+		String returnStr = "showExercissWithoutMuscles";
 		Optional<TrainingDay> td =trainingDaysService.findById(id);
-		selectedExercises = (ArrayList<Exercise>) td.get().getExercise();
-		selectedExercisesBuild = (ArrayList<ExerciseBuild>) td.get().getExerciseBuild();
-		return "redirect:/exerc/";
+		model.addAttribute("exercises",td.get().getExercise());
+		model.addAttribute("exercisesBuild",td.get().getExerciseBuild());
+		return returnStr;
 	}
 	
 }
