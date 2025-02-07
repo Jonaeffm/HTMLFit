@@ -40,11 +40,10 @@ public class TrainingDay {
 	
 	@JsonIgnore
 	@OneToMany
-	  @JoinTable(
-	            name="BodyBuildExercises",
-	            joinColumns = @JoinColumn( name="TRAININGDAY_ID"),
-	            inverseJoinColumns = @JoinColumn( name="EXERCISE_ID")
-	        )
+	@JoinTable(
+	          name="BodyBuildExercises",
+	          joinColumns = @JoinColumn( name="TRAININGDAY_ID"),
+	          inverseJoinColumns = @JoinColumn( name="EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
 	
 }
