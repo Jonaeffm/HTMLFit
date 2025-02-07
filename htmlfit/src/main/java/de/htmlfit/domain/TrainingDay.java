@@ -39,7 +39,12 @@ public class TrainingDay {
 	private Collection<Exercise> exercise;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="TrainingDay")
+	@OneToMany
+	  @JoinTable(
+	            name="BodyBuildExercises",
+	            joinColumns = @JoinColumn( name="TRAININGDAY_ID"),
+	            inverseJoinColumns = @JoinColumn( name="EXERCISE_ID")
+	        )
 	private Collection<ExerciseBuild> exerciseBuild;
 	
 }
