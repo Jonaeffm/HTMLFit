@@ -27,10 +27,12 @@ import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.domain.NumberBean;
 import de.htmlfit.domain.TrainingDay;
+import de.htmlfit.domain.TrainingEquipment;
 import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 import de.htmlfit.services.TrainingDayService;
+import de.htmlfit.services.TrainingEquipmentService;
 
 
 
@@ -49,9 +51,13 @@ public class HtmlfitController {
 	@Autowired
 	private TrainingDayService trainingDaysService;
 	
+	@Autowired
+	private TrainingEquipmentService trainingEquipmentService;
+	
 	private int countEx;
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
+	Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 	Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
 	Collection<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
 	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
@@ -197,6 +203,38 @@ public class HtmlfitController {
 		musclesSelected.add(m.get());
 		musclesSelected2.add(m.get());
 		musclesAsObject.add(m.get());
+		String returnStr="redirect:/show/";
+		return returnStr;
+	}
+	
+	@RequestMapping(value = "/selectTE/", method = RequestMethod.GET)
+	public String selectTrainingEquipmentGet(Model model) {
+		
+
+		if(selectedEq.size()>0) {
+			selectedEq=new ArrayList<TrainingEquipment>();
+		}
+		
+		List<TrainingEquipment> eqList;
+		eqList = trainingEquipmentService.findAll();
+		model.addAttribute("equipment", eqList);
+		
+		TrainingEquipment eqForResult=new TrainingEquipment();
+		model.addAttribute("eqRes",eqForResult);
+		return "selectEq";
+	}
+	
+	@RequestMapping(value = "/selectTE/", method = RequestMethod.POST)
+	public String selectTrainingEquipment(@ModelAttribute("muscle") TrainingEquipment eqForResult) { 
+		Optional<TrainingEquipment> e =trainingEquipmentService.findById(eqForResult.getId());
+		/*for(int i=0;i<muscles.size();i++) {
+			Optional<Muscle> m = muscleService.findById((long)( muscles.get(i)));
+			musclesAsObject.add(m.get());
+			System.out.println(i);
+		}*/
+		//musclesSelected.add(m.get());
+		//musclesSelected2.add(m.get());
+		//musclesAsObject.add(m.get());
 		String returnStr="redirect:/show/";
 		return returnStr;
 	}
