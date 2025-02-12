@@ -277,6 +277,23 @@ public class HtmlfitController {
 		return returnStr;
 	}
 	
+	@RequestMapping(value = "/showEq/", method = RequestMethod.GET)
+	public String showGetEq(Model model) {
+		NumberBean nB=new NumberBean();
+		model.addAttribute("count",nB);
+		model.addAttribute("resultMuscles",musclesAsObject);
+		return "showMuscles";
+	}
+	
+	/*@RequestMapping(value = "/show/", method = RequestMethod.POST) 
+	public String show(@ModelAttribute("count") NumberBean count) {
+
+		countEx = count.getCount();
+		String returnStr = "redirect:/exerc/";
+		System.out.println("eingegeben :"+count.getCount() );
+		return returnStr;
+	}*/
+	
 	@GetMapping(value = "/delete/")
 	public String delete() {
 		//musclesAsObject=new ArrayList<Muscle>();
