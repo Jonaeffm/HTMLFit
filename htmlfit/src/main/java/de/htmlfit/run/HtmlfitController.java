@@ -211,9 +211,9 @@ public class HtmlfitController {
 	public String selectTrainingEquipmentGet(Model model) {
 		
 
-		if(selectedEq.size()>0) {
+		/*if(selectedEq.size()>0) {
 			selectedEq=new ArrayList<TrainingEquipment>();
-		}
+		}*/
 		
 		List<TrainingEquipment> eqList;
 		eqList = trainingEquipmentService.findAll();
