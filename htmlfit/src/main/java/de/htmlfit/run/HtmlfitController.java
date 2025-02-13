@@ -63,7 +63,7 @@ public class HtmlfitController {
 	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
 	ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
-	
+
 	void selectExercise()
 	{
 		musclesForSelect=musclesSelected2;
@@ -232,10 +232,11 @@ public class HtmlfitController {
 			musclesAsObject.add(m.get());
 			System.out.println(i);
 		}*/
+		selectedEq.add(e.get());
 		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
 		//musclesAsObject.add(m.get());
-		String returnStr="redirect:/show/";
+		String returnStr="redirect:/showEq/";
 		return returnStr;
 	}
 
@@ -281,8 +282,8 @@ public class HtmlfitController {
 	public String showGetEq(Model model) {
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
-		model.addAttribute("resultMuscles",musclesAsObject);
-		return "showMuscles";
+		model.addAttribute("resultEq",selectedEq);
+		return "showEquipment";
 	}
 	
 	/*@RequestMapping(value = "/show/", method = RequestMethod.POST) 

@@ -11,16 +11,16 @@
                <th>Id</th>
                 <th>Name</th>
             </tr>
-            <tr th:each="muscle, stat :${resultMuscles}">
-                 <td th:text = "${muscle.id}"></td>
-                 <td th:text = "${muscle.name}"></td>
+            <tr th:each="equip, stat :${resultEq}">
+                 <td th:text = "${equip.id}"></td>
+                 <td th:text = "${equip.name}"></td>
             
             </tr>
             </table>
             
             <br>
             
-             <a href="/select/">add</a>
+             <a href="/selectTE/">add</a>
               <a href="/delete/">delete</a>
               <!--<a href="/exerc/"  type="submit" value="Submit" >exercises</a>
               <a href="/exercB/"  type="submit" value="Submit" >body building exercises</a>-->
