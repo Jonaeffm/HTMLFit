@@ -122,14 +122,18 @@ public class HtmlfitController {
 		for (ExerciseBuild element : exercisesBuild){
 			
 		  
-			
+			boolean b=false;
 			for (TrainingEquipment te : element.getTrainingEquipment()) {
 				if (!selectedEq.contains(te)){
-					exercisesBuild.remove(element);
+						
+					b=true;
 					System.out.println(element.getName()+" deleted");
+					
 				}
 				
 			}
+			if (b==true)
+				exercisesBuild.remove(element);
 		}
 	}
 	
@@ -143,6 +147,7 @@ public class HtmlfitController {
 		
 		//TODO: delete exercises with not selected equipment
 		ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
+		deleteExercisesWithNotSelectedEq();
 		
 		
 		for(int k=0;k<exerc;k++)
