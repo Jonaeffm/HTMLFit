@@ -271,7 +271,7 @@ public class HtmlfitController {
 		musclesSelected = new ArrayList<Muscle>();
 		musclesSelected2 = new ArrayList<Muscle>();
 		trainingDays=new ArrayList<TrainingDay>();
-		String returnStr="redirect:/select/";
+		String returnStr="redirect:/selectTE/";
 		
 		return returnStr;
 	}
