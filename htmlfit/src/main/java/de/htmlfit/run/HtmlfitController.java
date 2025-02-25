@@ -286,14 +286,14 @@ public class HtmlfitController {
 		return "showEquipment";
 	}
 	
-	/*@RequestMapping(value = "/show/", method = RequestMethod.POST) 
-	public String show(@ModelAttribute("count") NumberBean count) {
+	@RequestMapping(value = "/showEq/", method = RequestMethod.POST) 
+	public String showEq() {
 
-		countEx = count.getCount();
-		String returnStr = "redirect:/exerc/";
-		System.out.println("eingegeben :"+count.getCount() );
+
+		String returnStr = "redirect:/select/";
+
 		return returnStr;
-	}*/
+	}
 	
 	@GetMapping(value = "/delete/")
 	public String delete() {
