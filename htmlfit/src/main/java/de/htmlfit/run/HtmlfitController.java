@@ -123,7 +123,11 @@ public class HtmlfitController {
 		int j=0;
 		int exerc=countEx;
 		ExerciseBuild toAdd=new ExerciseBuild();
+		
+		//TODO: delete exercises with not selected equipment
 		ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
+		
+		
 		for(int k=0;k<exerc;k++)
 		{
 			
