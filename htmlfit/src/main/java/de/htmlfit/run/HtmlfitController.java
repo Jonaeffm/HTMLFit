@@ -116,6 +116,23 @@ public class HtmlfitController {
 		}
 	}
 	
+	void deleteExercisesWithNotSelectedEq()
+	{
+		ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
+		for (ExerciseBuild element : exercisesBuild){
+			
+		  
+			
+			for (TrainingEquipment te : element.getTrainingEquipment()) {
+				if (!selectedEq.contains(te)){
+					exercisesBuild.remove(element);
+					System.out.println(element.getName()+" deleted");
+				}
+				
+			}
+		}
+	}
+	
 	void selectExerciseBuild()
 	{
 		musclesForSelect=musclesSelected;
