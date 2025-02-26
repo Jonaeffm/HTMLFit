@@ -63,6 +63,7 @@ public class HtmlfitController {
 	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
 	ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
+	ArrayList<ExerciseBuild> exercisesBuild ;
 
 	void selectExercise()
 	{
@@ -118,7 +119,8 @@ public class HtmlfitController {
 	
 	void deleteExercisesWithNotSelectedEq()
 	{
-		ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
+		ArrayList<ExerciseBuild> doDelete = new ArrayList<ExerciseBuild>();
+		//ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
 		for (ExerciseBuild element : exercisesBuild){
 			
 		  
@@ -133,7 +135,12 @@ public class HtmlfitController {
 				
 			}
 			if (b==true)
-				exercisesBuild.remove(element);
+				doDelete.add(element);
+				//exercisesBuild.remove(element);
+				
+		}
+		for (ExerciseBuild eB : doDelete) {
+			exercisesBuild.remove(eB);
 		}
 	}
 	
@@ -146,7 +153,8 @@ public class HtmlfitController {
 		ExerciseBuild toAdd=new ExerciseBuild();
 		
 		//TODO: delete exercises with not selected equipment
-		ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
+		//ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
+		exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
 		deleteExercisesWithNotSelectedEq();
 		
 		
