@@ -26,10 +26,10 @@ public class ExerciseBuild {
 	@ManyToOne()
 	private TrainingDay TrainingDay;
 	
-	@ManyToMany(mappedBy = "exerciseBuild")
+	@ManyToMany()
 	private Collection<Muscle> Muscles;
 	
 
-	@ManyToMany(mappedBy = "exerciseBuild")
+	@ManyToMany()
 	private Collection<TrainingEquipment> TrainingEquipment;
 }

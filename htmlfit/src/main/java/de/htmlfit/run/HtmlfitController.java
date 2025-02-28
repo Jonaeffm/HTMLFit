@@ -130,7 +130,9 @@ public class HtmlfitController {
 			for (TrainingEquipment te : tearr) {
 				
 				System.out.println("equipment for "+element.getName()+" are "+ element.getTrainingEquipment().size() );
+				System.out.println("SelectedEquipment is "+selectedEq.size());
 				
+				//error here
 				if (!(selectedEq.contains(te))){
 						
 					b=true;
