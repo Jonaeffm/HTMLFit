@@ -133,8 +133,16 @@ public class HtmlfitController {
 				System.out.println("SelectedEquipment is "+selectedEq.size());
 				
 				//error here
-				if (selectedEq.contains(te)){
-				}else {
+				
+				for(TrainingEquipment item : selectedEq) {
+					System.out.println("Name des ausgeqählten Equipments "+item.getName()+ " ID: "+item.getId());	
+					if (te.getId()==item.getId()){
+						b=true;
+					}
+				}
+				
+				
+				/*if (!(selectedEq.contains(te))){
 					for(TrainingEquipment item : selectedEq) {
 						System.out.println("Name des ausgeqählten Equipments "+item.getName()+ " ID: "+item.getId());	
 						
@@ -142,12 +150,14 @@ public class HtmlfitController {
 					b=true;
 					System.out.println(element.getName()+" deleted"+" The selected EQ Doesnt contain "+te.getName()+" ID:"+te.getId());
 					
-				}
+				}*/
 				
 			}
-			if (b==true)
+			if (b==false) {
 				doDelete.add(element);
+				System.out.println(element.getName()+" deleted");
 				//exercisesBuild.remove(element);
+			}
 				
 		}
 		for (ExerciseBuild eB : doDelete) {
