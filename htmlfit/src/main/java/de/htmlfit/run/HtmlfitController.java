@@ -200,9 +200,9 @@ public class HtmlfitController {
 			
 			boolean test = exercisesBuild.remove(exerciseBuildService.findById(toAdd.getId()).get());
 			
-			/*if (j==0) {
+			if (j==0) {
 				break;
-			}*/
+			}
 			
 			System.out.println("Test:gelöscht="+test);
 			
