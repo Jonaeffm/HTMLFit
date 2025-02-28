@@ -133,10 +133,14 @@ public class HtmlfitController {
 				System.out.println("SelectedEquipment is "+selectedEq.size());
 				
 				//error here
-				if (!(selectedEq.contains(te))){
+				if (selectedEq.contains(te)){
+				}else {
+					for(TrainingEquipment item : selectedEq) {
+						System.out.println("Name des ausgeqählten Equipments "+item.getName()+ " ID: "+item.getId());	
 						
+					}
 					b=true;
-					System.out.println(element.getName()+" deleted"+" The selected EQ Doesnt contain "+te.getName());
+					System.out.println(element.getName()+" deleted"+" The selected EQ Doesnt contain "+te.getName()+" ID:"+te.getId());
 					
 				}
 				
