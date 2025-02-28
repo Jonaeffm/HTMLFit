@@ -11,6 +11,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
@@ -34,7 +36,11 @@ public class Muscle {
 	private Collection<Exercise> exercise;
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy = "Muscles")
+	@ManyToMany
+	@JoinTable(
+			  name = "exercises", 
+			  joinColumns = @JoinColumn(name = "MUSCLE_ID"), 
+			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
 
 	@Override

@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
@@ -24,9 +26,10 @@ public class ExerciseBuild {
 	@ManyToOne()
 	private TrainingDay TrainingDay;
 	
-	@ManyToMany()
+	@ManyToMany(mappedBy = "exerciseBuild")
 	private Collection<Muscle> Muscles;
 	
-	@ManyToMany()
+
+	@ManyToMany(mappedBy = "exerciseBuild")
 	private Collection<TrainingEquipment> TrainingEquipment;
 }

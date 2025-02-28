@@ -129,7 +129,7 @@ public class HtmlfitController {
 				if (!selectedEq.contains(te)){
 						
 					b=true;
-					System.out.println(element.getName()+" deleted");
+					System.out.println(element.getName()+" deleted"+" Doesnt contain "+te.getName());
 					
 				}
 				
@@ -179,7 +179,12 @@ public class HtmlfitController {
 			
 			boolean test = exercisesBuild.remove(exerciseBuildService.findById(toAdd.getId()).get());
 			
+			if (j==0) {
+				break;
+			}
+			
 			System.out.println("Test:gelöscht="+test);
+			
 			j=0;
 			
 			/*Iterator<Muscle> iter = musclesForSelect.iterator();
@@ -267,6 +272,7 @@ public class HtmlfitController {
 			System.out.println(i);
 		}*/
 		selectedEq.add(e.get());
+		System.out.println("add "+e.get().getName()+" to selected equipment");
 		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
 		//musclesAsObject.add(m.get());
