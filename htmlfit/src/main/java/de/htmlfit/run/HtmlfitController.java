@@ -123,13 +123,18 @@ public class HtmlfitController {
 		//ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
 		for (ExerciseBuild element : exercisesBuild){
 			
+			System.out.println("exercisesBuild are "+exercisesBuild.size());
 		  
 			boolean b=false;
-			for (TrainingEquipment te : element.getTrainingEquipment()) {
-				if (!selectedEq.contains(te)){
+			Collection<TrainingEquipment> tearr = element.getTrainingEquipment();
+			for (TrainingEquipment te : tearr) {
+				
+				System.out.println("equipment for "+element.getName()+" are "+ element.getTrainingEquipment().size() );
+				
+				if (!(selectedEq.contains(te))){
 						
 					b=true;
-					System.out.println(element.getName()+" deleted"+" Doesnt contain "+te.getName());
+					System.out.println(element.getName()+" deleted"+" The selected EQ Doesnt contain "+te.getName());
 					
 				}
 				
@@ -179,9 +184,9 @@ public class HtmlfitController {
 			
 			boolean test = exercisesBuild.remove(exerciseBuildService.findById(toAdd.getId()).get());
 			
-			if (j==0) {
+			/*if (j==0) {
 				break;
-			}
+			}*/
 			
 			System.out.println("Test:gelöscht="+test);
 			

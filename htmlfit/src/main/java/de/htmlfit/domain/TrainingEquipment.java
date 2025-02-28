@@ -27,7 +27,7 @@ public class TrainingEquipment {
 	@JsonIgnore
 	@ManyToMany
 	@JoinTable(
-			  name = "exercises", 
+			  name = "exercisesBuildTrainingEq", 
 			  joinColumns = @JoinColumn(name = "TRAININGEQUIPMENT_ID"), 
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
