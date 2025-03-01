@@ -67,7 +67,9 @@ public class HtmlfitController {
 
 	void selectExercise()
 	{
-		musclesForSelect=musclesSelected;
+		for (Muscle mItem : musclesSelected) {
+			musclesForSelect.add(mItem);
+		}
 		int i=0;
 		int j=0;
 		int exerc=4;
@@ -176,7 +178,13 @@ public class HtmlfitController {
 	
 	void selectExerciseBuild()
 	{
-		musclesForSelect=musclesSelected;
+		System.out.println("muscles selected size "+musclesSelected.size());
+		//musclesForSelect=musclesSelected;
+		
+		for (Muscle mItem : musclesSelected) {
+			musclesForSelect.add(mItem);
+		}
+		
 		int i=0;
 		int j=0;
 		int exerc=countEx;
