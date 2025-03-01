@@ -88,10 +88,7 @@ public class HtmlfitController {
 		    				i++;
 		    			}
 		    		}
-		    		/*
-		    		if(element.getMuscles().contains(mElement)) {
-		    			i++;
-		    		}*/
+		    		
 		    	}
 		    	
 		    	if(i>=j) {
@@ -201,9 +198,7 @@ public class HtmlfitController {
 			
 			for (ExerciseBuild element : exercisesBuild){
 		    	for(Muscle mElement: musclesForSelect ) {
-		    		/*if(element.getMuscles().contains(mElement)) {
-		    			i++;
-		    		}*/
+		    		
 		    		for  (int l = 0; l<element.getMuscles().size();l++) {
 		    			ArrayList<Muscle> muscles = new ArrayList<Muscle>(element.getMuscles());
 		    			if (muscles.get(l).equals(mElement)) {
