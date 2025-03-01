@@ -136,7 +136,7 @@ public class HtmlfitController {
 				
 				for(TrainingEquipment item : selectedEq) {
 					System.out.println("Name des ausgeqählten Equipments "+item.getName()+ " ID: "+item.getId());	
-					if (te.getId()==item.getId()){
+					if (te.equals(item)){
 						b=true;
 					}
 				}

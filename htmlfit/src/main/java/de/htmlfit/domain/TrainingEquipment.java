@@ -32,4 +32,8 @@ public class TrainingEquipment {
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
 
+	public boolean equals(TrainingEquipment te) {
+		return this.getId() == te.getId();
+	}
+	
 }
