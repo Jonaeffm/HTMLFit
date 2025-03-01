@@ -61,13 +61,13 @@ public class HtmlfitController {
 	Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
 	Collection<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
 	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
-	ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
+	//ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
 	ArrayList<ExerciseBuild> exercisesBuild ;
 
 	void selectExercise()
 	{
-		musclesForSelect=musclesSelected2;
+		musclesForSelect=musclesSelected;
 		int i=0;
 		int j=0;
 		int exerc=4;
@@ -78,9 +78,18 @@ public class HtmlfitController {
 			
 			for (Exercise element : exercises){
 		    	for(Muscle mElement: musclesForSelect ) {
+		    		
+		    		for  (int l = 0; l<element.getMuscles().size();l++) {
+		    			ArrayList<Muscle> muscles = new ArrayList<Muscle>(element.getMuscles());
+		    			if (muscles.get(l).equals(mElement)) {
+		    					
+		    				i++;
+		    			}
+		    		}
+		    		/*
 		    		if(element.getMuscles().contains(mElement)) {
 		    			i++;
-		    		}
+		    		}*/
 		    	}
 		    	
 		    	if(i>=j) {
@@ -184,8 +193,16 @@ public class HtmlfitController {
 			
 			for (ExerciseBuild element : exercisesBuild){
 		    	for(Muscle mElement: musclesForSelect ) {
-		    		if(element.getMuscles().contains(mElement)) {
+		    		/*if(element.getMuscles().contains(mElement)) {
 		    			i++;
+		    		}*/
+		    		for  (int l = 0; l<element.getMuscles().size();l++) {
+		    			ArrayList<Muscle> muscles = new ArrayList<Muscle>(element.getMuscles());
+		    			if (muscles.get(l).equals(mElement)) {
+
+		    					
+		    				i++;
+		    			}
 		    		}
 		    	}
 		    	
@@ -261,7 +278,7 @@ public class HtmlfitController {
 			System.out.println(i);
 		}*/
 		musclesSelected.add(m.get());
-		musclesSelected2.add(m.get());
+		//musclesSelected2.add(m.get());
 		musclesAsObject.add(m.get());
 		String returnStr="redirect:/show/";
 		return returnStr;
@@ -309,7 +326,7 @@ public class HtmlfitController {
 		selectedExercises = new ArrayList<Exercise>();
 		selectedExercisesBuild = new ArrayList<ExerciseBuild>();
 		musclesSelected = new ArrayList<Muscle>();
-		musclesSelected2 = new ArrayList<Muscle>();
+		//musclesSelected2 = new ArrayList<Muscle>();
 		trainingDays=new ArrayList<TrainingDay>();
 		String returnStr="redirect:/selectTE/";
 		

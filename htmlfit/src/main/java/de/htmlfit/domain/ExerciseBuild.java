@@ -1,5 +1,6 @@
 package de.htmlfit.domain;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import jakarta.persistence.Column;
