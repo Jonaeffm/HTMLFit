@@ -31,11 +31,15 @@ public class Muscle {
 	Long id;
 	String name;
 		
-	@JsonIgnore
-	@ManyToMany(mappedBy = "Muscles")
+
+	@ManyToMany
+	@JoinTable(
+			  name = "exercisesH", 
+			  joinColumns = @JoinColumn(name = "MUSCLE_ID"), 
+			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<Exercise> exercise;
 	
-	@JsonIgnore
+
 	@ManyToMany
 	@JoinTable(
 			  name = "exercises", 

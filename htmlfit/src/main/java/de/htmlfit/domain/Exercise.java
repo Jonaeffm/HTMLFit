@@ -29,7 +29,7 @@ public class Exercise {
 	@GeneratedValue
 	private Long id;
 	private String name;
-	@ManyToMany()
+	@ManyToMany(mappedBy = "exercise")
 	private Collection<Muscle> Muscles;
 	@ManyToMany(mappedBy = "exercise")
 	private Collection<TrainingDay> TrainingDays;

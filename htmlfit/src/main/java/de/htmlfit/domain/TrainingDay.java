@@ -30,15 +30,13 @@ public class TrainingDay {
 	@ManyToOne()
 	private TrainingPlan trainingPlan;
 
-	@JsonIgnore
 	@ManyToMany
 	@JoinTable(
 			  name = "exercises", 
 			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<Exercise> exercise;
-	
-	@JsonIgnore
+
 	@OneToMany
 	@JoinTable(
 	          name="BodyBuildExercises",

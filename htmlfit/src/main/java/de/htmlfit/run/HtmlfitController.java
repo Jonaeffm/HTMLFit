@@ -189,7 +189,7 @@ public class HtmlfitController {
 		
 		//TODO: delete exercises with not selected equipment
 		//ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
-		exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
+		exercisesBuild = new ArrayList<ExerciseBuild>(exerciseBuildService.findAll());
 		deleteExercisesWithNotSelectedEq();
 		
 		
@@ -398,18 +398,27 @@ public class HtmlfitController {
 			selectExerciseBuild();
 			model.addAttribute("exercisesBuild",selectedExercisesBuild);
 			
-			/*TrainingDay trDay = new TrainingDay();
+			TrainingDay trDay = new TrainingDay();
 			ArrayList<Exercise> ExTrDay = new ArrayList<Exercise>();
-			ArrayList<ExerciseBuild> ExBTrDay = new ArrayList<ExerciseBuild>();*/
+			ArrayList<ExerciseBuild> ExBTrDay = new ArrayList<ExerciseBuild>();
 			
-			/*ExTrDay = selectedExercises;
-			ExBTrDay = selectedExercisesBuild;*/
-			//trDay.setExercise(selectedExercises);
+			for (Exercise Ex : selectedExercises)
+			{
+				ExTrDay.add(exerciseService.findById(Ex.getId()).get());
+			}
 			
-			//trDay.setExerciseBuild(selectedExercisesBuild);
+		
+			for (ExerciseBuild ExB : selectedExercisesBuild)
+			{
+				ExBTrDay.add(exerciseBuildService.findById(ExB.getId()).get());
+			}
+		
+			trDay.setExercise(ExTrDay);
+			
+			trDay.setExerciseBuild(ExBTrDay);
 			
 			
-			//trainingDaysService.save(trDay);
+			trainingDaysService.save(trDay);
 
 			
 		}

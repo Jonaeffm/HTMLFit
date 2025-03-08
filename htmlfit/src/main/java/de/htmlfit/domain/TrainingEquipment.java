@@ -24,7 +24,7 @@ public class TrainingEquipment {
 	private Long id;
 	private String name;
 	
-	@JsonIgnore
+
 	@ManyToMany
 	@JoinTable(
 			  name = "exercisesBuildTrainingEq", 
