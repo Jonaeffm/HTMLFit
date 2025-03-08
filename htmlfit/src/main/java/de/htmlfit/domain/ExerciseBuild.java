@@ -29,8 +29,8 @@ public class ExerciseBuild {
 	
 	@ManyToMany(mappedBy = "exerciseBuild")
 	private Collection<Muscle> Muscles;
+		
 	
-
-	@ManyToMany(mappedBy = "exerciseBuild")
+	@ManyToMany()
 	private Collection<TrainingEquipment> TrainingEquipment;
 }
