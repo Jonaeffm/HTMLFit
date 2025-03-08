@@ -39,7 +39,7 @@ public class Muscle {
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<Exercise> exercise;
 	
-
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(
 			  name = "exercises", 

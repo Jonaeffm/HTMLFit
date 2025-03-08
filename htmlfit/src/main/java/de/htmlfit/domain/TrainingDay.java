@@ -32,7 +32,7 @@ public class TrainingDay {
 
 	@ManyToMany
 	@JoinTable(
-			  name = "exercises", 
+			  name = "exercisesTd", 
 			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<Exercise> exercise;
