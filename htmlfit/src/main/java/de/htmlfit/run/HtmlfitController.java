@@ -134,7 +134,7 @@ public class HtmlfitController {
 			System.out.println("exercisesBuild are "+exercisesBuild.size());
 		  
 			boolean b=false;
-			Collection<TrainingEquipment> tearr = element.getTrainingEquipment();
+			ArrayList<TrainingEquipment> tearr = new ArrayList<TrainingEquipment>(element.getTrainingEquipment());
 			for (TrainingEquipment te : tearr) {
 				
 				System.out.println("equipment for "+element.getName()+" are "+ element.getTrainingEquipment().size() );
