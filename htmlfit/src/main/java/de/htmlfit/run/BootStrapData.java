@@ -556,7 +556,11 @@ public class BootStrapData implements CommandLineRunner{
 							
 		backfly.setTrainingEquipment(backflyEquipment);
 		backfly.setMuscles(backflyMuscles);
-		ebs.save(kickBack);
+		ebs.save(backfly);
+		
+		
+		
+		
 	}
 	
 	@Override
