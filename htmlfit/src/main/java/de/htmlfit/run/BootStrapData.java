@@ -541,6 +541,22 @@ public class BootStrapData implements CommandLineRunner{
 		kickBack.setTrainingEquipment(kickBackEquipment);
 		kickBack.setMuscles(kickBackMuscles);
 		ebs.save(kickBack);
+		
+		
+		//--------------------------Backfly-------------------------------------------
+		ExerciseBuild backfly = new ExerciseBuild();
+		Collection<TrainingEquipment> backflyEquipment = new ArrayList<TrainingEquipment>();
+		backflyEquipment.add(trainingBench);
+		backflyEquipment.add(dumbbell);
+																
+		ArrayList<Muscle> backflyMuscles = new ArrayList<Muscle>();
+		backflyMuscles.add(latissimus);
+		backflyMuscles.add(rhomboid);
+		backflyMuscles.add(trapezius);
+							
+		backfly.setTrainingEquipment(backflyEquipment);
+		backfly.setMuscles(backflyMuscles);
+		ebs.save(kickBack);
 	}
 	
 	@Override
