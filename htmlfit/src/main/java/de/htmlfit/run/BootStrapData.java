@@ -54,6 +54,10 @@ public class BootStrapData implements CommandLineRunner{
 		trainingBench.setName("Training Bench");
 		tes.save(trainingBench);
 		
+		TrainingEquipment barbell = new TrainingEquipment();
+		barbell.setName("Barbell");
+		tes.save(barbell);
+		
 		//-------------------muscles--------------------------
 		
 		Muscle gastrocnemius = new Muscle();
@@ -545,6 +549,8 @@ public class BootStrapData implements CommandLineRunner{
 		
 		//--------------------------Backfly-------------------------------------------
 		ExerciseBuild backfly = new ExerciseBuild();
+		backfly.setName("Backfly");
+		
 		Collection<TrainingEquipment> backflyEquipment = new ArrayList<TrainingEquipment>();
 		backflyEquipment.add(trainingBench);
 		backflyEquipment.add(dumbbell);
@@ -559,7 +565,24 @@ public class BootStrapData implements CommandLineRunner{
 		ebs.save(backfly);
 		
 		
-		
+		//-----------------------barbell upright row---------------------------
+		ExerciseBuild bur = new ExerciseBuild();
+		bur.setName("Barbell Upright Row");
+				
+		Collection<TrainingEquipment> burEquipment = new ArrayList<TrainingEquipment>();
+		burEquipment.add(barbell);
+				
+		ArrayList<Muscle> burMuscles = new ArrayList<Muscle>();
+		burMuscles.add(trapezius);
+		burMuscles.add(deltoids);
+		burMuscles.add(biceps);
+		burMuscles.add(brachialis);
+		burMuscles.add(serratusAnterior);
+				
+				
+		bur.setMuscles(burMuscles);
+		bur.setTrainingEquipment(burEquipment);
+		ebs.save(bur);
 		
 	}
 	
