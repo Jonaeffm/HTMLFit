@@ -464,4 +464,13 @@ public class HtmlfitController {
 		return returnStr;
 	}
 	
+	
+	@GetMapping("/delete/{id}")
+	public String showTd(@PathVariable("id") long id) {
+		String returnStr = "redirect:/tDays/";
+	    trainingDaysService.deleteById(id);
+
+		return returnStr;
+	}
+	
 }

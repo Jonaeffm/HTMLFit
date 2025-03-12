@@ -9,10 +9,12 @@
     	<tr>
         	<th>Id</th>
             <th>Training Day</th>
+            <th>delete</th>
         </tr>
         <tr th:each="TD, stat :${trainingDays}">
              <td th:text = "${TD.id}"></td>
              <td> <a th:href="@{/show/{id}(id=${TD.id})}">open</a></td>
+             <td> <a th:href="@{/delete/{id}(id=${TD.id})}">delete</a></td>
 
         </tr>
      </table>
