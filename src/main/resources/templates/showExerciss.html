@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selected exercises</title>
+</head>
+<body>
+	<table>
+    	<tr>
+        	<th>Id</th>
+            <th>Muscle Name</th>
+        </tr>
+        <tr th:each="muscleA, stat :${resultMusclesA}">
+             <td th:text = "${muscleA.id}"></td>
+             <td th:text = "${muscleA.name}"></td>
+        </tr>
+     </table>
+	 <table>
+     	<tr>
+        	<th>Id</th>
+            <th>HIIT Exercise</th>
+        </tr>
+        <tr th:each="exercise, stat :${exercises}">
+             <td th:text = "${exercise.id}"></td>
+             <td th:text = "${exercise.name}"></td> 
+        </tr>
+     </table>
+            
+      <table>
+     	<tr>
+        	<th>Id</th>
+            <th>Bodybuild Exercise</th>
+        </tr>
+        <tr th:each="exerciseB, stat :${exercisesBuild}">
+        	<td th:text = "${exerciseB.id}"></td>
+            <td th:text = "${exerciseB.name}"></td> 
+       	</tr>
+       </table>
+
+            
+   <a href="/hiit/">start</a>
+   <a href="/">+ next training day</a>
+   <a href="/tDays/">training days</a>
+</body>
+</html>
