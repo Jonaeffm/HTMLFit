@@ -2,6 +2,7 @@ package de.htmlfit.domain;
 
 import java.util.Collection;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,6 +16,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -43,5 +45,7 @@ public class TrainingDay {
 	          joinColumns = @JoinColumn( name="TRAININGDAY_ID"),
 	          inverseJoinColumns = @JoinColumn( name="EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
-	
+
+	@OneToOne
+	UserDetails ud;
 }
