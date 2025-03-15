@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Component;
 
+import de.htmlfit.domain.ProgramUser;
 import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
@@ -21,6 +22,8 @@ import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 import de.htmlfit.services.TrainingDayService;
 import de.htmlfit.services.TrainingEquipmentService;
+import de.htmlfit.repositories.ProgramUserRepository;
+
 
 @EnableAutoConfiguration
 @Component
@@ -33,6 +36,9 @@ public class BootStrapData implements CommandLineRunner{
 	
 	@Autowired
 	ExerciseBuildService ebs;
+	
+	@Autowired
+	private ProgramUserRepository uR;
 	
 	@Autowired
 	TrainingEquipmentService tes;
@@ -584,6 +590,11 @@ public class BootStrapData implements CommandLineRunner{
 		bur.setTrainingEquipment(burEquipment);
 		ebs.save(bur);
 		
+		ProgramUser a = new ProgramUser("a","a");
+		ProgramUser b = new ProgramUser("b","b");
+		
+		uR.save(a);
+		uR.save(b);
 	}
 	
 	@Override

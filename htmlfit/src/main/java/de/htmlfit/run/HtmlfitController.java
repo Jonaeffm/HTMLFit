@@ -425,7 +425,7 @@ public class HtmlfitController {
 			
 			trDay.setExerciseBuild(ExBTrDay);
 			
-			trDay.setUd(userRepository.findByUsername(authentication.getName()))
+			//trDay.setUd(userRepository.findByUsername(authentication.getName()));
 			trainingDaysService.save(trDay);
 
 			

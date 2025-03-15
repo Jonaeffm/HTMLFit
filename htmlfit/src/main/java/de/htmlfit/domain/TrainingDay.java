@@ -46,6 +46,5 @@ public class TrainingDay {
 	          inverseJoinColumns = @JoinColumn( name="EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
 
-	@OneToOne
-	UserDetails ud;
+
 }
