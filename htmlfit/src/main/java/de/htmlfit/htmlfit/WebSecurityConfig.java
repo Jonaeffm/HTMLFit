@@ -13,20 +13,28 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import de.htmlfit.services.AuthenticatedUserService;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 @ComponentScan(basePackageClasses = AuthenticatedUserService.class)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter  {
+public class WebSecurityConfig  {
 
 	   @Autowired
 	   private UserDetailsService userDetailsService;
 	
+	   @SuppressWarnings("deprecation")
+	@Bean
+	   public static NoOpPasswordEncoder passwordEncoder() {
+	       return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+	   }
+	   
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
@@ -44,6 +52,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter  {
 	}
 
 	@Autowired
+	   public void globalSecurityConfiguration(AuthenticationManagerBuilder auth) throws Exception {
+	       auth.userDetailsService(userDetailsService);
+	   }
+	/*@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
 	    BCryptPasswordEncoder encoder = passwordEncoder();
 	    auth.inMemoryAuthentication().withUser("admin").password(encoder.encode("admin")).roles("ADMIN");
@@ -52,7 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter  {
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 	    return new BCryptPasswordEncoder();
-	}
+	}*/
 	
 	
 	

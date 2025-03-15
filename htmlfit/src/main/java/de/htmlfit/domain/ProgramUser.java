@@ -1,6 +1,8 @@
 package de.htmlfit.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,7 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-public class ProgramUser {
+public class ProgramUser  {
  
     @Id
     @GeneratedValue()
@@ -61,5 +63,10 @@ public class ProgramUser {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+
+	
+	
       	
 }
