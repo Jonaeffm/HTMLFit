@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("de.htmlfit.domain")
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan({"de.htmlfit.run","de.htmlfit.services"})
+@ComponentScan({"de.htmlfit.run","de.htmlfit.services","de.htmlfit.htmlfit"})
 public class HtmlfitApplication {
 
 	public static void main(String[] args) {
