@@ -47,11 +47,11 @@ public class WebSecurityConfig
 				.requestMatchers("/", "/home").permitAll()
 				.anyRequest().authenticated()
 			)
-			.formLogin((form) -> form
-				.loginPage("/login")
+		
+			.formLogin(form -> form
+				.loginPage("/loginPage")
 				.permitAll()
-			)
-			.logout((logout) -> logout.permitAll());
+			);
 
 		return http
 				.build();
