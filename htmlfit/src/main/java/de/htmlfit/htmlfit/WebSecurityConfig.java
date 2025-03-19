@@ -32,7 +32,7 @@ public class WebSecurityConfig
 {
 
 	   @Autowired
-	   private AuthenticatedUserService userDetailsService;
+	   private UserDetailsService userDetailsService;
 	
 	 /*  @SuppressWarnings("deprecation")
 	@Bean
@@ -48,10 +48,12 @@ public class WebSecurityConfig
 				.anyRequest().authenticated()
 			)
 		
-			.formLogin(form -> form
-				.loginPage("/loginPage")
-				.permitAll()
-			);
+		    .formLogin(form -> form
+                    .loginPage("/loginPage")
+                    .defaultSuccessUrl("/")
+                    .failureUrl("/loginPage")
+                    .permitAll()
+                    );
 
 		return http
 				.build();
@@ -59,11 +61,10 @@ public class WebSecurityConfig
 
 	
 	
-	@Autowired
+	   @Autowired
 	   public void globalSecurityConfiguration(AuthenticationManagerBuilder auth) throws Exception {
 	       auth.userDetailsService(userDetailsService);
 	   }
-	
 	   
 	   @SuppressWarnings("deprecation")
 	   @Bean
