@@ -28,7 +28,8 @@ import de.htmlfit.services.AuthenticatedUserService;
 @Configuration
 @EnableWebSecurity
 @ComponentScan(basePackageClasses = AuthenticatedUserService.class)
-public class WebSecurityConfig  {
+public class WebSecurityConfig 
+{
 
 	   @Autowired
 	   private AuthenticatedUserService userDetailsService;
@@ -63,22 +64,15 @@ public class WebSecurityConfig  {
 	       auth.userDetailsService(userDetailsService);
 	   }
 	
-	@Bean(name="myPasswordEncoder")
-	public PasswordEncoder getPasswordEncoder() {
-	        DelegatingPasswordEncoder delPasswordEncoder=  (DelegatingPasswordEncoder)PasswordEncoderFactories.createDelegatingPasswordEncoder();
-	        BCryptPasswordEncoder bcryptPasswordEncoder =new BCryptPasswordEncoder();
-	    delPasswordEncoder.setDefaultPasswordEncoderForMatches(bcryptPasswordEncoder);
-	    return delPasswordEncoder;      
-	}
+	   
+	   @SuppressWarnings("deprecation")
+	   @Bean
+	   public static NoOpPasswordEncoder passwordEncoder() {
+	   return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+	   }
+	
 
-	@Bean
-    @Autowired  
-    public DaoAuthenticationProvider getDaoAuthenticationProvider(@Qualifier("myPasswordEncoder") PasswordEncoder passwordEncoder, UserDetailsService userDetailsServiceJDBC) {
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
-        daoAuthenticationProvider.setUserDetailsService(userDetailsServiceJDBC);
-        return daoAuthenticationProvider;
-    }
+	
 	/*@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
 	    BCryptPasswordEncoder encoder = passwordEncoder();
