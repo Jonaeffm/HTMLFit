@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
  
 public class AuthenticatedUser extends ProgramUser implements UserDetails {
-    private static final long serialVersionUID = 1L;
+
 
 	public AuthenticatedUser(ProgramUser user) {
         super(user.getUsername(), user.getPassword());
