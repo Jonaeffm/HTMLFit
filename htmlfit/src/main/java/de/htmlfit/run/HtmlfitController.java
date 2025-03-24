@@ -56,6 +56,9 @@ public class HtmlfitController {
 	@Autowired
 	private TrainingEquipmentService trainingEquipmentService;
 	
+	@Autowired
+	private de.htmlfit.repositories.ProgramUserRepository userRepository;
+	
 	private int countEx;
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
@@ -427,6 +430,12 @@ public class HtmlfitController {
 			
 			trDay.setExerciseBuild(ExBTrDay);
 			
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			
+			de.htmlfit.domain.ProgramUser aut = userRepository.findByUsername(authentication.getName());
+			
+			
+			trDay.setProgramUser(aut);
 			//trDay.setUd(userRepository.findByUsername(authentication.getName()));
 			trainingDaysService.save(trDay);
 
