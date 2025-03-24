@@ -20,7 +20,7 @@ public class TrainingPlan {
 	@Column(name = "TRAININGPLAN_ID")
 	@GeneratedValue
 	private Long id;
-	@JsonIgnore
+	/*@JsonIgnore
 	@OneToMany(mappedBy="trainingPlan")
-	private Collection<TrainingDay> trainingDays;
+	private Collection<TrainingDay> trainingDays;*/
 }

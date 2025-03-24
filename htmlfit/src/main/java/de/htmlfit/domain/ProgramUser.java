@@ -14,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
 
 
@@ -64,6 +65,13 @@ public class ProgramUser  {
         this.password = password;
     }
 
+    @JsonIgnore
+    @OneToMany
+	@JoinTable(
+	          name="BodyBuildExercises",
+	          joinColumns = @JoinColumn( name="USER_ID"),
+	          inverseJoinColumns = @JoinColumn( name="TRAININGDAY_ID"))
+	private Collection<TrainingDay> trainingDays;
 
 
 	

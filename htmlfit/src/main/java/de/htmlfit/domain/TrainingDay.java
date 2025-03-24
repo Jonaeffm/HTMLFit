@@ -30,7 +30,7 @@ public class TrainingDay {
 	private Long id;
 	
 	@ManyToOne()
-	private TrainingPlan trainingPlan;
+	private ProgramUser programUser;
 
 	@ManyToMany
 	@JoinTable(
