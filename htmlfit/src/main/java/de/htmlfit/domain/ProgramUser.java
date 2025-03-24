@@ -72,7 +72,14 @@ public class ProgramUser  {
 	          joinColumns = @JoinColumn( name="USER_ID"),
 	          inverseJoinColumns = @JoinColumn( name="TRAININGDAY_ID"))
 	private Collection<TrainingDay> trainingDays;
+    
+    public Collection<TrainingDay> getTrainingDays(){
+    	return trainingDays;
+    }
 
+    public void setTrainingDays(Collection<TrainingDay> td) {
+    	this.trainingDays=td;
+    }
 
 	
 	
