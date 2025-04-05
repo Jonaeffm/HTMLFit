@@ -28,6 +28,7 @@ import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.domain.NumberBean;
+import de.htmlfit.domain.ProgramUser;
 import de.htmlfit.domain.TrainingDay;
 import de.htmlfit.domain.TrainingEquipment;
 import de.htmlfit.services.ExerciseBuildService;
@@ -415,6 +416,13 @@ public class HtmlfitController {
 			ArrayList<Exercise> ExTrDay = new ArrayList<Exercise>();
 			ArrayList<ExerciseBuild> ExBTrDay = new ArrayList<ExerciseBuild>();
 			
+Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			
+			ProgramUser aut = userRepository.findByUsername(authentication.getName());
+			
+			
+			trDay.setProgramUser(aut);
+			
 			for (Exercise Ex : selectedExercises)
 			{
 				ExTrDay.add(exerciseService.findById(Ex.getId()).get());
@@ -430,12 +438,7 @@ public class HtmlfitController {
 			
 			trDay.setExerciseBuild(ExBTrDay);
 			
-			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			
-			de.htmlfit.domain.ProgramUser aut = userRepository.findByUsername(authentication.getName());
-			
-			
-			trDay.setProgramUser(aut);
 			//trDay.setUd(userRepository.findByUsername(authentication.getName()));
 			trainingDaysService.save(trDay);
 
