@@ -65,10 +65,9 @@ public class ProgramUser  {
         this.password = password;
     }
 
-    @JsonIgnore
     @OneToMany
 	@JoinTable(
-	          name="BodyBuildExercises",
+	          name="training_day_for_user",
 	          joinColumns = @JoinColumn( name="USER_ID"),
 	          inverseJoinColumns = @JoinColumn( name="TRAININGDAY_ID"))
 	private Collection<TrainingDay> trainingDays;
