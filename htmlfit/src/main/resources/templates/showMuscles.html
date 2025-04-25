@@ -5,7 +5,11 @@
 <title>selected muscles</title>
 </head>
 <body>
-
+    <div sec:authorize="isAuthenticated()">Authenticated as <span sec:authentication="name"></span></div>
+				
+                          <a href="/logout">logout</a>
+                            <a href="/addUser">add user</a>
+              
                  <form method="post">
 	 <table>
             <tr>
