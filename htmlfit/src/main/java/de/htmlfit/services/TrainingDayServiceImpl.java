@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import de.htmlfit.domain.ProgramUser;
 import de.htmlfit.domain.TrainingDay;
 import de.htmlfit.repositories.TrainingDayRepository;
 
@@ -24,6 +25,13 @@ public class TrainingDayServiceImpl implements TrainingDayService{
 	public List<TrainingDay> findAll() {
 		// TODO Auto-generated method stub
 		return repository.findAll();
+	}
+	
+	@Override
+	public List<TrainingDay> findByProgramUser(ProgramUser User) {
+		// TODO Auto-generated method stub
+		
+		return repository.findByProgramUser(User);
 	}
 
 	@Override
