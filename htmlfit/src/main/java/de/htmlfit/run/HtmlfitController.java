@@ -469,6 +469,26 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	*/
+	
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+	public String showUserInfo2(Model model) {
+		ProgramUser b = new ProgramUser();
+		model.addAttribute("users", b);
+		// model.addAttribute("byDate", Comparator.comparing(Budget::getDate));
+		return "deleteUser";
+	}
+
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
+	public String processUserInfo2(@ModelAttribute("users") ProgramUser userToAdd) {
+		ProgramUser p = userRepository.findByUsername(userToAdd.getUsername());
+		if (userToAdd.getPassword().equals(p.getPassword())) {
+			userRepository.delete(userRepository.findByUsername(userToAdd.getUsername()));
+		}
+		// BudgetService.addBudget(budgetToAdd);
+		String returnStr = "redirect:/";
+		return returnStr;
+	}
+	
 	@GetMapping("/show/{id}")
 	public String showTd(@PathVariable("id") long id, Model model) {
 		String returnStr = "showExercissWithoutMuscles";
