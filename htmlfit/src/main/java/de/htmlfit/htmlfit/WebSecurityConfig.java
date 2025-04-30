@@ -48,7 +48,8 @@ public class WebSecurityConfig
 		   
            .authorizeHttpRequests()
            	.requestMatchers("/addUser").permitAll()
-               .anyRequest().authenticated()
+           	.requestMatchers("/deleteUser")   .permitAll()           
+           	.anyRequest().authenticated()
                .and()
 		    .formLogin(form -> form
                     .loginPage("/loginPage")
