@@ -478,6 +478,21 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
+	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
+	public String addUser(Model model) {
+		ProgramUser b = new ProgramUser();
+		model.addAttribute("users", b);
+		// model.addAttribute("byDate", Comparator.comparing(Budget::getDate));
+		return "newUser";
+	}
+
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public String addUserPost(@ModelAttribute("users") ProgramUser userToAdd) {
+		userRepository.save(userToAdd);
+		// BudgetService.addBudget(budgetToAdd);
+		String returnStr = "redirect:/";
+		return returnStr;
+	}
 	
 	@GetMapping("/delete/{id}")
 	public String showTd(@PathVariable("id") long id) {
