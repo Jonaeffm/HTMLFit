@@ -451,7 +451,10 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	@RequestMapping(value = "/tDays/",method = RequestMethod.GET)
 	public String showTDays(Model model) {
 		String returnStr = "showTrainingDays";
-		trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findAll();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		ProgramUser aut = userRepository.findByUsername(authentication.getName());
+		trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
 		model.addAttribute("trainingDays",trainingDays);
 		return returnStr;
 	}
