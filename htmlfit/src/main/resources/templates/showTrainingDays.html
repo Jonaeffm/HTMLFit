@@ -15,15 +15,25 @@
             margin: 0;
             padding: 0;
         }
+        .imgbox3 {
+        display: grid;
+            width: 10%;
+        	float:left;
+        }
         .imgbox {
         	float:left;
             display: grid;
-            width: 95%;
+            width: 85%;
         }
         .imgbox2 {
         display: grid;
             width: 5%;
         	float:left;
+        }
+        .left-fit{
+        	width: 100%;
+        	height: 50px;
+        	margin:left;
         }
         .center-fit {
             width: 100%;
@@ -35,10 +45,15 @@
         	height: 50px;
         	margin:right;
         }
+        
 </style>
 
 </head>
 <body>
+<div class="imgbox3">
+    	<img class="left-fit" th:src="@{/20250503_183928.jpg}">
+    	
+	</div>
 	<div class="imgbox">
     	<img class="center-fit" th:src="@{/20250503_124648.jpg}">
     	
