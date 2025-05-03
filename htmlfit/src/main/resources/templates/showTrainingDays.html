@@ -7,10 +7,6 @@
 <style>
 
 
- * {
-            margin: 0;
-            padding: 0;
-        }
         .imgbox3 {
         display: grid;
             width: 10%;
@@ -41,6 +37,12 @@
         	height: 50px;
         	margin:right;
         }
+        .media{
+        position: absolute;
+        Top: 60px;
+ 			display: grid;
+  			grid-template-columns: 1fr 1fr;
+		}
         
 </style>
 
@@ -59,34 +61,36 @@
 	 		<img class="right-fit" th:src="@{/20250503_124449.jpg}">
 		</a>
 	</div>
-	<ul class="media">
-  	<li>
+
+	<div class="media">
+  
 
     	<div sec:authorize="isAuthenticated()">Authenticated as <span sec:authentication="name"></span></div>
-	
-	<table>
-    	<tr>
-        	<th>Id</th>
-            <th>Training Day</th>
-            <th>delete</th>
-        </tr>
-        <tr th:each="TD, stat :${trainingDays}">
-             <td th:text = "${TD.id}"></td>
-             <td> <a th:href="@{/show/{id}(id=${TD.id})}">open</a></td>
-             <td> <a th:href="@{/delete/{id}(id=${TD.id})}">delete</a></td>
+		<div>
+			<table>
+    			<tr>
+        			<th>Id</th>
+            		<th>Training Day</th>
+            		<th>delete</th>
+        		</tr>
+        		<tr th:each="TD, stat :${trainingDays}">
+            	 	<td th:text = "${TD.id}"></td>
+             		<td> <a th:href="@{/show/{id}(id=${TD.id})}">open</a></td>
+             		<td> <a th:href="@{/delete/{id}(id=${TD.id})}">delete</a></td>
 
-        </tr>
-     </table>
-     <a href="/selectTE/">add</a>
-    
+        		</tr>
+     		</table>
+     	
+     	<a href="/selectTE/">add</a>
+    	</div>
     <p>
     <a>test</a>
      </p>
      <footer>
     optionaler Footer 
      </footer>  
-  </li>
-</ul>
+
+</div>
     
 </body>
 </html>_
