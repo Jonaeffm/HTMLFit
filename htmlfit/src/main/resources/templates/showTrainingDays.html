@@ -3,8 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style>
+@media (min-width: 45em) {
+	body {
+		grid-template-columns: 1fr 3fr;
+		grid-template-rows: auto 1fr min-content;
+	}
+}
+</style>
+
 </head>
 <body>
+	<ul class="media">
+  	<li>
+    	<img src='static/20250503_124648.jpg'/>
+    
+    <p>
+     </p>
+     <footer>
+    optionaler Footer 
+     </footer>  
+  </li>
+</ul>
     <div sec:authorize="isAuthenticated()">Authenticated as <span sec:authentication="name"></span></div>
 	<form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
        <input type="submit" class="btn btn-primary" value="Logout" />
@@ -25,4 +46,4 @@
      </table>
      <a href="/selectTE/">add</a>
 </body>
-</html>
+</html>_
