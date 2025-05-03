@@ -66,20 +66,8 @@
 	<ul class="media">
   	<li>
 
-    	<img }/>
-    
-    <p>
-     </p>
-     <footer>
-    optionaler Footer 
-     </footer>  
-  </li>
-</ul>
-    <div sec:authorize="isAuthenticated()">Authenticated as <span sec:authentication="name"></span></div>
-	<form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
-       <input type="submit" class="btn btn-primary" value="Logout" />
-       <a href="/addUser">add user</a>
-    </form>
+    	<div sec:authorize="isAuthenticated()">Authenticated as <span sec:authentication="name"></span></div>
+	
 	<table>
     	<tr>
         	<th>Id</th>
@@ -94,5 +82,14 @@
         </tr>
      </table>
      <a href="/selectTE/">add</a>
+    
+    <p>
+     </p>
+     <footer>
+    optionaler Footer 
+     </footer>  
+  </li>
+</ul>
+    
 </body>
 </html>_
