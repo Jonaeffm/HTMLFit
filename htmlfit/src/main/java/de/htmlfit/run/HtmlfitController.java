@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
@@ -71,6 +72,8 @@ public class HtmlfitController {
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
 	ArrayList<ExerciseBuild> exercisesBuild ;
 
+
+	
 	void selectExercise()
 	{
 		for (Muscle mItem : musclesSelected) {
