@@ -11,14 +11,30 @@
 		grid-template-rows: auto 1fr min-content;
 	}
 }
+ * {
+            margin: 0;
+            padding: 0;
+        }
+        .imgbox {
+            display: grid;
+            width: 100%;
+        }
+        .center-fit {
+            width: 100%;
+            max-height: 50px;
+            margin: auto;
+        }
 </style>
 
 </head>
 <body>
+	<div class="imgbox">
+    	<img class="center-fit" th:src="@{/20250503_124648.jpg}">
+	</div>
 	<ul class="media">
   	<li>
 
-    	<img th:src="@{/20250503_124648.jpg}"}/>
+    	<img }/>
     
     <p>
      </p>
