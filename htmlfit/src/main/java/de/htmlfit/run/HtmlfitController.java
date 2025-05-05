@@ -395,7 +395,7 @@ public class HtmlfitController {
 	
 	@GetMapping(value = "/delete/")
 	public String delete() {
-		//musclesAsObject=new ArrayList<Muscle>();
+		musclesAsObject=new ArrayList<Muscle>();
 		String returnStr="redirect:/select/";
 		return returnStr;
 	}
