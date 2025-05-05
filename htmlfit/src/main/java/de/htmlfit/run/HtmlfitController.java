@@ -400,6 +400,13 @@ public class HtmlfitController {
 		return returnStr;
 	}
 	
+	@GetMapping(value = "/deleteEq/")
+	public String deleteEq() {
+		selectedEq=new ArrayList<TrainingEquipment>();
+		String returnStr="redirect:/selectTE/";
+		return returnStr;
+	}
+	
 	@RequestMapping(value = "/exerc/",method = RequestMethod.GET)
 	public String showExerc(Model model) {
 		String returnStr = "showExerciss";
