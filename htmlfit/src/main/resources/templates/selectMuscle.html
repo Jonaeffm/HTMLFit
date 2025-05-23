@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Select muscles</title>
-<style>
-
-
+	<style>
         .imgbox3 {
         display: grid;
             width: 600 px;
@@ -35,39 +33,28 @@
   			grid-template-columns: 1fr 1fr;
 		}
         
-</style>
+	</style>
 </head>
 <body>
   <div class="imgbox3">
-    	<img class="left-fit" th:src="@{/20250506_162326.jpg}">
-    	
-	</div>
+  	<img class="left-fit" th:src="@{/20250506_162326.jpg}">
+  </div>
 	
 	<div class="imgbox2">
 
-	 		<img class="right-fit" th:src="@{/20250506_162821.jpg}">
+		<img class="right-fit" th:src="@{/20250506_162821.jpg}">
 
 	</div>
 	<div class="media">
- <form method="post">
+	 	<form method="post">
   
-    <select  th:field="${muscle.id}"  class="form-control selectpicker">
-    <option  th:each="muscleChoice : ${muscles}"  th:value="${muscleChoice.id}" th:text="${muscleChoice.name}" ></option>
- </select>               
-                  
-  
-   
-      
-             
-             
-
-         
+    		<select  th:field="${muscle.id}"  class="form-control selectpicker">
+    			<option  th:each="muscleChoice : ${muscles}"  th:value="${muscleChoice.id}" th:text="${muscleChoice.name}" ></option>
+ 			</select>               
+ 
 <!--    <button type="submit" class="btn btn-primary">Sign in</button> -->
-
-<input type="submit" value="Submit" class="btn btn-primary" />
-</form>
-</div>
+			<input type="submit" value="Submit" class="btn btn-primary" />
+		</form>
+	</div>
 </body>
-
-
 </html>
