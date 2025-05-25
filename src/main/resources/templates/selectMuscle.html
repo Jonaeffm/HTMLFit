@@ -1,0 +1,60 @@
+       			<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Select muscles</title>
+	<style>
+        .imgbox3 {
+        display: grid;
+            width: 600 px;
+        	float:left;
+        }
+        
+        .imgbox2 {
+        display: grid;
+        width: calc(100% - 600px) ;
+        	float:left;
+        }
+        .left-fit{
+        	width: 100%;
+        	height: 50px;
+        	margin:left;
+        }
+
+        .right-fit{
+        	width: 100%;
+        	height: 50px;
+        	margin:right;
+        }
+        .media{
+        position: absolute;
+        Top: 60px;
+ 			display: grid;
+  			grid-template-columns: 1fr 1fr;
+		}
+        
+	</style>
+</head>
+<body>
+  <div class="imgbox3">
+  	<img class="left-fit" th:src="@{/20250506_162326.jpg}">
+  </div>
+	
+	<div class="imgbox2">
+
+		<img class="right-fit" th:src="@{/20250506_162821.jpg}">
+
+	</div>
+	<div class="media">
+	 	<form method="post">
+  
+    		<select  th:field="${muscle.id}"  class="form-control selectpicker">
+    			<option  th:each="muscleChoice : ${muscles}"  th:value="${muscleChoice.id}" th:text="${muscleChoice.name}" ></option>
+ 			</select>               
+ 
+<!--    <button type="submit" class="btn btn-primary">Sign in</button> -->
+			<input type="submit" value="Submit" class="btn btn-primary" />
+		</form>
+	</div>
+</body>
+</html>
