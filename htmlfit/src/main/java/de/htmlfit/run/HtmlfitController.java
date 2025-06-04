@@ -347,7 +347,9 @@ public class HtmlfitController {
 		musclesSelected = new ArrayList<Muscle>();
 		//musclesSelected2 = new ArrayList<Muscle>();
 		trainingDays=new ArrayList<TrainingDay>();
-		selectedEq = new ArrayList<TrainingEquipment>();
+		
+		selectedEq.removeAll(selectedEq);
+		
 		String returnStr="redirect:/tDays/";
 		
 		return returnStr;
