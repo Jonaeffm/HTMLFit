@@ -32,7 +32,11 @@
  			display: grid;
   			grid-template-columns: 1fr 1fr;
 		}
-        
+                .table{
+        position: absolute;
+        Top:100px;
+
+        }
 	</style>
 </head>
 <body>
@@ -47,6 +51,8 @@
 	</div>
 	<div class="media"> 
 	<div sec:authorize="isAuthenticated()">Authenticated as <span sec:authentication="name"></span></div>
+	</div>
+	<div class="table">
 		<form class="navbar-form navbar-right" th:action="@{/logout}" method="post">
           <input type="submit" class="btn btn-primary" value="Logout" />
           <a href="/addUser">add user</a>
