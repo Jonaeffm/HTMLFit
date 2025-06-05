@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -379,7 +380,7 @@ public class HtmlfitController {
 	}
 	
 	@RequestMapping(value = "/showEq/", method = RequestMethod.GET)
-	public String showGetEq(Model model) {
+	public String showGetEq( Model model) {
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
 		model.addAttribute("resultEq",selectedEq);
