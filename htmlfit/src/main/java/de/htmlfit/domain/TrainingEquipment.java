@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,10 @@ public class TrainingEquipment {
 	private Long id;
 	private String name;
 	
-
+	@JsonIgnore
+	@Lob
+	byte[] image;
+	
 	@ManyToMany
 	@JoinTable(
 			  name = "exercisesBuildTrainingEq", 

@@ -1,5 +1,8 @@
 package de.htmlfit.run;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -46,8 +49,13 @@ public class BootStrapData implements CommandLineRunner{
 	@Autowired
 	TrainingEquipmentService tes;
 	
+	byte[] imageJPG(String path) throws IOException {
+		// read JPG to bytearray
+		byte[] array = Files.readAllBytes(Paths.get(path));
+		return array;
+	}
 	
-	public void init() {
+	public void init() throws IOException {
 		
 		//-------------------training equipment---------------
 		
@@ -71,6 +79,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle gastrocnemius = new Muscle();
 		gastrocnemius.setName("gastrocnemius");
+		gastrocnemius.setImage(imageJPG("src/main/resources/static/20250503_124449.jpg"));// ______TESTFILE1
 		ms.save(gastrocnemius);
 		
 		Muscle legs = new Muscle();

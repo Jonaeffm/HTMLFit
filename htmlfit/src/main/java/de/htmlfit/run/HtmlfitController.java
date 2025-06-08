@@ -2,6 +2,9 @@ package de.htmlfit.run;
 
 
 import java.beans.PropertyEditorSupport;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -73,7 +76,11 @@ public class HtmlfitController {
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
 	ArrayList<ExerciseBuild> exercisesBuild ;
 
-
+	byte[] imageJPG(String path) throws IOException {
+		// read JPG to bytearray
+		byte[] array = Files.readAllBytes(Paths.get(path));
+		return array;
+	}
 	
 	void selectExercise()
 	{
