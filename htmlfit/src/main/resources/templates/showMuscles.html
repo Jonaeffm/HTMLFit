@@ -64,7 +64,8 @@
             <tr th:each="muscle, stat :${resultMuscles}">
                  <td th:text = "${muscle.id}"></td>
                  <td th:text = "${muscle.name}"></td>
-            
+            	 <td><img th:src="${'data:image/jpeg;charset=utf-8;base64,'+muscle.image}" alt="" class="img"  width="100"  />
+               	</td><!--open it by clicking on it-->
             </tr>
             </table>
             
