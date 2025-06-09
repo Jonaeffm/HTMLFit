@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -28,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-
+import java.util.Base64;
 import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;

@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.springframework.security.crypto.codec.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -52,6 +54,7 @@ public class BootStrapData implements CommandLineRunner{
 	byte[] imageJPG(String path) throws IOException {
 		// read JPG to bytearray
 		byte[] array = Files.readAllBytes(Paths.get(path));
+		array = Base64.encode(array);
 		return array;
 	}
 	
