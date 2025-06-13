@@ -7,8 +7,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 
@@ -42,6 +44,7 @@ import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 import de.htmlfit.services.TrainingDayService;
 import de.htmlfit.services.TrainingEquipmentService;
+
 
 
 
@@ -375,6 +378,15 @@ public class HtmlfitController {
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
 		model.addAttribute("resultMuscles",musclesAsObject);
+		
+		Map<Long, String> productBase64Images = new HashMap<>();
+		for (Muscle muscle : musclesAsObject) {
+			String contHeader = new String(muscle.getImage());
+			productBase64Images.put(muscle.getId(), contHeader);
+		}
+		
+		model.addAttribute("images", productBase64Images);
+		
 		return "showMuscles";
 	}
 	

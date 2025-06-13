@@ -64,7 +64,7 @@
             <tr th:each="muscle, stat :${resultMuscles}">
                  <td th:text = "${muscle.id}"></td>
                  <td th:text = "${muscle.name}"></td>
-            	 <td><img src="data:image/jpeg;charset=utf-8;base64" th:attrappend="src=${muscle.image}" alt="Profile Picture">
+            	 <td><a th:each="image, index : ${images}"  id="chooseImage">  <img th:each="imageclass:${resultMuscles}"  th:if="${imageclass.id == image.key}" th:src="${'data:image/jpeg;charset=utf-8;base64,'+image.value}" alt="" class="img"  width="100"  th:data-images="${image.value}" th:data-key="${image.key}" th:data-text="${imageclass.name}"  th:onclick="showImage(this.getAttribute('data-key'),this.getAttribute('data-text'),this.getAttribute('data-images'))" id="imgObj" /></a>
 
                	</td><!--open it by clicking on it-->
             </tr>
