@@ -382,6 +382,7 @@ public class HtmlfitController {
 		Map<Long, String> productBase64Images = new HashMap<>();
 		for (Muscle muscle : musclesAsObject) {
 			String contHeader = new String(muscle.getImage());
+			contHeader= "data:image/jpeg;charset=utf-8;base64,"+contHeader;
 			productBase64Images.put(muscle.getId(), contHeader);
 		}
 		

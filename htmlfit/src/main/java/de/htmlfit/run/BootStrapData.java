@@ -101,7 +101,7 @@ public class BootStrapData implements CommandLineRunner{
 		 
 		Muscle breast = new Muscle();
 		breast.setName("pectoralis major");
-		breast.setImage(imageJPG("src/main/resources/static/Pectoralis major.jpg"));// ______TESTFILE1
+		breast.setImage(imageJPG("src/main/resources/static/Pectoralismajor.jpg"));// ______TESTFILE1
 		ms.save(breast);
 		
 		Muscle back = new Muscle();
@@ -110,7 +110,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle abs = new Muscle();
 		abs.setName("rectus abdominis");
-		abs.setImage(imageJPG("src/main/resources/static/Rectus abdominis.jpg"));// ______TESTFILE1
+		abs.setImage(imageJPG("src/main/resources/static/Rectusabdominis.jpg"));// ______TESTFILE1
 		ms.save(abs);
 		
 		Muscle buttocks = new Muscle();
