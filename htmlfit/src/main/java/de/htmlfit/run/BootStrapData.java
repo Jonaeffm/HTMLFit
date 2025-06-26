@@ -124,8 +124,8 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(hamstrings);
 		
 		Muscle glutes = new Muscle();
-		glutes.setName("Glutes");
-		//buttocks.setImage(imageJPG("src/main/resources/static/Gluteusmaximus"));	
+			glutes.setName("Glutes");
+			//buttocks.setImage(imageJPG("src/main/resources/static/Gluteusmaximus"));	
 		ms.save(glutes);
 		
 		Muscle hipFlexors = new Muscle();
@@ -153,10 +153,14 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle trapezius = new Muscle();
 		trapezius.setName("Trapezius");
+		trapezius.setImage(imageJPG("src/main/resources/static/Trapezius.jpg"));	
+
 		ms.save(trapezius);
 		
 		Muscle rhomboid = new Muscle();
 		rhomboid.setName("Rhomboid");
+		rhomboid.setImage(imageJPG("src/main/resources/static/Rhonboid.jpg"));	
+
 		ms.save(rhomboid);
 		
 
