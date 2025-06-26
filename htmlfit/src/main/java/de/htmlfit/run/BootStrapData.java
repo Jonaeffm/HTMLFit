@@ -115,22 +115,27 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle buttocks = new Muscle();
 		buttocks.setName("gluteus maximus");
+		buttocks.setImage(imageJPG("src/main/resources/static/Gluteusmaximus.jpg"));	
 		ms.save(buttocks);
 		
 		Muscle hamstrings = new Muscle();
 		hamstrings.setName("hamstrings");
+		hamstrings.setImage(imageJPG("src/main/resources/static/Hamstrings.jpg"));	
 		ms.save(hamstrings);
 		
 		Muscle glutes = new Muscle();
 		glutes.setName("Glutes");
+		//buttocks.setImage(imageJPG("src/main/resources/static/Gluteusmaximus"));	
 		ms.save(glutes);
 		
 		Muscle hipFlexors = new Muscle();
 		hipFlexors.setName("Hip Flexors");
+		hipFlexors.setImage(imageJPG("src/main/resources/static/Hipflexors.jpg"));	
 		ms.save(hipFlexors);
 		
 		Muscle calves = new Muscle();
 		calves.setName("Calves");
+		calves.setImage(imageJPG("src/main/resources/static/Calves.jpg"));	
 		ms.save(calves);
 		
 		Muscle quads = new Muscle();
