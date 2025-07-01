@@ -98,11 +98,11 @@ public class BootStrapData implements CommandLineRunner{
 		triceps.setName("triceps");
 		triceps.setImage(imageJPG("src/main/resources/static/Triceps.jpg"));// ______TESTFILE1
 		ms.save(triceps);
-		 
+		/* 
 		Muscle breast = new Muscle();
 		breast.setName("pectoralis major");
 		breast.setImage(imageJPG("src/main/resources/static/Pectoralismajor.jpg"));// ______TESTFILE1
-		ms.save(breast);
+		ms.save(breast);*/
 		
 		Muscle back = new Muscle();
 		back.setName("back");
@@ -220,7 +220,7 @@ public class BootStrapData implements CommandLineRunner{
 		burpeesMuscles.add(buttocks);
 		burpeesMuscles.add(abs);
 		burpeesMuscles.add(back);
-		burpeesMuscles.add(breast);
+		burpeesMuscles.add(pectorals);
 		burpeesMuscles.add(triceps);
 		burpeesMuscles.add(deltoids);
 		burpeesMuscles.add(legs);
@@ -466,7 +466,7 @@ public class BootStrapData implements CommandLineRunner{
 		pushUpMuscles.add(triceps);
 		pushUpMuscles.add(deltoids);
 		pushUpMuscles.add(abs);
-		pushUpMuscles.add(breast);
+		pushUpMuscles.add(pectorals);
 		pushUpMuscles.add(serratusAnterior);
 		pushUpMuscles.add(legs);
 		pushUpMuscles.add(buttocks);
@@ -487,7 +487,7 @@ public class BootStrapData implements CommandLineRunner{
 		dPushUpMuscles.add(triceps);
 		dPushUpMuscles.add(deltoids);
 		dPushUpMuscles.add(abs);
-		dPushUpMuscles.add(breast);
+		dPushUpMuscles.add(pectorals);
 		dPushUpMuscles.add(serratusAnterior);
 								
 		dPushupBuild.setMuscles(dPushUpMuscles);
