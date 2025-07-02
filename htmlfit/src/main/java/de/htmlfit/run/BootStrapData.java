@@ -137,10 +137,10 @@ public class BootStrapData implements CommandLineRunner{
 		calves.setName("Calves");
 		calves.setImage(imageJPG("src/main/resources/static/Calves.jpg"));	
 		ms.save(calves);
-		
+		/*
 		Muscle quads = new Muscle();
 		quads.setName("Quads");
-		ms.save(quads);
+		ms.save(quads);*/
 		
 		Muscle biceps = new Muscle();
 		biceps.setName("Biceps");
@@ -279,7 +279,7 @@ public class BootStrapData implements CommandLineRunner{
 		squatJumpsMuscles.add(glutes);
 		squatJumpsMuscles.add(hamstrings);
 		squatJumpsMuscles.add(calves);
-		squatJumpsMuscles.add(quads);
+		squatJumpsMuscles.add(legs);
 		squatJumpsMuscles.add(biceps);
 		squatJumpsMuscles.add(triceps);
 		
@@ -312,7 +312,7 @@ public class BootStrapData implements CommandLineRunner{
 		ArrayList<Muscle> jumpsMuscles = new ArrayList<Muscle>();
 		jumpsMuscles.add(calves);
 		jumpsMuscles.add(hamstrings);
-		jumpsMuscles.add(quads);
+		jumpsMuscles.add(legs);
 		jumpsMuscles.add(glutes);
 		jumpsMuscles.add(propel);
 		jumps.setMuscles(jumpsMuscles);
@@ -323,7 +323,7 @@ public class BootStrapData implements CommandLineRunner{
 		burpeesWJ.setName("Burpees Without Jumps");
 		
 		ArrayList<Muscle> bwjMuscles = new ArrayList<Muscle>();
-		bwjMuscles.add(quads);
+		bwjMuscles.add(legs);
 		bwjMuscles.add(hamstrings);
 		bwjMuscles.add(glutes);
 		burpeesWJ.setMuscles(bwjMuscles);
@@ -333,7 +333,7 @@ public class BootStrapData implements CommandLineRunner{
 		Exercise splitJumps = new Exercise();
 		splitJumps.setName("Split Jumps");
 		ArrayList<Muscle> sjMuscles = new ArrayList<Muscle>();
-		sjMuscles.add(quads);
+		sjMuscles.add(legs);
 		sjMuscles.add(hamstrings);
 		sjMuscles.add(glutes);
 		sjMuscles.add(calves);
