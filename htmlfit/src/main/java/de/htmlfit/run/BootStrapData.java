@@ -187,10 +187,12 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle serratusAnterior = new Muscle();
 		serratusAnterior.setName("Serratus Anterior");
+		serratusAnterior.setImage(imageJPG("src/main/resources/static/Serratusanterior.jpg"));
 		ms.save(serratusAnterior);
 		
 		Muscle deltoids = new Muscle();
 		deltoids.setName("Deltoids");
+		deltoids.setImage(imageJPG("src/main/resources/static/Deltoid.jpg"));
 		ms.save(deltoids);
 		
 		Muscle moa = new Muscle();
