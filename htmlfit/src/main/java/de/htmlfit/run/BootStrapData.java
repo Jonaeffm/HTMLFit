@@ -81,12 +81,12 @@ public class BootStrapData implements CommandLineRunner{
 		//-------------------muscles--------------------------
 		
 		Muscle gastrocnemius = new Muscle();
-		gastrocnemius.setName("gastrocnemius");
+		gastrocnemius.setName("Gastrocnemius");
 		gastrocnemius.setImage(imageJPG("src/main/resources/static/Gastrocnemius.jpg"));// ______TESTFILE1
 		ms.save(gastrocnemius);
 		
 		Muscle legs = new Muscle();
-		legs.setName("quadriceps femoris");
+		legs.setName("Quadriceps Femoris");
 		legs.setImage(imageJPG("src/main/resources/static/Quadriceps.jpg"));// ______TESTFILE1
 		ms.save(legs);
 		
@@ -95,7 +95,7 @@ public class BootStrapData implements CommandLineRunner{
 		mr.save(shoulders);*/
 		
 		Muscle triceps = new Muscle();
-		triceps.setName("triceps");
+		triceps.setName("Triceps");
 		triceps.setImage(imageJPG("src/main/resources/static/Triceps.jpg"));// ______TESTFILE1
 		ms.save(triceps);
 		/* 
@@ -109,17 +109,17 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(back);
 		*/
 		Muscle abs = new Muscle();
-		abs.setName("rectus abdominis");
+		abs.setName("Rectus Abdominis");
 		abs.setImage(imageJPG("src/main/resources/static/Rectusabdominis.jpg"));// ______TESTFILE1
 		ms.save(abs);
 		
 		Muscle buttocks = new Muscle();
-		buttocks.setName("gluteus maximus");
+		buttocks.setName("Gluteus Maximus");
 		buttocks.setImage(imageJPG("src/main/resources/static/Gluteusmaximus.jpg"));	
 		ms.save(buttocks);
 		
 		Muscle hamstrings = new Muscle();
-		hamstrings.setName("hamstrings");
+		hamstrings.setName("Hamstrings");
 		hamstrings.setImage(imageJPG("src/main/resources/static/Hamstrings.jpg"));	
 		ms.save(hamstrings);
 		
@@ -196,7 +196,7 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(deltoids);
 		
 		Muscle moa = new Muscle();
-		moa.setName("Musculus Obliquus abdominis");
+		moa.setName("Musculus Obliquus Abdominis");
 		moa.setImage(imageJPG("src/main/resources/static/Musculusobliquusabdominis.jpg"));
 		ms.save(moa);
 		
