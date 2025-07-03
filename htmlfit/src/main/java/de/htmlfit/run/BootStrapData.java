@@ -197,6 +197,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle moa = new Muscle();
 		moa.setName("Musculus Obliquus abdominis");
+		moa.setImage(imageJPG("src/main/resources/static/Musculusobliquusabdominis.jpg"));
 		ms.save(moa);
 		
 		Muscle teresMajor = new Muscle();
@@ -209,6 +210,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle brachialis = new Muscle();
 		brachialis.setName("Brachialis");
+		brachialis.setImage(imageJPG("src/main/resources/static/Brachialis.jpg"));
 		ms.save(brachialis);
 		
 		Muscle hipAdductor = new Muscle();
@@ -415,7 +417,7 @@ public class BootStrapData implements CommandLineRunner{
 		oarMuscles.add(teresMinor);
 		oarMuscles.add(latissimus);
 		oarMuscles.add(rhomboid);
-		oarMuscles.add(teresMinor);
+
 		
 		
 		oar.setMuscles(oarMuscles);
