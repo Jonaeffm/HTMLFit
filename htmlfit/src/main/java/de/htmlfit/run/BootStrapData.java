@@ -147,9 +147,9 @@ public class BootStrapData implements CommandLineRunner{
 		biceps.setImage(imageJPG("src/main/resources/static/Biceps.jpg"));// ______TESTFILE1
 		ms.save(biceps);
 		
-		Muscle propel = new Muscle();
+		/*Muscle propel = new Muscle();
 		propel.setName("Propel");
-		ms.save(propel);
+		ms.save(propel);*/
 		
 		Muscle trapezius = new Muscle();
 		trapezius.setName("Trapezius");
@@ -164,14 +164,14 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(rhomboid);
 		
 
-		Muscle major = new Muscle();
+		/*Muscle major = new Muscle();
 		major.setName("Major");
 		ms.save(major);
 		
 
 		Muscle minor = new Muscle();
 		minor.setName("Minor");
-		ms.save(minor);
+		ms.save(minor);*/
 		
 		Muscle latissimus = new Muscle();
 		latissimus.setName("Latissimus");
@@ -295,8 +295,8 @@ public class BootStrapData implements CommandLineRunner{
 		ArrayList<Muscle> plankMuscles = new ArrayList<Muscle>();
 		plankMuscles.add(trapezius);
 		plankMuscles.add(rhomboid);
-		plankMuscles.add(major);
-		plankMuscles.add(minor);
+/*		plankMuscles.add(major);
+		plankMuscles.add(minor);*/
 		plankMuscles.add(latissimus);
 		plankMuscles.add(pectorals);
 		plankMuscles.add(biceps);
@@ -316,7 +316,7 @@ public class BootStrapData implements CommandLineRunner{
 		jumpsMuscles.add(hamstrings);
 		jumpsMuscles.add(legs);
 		jumpsMuscles.add(buttocks);
-		jumpsMuscles.add(propel);
+		//jumpsMuscles.add(propel);
 		jumps.setMuscles(jumpsMuscles);
 		es.save(jumps);
 		
