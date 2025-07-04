@@ -30,6 +30,7 @@ import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 import de.htmlfit.services.TrainingDayService;
 import de.htmlfit.services.TrainingEquipmentService;
+import jakarta.annotation.PostConstruct;
 import de.htmlfit.repositories.ProgramUserRepository;
 
 
@@ -58,6 +59,7 @@ public class BootStrapData implements CommandLineRunner{
 		return array;
 	}
 	
+	@PostConstruct
 	public void init() throws IOException {
 		
 		//-------------------training equipment---------------
@@ -632,13 +634,14 @@ public class BootStrapData implements CommandLineRunner{
 		
 		uR.save(a);
 		uR.save(b);
+
 	}
 	
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("Hello World!");
 		
-		init();
+		//init();
 		
 	}
 }
