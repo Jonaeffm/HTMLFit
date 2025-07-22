@@ -81,7 +81,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		TrainingEquipment barbell = new TrainingEquipment();
 		barbell.setName("Barbell");
-		barbell.setImage(imageJPG("src/main/resources/static/barbell.jpg"));
+		barbell.setImage(imageJPG("src/main/resources/static/Barbell.jpg"));
 		tes.save(barbell);
 		
 		//-------------------muscles--------------------------
