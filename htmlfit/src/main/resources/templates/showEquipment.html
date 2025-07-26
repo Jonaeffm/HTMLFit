@@ -65,7 +65,8 @@
             <tr th:each="equip, stat :${resultEq}">
                  <td th:text = "${equip.id}"></td>
                  <td th:text = "${equip.name}"></td>
-            
+            	<td><a th:each="image, index : ${images}"  id="chooseImage">  <img  th:if="${equip.id == image.key}" th:src="${image.value}" alt="" class="img"  width="320"  th:data-images="${image.value}" th:data-key="${image.key}" th:data-text="${equip.name}"  th:onclick="showImage(this.getAttribute('data-key'),this.getAttribute('data-text'),this.getAttribute('data-images'))" id="imgObj" /></a></td>
+            	
             </tr>
             </table>
             

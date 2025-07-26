@@ -405,13 +405,21 @@ public class HtmlfitController {
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
 		model.addAttribute("resultEq",selectedEq);
+		Map<Long, String> productBase64Images = new HashMap<>();
+		for (TrainingEquipment eq : selectedEq) {
+			String contHeader = new String(eq.getImage());
+			contHeader= "data:image/jpeg;charset=utf-8;base64,"+contHeader;
+			productBase64Images.put(eq.getId(), contHeader);
+		}
+		
+		model.addAttribute("images", productBase64Images);
+		
 		return "showEquipment";
 	}
 	
 	@RequestMapping(value = "/showEq/", method = RequestMethod.POST) 
 	public String showEq() {
-
-
+		
 		String returnStr = "redirect:/select/";
 
 		return returnStr;
