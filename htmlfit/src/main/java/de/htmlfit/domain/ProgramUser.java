@@ -72,6 +72,8 @@ public class ProgramUser  {
 	          inverseJoinColumns = @JoinColumn( name="TRAININGDAY_ID"))
 	private Collection<TrainingDay> trainingDays;
     
+    
+    
     public Collection<TrainingDay> getTrainingDays(){
     	return trainingDays;
     }
@@ -80,7 +82,13 @@ public class ProgramUser  {
     	this.trainingDays=td;
     }
 
-	
+    @OneToMany
+ 	@JoinTable(
+ 	          name="training_plan_for_user",
+ 	          joinColumns = @JoinColumn( name="USER_ID"),
+ 	          inverseJoinColumns = @JoinColumn( name="TRAININGPLAN_ID"))
+ 	private Collection<TrainingDay> trainingPlans;
+     
 	
       	
 }

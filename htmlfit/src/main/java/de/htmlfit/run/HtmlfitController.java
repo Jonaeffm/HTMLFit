@@ -39,11 +39,13 @@ import de.htmlfit.domain.NumberBean;
 import de.htmlfit.domain.ProgramUser;
 import de.htmlfit.domain.TrainingDay;
 import de.htmlfit.domain.TrainingEquipment;
+import de.htmlfit.domain.TrainingPlan;
 import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 import de.htmlfit.services.TrainingDayService;
 import de.htmlfit.services.TrainingEquipmentService;
+import de.htmlfit.services.TrainingPlanService;
 
 
 
@@ -63,6 +65,9 @@ public class HtmlfitController {
 	@Autowired
 	private TrainingDayService trainingDaysService;
 	
+	@Autowired 
+	private TrainingPlanService trainingPlanService;
+	
 	@Autowired
 	private TrainingEquipmentService trainingEquipmentService;
 	
@@ -78,6 +83,7 @@ public class HtmlfitController {
 	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
 	//ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
+	ArrayList<TrainingPlan> trainingPlans=new ArrayList<TrainingPlan>();
 	ArrayList<ExerciseBuild> exercisesBuild ;
 
 	byte[] imageJPG(String path) throws IOException {
@@ -497,6 +503,17 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		ProgramUser aut = userRepository.findByUsername(authentication.getName());
 		trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
+		model.addAttribute("trainingDays",trainingDays);
+		return returnStr;
+	}
+	
+	@RequestMapping(value = "/tPlans/",method = RequestMethod.GET)
+	public String showTPlans(Model model) {
+		String returnStr = "showTrainingPlans";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		ProgramUser aut = userRepository.findByUsername(authentication.getName());
+		trainingPlans = (ArrayList<TrainingPlan>) trainingPlanService.findByProgramUser(aut);
 		model.addAttribute("trainingDays",trainingDays);
 		return returnStr;
 	}

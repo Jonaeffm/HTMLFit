@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,10 @@ public class TrainingPlan {
 	@Column(name = "TRAININGPLAN_ID")
 	@GeneratedValue
 	private Long id;
+	
+	@ManyToOne()
+	private ProgramUser programUser;
+	
 	@OneToMany
 	@JoinTable(
 	          name="TrainingDAys",
