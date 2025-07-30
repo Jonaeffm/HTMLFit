@@ -21,6 +21,7 @@ import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.domain.TrainingEquipment;
+import de.htmlfit.domain.TrainingPlan;
 import de.htmlfit.repositories.ExerciseBuildRepository;
 import de.htmlfit.repositories.ExerciseRepository;
 import de.htmlfit.repositories.MuscleRepository;
@@ -30,6 +31,7 @@ import de.htmlfit.services.ExerciseService;
 import de.htmlfit.services.MuscleService;
 import de.htmlfit.services.TrainingDayService;
 import de.htmlfit.services.TrainingEquipmentService;
+import de.htmlfit.services.TrainingPlanService;
 import jakarta.annotation.PostConstruct;
 import de.htmlfit.repositories.ProgramUserRepository;
 
@@ -51,6 +53,9 @@ public class BootStrapData implements CommandLineRunner{
 	
 	@Autowired
 	TrainingEquipmentService tes;
+	
+	@Autowired
+	TrainingPlanService tps;
 	
 	byte[] imageJPG(String path) throws IOException {
 		// read JPG to bytearray
@@ -638,6 +643,18 @@ public class BootStrapData implements CommandLineRunner{
 		
 		uR.save(a);
 		uR.save(b);
+		
+		TrainingPlan TPA = new TrainingPlan();
+		TPA.setName("Test1");
+		TPA.setProgramUser(a);
+		
+		TrainingPlan TPB = new TrainingPlan();
+		TPB.setName("Test2");
+		TPB.setProgramUser(a);
+		
+		tps.save(TPA);
+		tps.save(TPB);
+		
 
 	}
 	
