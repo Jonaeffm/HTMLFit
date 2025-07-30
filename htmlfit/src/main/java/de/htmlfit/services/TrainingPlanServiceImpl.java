@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import de.htmlfit.domain.ProgramUser;
+import de.htmlfit.domain.TrainingDay;
 import de.htmlfit.domain.TrainingPlan;
 import de.htmlfit.repositories.TrainingPlanRepository;
 
@@ -34,6 +36,14 @@ public class TrainingPlanServiceImpl implements TrainingPlanService{
 	public TrainingPlan save(TrainingPlan e) {
 		// TODO Auto-generated method stub
 		return repository.save(e);
+	}
+
+	
+	@Override
+	public List<TrainingPlan> findByProgramUser(ProgramUser User) {
+		// TODO Auto-generated method stub
+		
+		return repository.findByProgramUser(User);
 	}
 
 }
