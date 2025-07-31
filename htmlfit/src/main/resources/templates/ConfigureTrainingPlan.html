@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script layout:fragment="script" th:inline="javascript">
+
+        function sortByCategory()
+        {
+        	const map = new Map(Object.entries(/*[[${trainingDays}]]*/));
+        	const iterator1 = map.values();
+        	var array = [];
+        	var catarr = [];
+       		var i = 1;
+       		let htmlString = '';
+			while(array[i]=iterator1.next().value)
+       		{
+				let k=0;
+				for(let j = 1;j<(i + 1);j++)
+				{
+					if (array[i].category.localeCompare(catarr[j])===0)
+					{
+						k=1;
+								
+					}
+				}
+				if(k===0)
+				{
+					catarr.push(array[i].category);
+				}
+				i++;
+			}
+			for (let l = 0; l < catarr.length;l++)
+			{
+				var priceGes=0;
+				htmlString += '<br> <b>'+ catarr[l] + '</b> <br>';
+				htmlString += '<table><tr><th>Id</th><th>Product</th><th>Category</th><th>Price</th><th>Date</th><th>Periodic</th></tr>'
+				for (let m=1; m<i;m++)
+				{
+					if(array[m].category.localeCompare(catarr[l])===0)
+					{
+						htmlString += '<tr><td>'+array[m].id+'</td><td>'+array[m].product+'</td><td>'+array[m].category+'</td><td>'+array[m].price+'</td><td>'+array[m].date+'</td><td>'+array[m].periodic+'</td></tr>'
+						priceGes += array[m].price;
+					}
+					
+				}
+				htmlString +='</table> <b>total '+ priceGes + '</b> <br>';
+			}
+			document.getElementById('prodTable').innerHTML = htmlString;
+        }
+        
+		</script>
+<style>
+
+
+        .imgbox3 {
+        display: grid;
+            width: 300 px;
+        	float:left;
+        }
+        .imgbox {
+        	float:left;
+            display: grid;
+            width: calc(100% - 500px) ;
+        }
+        .imgbox2 {
+        display: grid;
+            width: 150 px;
+        	float:left;
+        }
+        .left-fit{
+        	width: 100%;
+        	height: 50px;
+        	margin:left;
+        }
+        .center-fit {
+            width: 100%;
+            max-height: 50px;
+            margin: left;
+        }
+        .right-fit{
+        	width: 100%;
+        	height: 50px;
+        	margin:right;
+        }
+        .media{
+        position: absolute;
+        Top: 60px;
+ 			display: grid;
+  			grid-template-columns: 1fr 1fr;
+		}
+        
+</style>
+
+</head>
+<body>
+<div class="imgbox3">
+    	<img class="left-fit" th:src="@{/20250503_183928.jpg}">
+    	
+	</div>
+	<div class="imgbox">
+    	<img class="center-fit" th:src="@{/20250503_124648.jpg}">
+    	
+	</div>
+	<div class="imgbox2">
+		<a href="/logout">
+	 		<img class="right-fit" th:src="@{/20250503_124449.jpg}">
+		</a>
+	</div>
+
+	<div class="media">
+  
+
+    	<div sec:authorize="isAuthenticated()">Authenticated as <span sec:authentication="name"></span>
+    	<br/>
+    	<a href="/selectTE/">add training day</a>
+    	
+    	</div>
+		<div>
+			<table>
+    			<tr>
+        			<th>Id</th>
+            		<th>Training Day</th>
+            		<th>delete</th>
+        		</tr>
+        		<tr th:each="TD, stat :${trainingDays}">
+            	 	<td th:text = "${TD.id}"></td>
+             		<td> <a th:href="@{/show/{id}(id=${TD.id})}">open</a></td>
+             		<td> <a th:href="@{/delete/{id}(id=${TD.id})}">delete</a></td>
+
+        		</tr>
+     		</table>
+     	
+     	
+    	</div>
+    
+    
+
+</div>
+    
+</body>
+</html>
+
+
