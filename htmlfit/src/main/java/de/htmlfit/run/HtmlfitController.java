@@ -514,7 +514,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		ProgramUser aut = userRepository.findByUsername(authentication.getName());
 		trainingPlans = (ArrayList<TrainingPlan>) trainingPlanService.findByProgramUser(aut);
-		model.addAttribute("trainingDays",trainingDays);
+		model.addAttribute("trainingPlans",trainingPlans);
 		return returnStr;
 	}
 	
