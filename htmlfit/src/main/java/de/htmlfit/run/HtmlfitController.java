@@ -560,6 +560,15 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
+	/*@GetMapping("/showTP/{id}")
+	public String showTP(@PathVariable("id") long id, Model model) {
+		String returnStr = "showExercissWithoutMuscles";
+		Optional<TrainingDay> td =trainingDaysService.findById(id);
+		model.addAttribute("exercises",td.get().getExercise());
+		model.addAttribute("exercisesBuild",td.get().getExerciseBuild());
+		return returnStr;
+	}*/
+	
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
 	public String addUser(Model model) {
 		ProgramUser b = new ProgramUser();
@@ -583,6 +592,15 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 
 		return returnStr;
 	}
+	
+	@GetMapping("/deleteTP/{id}")
+	public String showTP(@PathVariable("id") long id) {
+		String returnStr = "redirect:/tPlans/";
+	    trainingPlanService.deleteById(id);
+
+		return returnStr;
+	}	
+	
 	@GetMapping("/loginPage")
     public String showLoginForm(Model model) {
          
