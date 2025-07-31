@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import de.htmlfit.domain.ProgramUser;
 import de.htmlfit.domain.TrainingPlan;
 import de.htmlfit.repositories.TrainingPlanRepository;
 
+@Service
 public class TrainingPlanServiceImpl implements TrainingPlanService{
 	@Autowired
 	private TrainingPlanRepository repository;
