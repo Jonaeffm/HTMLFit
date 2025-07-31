@@ -11,11 +11,12 @@
         	const iterator1 = map.values();
         	var array = [];
         	var catarr = [];
+        	var bbex = [];
        		var i = 1;
        		let htmlString = '';
 			while(array[i]=iterator1.next().value)
        		{
-				let k=0;
+			<!--	let k=0;
 				for(let j = 1;j<(i + 1);j++)
 				{
 					if (array[i].category.localeCompare(catarr[j])===0)
@@ -27,13 +28,33 @@
 				if(k===0)
 				{
 					catarr.push(array[i].category);
-				}
+				}-->
 				i++;
+       		}
+			
+			const my2DArray = [];
+			const rows = 4;
+			const columns = 5;
+
+			for (let m = 0; m < array.lenght; m++) {
+			  bbex[m] = [];
+			  for (let n = 0; n < columns; n++) {
+			    bbex[i][j] = array[m].exerciseBuild[n];
+			  }
 			}
-			for (let l = 0; l < catarr.length;l++)
+
+			console.log(bbex);
+			// [
+			//   [0, 1, 2, 3, 4],
+			//   [0, 1, 2, 3, 4],
+			//   [0, 1, 2, 3, 4],
+			//   [0, 1, 2, 3, 4],
+			// ];
+
+			
+			for (let l = 0; l < array.length;l++)
 			{
-				var priceGes=0;
-				htmlString += '<br> <b>'+ catarr[l] + '</b> <br>';
+				
 				htmlString += '<table><tr><th>Id</th><th>Product</th><th>Category</th><th>Price</th><th>Date</th><th>Periodic</th></tr>'
 				for (let m=1; m<i;m++)
 				{
