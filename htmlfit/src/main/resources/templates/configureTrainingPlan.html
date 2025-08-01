@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script layout:fragment="script" th:inline="javascript">
+
+        function configureTP()
+        {
+        	const map = new Map(Object.entries(/*[[${trainingDays}]]*/));
+        	const iterator1 = map.values();
+        	var array = [];
+
+        	var bbex = [];
+        	var ex= []
+       		var i = 1;
+       		let htmlString = '';
+			while(array[i]=iterator1.next().value)
+       		{
+		
+				i++;
+       		}
+			
+			
+			for (let m = 0; m < array.lenght; m++) {
+			  bbex[m] = [];
+			  for (let n = 0; n < array[m].exerciseBuild.length; n++) {
+			    bbex[m][n] = array[m].exerciseBuild[n].name;
+			  }
+			}
+			
+			for (let m = 0; m < array.lenght; m++) {
+				  ex[m] = [];
+				  for (let n = 0; n < array[m].exercise.length; n++) {
+				    ex[m][n] = array[m].exercise[n].name;
+				  }
+				} 
+
+		
+			
+        }
+        
+		</script>
+
+
+</head>
+<body>
+
+    <button th:onclick="configureTP()">test </button>
+</body>
+</html>
+
+

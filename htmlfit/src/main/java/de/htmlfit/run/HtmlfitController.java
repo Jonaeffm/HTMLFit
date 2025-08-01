@@ -507,6 +507,17 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
+	@RequestMapping(value = "/configureTPlans/",method = RequestMethod.GET)
+	public String confTPlans(Model model) {
+		String returnStr = "configureTrainingPlan";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		ProgramUser aut = userRepository.findByUsername(authentication.getName());
+		trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
+		model.addAttribute("trainingDays",trainingDays);
+		return returnStr;
+	}
+	
 	@RequestMapping(value = "/tPlans/",method = RequestMethod.GET)
 	public String showTPlans(Model model) {
 		String returnStr = "showTrainingPlans";
