@@ -513,7 +513,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		ProgramUser aut = userRepository.findByUsername(authentication.getName());
-		trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
+		//trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
 		model.addAttribute("trainingDays",trainingDays);
 		return returnStr;
 	}
