@@ -12,6 +12,7 @@
         	var array = [];
         	var catarr = [];
         	var bbex = [];
+        	var ex= []
        		var i = 1;
        		let htmlString = '';
 			while(array[i]=iterator1.next().value)
@@ -32,16 +33,20 @@
 				i++;
        		}
 			
-			const my2DArray = [];
-			const rows = 4;
-			const columns = 5;
-
+			
 			for (let m = 0; m < array.lenght; m++) {
 			  bbex[m] = [];
 			  for (let n = 0; n < array[m].exerciseBuild.length; n++) {
-			    bbex[i][j] = array[m].exerciseBuild[n];
+			    bbex[m][n] = array[m].exerciseBuild[n];
 			  }
 			}
+			
+			for (let m = 0; m < array.lenght; m++) {
+				  ex[m] = [];
+				  for (let n = 0; n < array[m].exercise.length; n++) {
+				    ex[m][n] = array[m].exercise[n];
+				  }
+				}
 
 			console.log(bbex);
 			// [
