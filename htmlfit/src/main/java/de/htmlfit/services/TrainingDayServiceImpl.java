@@ -24,7 +24,7 @@ public class TrainingDayServiceImpl implements TrainingDayService{
 	@Override
 	public List<TrainingDay> findAll() {
 		// TODO Auto-generated method stub
-		return repository.findAll();
+		return (List<TrainingDay>) repository.findAll();
 	}
 	
 	@Override

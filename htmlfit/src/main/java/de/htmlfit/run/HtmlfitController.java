@@ -85,7 +85,7 @@ public class HtmlfitController {
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
 	ArrayList<TrainingPlan> trainingPlans=new ArrayList<TrainingPlan>();
 	ArrayList<ExerciseBuild> exercisesBuild ;
-	ArrayList<TrainingDay> trainingDaysConf = new ArrayList<TrainingDay>();
+	Collection<TrainingDay> trainingDaysConf = new ArrayList<TrainingDay>();
 	
 	byte[] imageJPG(String path) throws IOException {
 		// read JPG to bytearray
