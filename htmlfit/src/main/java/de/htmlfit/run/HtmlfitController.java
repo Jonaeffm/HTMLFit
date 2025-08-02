@@ -85,7 +85,8 @@ public class HtmlfitController {
 	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
 	ArrayList<TrainingPlan> trainingPlans=new ArrayList<TrainingPlan>();
 	ArrayList<ExerciseBuild> exercisesBuild ;
-
+	ArrayList<TrainingDay> trainingDaysConf = new ArrayList<TrainingDay>();
+	
 	byte[] imageJPG(String path) throws IOException {
 		// read JPG to bytearray
 		byte[] array = Files.readAllBytes(Paths.get(path));
@@ -513,8 +514,8 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		ProgramUser aut = userRepository.findByUsername(authentication.getName());
-		//trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
-		model.addAttribute("trainingDays",trainingDays);
+		trainingDaysConf = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
+		model.addAttribute("trainingDaysConf",trainingDaysConf);
 		return returnStr;
 	}
 	

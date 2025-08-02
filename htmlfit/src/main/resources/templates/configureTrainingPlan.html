@@ -9,14 +9,16 @@
 
         function configureTP()
         {
-        	const map = new Map(Object.entries(/*[[${trainingDays}]]*/));
+       		let htmlString = '';
+       		
+        	const map = new Map(Object.entries(/*[[${trainingDaysConf}]]*/));
         	const iterator1 = map.values();
         	var array = [];
 
         	var bbex = [];
         	var ex= []
        		var i = 1;
-       		let htmlString = '';
+
 			while(array[i]=iterator1.next().value)
        		{
 		
@@ -38,16 +40,22 @@
 				  }
 				} 
 
-		
+			for (let m=0; m < array.length; m++)
+			{
+				htmlString += '<h1>'+array[m].id +'</h1>'
+			}
+			
+			document.getElementById('configTable').innerHTML = htmlString;		
 			
         }
-        
+
 		</script>
 
 
 </head>
 <body>
-<div>
+
+<div id="configTable">
 <button th:onclick="configureTP()">test </button>
 </div>
     
