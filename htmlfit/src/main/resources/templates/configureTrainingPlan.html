@@ -17,7 +17,7 @@
 
         	var bbex = [];
         	var ex= []
-       		var i = 1;
+       		var i = 0;
 
 			while(array[i]=iterator1.next().value)
        		{
@@ -42,7 +42,7 @@
 
 			for (let m=0; m < array.length; m++)
 			{
-				htmlString += '<h1>'+array[m].id +'</h1>'
+				htmlString += '<b>' + array[m].id + '</b><br/>' ;
 			}
 			
 			document.getElementById('configTable').innerHTML = htmlString;		
