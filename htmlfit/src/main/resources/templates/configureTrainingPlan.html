@@ -9,7 +9,7 @@
 
         function configureTP()
         {
-       		let htmlString = '';
+       		var htmlString = '';
        		
         	const map = new Map(Object.entries(/*[[${trainingDaysConf}]]*/));
         	const iterator1 = map.values();
@@ -17,7 +17,7 @@
 
         	var bbex = [];
         	var ex= []
-       		var i = 0;
+       		var i = 1;
 
 			while(array[i]=iterator1.next().value)
        		{
@@ -26,23 +26,23 @@
        		}
 			
 			
-			for (let m = 0; m < array.lenght; m++) {
+			for (let m = 1; m < array.lenght + 1; m++) {
 			  bbex[m] = [];
-			  for (let n = 0; n < array[m].exerciseBuild.length; n++) {
+			  for (let n = 1; n < array[m].exerciseBuild.length +1; n++) {
 			    bbex[m][n] = array[m].exerciseBuild[n].name;
 			  }
 			}
 			
-			for (let m = 0; m < array.lenght; m++) {
+			for (let m = 1; m < array.lenght + 1; m++) {
 				  ex[m] = [];
-				  for (let n = 0; n < array[m].exercise.length; n++) {
+				  for (let n = 1; n < array[m].exercise.length + 1; n++) {
 				    ex[m][n] = array[m].exercise[n].name;
 				  }
 				} 
 
-			for (let m=0; m < array.length; m++)
+			for (let m=1; m < array.length +1 ; m++)
 			{
-				htmlString += '<b>' + array[m].id + '</b><br/>' ;
+			 htmlString += '<b>' + array[m].id + '</b><br/>' ;
 			}
 			
 			document.getElementById('configTable').innerHTML = htmlString;		
