@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import de.htmlfit.domain.Muscle;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,5 +34,6 @@ public class Exercise {
 	@ManyToMany(mappedBy = "exercise")
 	private Collection<Muscle> Muscles;
 	@ManyToMany(mappedBy = "exercise")
+	@JsonIgnore
 	private Collection<TrainingDay> TrainingDays;
 }

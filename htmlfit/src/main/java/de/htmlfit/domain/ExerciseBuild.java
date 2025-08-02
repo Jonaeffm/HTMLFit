@@ -28,7 +28,8 @@ public class ExerciseBuild {
 	private Long id;
 	private String name;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne()
+	@JsonIgnore
 	private TrainingDay TrainingDay;
 	
 	@ManyToMany()

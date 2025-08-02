@@ -31,6 +31,7 @@ public class TrainingDay {
 	private Long id;
 	
 	@ManyToOne()
+	@JsonIgnore
 	private ProgramUser programUser;
 
 	@ManyToMany
@@ -40,7 +41,6 @@ public class TrainingDay {
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<Exercise> exercise;
 
-	@JsonManagedReference
 	@OneToMany
 	@JoinTable(
 	          name="BodyBuildExercises",
@@ -49,5 +49,6 @@ public class TrainingDay {
 	private Collection<ExerciseBuild> exerciseBuild;
 
 	@ManyToOne()
+	@JsonIgnore
 	private TrainingPlan TrainingPlan;
 }
