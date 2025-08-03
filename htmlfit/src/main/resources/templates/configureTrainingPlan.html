@@ -6,49 +6,23 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script layout:fragment="script" th:inline="javascript">
-
+		
         function configureTP()
         {
        		var htmlString = '';
        		
-        	const map = new Map(Object.entries(/*[[${trainingDaysConf}]]*/));
-        	const iterator1 = map.values();
-        	var array = [];
+       		/*<![CDATA[*/
 
-        	var bbex = [];
-        	var ex= []
-       		var i = 1;
+       	    var array = /*[(${trainingDaysConf})]*/ 'default';
 
-			while(array[i]=iterator1.next().value)
-       		{
+       	/*]]>*/
 		
-				i++;
-       		}
-			
-			
-			for (let m = 1; m < array.lenght + 1; m++) {
-			  bbex[m] = [];
-			  for (let n = 1; n < array[m].exerciseBuild.length +1; n++) {
-			    bbex[m][n] = array[m].exerciseBuild[n].name;
-			  }
-			}
-			
-			for (let m = 1; m < array.lenght + 1; m++) {
-				  ex[m] = [];
-				  for (let n = 1; n < array[m].exercise.length + 1; n++) {
-				    ex[m][n] = array[m].exercise[n].name;
-				  }
-				} 
-
-			for (let m=1; m < array.length +1 ; m++)
-			{
-			 htmlString += '<b>' + array[m].id + '</b><br/>' ;
-			}
+			 htmlString += '<b>TEST' + array[0].id + '</b><br/>' ;
 			
 			document.getElementById('configTable').innerHTML = htmlString;		
 			
         }
-
+       
 		</script>
 
 

@@ -36,6 +36,7 @@ public class Muscle {
 	@Lob
 	byte[] image;
 
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(
 			  name = "exercisesH", 
