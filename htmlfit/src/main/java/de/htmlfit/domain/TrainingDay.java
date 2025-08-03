@@ -1,6 +1,7 @@
 package de.htmlfit.domain;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,4 +52,31 @@ public class TrainingDay {
 	@ManyToOne()
 	@JsonIgnore
 	private TrainingPlan TrainingPlan;
+	
+	@Override
+	public String toString() {
+		return "Training Day [id=" + id + "]";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Muscle other = (Muscle) obj;
+		if (!Objects.equals(this.id, other.id)) {
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 5;
+		hash = 83 * hash + Objects.hashCode(this.id);
+		return hash;
+	}
 }
