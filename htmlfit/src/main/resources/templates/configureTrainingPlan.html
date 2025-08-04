@@ -16,8 +16,12 @@
        	    var array = /*[[${trainingDaysConf}]]*/ [];
             /*]]>*/
 
-		
-			 htmlString += '<b>TEST' + array[0].id + '</b><br/>' ;
+		for(let i= 0; i< array.length; i++)
+			{
+			 htmlString += '<b>' + array[i].id + '</b><br/>' ;
+			}
+            
+			
 			
 			document.getElementById('configTable').innerHTML = htmlString;		
 			
