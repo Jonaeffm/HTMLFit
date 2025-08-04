@@ -20,6 +20,8 @@
 			{
 			 htmlString += '<b>' + array[i].id + '</b><br/>' ;
 			 
+			 htmlString += 'HIIT Exercises';
+			 
 			 htmlString += '<table><tr><th>ID</th><th>name</th></tr>';
 			 for(let j= 0; j< array[i].exercise.length;j++)
 			{
@@ -28,7 +30,19 @@
 			 
 			 
 			 htmlString += '</table>';
-			}
+			
+            
+            htmlString += 'Body Building Exercises';
+            
+		htmlString += '<table><tr><th>ID</th><th>name</th></tr>';
+		 for(let k= 0; k< array[i].exerciseBuild.length;k++)
+		{
+			 htmlString += '<tr><td>'+array[i].exerciseBuild[k].id+'</td><td>'+array[i].exerciseBuild[k].name+'</td></tr>';
+		}
+		 
+		 
+		 htmlString += '</table>';
+		}
             
 			
 			
