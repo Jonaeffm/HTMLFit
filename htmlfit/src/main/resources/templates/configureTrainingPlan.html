@@ -19,6 +19,15 @@
 		for(let i= 0; i< array.length; i++)
 			{
 			 htmlString += '<b>' + array[i].id + '</b><br/>' ;
+			 
+			 htmlString += '<table><tr><th>ID</th><th>name</th></tr>';
+			 for(letj= 0; j< array[i].exercise.length;j++)
+			{
+				 htmlString += '<tr><td>'+array[i].exercise[j].id+'</td><td>'+array[i].exercise[j].name+'</td></tr>'
+			}
+			 
+			 
+			 htmlString += '</table>';
 			}
             
 			
@@ -39,5 +48,3 @@
     
 </body>
 </html>
-
-
