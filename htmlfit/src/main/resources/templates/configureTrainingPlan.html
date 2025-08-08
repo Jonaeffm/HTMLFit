@@ -7,6 +7,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script layout:fragment="script" th:inline="javascript">
 
+		function checkBoxValues(count)
+		{
+			array = []
+			for (let i=0;i<count;i++)
+				{
+				let nameCB="cb"+i
+				 	let checkBox = document.getElementById(nameCB);
+					array[i] = checkBox.checked;
+				}
+			
+			document.getElementById('Ergebnis').innerHTML = array;	
+		}
+		
+		
         function configureTP()
         {
        		var htmlString = '';
@@ -18,7 +32,7 @@
 
 		for(let i= 0; i< array.length; i++)
 			{
-			 htmlString += '<b>' + array[i].id + '</b><input type="checkbox" value="cb'+array[i].id+'"><br/>' ;
+			 htmlString += '<b>' + array[i].id + '</b><input type="checkbox" id="cb'+array[i].id+'"><br/>' ;
 			 
 			 htmlString += '<b>HIIT Exercises</b>';
 			 
@@ -58,6 +72,8 @@
 
 <div id="configTable">
 <button th:onclick="configureTP()">test </button>
+</div>
+<div id="Ergebnis">
 </div>
     
 </body>
