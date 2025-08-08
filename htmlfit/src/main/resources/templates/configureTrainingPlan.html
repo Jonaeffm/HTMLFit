@@ -12,7 +12,7 @@
 			array = []
 			for (let i=0;i<count;i++)
 				{
-				let nameCB="cb"+i
+					let nameCB='cb'+i
 				 	let checkBox = document.getElementById(nameCB);
 					array[i] = checkBox.checked;
 				}
@@ -32,7 +32,7 @@
 
 		for(let i= 0; i< array.length; i++)
 			{
-			 htmlString += '<b>' + array[i].id + '</b><input type="checkbox" id="cb'+array[i].id+'"><br/>' ;
+			 htmlString += '<b>' + array[i].id + '</b><input type="checkbox" id="cb'+array[i].id+'" onclick="checkBoxValues(' + array.length + ')"><br/>' ;
 			 
 			 htmlString += '<b>HIIT Exercises</b>';
 			 
