@@ -9,15 +9,21 @@
 
 		function checkBoxValues(count)
 		{
+			var bin = 0
 			array = [];
 			for (let i=0;i<count;i++)
 				{
 					let nameCB='cb'+i;
 				 	let checkBox = document.getElementById(nameCB);
 					array[i] = checkBox.checked;
+					if(checkBox.checked)
+					{
+						bin=bin+2 ** i;
+					}
+
 				}
 			
-			document.getElementById('Ergebnis').innerHTML = array;	
+			document.getElementById('Ergebnis').innerHTML = bin;	
 		}
 		
 		
