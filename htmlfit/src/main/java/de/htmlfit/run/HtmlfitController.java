@@ -519,6 +519,14 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
+	@RequestMapping(value = "/configureTPlans", method = RequestMethod.POST)
+	public String confTPlansPost(@ModelAttribute("users") TrainingPlan TPToAdd) {
+		trainingPlanService.save(TPToAdd);
+		// BudgetService.addBudget(budgetToAdd);
+		String returnStr = "redirect:/";
+		return returnStr;
+	}
+	
 	@RequestMapping(value = "/tPlans/",method = RequestMethod.GET)
 	public String showTPlans(Model model) {
 		String returnStr = "showTrainingPlans";
