@@ -9,8 +9,10 @@
 
 		function checkBoxValues(count)
 		{
+			var j = 0;
 			var bin = 0
 			array = [];
+			array2 = []
 			for (let i=0;i<count;i++)
 				{
 					let nameCB='cb'+i;
@@ -19,6 +21,8 @@
 					if(checkBox.checked)
 					{
 						bin=bin+2 ** i;
+						array2[j]= array[i];
+						j++;
 					}
 
 				}
