@@ -31,9 +31,9 @@
 			
 			document.getElementById('Ergebnis').innerHTML = bin;	
 			
-			plan = {
+			plan = new Object({
 			  "trainingDays":array2
-			};
+			});
 			
 		}
 		
@@ -116,7 +116,7 @@
 
  <form id="myForm" method="post">
  
- 	<div id="Ergebnis"/>
+ 	<div id="Ergebnis"></div>
  	      
  	<input type="submit" value="Submit" class="btn btn-primary" />
  
