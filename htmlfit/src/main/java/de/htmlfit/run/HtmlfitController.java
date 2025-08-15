@@ -520,7 +520,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	}
 	
 	@RequestMapping(value = "/configureTPlans/", method = RequestMethod.POST)
-	public String confTPlansPost(@ModelAttribute("users") TrainingPlan TPToAdd) {
+	public String confTPlansPost(@ModelAttribute("tPlan") TrainingPlan TPToAdd) {
 		trainingPlanService.save(TPToAdd);
 		System.out.println("TPlan:"+TPToAdd.toString());
 		// BudgetService.addBudget(budgetToAdd);
