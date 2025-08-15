@@ -85,13 +85,13 @@
         var form = document.getElementById('myForm');
         form.onsubmit = function(event){
                 var xhr = new XMLHttpRequest();
-                var formData = new FormData(form);
+                var formData = new FormData(plan);
                 //open the request
                 xhr.open('POST','http://localhost:8080/configureTPlans/')
                 xhr.setRequestHeader("Content-Type", "application/json");
 
                 //send the form data
-                xhr.send(JSON.stringify(Object.fromEntries(plan)));
+                xhr.send(JSON.stringify(Object.fromEntries(formData)));
 
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState == XMLHttpRequest.DONE) {
