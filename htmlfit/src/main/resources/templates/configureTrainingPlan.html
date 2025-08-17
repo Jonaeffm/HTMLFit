@@ -8,7 +8,7 @@
 		<script layout:fragment="script" th:inline="javascript">
 
 		var plan;
-		
+		var arrayTDays = [];
 		function checkBoxValues(count)
 		{
 			var j = 0;
@@ -23,7 +23,7 @@
 					if(checkBox.checked)
 					{
 						bin=bin+2 ** i;
-						array2[j]= array[i];
+						array2[j]= arrayTDays[i];
 						j++;
 					}
 
@@ -84,6 +84,29 @@
         
         var form = document.getElementById('myForm');
         form.onsubmit = function(event){
+        	
+        	/*<![CDATA[*/
+       	    var array = /*[[${trainingDaysConf}]]*/ [];
+            /*]]>*/
+
+            for (let i=0;i<array.length;i++)
+				{
+					let nameCB='cb'+i;
+				 	let checkBox = document.getElementById(nameCB);
+					array[i] = checkBox.checked;
+					if(checkBox.checked)
+					{
+						bin=bin+2 ** i;
+						array2[j]= arrayTDays[i];
+						j++;
+					}
+
+				}
+            
+              var plan = new Object({"TrainingPlan": {
+  			  "trainingDays":array2
+  			}});
+        	
                 var xhr = new XMLHttpRequest();
                 var formData = new FormData(plan);
                 //open the request
