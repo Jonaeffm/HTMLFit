@@ -2,7 +2,10 @@ package de.htmlfit.run;
 
 
 import java.beans.PropertyEditorSupport;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -46,12 +49,16 @@ import de.htmlfit.services.MuscleService;
 import de.htmlfit.services.TrainingDayService;
 import de.htmlfit.services.TrainingEquipmentService;
 import de.htmlfit.services.TrainingPlanService;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 
 
 
 @Controller
-public class HtmlfitController {
+public class HtmlfitController extends HttpServlet{
 	ArrayList<Muscle> musclesAsObject;
 	
 	@Autowired
@@ -520,10 +527,25 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	}
 	
 	@RequestMapping(value = "/configureTPlans/", method = RequestMethod.POST)
-	public String confTPlansPost(@ModelAttribute("tPlan") TrainingPlan TPToAdd) {
-		trainingPlanService.save(TPToAdd);
+	public String confTPlansPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*trainingPlanService.save(TPToAdd);
 		System.out.println("TPlan:"+TPToAdd.toString());
-		// BudgetService.addBudget(budgetToAdd);
+		// BudgetService.addBudget(budgetToAdd);*/
+		
+	
+		OutputStream Out = response.getOutputStream();
+		
+		
+
+	    InputStream in = new FileInputStream( "http://localhost:8080/configureTPlans/" );
+		byte txt[]= new byte[in.available()];
+		
+		
+		Out.write(txt);
+		Out.close();
+		
+		System.out.println(txt);
+		//out.write()
 		String returnStr = "redirect:/";
 		return returnStr;
 	}
