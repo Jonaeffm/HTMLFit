@@ -2,10 +2,12 @@ package de.htmlfit.run;
 
 
 import java.beans.PropertyEditorSupport;
+import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -537,17 +539,22 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		
 
-	    InputStream in = new FileInputStream( "http://localhost:8080/configureTPlans/" );
-		byte txt[]= new byte[in.available()];
+	    InputStream in = new BufferedInputStream( new FileInputStream("src/main/resources/templates/configureTrainingPlan.html") );
+
 		
-		
+		 ;
+		    response.setContentType( "application/json");
+
+			byte txt[]= new byte[in.available()];
+			   in.read( txt );
 		Out.write(txt);
 		Out.close();
 		
 		System.out.println(txt);
 		//out.write()
-		String returnStr = "redirect:/";
-		return returnStr;
+		/*String returnStr = "redirect:/";
+		return returnStr;*/
+		return null;
 	}
 	
 	@RequestMapping(value = "/tPlans/",method = RequestMethod.GET)
