@@ -529,32 +529,17 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	}
 	
 	@RequestMapping(value = "/configureTPlans/", method = RequestMethod.POST)
-	public String confTPlansPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*trainingPlanService.save(TPToAdd);
-		System.out.println("TPlan:"+TPToAdd.toString());
+	public String confTPlansPost(@ModelAttribute("selectedTPlan") TrainingPlan selectedTP) {
+		trainingPlanService.save(selectedTP);
+		System.out.println("TPlan:"+selectedTP.toString());
 		// BudgetService.addBudget(budgetToAdd);*/
 		
 	
-		OutputStream Out = response.getOutputStream();
+	
 		
+		String returnStr = "redirect:/";
+		return returnStr;
 		
-
-	    InputStream in = new BufferedInputStream( new FileInputStream("src/main/resources/templates/configureTrainingPlan.html") );
-
-		
-		 ;
-		    response.setContentType( "application/json");
-
-			byte txt[]= new byte[in.available()];
-			   in.read( txt );
-		Out.write(txt);
-		Out.close();
-		
-		System.out.println(txt);
-		//out.write()
-		/*String returnStr = "redirect:/";
-		return returnStr;*/
-		return null;
 	}
 	
 	@RequestMapping(value = "/tPlans/",method = RequestMethod.GET)
