@@ -38,4 +38,54 @@ public class ExerciseBuild {
 	
 	@ManyToMany()
 	private Collection<TrainingEquipment> TrainingEquipment;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public TrainingDay getTrainingDay() {
+		return TrainingDay;
+	}
+
+
+	public void setTrainingDay(TrainingDay trainingDay) {
+		TrainingDay = trainingDay;
+	}
+
+
+	public Collection<Muscle> getMuscles() {
+		return Muscles;
+	}
+
+
+	public void setMuscles(Collection<Muscle> muscles) {
+		Muscles = muscles;
+	}
+
+
+	public Collection<TrainingEquipment> getTrainingEquipment() {
+		return TrainingEquipment;
+	}
+
+
+	public void setTrainingEquipment(Collection<TrainingEquipment> trainingEquipment) {
+		TrainingEquipment = trainingEquipment;
+	}
 }

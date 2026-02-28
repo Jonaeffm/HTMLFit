@@ -78,4 +78,44 @@ public class Muscle {
 		hash = 83 * hash + Objects.hashCode(this.id);
 		return hash;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
+	public Collection<Exercise> getExercise() {
+		return exercise;
+	}
+
+	public void setExercise(Collection<Exercise> exercise) {
+		this.exercise = exercise;
+	}
+
+	public Collection<ExerciseBuild> getExerciseBuild() {
+		return exerciseBuild;
+	}
+
+	public void setExerciseBuild(Collection<ExerciseBuild> exerciseBuild) {
+		this.exerciseBuild = exerciseBuild;
+	}
 }

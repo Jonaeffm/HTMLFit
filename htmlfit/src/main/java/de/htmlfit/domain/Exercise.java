@@ -30,6 +30,30 @@ public class Exercise {
 	@Column(name = "EXERCISE_ID")
 	@GeneratedValue
 	private Long id;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Collection<Muscle> getMuscles() {
+		return Muscles;
+	}
+	public void setMuscles(Collection<Muscle> muscles) {
+		Muscles = muscles;
+	}
+	public Collection<TrainingDay> getTrainingDays() {
+		return TrainingDays;
+	}
+	public void setTrainingDays(Collection<TrainingDay> trainingDays) {
+		TrainingDays = trainingDays;
+	}
 	private String name;
 	@ManyToMany(mappedBy = "exercise")
 	private Collection<Muscle> Muscles;

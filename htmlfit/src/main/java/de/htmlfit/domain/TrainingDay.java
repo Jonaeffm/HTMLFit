@@ -79,4 +79,44 @@ public class TrainingDay {
 		hash = 83 * hash + Objects.hashCode(this.id);
 		return hash;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public ProgramUser getProgramUser() {
+		return programUser;
+	}
+
+	public void setProgramUser(ProgramUser programUser) {
+		this.programUser = programUser;
+	}
+
+	public Collection<Exercise> getExercise() {
+		return exercise;
+	}
+
+	public void setExercise(Collection<Exercise> exercise) {
+		this.exercise = exercise;
+	}
+
+	public Collection<ExerciseBuild> getExerciseBuild() {
+		return exerciseBuild;
+	}
+
+	public void setExerciseBuild(Collection<ExerciseBuild> exerciseBuild) {
+		this.exerciseBuild = exerciseBuild;
+	}
+
+	public TrainingPlan getTrainingPlan() {
+		return TrainingPlan;
+	}
+
+	public void setTrainingPlan(TrainingPlan trainingPlan) {
+		TrainingPlan = trainingPlan;
+	}
 }

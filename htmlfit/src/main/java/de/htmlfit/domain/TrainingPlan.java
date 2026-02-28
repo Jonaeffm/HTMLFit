@@ -35,4 +35,36 @@ public class TrainingPlan {
 	private Collection<TrainingDay> trainingDays;
 	
 	private String name;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public ProgramUser getProgramUser() {
+		return programUser;
+	}
+
+	public void setProgramUser(ProgramUser programUser) {
+		this.programUser = programUser;
+	}
+
+	public Collection<TrainingDay> getTrainingDays() {
+		return trainingDays;
+	}
+
+	public void setTrainingDays(Collection<TrainingDay> trainingDays) {
+		this.trainingDays = trainingDays;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

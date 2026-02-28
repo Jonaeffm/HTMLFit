@@ -88,6 +88,23 @@ public class ProgramUser  {
  	          joinColumns = @JoinColumn( name="USER_ID"),
  	          inverseJoinColumns = @JoinColumn( name="TRAININGPLAN_ID"))
  	private Collection<TrainingDay> trainingPlans;
+
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Collection<TrainingDay> getTrainingPlans() {
+		return trainingPlans;
+	}
+
+	public void setTrainingPlans(Collection<TrainingDay> trainingPlans) {
+		this.trainingPlans = trainingPlans;
+	}
      
 	
       	
