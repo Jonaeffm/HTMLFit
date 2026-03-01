@@ -86,13 +86,13 @@ public class HtmlfitController extends HttpServlet{
 	private int countEx;
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
-	Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
+	//Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 	Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
-	Collection<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
-	ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
+	//Collection<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
+	//ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
 	//ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
-	ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
-	ArrayList<TrainingPlan> trainingPlans=new ArrayList<TrainingPlan>();
+	//ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
+	//ArrayList<TrainingPlan> trainingPlans=new ArrayList<TrainingPlan>();
 	ArrayList<ExerciseBuild> exercisesBuild ;
 	Collection<TrainingDay> trainingDaysConf = new ArrayList<TrainingDay>();
 	
@@ -356,6 +356,10 @@ public class HtmlfitController extends HttpServlet{
 			musclesAsObject.add(m.get());
 			System.out.println(i);
 		}*/
+		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
+		
+		
+		
 		selectedEq.add(e.get());
 		System.out.println("add "+e.get().getName()+" to selected equipment");
 		//musclesSelected.add(m.get());
@@ -368,15 +372,33 @@ public class HtmlfitController extends HttpServlet{
 	@GetMapping(value = "/")
 	public String start() {
 		
-		musclesAsObject  = new ArrayList<Muscle>();
-		musclesForSelect = new ArrayList<Muscle>();
-		selectedExercises = new ArrayList<Exercise>();
-		selectedExercisesBuild = new ArrayList<ExerciseBuild>();
-		musclesSelected = new ArrayList<Muscle>();
-		//musclesSelected2 = new ArrayList<Muscle>();
-		trainingDays=new ArrayList<TrainingDay>();
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		ProgramUser aut = userRepository.findByUsername(authentication.getName());
 		
-		selectedEq.removeAll(selectedEq);
+		//musclesAsObject  = new ArrayList<Muscle>();
+		//musclesForSelect = new ArrayList<Muscle>();
+		Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
+		Collection<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
+		ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
+		//musclesSelected2 = new ArrayList<Muscle>();
+		ArrayList<TrainingDay> trainingDays=new ArrayList<TrainingDay>();
+		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
+		ArrayList<TrainingPlan> trainingPlans=new ArrayList<TrainingPlan>();
+		
+		
+		
+		TrainingDay trainingDay = new TrainingDay();
+		
+		trainingDay.setProgramUser(aut);
+		trainingDay.setExercise(selectedExercises);
+		trainingDay.setExerciseBuild(selectedExercisesBuild);
+		
+		trainingDays.add(trainingDay);
+		
+		TrainingPlan trainingPlan = new TrainingPlan();
+		
+		trainingPlan.setProgramUser(aut);
+		trainingPlan.setTrainingDays(trainingDays);
 		
 		String returnStr="redirect:/tDays/";
 		
