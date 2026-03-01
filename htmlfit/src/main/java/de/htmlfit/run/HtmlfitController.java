@@ -331,13 +331,15 @@ public class HtmlfitController extends HttpServlet{
 		return returnStr;
 	}
 	
-	@RequestMapping(value = "/selectTE/", method = RequestMethod.GET)
-	public String selectTrainingEquipmentGet(Model model) {
+	@RequestMapping(value = "/selectTE/{id}", method = RequestMethod.GET)
+	public String selectTrainingEquipmentGet(@PathVariable("id") long id,Model model) {
 		
 
 		/*if(selectedEq.size()>0) {
 			selectedEq=new ArrayList<TrainingEquipment>();
 		}*/
+		
+		Optional<TrainingDay> trainingday = trainingDaysService.findById(id); 
 		
 		List<TrainingEquipment> eqList;
 		eqList = trainingEquipmentService.findAll();
@@ -348,7 +350,7 @@ public class HtmlfitController extends HttpServlet{
 		return "selectEq";
 	}
 	
-	@RequestMapping(value = "/selectTE/", method = RequestMethod.POST)
+	@RequestMapping(value = "/selectTE/{id}", method = RequestMethod.POST)
 	public String selectTrainingEquipment(@ModelAttribute("muscle") TrainingEquipment eqForResult) { 
 		Optional<TrainingEquipment> e =trainingEquipmentService.findById(eqForResult.getId());
 		/*for(int i=0;i<muscles.size();i++) {
@@ -356,6 +358,9 @@ public class HtmlfitController extends HttpServlet{
 			musclesAsObject.add(m.get());
 			System.out.println(i);
 		}*/
+		
+
+		
 		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 		
 		
@@ -538,7 +543,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		ProgramUser aut = userRepository.findByUsername(authentication.getName());
-		trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
+		ArrayList<TrainingDay> trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
 		model.addAttribute("trainingDays",trainingDays);
 		return returnStr;
 	}
