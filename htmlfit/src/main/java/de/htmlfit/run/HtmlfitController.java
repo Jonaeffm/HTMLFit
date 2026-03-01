@@ -85,6 +85,8 @@ public class HtmlfitController extends HttpServlet{
 	
 	private int countEx;
 	
+	private long currentId;
+	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	//Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 	Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
@@ -339,18 +341,19 @@ public class HtmlfitController extends HttpServlet{
 			selectedEq=new ArrayList<TrainingEquipment>();
 		}*/
 		
-		Optional<TrainingDay> trainingday = trainingDaysService.findById(id); 
-		
 		List<TrainingEquipment> eqList;
 		eqList = trainingEquipmentService.findAll();
 		model.addAttribute("equipment", eqList);
 		
 		TrainingEquipment eqForResult=new TrainingEquipment();
 		model.addAttribute("eqRes",eqForResult);
+		
+		currentId = id;
+		
 		return "selectEq";
 	}
 	
-	@RequestMapping(value = "/selectTE/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/selectTE/", method = RequestMethod.POST)
 	public String selectTrainingEquipment(@ModelAttribute("muscle") TrainingEquipment eqForResult) { 
 		Optional<TrainingEquipment> e =trainingEquipmentService.findById(eqForResult.getId());
 		/*for(int i=0;i<muscles.size();i++) {
@@ -359,11 +362,11 @@ public class HtmlfitController extends HttpServlet{
 			System.out.println(i);
 		}*/
 		
-
-		
 		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 		
-		
+		Optional<TrainingPlan> trainingPlan = trainingPlanService.findById(currentId);
+		Collection<TrainingDay>  trainingDay = trainingPlan.get().getTrainingDays();
+
 		
 		selectedEq.add(e.get());
 		System.out.println("add "+e.get().getName()+" to selected equipment");
