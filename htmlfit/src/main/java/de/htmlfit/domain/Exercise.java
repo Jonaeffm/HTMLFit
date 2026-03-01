@@ -18,13 +18,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 
 @Entity
-@Data
-@NoArgsConstructor
 public class Exercise {
 	@Id
 	@Column(name = "EXERCISE_ID")
