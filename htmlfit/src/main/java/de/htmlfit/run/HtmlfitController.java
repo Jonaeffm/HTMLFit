@@ -393,12 +393,16 @@ public class HtmlfitController extends HttpServlet{
 		trainingDay.setExercise(selectedExercises);
 		trainingDay.setExerciseBuild(selectedExercisesBuild);
 		
+		trainingDaysService.save(trainingDay);
+		
 		trainingDays.add(trainingDay);
 		
 		TrainingPlan trainingPlan = new TrainingPlan();
 		
 		trainingPlan.setProgramUser(aut);
 		trainingPlan.setTrainingDays(trainingDays);
+		
+		trainingPlanService.save(trainingPlan);
 		
 		String returnStr="redirect:/tDays/";
 		
