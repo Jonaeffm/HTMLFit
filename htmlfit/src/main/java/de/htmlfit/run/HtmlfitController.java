@@ -335,14 +335,14 @@ public class HtmlfitController extends HttpServlet{
 	
 	@RequestMapping(value="/id/{id}")
 	public String refreshID(@PathVariable("id") long id) {
-		currentId = id;
-		String returnStr="redirect:/selectTE/";
+		//currentId = id;
+		String returnStr="redirect:/selectTE/"+ Long.toString(id);
 		return returnStr;
 	}
 	
-	@RequestMapping(value = "/selectTE/", method = RequestMethod.GET)
-	public String selectTrainingEquipmentGet(Model model) {
-		
+	@GetMapping(value = "/selectTE/{id}")
+	public String selectTrainingEquipmentGet(@PathVariable("id") long id,Model model) {
+		currentId = id;
 
 		/*if(selectedEq.size()>0) {
 			selectedEq=new ArrayList<TrainingEquipment>();
@@ -360,7 +360,7 @@ public class HtmlfitController extends HttpServlet{
 		return "selectEq";
 	}
 	
-	@RequestMapping(value = "/selectTE/", method = RequestMethod.POST)
+	@RequestMapping(value = "/selectTE/{id}", method = RequestMethod.POST)
 	public String selectTrainingEquipment(@ModelAttribute("muscle") TrainingEquipment eqForResult) { 
 		
 		System.out.println("Training Day ID"+currentId);
