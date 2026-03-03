@@ -106,9 +106,9 @@ public class HtmlfitController extends HttpServlet{
 	
 	void selectExercise()
 	{
-		for (Muscle mItem : musclesSelected) {
+		/*for (Muscle mItem : musclesSelected) {
 			musclesForSelect.add(mItem);
-		}
+		}*/
 		int i=0;
 		int j=0;
 		int exerc=4;
@@ -184,15 +184,15 @@ public class HtmlfitController extends HttpServlet{
 			for (TrainingEquipment te : tearr) {
 				
 				System.out.println("equipment for "+element.getName()+" are "+ element.getTrainingEquipment().size() );
-				System.out.println("SelectedEquipment is "+selectedEq.size());
+				//System.out.println("SelectedEquipment is "+selectedEq.size());
 				
 				//error here
 				
-				for(TrainingEquipment item : selectedEq) {
+			/*	for(TrainingEquipment item : selectedEq) {
 					System.out.println("Name des ausgeqählten Equipments "+item.getName()+ " ID: "+item.getId());	
 					if (te.equals(item)){
 						b=true;
-					}
+					}*/
 				}
 				
 				
@@ -207,13 +207,13 @@ public class HtmlfitController extends HttpServlet{
 				}*/
 				
 			}
-			if (b==false) {
+			/*if (b==false) {
 				doDelete.add(element);
 				System.out.println(element.getName()+" deleted");
 				//exercisesBuild.remove(element);
-			}
+			}*/
 				
-		}
+		//}
 		for (ExerciseBuild eB : doDelete) {
 			exercisesBuild.remove(eB);
 		}
@@ -221,12 +221,12 @@ public class HtmlfitController extends HttpServlet{
 	
 	void selectExerciseBuild()
 	{
-		System.out.println("muscles selected size "+musclesSelected.size());
+	//	System.out.println("muscles selected size "+musclesSelected.size());
 		//musclesForSelect=musclesSelected;
 		
-		for (Muscle mItem : musclesSelected) {
+		/*for (Muscle mItem : musclesSelected) {
 			musclesForSelect.add(mItem);
-		}
+		}*/
 		
 		int i=0;
 		int j=0;
@@ -289,7 +289,7 @@ public class HtmlfitController extends HttpServlet{
 			if(musclesForSelect.size()==0) {
 				musclesForSelect=musclesAsObject;
 			}*/
-			selectedExercisesBuild.add(toAdd);
+			//selectedExercisesBuild.add(toAdd);
 		}
 	}
 	
@@ -326,7 +326,7 @@ public class HtmlfitController extends HttpServlet{
 			musclesAsObject.add(m.get());
 			System.out.println(i);
 		}*/
-		musclesSelected.add(m.get());
+		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
 		musclesAsObject.add(m.get());
 		String returnStr="redirect:/show/";
@@ -377,7 +377,7 @@ public class HtmlfitController extends HttpServlet{
 		return returnStr;
 	}
 
-	@GetMapping(value = "/")
+	@GetMapping(value = "/new")
 	public String start() {
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -412,7 +412,7 @@ public class HtmlfitController extends HttpServlet{
 		
 		trainingPlanService.save(trainingPlan);
 		
-		String returnStr="redirect:/tDays/";
+		String returnStr="redirect:/selectTE/"+trainingDay.getId().toString();
 		
 		return returnStr;
 	}
@@ -454,13 +454,13 @@ public class HtmlfitController extends HttpServlet{
 	public String showGetEq( Model model) {
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
-		model.addAttribute("resultEq",selectedEq);
+		//model.addAttribute("resultEq",selectedEq);
 		Map<Long, String> productBase64Images = new HashMap<>();
-		for (TrainingEquipment eq : selectedEq) {
+		/*for (TrainingEquipment eq : selectedEq) {
 			String contHeader = new String(eq.getImage());
 			contHeader= "data:image/jpeg;charset=utf-8;base64,"+contHeader;
 			productBase64Images.put(eq.getId(), contHeader);
-		}
+		}*/
 		
 		model.addAttribute("images", productBase64Images);
 		
@@ -484,7 +484,7 @@ public class HtmlfitController extends HttpServlet{
 	
 	@GetMapping(value = "/deleteEq/")
 	public String deleteEq() {
-		selectedEq=new ArrayList<TrainingEquipment>();
+		//selectedEq=new ArrayList<TrainingEquipment>();
 		String returnStr="redirect:/selectTE/";
 		return returnStr;
 	}
@@ -495,14 +495,14 @@ public class HtmlfitController extends HttpServlet{
 		if (musclesAsObject.size()>0)
 		{
 			
-			model.addAttribute("resultMusclesA",musclesSelected);
+			//model.addAttribute("resultMusclesA",musclesSelected);
 			
 			selectExercise();
 
 			model.addAttribute("exercises",selectedExercises);
 			
 			selectExerciseBuild();
-			model.addAttribute("exercisesBuild",selectedExercisesBuild);
+			//model.addAttribute("exercisesBuild",selectedExercisesBuild);
 			
 			TrainingDay trDay = new TrainingDay();
 			ArrayList<Exercise> ExTrDay = new ArrayList<Exercise>();
@@ -521,10 +521,10 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			}
 			
 		
-			for (ExerciseBuild ExB : selectedExercisesBuild)
+			/*for (ExerciseBuild ExB : selectedExercisesBuild)
 			{
 				ExBTrDay.add(exerciseBuildService.findById(ExB.getId()).get());
-			}
+			}*/
 		
 			trDay.setExercise(ExTrDay);
 			
@@ -582,8 +582,8 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		ProgramUser aut = userRepository.findByUsername(authentication.getName());
-		trainingPlans = (ArrayList<TrainingPlan>) trainingPlanService.findByProgramUser(aut);
-		model.addAttribute("trainingPlans",trainingPlans);
+		//trainingPlans = (ArrayList<TrainingPlan>) trainingPlanService.findByProgramUser(aut);
+		//model.addAttribute("trainingPlans",trainingPlans);
 		return returnStr;
 	}
 	
