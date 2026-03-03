@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -360,10 +361,10 @@ public class HtmlfitController extends HttpServlet{
 		return "selectEq";
 	}
 	
-	@RequestMapping(value = "/selectTE/{id}", method = RequestMethod.POST)
-	public String selectTrainingEquipment(@ModelAttribute("muscle") TrainingEquipment eqForResult) { 
+	@PostMapping(value = "/selectTE/{id}")
+	public String selectTrainingEquipment(@PathVariable("id") long id,@ModelAttribute("muscle") TrainingEquipment eqForResult) { 
 		
-		System.out.println("Training Day ID"+currentId);
+		System.out.println("Training Day ID"+id);
 		
 		Optional<TrainingEquipment> e =trainingEquipmentService.findById(eqForResult.getId());
 		/*for(int i=0;i<muscles.size();i++) {
