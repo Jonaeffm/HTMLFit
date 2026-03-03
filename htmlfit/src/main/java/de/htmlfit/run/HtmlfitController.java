@@ -333,8 +333,15 @@ public class HtmlfitController extends HttpServlet{
 		return returnStr;
 	}
 	
-	@RequestMapping(value = "/selectTE/{id}", method = RequestMethod.GET)
-	public String selectTrainingEquipmentGet(@PathVariable("id") long id,Model model) {
+	@RequestMapping(value="/id/{id}")
+	public String refreshID(@PathVariable("id") long id) {
+		currentId = id;
+		String returnStr="redirect:/selectTE/";
+		return returnStr;
+	}
+	
+	@RequestMapping(value = "/selectTE/", method = RequestMethod.GET)
+	public String selectTrainingEquipmentGet(Model model) {
 		
 
 		/*if(selectedEq.size()>0) {
@@ -348,13 +355,16 @@ public class HtmlfitController extends HttpServlet{
 		TrainingEquipment eqForResult=new TrainingEquipment();
 		model.addAttribute("eqRes",eqForResult);
 		
-		currentId = id;
+
 		
 		return "selectEq";
 	}
 	
 	@RequestMapping(value = "/selectTE/", method = RequestMethod.POST)
 	public String selectTrainingEquipment(@ModelAttribute("muscle") TrainingEquipment eqForResult) { 
+		
+		System.out.println("Training Day ID"+currentId);
+		
 		Optional<TrainingEquipment> e =trainingEquipmentService.findById(eqForResult.getId());
 		/*for(int i=0;i<muscles.size();i++) {
 			Optional<Muscle> m = muscleService.findById((long)( muscles.get(i)));
@@ -377,7 +387,7 @@ public class HtmlfitController extends HttpServlet{
 		return returnStr;
 	}
 
-	@GetMapping(value = "/new")
+	@GetMapping(value = "/new/")
 	public String start() {
 		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -412,7 +422,7 @@ public class HtmlfitController extends HttpServlet{
 		
 		trainingPlanService.save(trainingPlan);
 		
-		String returnStr="redirect:/selectTE/"+trainingDay.getId().toString();
+		String returnStr="redirect:/id/"+trainingDay.getId().toString();
 		
 		return returnStr;
 	}
