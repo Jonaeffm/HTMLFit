@@ -86,8 +86,6 @@ public class HtmlfitController extends HttpServlet{
 	
 	private int countEx;
 	
-	private long currentId;
-	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	//Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 	Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
@@ -334,16 +332,9 @@ public class HtmlfitController extends HttpServlet{
 		return returnStr;
 	}
 	
-	@RequestMapping(value="/id/{id}")
-	public String refreshID(@PathVariable("id") long id) {
-		//currentId = id;
-		String returnStr="redirect:/selectTE/"+ Long.toString(id);
-		return returnStr;
-	}
 	
 	@GetMapping(value = "/selectTE/{id}")
 	public String selectTrainingEquipmentGet(@PathVariable("id") long id,Model model) {
-		currentId = id;
 
 		/*if(selectedEq.size()>0) {
 			selectedEq=new ArrayList<TrainingEquipment>();
@@ -375,7 +366,7 @@ public class HtmlfitController extends HttpServlet{
 		
 		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 		
-		Optional<TrainingPlan> trainingPlan = trainingPlanService.findById(currentId);
+		Optional<TrainingPlan> trainingPlan = trainingPlanService.findById(id);
 		Collection<TrainingDay>  trainingDay = trainingPlan.get().getTrainingDays();
 
 		
@@ -423,7 +414,7 @@ public class HtmlfitController extends HttpServlet{
 		
 		trainingPlanService.save(trainingPlan);
 		
-		String returnStr="redirect:/id/"+trainingDay.getId().toString();
+		String returnStr="redirect:/selectTE/"+trainingDay.getId().toString();
 		
 		return returnStr;
 	}
