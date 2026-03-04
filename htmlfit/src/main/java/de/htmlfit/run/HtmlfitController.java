@@ -366,11 +366,10 @@ public class HtmlfitController extends HttpServlet{
 		
 		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 		
-		Optional<TrainingPlan> trainingPlan = trainingPlanService.findById(id);
-		Collection<TrainingDay>  trainingDay = trainingPlan.get().getTrainingDays();
-
+		Optional<TrainingDay>  trainingDay = trainingDaysService.findById(id);
 		
 		selectedEq.add(e.get());
+		
 		System.out.println("add "+e.get().getName()+" to selected equipment");
 		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
