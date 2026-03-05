@@ -43,14 +43,14 @@ public class TrainingDay {
 			  name = "musclesTd", 
 			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
 			  inverseJoinColumns = @JoinColumn(name = "MUSCLE_ID"))
-	private Collection<Exercise> Muscles;
+	private Collection<Exercise> muscles;
 
 	@ManyToMany
 	@JoinTable(
 			  name = "TETd", 
 			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
 			  inverseJoinColumns = @JoinColumn(name = "TRAININGEQUIPMENT_ID"))
-	private Collection<TrainingEquipment> Equip;
+	private Collection<TrainingEquipment> equip;
 	
 	@OneToMany
 	@JoinTable(
@@ -84,11 +84,11 @@ public class TrainingDay {
 	}
 	
 	public Collection<TrainingEquipment> getEquip() {
-		return Equip;
+		return equip;
 	}
 
 	public void setEquip(Collection<TrainingEquipment> equip) {
-		Equip = equip;
+		equip = equip;
 	}
 
 	@Override
@@ -100,11 +100,11 @@ public class TrainingDay {
 
 
 	public Collection<Exercise> getMuscles() {
-		return Muscles;
+		return muscles;
 	}
 
 	public void setMuscles(Collection<Exercise> muscle) {
-		Muscles = muscle;
+		muscles = muscle;
 	}
 	
 	public Long getId() {

@@ -45,7 +45,7 @@ public class Muscle {
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
 
-	@ManyToMany(mappedBy = "muscle")
+	@ManyToMany(mappedBy = "muscles")
 	@JsonIgnore
 	private Collection<TrainingDay> TrainingDays;
 	
