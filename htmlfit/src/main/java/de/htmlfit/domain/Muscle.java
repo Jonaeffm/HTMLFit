@@ -45,6 +45,10 @@ public class Muscle {
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
 
+	@ManyToMany(mappedBy = "muscle")
+	@JsonIgnore
+	private Collection<TrainingDay> TrainingDays;
+	
 	@Override
 	public String toString() {
 		return "Muscle [id=" + id + ", name=" + name + "]";
@@ -64,6 +68,7 @@ public class Muscle {
 		}
 		return true;
 	}
+	
 	
 	@Override
 	public int hashCode() {

@@ -37,7 +37,21 @@ public class TrainingDay {
 			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<Exercise> exercise;
+	
+	@ManyToMany
+	@JoinTable(
+			  name = "musclesTd", 
+			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
+			  inverseJoinColumns = @JoinColumn(name = "MUSCLE_ID"))
+	private Collection<Exercise> Muscles;
 
+	@ManyToMany
+	@JoinTable(
+			  name = "TETd", 
+			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
+			  inverseJoinColumns = @JoinColumn(name = "TRAININGEQUIPMENT_ID"))
+	private Collection<TrainingEquipment> Equip;
+	
 	@OneToMany
 	@JoinTable(
 	          name="BodyBuildExercises",
@@ -69,6 +83,14 @@ public class TrainingDay {
 		return true;
 	}
 	
+	public Collection<TrainingEquipment> getEquip() {
+		return Equip;
+	}
+
+	public void setEquip(Collection<TrainingEquipment> equip) {
+		Equip = equip;
+	}
+
 	@Override
 	public int hashCode() {
 		int hash = 5;
@@ -76,6 +98,15 @@ public class TrainingDay {
 		return hash;
 	}
 
+
+	public Collection<Exercise> getMuscles() {
+		return Muscles;
+	}
+
+	public void setMuscles(Collection<Exercise> muscle) {
+		Muscles = muscle;
+	}
+	
 	public Long getId() {
 		return id;
 	}
