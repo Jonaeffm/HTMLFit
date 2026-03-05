@@ -374,7 +374,7 @@ public class HtmlfitController extends HttpServlet{
 		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
 		//musclesAsObject.add(m.get());
-		String returnStr="redirect:/showEq/";
+		String returnStr="redirect:/showEq/"+trainingDay.get().getId().toString();
 		return returnStr;
 	}
 
@@ -451,17 +451,21 @@ public class HtmlfitController extends HttpServlet{
 		return returnStr;
 	}
 	
-	@RequestMapping(value = "/showEq/", method = RequestMethod.GET)
-	public String showGetEq( Model model) {
+	@GetMapping(value = "/showEq/{id}")
+	public String showGetEq(@PathVariable("id") long id, Model model) {
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
-		//model.addAttribute("resultEq",selectedEq);
+		
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		Collection<TrainingEquipment> selectedEq = td.get().getEquip();
+		
+		model.addAttribute("resultEq",selectedEq);
 		Map<Long, String> productBase64Images = new HashMap<>();
-		/*for (TrainingEquipment eq : selectedEq) {
+		for (TrainingEquipment eq : selectedEq) {
 			String contHeader = new String(eq.getImage());
 			contHeader= "data:image/jpeg;charset=utf-8;base64,"+contHeader;
 			productBase64Images.put(eq.getId(), contHeader);
-		}*/
+		}
 		
 		model.addAttribute("images", productBase64Images);
 		
