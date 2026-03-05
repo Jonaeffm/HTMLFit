@@ -353,11 +353,13 @@ public class HtmlfitController extends HttpServlet{
 	}
 	
 	@PostMapping(value = "/selectTE/{id}")
-	public String selectTrainingEquipment(@PathVariable("id") long id,@ModelAttribute("muscle") TrainingEquipment eqForResult) { 
+	public String selectTrainingEquipment(@PathVariable("id") long id,@ModelAttribute("eqRes") TrainingEquipment eqForResult) { 
 		
 		System.out.println("Training Day ID"+id);
 		
-		Optional<TrainingEquipment> e =trainingEquipmentService.findById(eqForResult.getId());
+		System.out.println("EquipmentId" + Long.toString(eqForResult.getId()));
+		
+		//Optional<TrainingEquipment> e =trainingEquipmentService.findById(eqForResult.getId());
 		/*for(int i=0;i<muscles.size();i++) {
 			Optional<Muscle> m = muscleService.findById((long)( muscles.get(i)));
 			musclesAsObject.add(m.get());
@@ -368,11 +370,12 @@ public class HtmlfitController extends HttpServlet{
 		
 		Optional<TrainingDay>  trainingDay = trainingDaysService.findById(id);
 		
-		selectedEq.add(e.get());
+		selectedEq.add(eqForResult);
 		trainingDay.get().setEquip(selectedEq);	
 		trainingDaysService.save(trainingDay.get());
+		//trainingEquipmentService.save(e.get());
 		
-		System.out.println("add "+e.get().getName()+" to selected equipment");
+		System.out.println("add "+eqForResult.getName()+" to selected equipment");
 		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
 		//musclesAsObject.add(m.get());
@@ -455,11 +458,19 @@ public class HtmlfitController extends HttpServlet{
 	
 	@GetMapping(value = "/showEq/{id}")
 	public String showGetEq(@PathVariable("id") long id, Model model) {
+		
+		System.out.println("PathVar"+ Long.toString(id));
+		
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
 		
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
+		System.out.println("ID loaded trainingDay "+td.get().getId());
+		
 		Collection<TrainingEquipment> selectedEq = td.get().getEquip();
+		
+		System.out.println("how much equipment? "+selectedEq.size());
 		
 		model.addAttribute("resultEq",selectedEq);
 		Map<Long, String> productBase64Images = new HashMap<>();
