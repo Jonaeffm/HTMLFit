@@ -370,10 +370,17 @@ public class HtmlfitController extends HttpServlet{
 		
 		System.out.println("eqForResult name: "+eqForResult.get().getName());
 		
-		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
-		
 		Optional<TrainingDay>  trainingDay = trainingDaysService.findById(id);
+
+		Collection<TrainingEquipment> selectedEq ;
 		
+		if (trainingDay.get().getEquip()==null || trainingDay.get().getEquip().size()==0)
+		{	
+			selectedEq = new ArrayList<TrainingEquipment>();
+		}
+		else {
+			selectedEq = trainingDay.get().getEquip();
+		}
 		if (eqForResult.get().getTrainingDays() == null || eqForResult.get().getTrainingDays().isEmpty())
 		{
 			Collection<TrainingDay> trainingDaysForEq = new ArrayList<TrainingDay>();
