@@ -33,6 +33,16 @@ public class TrainingEquipment {
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
 
+	@ManyToMany(mappedBy = "equip")
+	@JsonIgnore
+	private Collection<TrainingDay> TrainingDays;
+	
+	public Collection<TrainingDay> getTrainingDays() {
+		return TrainingDays;
+	}
+	public void setTrainingDays(Collection<TrainingDay> trainingDays) {
+		TrainingDays = trainingDays;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {

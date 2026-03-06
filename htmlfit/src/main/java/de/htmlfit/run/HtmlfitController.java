@@ -370,7 +370,11 @@ public class HtmlfitController extends HttpServlet{
 		
 		Optional<TrainingDay>  trainingDay = trainingDaysService.findById(id);
 		
+		eqForResult.getTrainingDays().add(trainingDay.get());
+		trainingEquipmentService.save(eqForResult); 		
+
 		selectedEq.add(eqForResult);
+		
 		trainingDay.get().setEquip(selectedEq);	
 		trainingDaysService.save(trainingDay.get());
 		//trainingEquipmentService.save(e.get());
