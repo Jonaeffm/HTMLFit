@@ -35,13 +35,13 @@ public class TrainingEquipment {
 
 	@ManyToMany(mappedBy = "equip")
 	@JsonIgnore
-	private Collection<TrainingDay> TrainingDays;
+	private Collection<TrainingDay> trainingDays;
 	
 	public Collection<TrainingDay> getTrainingDays() {
-		return TrainingDays;
+		return trainingDays;
 	}
 	public void setTrainingDays(Collection<TrainingDay> trainingDays) {
-		TrainingDays = trainingDays;
+		trainingDays = trainingDays;
 	}
 	@Override
 	public boolean equals(Object obj) {

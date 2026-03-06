@@ -353,11 +353,11 @@ public class HtmlfitController extends HttpServlet{
 	}
 	
 	@PostMapping(value = "/selectTE/{id}")
-	public String selectTrainingEquipment(@PathVariable("id") long id,@ModelAttribute("eqRes") TrainingEquipment eqForResult) { 
+	public String selectTrainingEquipment(@PathVariable("id") long id,@ModelAttribute("eqRes") TrainingEquipment eqForResultPar) { 
 		
 		System.out.println("Training Day ID"+id);
 		
-		System.out.println("EquipmentId" + Long.toString(eqForResult.getId()));
+		System.out.println("EquipmentId" + Long.toString(eqForResultPar.getId()));
 		
 		//Optional<TrainingEquipment> e =trainingEquipmentService.findById(eqForResult.getId());
 		/*for(int i=0;i<muscles.size();i++) {
@@ -366,20 +366,29 @@ public class HtmlfitController extends HttpServlet{
 			System.out.println(i);
 		}*/
 		
+		Optional<TrainingEquipment> eqForResult = trainingEquipmentService.findById(eqForResultPar.getId());
+		
 		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 		
 		Optional<TrainingDay>  trainingDay = trainingDaysService.findById(id);
 		
-		eqForResult.getTrainingDays().add(trainingDay.get());
-		trainingEquipmentService.save(eqForResult); 		
+		if (eqForResult.get().getTrainingDays() == null || eqForResult.get().getTrainingDays().isEmpty())
+		{
+			Collection<TrainingDay> trainingDaysForEq = new ArrayList<TrainingDay>();
+			eqForResult.get().setTrainingDays(trainingDaysForEq);
+			
+		}
+		
+		eqForResult.get().getTrainingDays().add(trainingDay.get());
+		trainingEquipmentService.save(eqForResult.get()); 		
 
-		selectedEq.add(eqForResult);
+		selectedEq.add(eqForResult.get());
 		
 		trainingDay.get().setEquip(selectedEq);	
 		trainingDaysService.save(trainingDay.get());
 		//trainingEquipmentService.save(e.get());
 		
-		System.out.println("add "+eqForResult.getName()+" to selected equipment");
+		System.out.println("add "+eqForResult.get().getName()+" to selected equipment");
 		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
 		//musclesAsObject.add(m.get());
