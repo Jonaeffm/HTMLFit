@@ -368,6 +368,8 @@ public class HtmlfitController extends HttpServlet{
 		
 		Optional<TrainingEquipment> eqForResult = trainingEquipmentService.findById(eqForResultPar.getId());
 		
+		System.out.println("eqForResult name: "+eqForResult.get().getName());
+		
 		Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 		
 		Optional<TrainingDay>  trainingDay = trainingDaysService.findById(id);
@@ -389,10 +391,10 @@ public class HtmlfitController extends HttpServlet{
 		//trainingEquipmentService.save(e.get());
 		
 		System.out.println("add "+eqForResult.get().getName()+" to selected equipment");
-		//musclesSelected.add(m.get());
+		System.out.println("How muchg Equipment SelectTE: "+trainingDay.get().getEquip().size());		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
 		//musclesAsObject.add(m.get());
-		String returnStr="redirect:/showEq/"+trainingDay.get().getId().toString();
+		String returnStr="redirect:/showEq/"+Long.toString(trainingDay.get().getId());
 		return returnStr;
 	}
 
