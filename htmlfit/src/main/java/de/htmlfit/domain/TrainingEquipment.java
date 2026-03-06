@@ -34,7 +34,6 @@ public class TrainingEquipment {
 	private Collection<ExerciseBuild> exerciseBuild;
 
 	@ManyToMany(mappedBy = "equip")
-	@JsonIgnore
 	private Collection<TrainingDay> trainingDays;
 	
 	public Collection<TrainingDay> getTrainingDays() {
