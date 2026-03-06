@@ -33,14 +33,14 @@ public class TrainingEquipment {
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<ExerciseBuild> exerciseBuild;
 
-	@ManyToMany(mappedBy = "equip")
+	@ManyToMany
 	private Collection<TrainingDay> trainingDays;
 	
 	public Collection<TrainingDay> getTrainingDays() {
 		return trainingDays;
 	}
-	public void setTrainingDays(Collection<TrainingDay> trainingDays) {
-		trainingDays = trainingDays;
+	public void setTrainingDays(Collection<TrainingDay> trainingDaysPar) {
+		trainingDays = trainingDaysPar;
 	}
 	@Override
 	public boolean equals(Object obj) {

@@ -87,8 +87,8 @@ public class TrainingDay {
 		return equip;
 	}
 
-	public void setEquip(Collection<TrainingEquipment> equip) {
-		equip = equip;
+	public void setEquip(Collection<TrainingEquipment> equipP) {
+		equip = equipP;
 	}
 
 	@Override

@@ -386,7 +386,12 @@ public class HtmlfitController extends HttpServlet{
 
 		selectedEq.add(eqForResult.get());
 		
+		System.out.println("selectedEq size = "+selectedEq.size());
+		
 		trainingDay.get().setEquip(selectedEq);	
+		
+		System.out.println("trainingDay.getEq size = "+trainingDay.get().getEquip().size());
+		
 		trainingDaysService.save(trainingDay.get());
 		//trainingEquipmentService.save(e.get());
 		
