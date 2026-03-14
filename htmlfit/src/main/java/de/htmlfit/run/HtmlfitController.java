@@ -491,6 +491,8 @@ public class HtmlfitController extends HttpServlet{
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
 		
+		model.addAttribute("id",id);
+		
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
 		
 		System.out.println("ID loaded trainingDay "+td.get().getId());
