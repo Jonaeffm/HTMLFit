@@ -514,7 +514,7 @@ public class HtmlfitController extends HttpServlet{
 		return "showEquipment";
 	}
 	
-	@RequestMapping(value = "/showEq/", method = RequestMethod.POST) 
+	@PostMapping(value = "/showEq/{id}") 
 	public String showEq() {
 		
 		String returnStr = "redirect:/select/";
