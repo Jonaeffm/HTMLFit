@@ -62,8 +62,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class HtmlfitController extends HttpServlet{
-	ArrayList<Muscle> musclesAsObject;
-	
+		
 	@Autowired
 	private MuscleService muscleService;
 	@Autowired
@@ -88,7 +87,7 @@ public class HtmlfitController extends HttpServlet{
 	
 	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	//Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
-	Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
+	//Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
 	//Collection<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
 	//ArrayList<Muscle> musclesSelected = new ArrayList<Muscle>();
 	//ArrayList<Muscle> musclesSelected2 = new ArrayList<Muscle>();
@@ -157,9 +156,9 @@ public class HtmlfitController extends HttpServlet{
 			}
 			
 			if(musclesForSelect.size()==0) {
-				musclesForSelect=musclesAsObject;
+				//musclesForSelect=musclesAsObject;
 			}
-			selectedExercises.add(toAdd);
+			//selectedExercises.add(toAdd);
 		}
 	}
 	
@@ -292,17 +291,19 @@ public class HtmlfitController extends HttpServlet{
 		}
 	}
 	
-	@RequestMapping(value = "/select/", method = RequestMethod.GET)
-	public String addImage2Get(Model model) {
+	@GetMapping(value = "/select/{id}")
+	public String addImage2Get(@PathVariable("id") long id,Model model) {
 		
-
+		
+		/*
 		if(selectedExercises.size()>0) {
 			selectedExercises=new ArrayList<Exercise>();
-		}
+		}*/
 		
 		List<Muscle> muscleList;
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
+		
 		
 		Muscle muscleForResult=new Muscle();
 		model.addAttribute("muscle",muscleForResult);
@@ -317,8 +318,11 @@ public class HtmlfitController extends HttpServlet{
 	 * @param muscleList
 	 * @return@ModelAttribute("images") Image imageToAdd
 	 */
-	@RequestMapping(value = "/select/", method = RequestMethod.POST)
-	public String addImage2Post(@ModelAttribute("muscle") Muscle muscleForResult) { 
+	@PostMapping(value = "/select/{id}")
+	public String addImage2Post(@PathVariable("id") long id,@ModelAttribute("muscle") Muscle muscleForResult) { 
+		
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
 		Optional<Muscle> m =muscleService.findById(muscleForResult.getId());
 		/*for(int i=0;i<muscles.size();i++) {
 			Optional<Muscle> m = muscleService.findById((long)( muscles.get(i)));
@@ -327,8 +331,15 @@ public class HtmlfitController extends HttpServlet{
 		}*/
 		//musclesSelected.add(m.get());
 		//musclesSelected2.add(m.get());
+		
+		Collection<Muscle> musclesAsObject = td.get().getMuscles();
+		
 		musclesAsObject.add(m.get());
-		String returnStr="redirect:/show/";
+		
+		td.get().setMuscles(musclesAsObject);
+		trainingDaysService.save(td.get());
+		
+		String returnStr="redirect:/show/"+Long.toString(id);
 		return returnStr;
 	}
 	
@@ -433,6 +444,7 @@ public class HtmlfitController extends HttpServlet{
 		trainingDay.setProgramUser(aut);
 		trainingDay.setExercise(selectedExercises);
 		trainingDay.setExerciseBuild(selectedExercisesBuild);
+		trainingDay.setMuscles(musclesSelected);
 		
 		trainingDaysService.save(trainingDay);
 		
@@ -450,20 +462,25 @@ public class HtmlfitController extends HttpServlet{
 		return returnStr;
 	}
 	
-	@GetMapping(value = "/hiit/")
+	/*@GetMapping(value = "/hiit/")
 	public String time(Model model) {
 		model.addAttribute("exercises",selectedExercises);
 		return "time";
-	}
+	}*/
 	
-	@RequestMapping(value = "/show/", method = RequestMethod.GET)
-	public String showGet(Model model) {
+	@GetMapping(value = "/show/{id}")
+	public String showGet(@PathVariable("id") long id,Model model) {
 		NumberBean nB=new NumberBean();
 		model.addAttribute("count",nB);
-		model.addAttribute("resultMuscles",musclesAsObject);
+		
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
+		Collection<Muscle> musclesAsObjectCol = td.get().getMuscles();
+		
+		model.addAttribute("resultMuscles",musclesAsObjectCol);
 		
 		Map<Long, String> productBase64Images = new HashMap<>();
-		for (Muscle muscle : musclesAsObject) {
+		for (Muscle muscle : musclesAsObjectCol) {
 			String contHeader = new String(muscle.getImage());
 			contHeader= "data:image/jpeg;charset=utf-8;base64,"+contHeader;
 			productBase64Images.put(muscle.getId(), contHeader);
@@ -474,7 +491,7 @@ public class HtmlfitController extends HttpServlet{
 		return "showMuscles";
 	}
 	
-	@RequestMapping(value = "/show/", method = RequestMethod.POST) 
+	@PostMapping(value = "/show/{id}") 
 	public String show(@ModelAttribute("count") NumberBean count) {
 
 		countEx = count.getCount();
@@ -524,7 +541,7 @@ public class HtmlfitController extends HttpServlet{
 	
 	@GetMapping(value = "/delete/")
 	public String delete() {
-		musclesAsObject=new ArrayList<Muscle>();
+		//musclesAsObject=new ArrayList<Muscle>();
 		String returnStr="redirect:/select/";
 		return returnStr;
 	}
@@ -539,7 +556,7 @@ public class HtmlfitController extends HttpServlet{
 	@RequestMapping(value = "/exerc/",method = RequestMethod.GET)
 	public String showExerc(Model model) {
 		String returnStr = "showExerciss";
-		if (musclesAsObject.size()>0)
+		/*if (musclesAsObject.size()>0)
 		{
 			
 			//model.addAttribute("resultMusclesA",musclesSelected);
@@ -572,18 +589,18 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			{
 				ExBTrDay.add(exerciseBuildService.findById(ExB.getId()).get());
 			}*/
-		
+		/*
 			trDay.setExercise(ExTrDay);
 			
 			trDay.setExerciseBuild(ExBTrDay);
 			
-			
+			*/
 			//trDay.setUd(userRepository.findByUsername(authentication.getName()));
-			trainingDaysService.save(trDay);
+			/*trainingDaysService.save(trDay);
 
 			
 		}
-		
+		*/
 		return returnStr;
 	}
 	
@@ -667,7 +684,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
-	@GetMapping("/show/{id}")
+	/*@GetMapping("/show/{id}")
 	public String showTd(@PathVariable("id") long id, Model model) {
 		String returnStr = "showExercissWithoutMuscles";
 		Optional<TrainingDay> td =trainingDaysService.findById(id);
@@ -675,7 +692,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		model.addAttribute("exercisesBuild",td.get().getExerciseBuild());
 		return returnStr;
 	}
-	
+	*/
 	/*@GetMapping("/showTP/{id}")
 	public String showTP(@PathVariable("id") long id, Model model) {
 		String returnStr = "showExercissWithoutMuscles";

@@ -43,7 +43,7 @@ public class TrainingDay {
 			  name = "musclesTd", 
 			  joinColumns = @JoinColumn(name = "TRAININGDAY_ID"), 
 			  inverseJoinColumns = @JoinColumn(name = "MUSCLE_ID"))
-	private Collection<Exercise> muscles;
+	private Collection<Muscle> muscles;
 
 	@ManyToMany
 	@JoinTable(
@@ -99,11 +99,11 @@ public class TrainingDay {
 	}
 
 
-	public Collection<Exercise> getMuscles() {
+	public Collection<Muscle> getMuscles() {
 		return muscles;
 	}
 
-	public void setMuscles(Collection<Exercise> muscle) {
+	public void setMuscles(Collection<Muscle> muscle) {
 		muscles = muscle;
 	}
 	
