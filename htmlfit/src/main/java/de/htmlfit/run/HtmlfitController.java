@@ -532,9 +532,9 @@ public class HtmlfitController extends HttpServlet{
 	}
 	
 	@PostMapping(value = "/showEq/{id}") 
-	public String showEq() {
+	public String showEq(@PathVariable("id") long id) {
 		
-		String returnStr = "redirect:/select/";
+		String returnStr = "redirect:/select/"+Long.toString(id);
 
 		return returnStr;
 	}
