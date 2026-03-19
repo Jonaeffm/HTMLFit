@@ -85,7 +85,7 @@ public class HtmlfitController extends HttpServlet{
 	
 	private int countEx;
 	
-	ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
+	//ArrayList<Muscle> musclesForSelect = new ArrayList<Muscle>();
 	//Collection<TrainingEquipment> selectedEq = new ArrayList<TrainingEquipment>();
 	//Collection<Exercise> selectedExercises = new ArrayList<Exercise>();
 	//Collection<ExerciseBuild> selectedExercisesBuild = new ArrayList<ExerciseBuild>();
@@ -102,194 +102,7 @@ public class HtmlfitController extends HttpServlet{
 		return array;
 	}
 	
-	void selectExercise()
-	{
-		/*for (Muscle mItem : musclesSelected) {
-			musclesForSelect.add(mItem);
-		}*/
-		int i=0;
-		int j=0;
-		int exerc=4;
-		Exercise toAdd=new Exercise();
-		ArrayList<Exercise> exercises = (ArrayList<Exercise>) exerciseService.findAll();
-		for(int k=0;k<exerc;k++)
-		{
-			
-			for (Exercise element : exercises){
-		    	for(Muscle mElement: musclesForSelect ) {
-		    		
-		    		for  (int l = 0; l<element.getMuscles().size();l++) {
-		    			ArrayList<Muscle> muscles = new ArrayList<Muscle>(element.getMuscles());
-		    			if (muscles.get(l).equals(mElement)) {
-		    					
-		    				i++;
-		    			}
-		    		}
-		    		
-		    	}
-		    	
-		    	if(i>=j) {
-	    			toAdd=element;
-	    			
-	    			j=i;
-	    			i=0;
-	    		}
-			}
-			boolean test = exercises.remove(exerciseService.findById(toAdd.getId()).get());
-			System.out.println("Test:gelöscht="+test);
-			j=0;
-
-/*			for (Muscle mElement2:musclesForSelect) {
-				if(toAdd.getMuscles().contains(mElement2)) {
-					musclesForSelect.remove(mElement2);
-				}
-			}*/
-			
-			Iterator<Muscle> iter = musclesForSelect.iterator();
-
-			while (iter.hasNext()) {
-			    Muscle m = iter.next();
-
-			    if(toAdd.getMuscles().contains(m)) {
-			        iter.remove();
-			    }
-			}
-			
-			if(musclesForSelect.size()==0) {
-				//musclesForSelect=musclesAsObject;
-			}
-			//selectedExercises.add(toAdd);
-		}
-	}
 	
-	void deleteExercisesWithNotSelectedEq()
-	{
-		ArrayList<ExerciseBuild> doDelete = new ArrayList<ExerciseBuild>();
-		//ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
-		for (ExerciseBuild element : exercisesBuild){
-			
-			System.out.println("exercisesBuild are "+exercisesBuild.size());
-		  
-			boolean b=false;
-			ArrayList<TrainingEquipment> tearr = new ArrayList<TrainingEquipment>();
-			
-			for(TrainingEquipment treq : element.getTrainingEquipment())
-			{
-				tearr.add(treq);
-			}
-			
-			System.out.println("Element "+element.getName()+ " has "+tearr.size()+" treq.");
-			for (TrainingEquipment te : tearr) {
-				
-				System.out.println("equipment for "+element.getName()+" are "+ element.getTrainingEquipment().size() );
-				//System.out.println("SelectedEquipment is "+selectedEq.size());
-				
-				//error here
-				
-			/*	for(TrainingEquipment item : selectedEq) {
-					System.out.println("Name des ausgeqählten Equipments "+item.getName()+ " ID: "+item.getId());	
-					if (te.equals(item)){
-						b=true;
-					}*/
-				}
-				
-				
-				/*if (!(selectedEq.contains(te))){
-					for(TrainingEquipment item : selectedEq) {
-						System.out.println("Name des ausgeqählten Equipments "+item.getName()+ " ID: "+item.getId());	
-						
-					}
-					b=true;
-					System.out.println(element.getName()+" deleted"+" The selected EQ Doesnt contain "+te.getName()+" ID:"+te.getId());
-					
-				}*/
-				
-			}
-			/*if (b==false) {
-				doDelete.add(element);
-				System.out.println(element.getName()+" deleted");
-				//exercisesBuild.remove(element);
-			}*/
-				
-		//}
-		for (ExerciseBuild eB : doDelete) {
-			exercisesBuild.remove(eB);
-		}
-	}
-	
-	void selectExerciseBuild()
-	{
-	//	System.out.println("muscles selected size "+musclesSelected.size());
-		//musclesForSelect=musclesSelected;
-		
-		/*for (Muscle mItem : musclesSelected) {
-			musclesForSelect.add(mItem);
-		}*/
-		
-		int i=0;
-		int j=0;
-		int exerc=countEx;
-		ExerciseBuild toAdd=new ExerciseBuild();
-		
-		//TODO: delete exercises with not selected equipment
-		//ArrayList<ExerciseBuild> exercisesBuild = (ArrayList<ExerciseBuild>) exerciseBuildService.findAll();
-		exercisesBuild = new ArrayList<ExerciseBuild>(exerciseBuildService.findAll());
-		deleteExercisesWithNotSelectedEq();
-		
-		
-		for(int k=0;k<exerc;k++)
-		{
-			
-			for (ExerciseBuild element : exercisesBuild){
-		    	for(Muscle mElement: musclesForSelect ) {
-		    		
-		    		for  (int l = 0; l<element.getMuscles().size();l++) {
-		    			ArrayList<Muscle> muscles = new ArrayList<Muscle>(element.getMuscles());
-		    			if (muscles.get(l).equals(mElement)) {
-
-		    					
-		    				i++;
-		    			}
-		    		}
-		    	}
-		    	
-		    	if(i>=j) {
-	    			toAdd=element;
-	    			
-	    			
-	    			j=i;
-	    			i=0;
-	    		}
-			}
-			
-			boolean test = exercisesBuild.remove(exerciseBuildService.findById(toAdd.getId()).get());
-			
-			if (j==0) {
-				break;
-			}
-			
-			System.out.println("Test:gelöscht="+test);
-			
-			j=0;
-			
-			/*Iterator<Muscle> iter = musclesForSelect.iterator();
-
-			while (iter.hasNext()) {
-			    Muscle m = iter.next();
-
-			    if(toAdd.getMuscles().contains(m)) {
-			        //todo:
-			    	//und wenn keine weiteren Übungen mit entspr. Muskel
-			    	iter.remove();
-			    }
-			}
-			
-			if(musclesForSelect.size()==0) {
-				musclesForSelect=musclesAsObject;
-			}*/
-			//selectedExercisesBuild.add(toAdd);
-		}
-	}
 	
 	@GetMapping(value = "/select/{id}")
 	public String addImage2Get(@PathVariable("id") long id,Model model) {
@@ -553,15 +366,19 @@ public class HtmlfitController extends HttpServlet{
 		return returnStr;
 	}
 	
-	@RequestMapping(value = "/exerc/",method = RequestMethod.GET)
-	public String showExerc(Model model) {
+	@RequestMapping(value = "/exerc/{id}",method = RequestMethod.GET)
+	public String showExerc(@PathVariable("id") long id,Model model) {
 		String returnStr = "showExerciss";
-		/*if (musclesAsObject.size()>0)
+		/*
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		ArrayList<Muscle> musclesAsObject = (ArrayList<Muscle>) td.get().getMuscles(); 
+		
+		if (musclesAsObject.size()>0)
 		{
 			
 			//model.addAttribute("resultMusclesA",musclesSelected);
 			
-			selectExercise();
+			selectExercise(td.get(),musclesAsObject,4);
 
 			model.addAttribute("exercises",selectedExercises);
 			
@@ -585,22 +402,22 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			}
 			
 		
-			/*for (ExerciseBuild ExB : selectedExercisesBuild)
+			for (ExerciseBuild ExB : selectedExercisesBuild)
 			{
 				ExBTrDay.add(exerciseBuildService.findById(ExB.getId()).get());
-			}*/
-		/*
+			}
+		
 			trDay.setExercise(ExTrDay);
 			
 			trDay.setExerciseBuild(ExBTrDay);
 			
-			*/
+			
 			//trDay.setUd(userRepository.findByUsername(authentication.getName()));
-			/*trainingDaysService.save(trDay);
+			trainingDaysService.save(trDay);
 
 			
-		}
-		*/
+		}*/
+		
 		return returnStr;
 	}
 	
