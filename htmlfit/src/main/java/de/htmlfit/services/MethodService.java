@@ -21,17 +21,32 @@ public class MethodService{
 		Collection<TrainingEquipment> selectedEquipment = td.getEquip();
 	
 		Collection<Exercise> allExercises = exerciseService.findAll();
+		Collection<Exercise> exercisesToAdd = exerciseService.findAll();
 		
 		for(int i=0;i<4;i++) {
 			int j=0;
+			
+			int k=0;
+			
+			Exercise exerciseToAdd = new Exercise();
+			
 			for(Exercise e : allExercises) {
+				
 				for (Muscle m: selectedMuscles) {
 					if (e.getMuscles().contains(m)) {
-						j++;
+						k++;
 					}
 				}
-			}
+				if(k>j) {
+					j=k;
+					exerciseToAdd = e;
+					
 			
+
+				}
+			}
+			allExercises.remove(exerciseToAdd);
+			exercisesToAdd.add(exerciseToAdd);
 		}
 		
 		return null;
