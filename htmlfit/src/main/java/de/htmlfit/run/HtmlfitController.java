@@ -48,6 +48,7 @@ import de.htmlfit.domain.TrainingEquipment;
 import de.htmlfit.domain.TrainingPlan;
 import de.htmlfit.services.ExerciseBuildService;
 import de.htmlfit.services.ExerciseService;
+import de.htmlfit.services.MethodService;
 import de.htmlfit.services.MuscleService;
 import de.htmlfit.services.TrainingDayService;
 import de.htmlfit.services.TrainingEquipmentService;
@@ -67,6 +68,9 @@ public class HtmlfitController extends HttpServlet{
 	private MuscleService muscleService;
 	@Autowired
 	private ExerciseService exerciseService;
+	
+	@Autowired
+	private MethodService ms;
 	
 	@Autowired
 	private ExerciseBuildService exerciseBuildService;
@@ -369,6 +373,17 @@ public class HtmlfitController extends HttpServlet{
 	@RequestMapping(value = "/exerc/{id}",method = RequestMethod.GET)
 	public String showExerc(@PathVariable("id") long id,Model model) {
 		String returnStr = "showExerciss";
+		
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
+		Collection<Exercise> exercises =  ms.hiitExercises(td.get());
+		
+		td.get().setExercise(exercises);
+		
+		trainingDaysService.save(td.get());
+		
+		model.addAttribute("exercises",td.get().getExercise());
+		
 		/*
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
 		ArrayList<Muscle> musclesAsObject = (ArrayList<Muscle>) td.get().getMuscles(); 
@@ -380,7 +395,6 @@ public class HtmlfitController extends HttpServlet{
 			
 			selectExercise(td.get(),musclesAsObject,4);
 
-			model.addAttribute("exercises",selectedExercises);
 			
 			selectExerciseBuild();
 			//model.addAttribute("exercisesBuild",selectedExercisesBuild);
