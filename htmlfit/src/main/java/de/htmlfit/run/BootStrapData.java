@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import de.htmlfit.domain.ProgramUser;
+import de.htmlfit.domain.TrainingDay;
 import de.htmlfit.domain.Exercise;
 import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
@@ -227,9 +228,13 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle hipAdductor = new Muscle();
 		hipAdductor.setName("Hip Adductor");
 		ms.save(hipAdductor);
+		
+		Collection<TrainingDay> emptyCollection = new ArrayList<TrainingDay>();
+		
 		//---------------------------Burpees--------------------------------
 		Exercise burpees = new Exercise();
 		burpees.setName("Burpees");
+		burpees.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> burpeesMuscles = new ArrayList<Muscle>();
 		burpeesMuscles.add(buttocks);
@@ -246,6 +251,7 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------Mountain Climbers--------------------------------
 		Exercise mountainClimbers = new Exercise();
 		mountainClimbers.setName("Mountain Climbers");
+		mountainClimbers.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> mountainClimbersMuscles = new ArrayList<Muscle>();
 		mountainClimbersMuscles.add(deltoids);
@@ -260,6 +266,7 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------Jumping Jack--------------------------------
 		Exercise jumpingJacks = new Exercise();
 		jumpingJacks.setName("Jumping Jacks");
+		jumpingJacks.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> jumpingJackMuscles = new ArrayList<Muscle>();
 		jumpingJackMuscles.add(hipFlexors);
@@ -274,6 +281,7 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------High Knees--------------------------------
 		Exercise highKnees = new Exercise();
 		highKnees.setName("High Knees");
+		highKnees.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> highKneesMuscles = new ArrayList<Muscle>();
 		highKneesMuscles.add(legs);
@@ -287,6 +295,7 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------Squat Jumps--------------------------------
 		Exercise squatJumps = new Exercise();
 		squatJumps.setName("Squat Jumps");
+		squatJumps.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> squatJumpsMuscles = new ArrayList<Muscle>();
 		squatJumpsMuscles.add(buttocks);
@@ -302,6 +311,7 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------Plank--------------------------------
 		Exercise plank = new Exercise();
 		plank.setName("Plank");
+		plank.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> plankMuscles = new ArrayList<Muscle>();
 		plankMuscles.add(trapezius);
@@ -321,6 +331,7 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------Jumps--------------------------------
 		Exercise jumps = new Exercise();
 		jumps.setName("High Jumps");
+		jumps.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> jumpsMuscles = new ArrayList<Muscle>();
 		jumpsMuscles.add(calves);
@@ -334,6 +345,7 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------Burpees Without Jumps--------------------------------
 		Exercise burpeesWJ = new Exercise();
 		burpeesWJ.setName("Burpees Without Jumps");
+		burpeesWJ.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> bwjMuscles = new ArrayList<Muscle>();
 		bwjMuscles.add(legs);
@@ -345,6 +357,8 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------Split Jumps--------------------------------
 		Exercise splitJumps = new Exercise();
 		splitJumps.setName("Split Jumps");
+		splitJumps.setTrainingDays(emptyCollection);
+		
 		ArrayList<Muscle> sjMuscles = new ArrayList<Muscle>();
 		sjMuscles.add(legs);
 		sjMuscles.add(hamstrings);
@@ -356,6 +370,7 @@ public class BootStrapData implements CommandLineRunner{
 		//-----------------------Pushup--------------------------------
 		Exercise pushup = new Exercise();
 		pushup.setName("Pushup");
+		pushup.setTrainingDays(emptyCollection);
 		
 		ArrayList<Muscle> pMuscles = new ArrayList<Muscle>();
 		pMuscles.add(triceps);

@@ -23,8 +23,7 @@ public class MethodService{
 		Collection<TrainingEquipment> selectedEquipment = td.getEquip();
 	
 		Collection<Exercise> allExercises = exerciseService.findAll();
-		Collection<Exercise> exercisesToAdd = exerciseService.findAll();
-		
+		Collection<Exercise> exercisesToAdd = new ArrayList<Exercise>();
 		for(int i=0;i<4;i++) {
 			int j=0;
 			
@@ -51,6 +50,9 @@ public class MethodService{
 			exercisesToAdd.add(exerciseToAdd);
 			
 			Collection<TrainingDay> trainingDays = exerciseToAdd.getTrainingDays();
+			if (trainingDays == null || trainingDays.isEmpty()) {
+				trainingDays = new ArrayList<TrainingDay>();
+			}
 			
 			trainingDays.add(td);
 			
