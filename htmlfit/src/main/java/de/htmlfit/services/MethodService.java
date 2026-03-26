@@ -33,7 +33,16 @@ public class MethodService{
 			
 			for(Exercise e : allExercises) {
 				
+				System.out.println("Exercise: "+e.getName());
+				
+				for (Muscle m2 : e.getMuscles()) {
+					System.out.println("Exercise contains muscle "+ m2.getName());
+				}
+				
 				for (Muscle m: selectedMuscles) {
+					
+					System.out.println("Muscle: "+m.getName());
+					
 					if (e.getMuscles().contains(m)) {
 						k++;
 					}
@@ -42,6 +51,7 @@ public class MethodService{
 					j=k;
 					exerciseToAdd = e;
 					
+					System.out.println("Ex2Add "+ exerciseToAdd.getName());
 			
 
 				}
