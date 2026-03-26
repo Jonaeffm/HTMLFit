@@ -236,7 +236,7 @@ public class BootStrapData implements CommandLineRunner{
 		burpees.setName("Burpees");
 		burpees.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> burpeesMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> burpeesMuscles = new ArrayList<Muscle>();
 		burpeesMuscles.add(buttocks);
 		burpeesMuscles.add(abs);
 
@@ -253,7 +253,7 @@ public class BootStrapData implements CommandLineRunner{
 		mountainClimbers.setName("Mountain Climbers");
 		mountainClimbers.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> mountainClimbersMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> mountainClimbersMuscles = new ArrayList<Muscle>();
 		mountainClimbersMuscles.add(deltoids);
 		mountainClimbersMuscles.add(triceps);
 		mountainClimbersMuscles.add(abs);
@@ -268,7 +268,7 @@ public class BootStrapData implements CommandLineRunner{
 		jumpingJacks.setName("Jumping Jacks");
 		jumpingJacks.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> jumpingJackMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> jumpingJackMuscles = new ArrayList<Muscle>();
 		jumpingJackMuscles.add(hipFlexors);
 		jumpingJackMuscles.add(buttocks);
 		jumpingJackMuscles.add(legs);
@@ -283,7 +283,7 @@ public class BootStrapData implements CommandLineRunner{
 		highKnees.setName("High Knees");
 		highKnees.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> highKneesMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> highKneesMuscles = new ArrayList<Muscle>();
 		highKneesMuscles.add(legs);
 		highKneesMuscles.add(buttocks);
 		highKneesMuscles.add(hamstrings);
@@ -297,7 +297,7 @@ public class BootStrapData implements CommandLineRunner{
 		squatJumps.setName("Squat Jumps");
 		squatJumps.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> squatJumpsMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> squatJumpsMuscles = new ArrayList<Muscle>();
 		squatJumpsMuscles.add(buttocks);
 		squatJumpsMuscles.add(hamstrings);
 		squatJumpsMuscles.add(calves);
@@ -313,7 +313,7 @@ public class BootStrapData implements CommandLineRunner{
 		plank.setName("Plank");
 		plank.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> plankMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> plankMuscles = new ArrayList<Muscle>();
 		plankMuscles.add(trapezius);
 		plankMuscles.add(rhomboid);
 /*		plankMuscles.add(major);
@@ -333,7 +333,7 @@ public class BootStrapData implements CommandLineRunner{
 		jumps.setName("High Jumps");
 		jumps.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> jumpsMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> jumpsMuscles = new ArrayList<Muscle>();
 		jumpsMuscles.add(calves);
 		jumpsMuscles.add(hamstrings);
 		jumpsMuscles.add(legs);
@@ -347,7 +347,7 @@ public class BootStrapData implements CommandLineRunner{
 		burpeesWJ.setName("Burpees Without Jumps");
 		burpeesWJ.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> bwjMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> bwjMuscles = new ArrayList<Muscle>();
 		bwjMuscles.add(legs);
 		bwjMuscles.add(hamstrings);
 		bwjMuscles.add(buttocks);
@@ -359,7 +359,7 @@ public class BootStrapData implements CommandLineRunner{
 		splitJumps.setName("Split Jumps");
 		splitJumps.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> sjMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> sjMuscles = new ArrayList<Muscle>();
 		sjMuscles.add(legs);
 		sjMuscles.add(hamstrings);
 		sjMuscles.add(buttocks);
@@ -372,7 +372,7 @@ public class BootStrapData implements CommandLineRunner{
 		pushup.setName("Pushup");
 		pushup.setTrainingDays(emptyCollection);
 		
-		ArrayList<Muscle> pMuscles = new ArrayList<Muscle>();
+		Collection<Muscle> pMuscles = new ArrayList<Muscle>();
 		pMuscles.add(triceps);
 		pMuscles.add(pectorals);
 		pMuscles.add(deltoids);

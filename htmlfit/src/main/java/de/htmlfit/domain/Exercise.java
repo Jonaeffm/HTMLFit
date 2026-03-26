@@ -25,6 +25,13 @@ public class Exercise {
 	@Column(name = "EXERCISE_ID")
 	@GeneratedValue
 	private Long id;
+	
+	private String name;
+	@ManyToMany(mappedBy = "exercise")
+	private Collection<Muscle> Muscles;
+	@ManyToMany(mappedBy = "exercise")
+	private Collection<TrainingDay> TrainingDays;
+	
 	public Long getId() {
 		return id;
 	}
@@ -49,10 +56,5 @@ public class Exercise {
 	public void setTrainingDays(Collection<TrainingDay> trainingDays) {
 		TrainingDays = trainingDays;
 	}
-	private String name;
-	@ManyToMany(mappedBy = "exercise")
-	private Collection<Muscle> Muscles;
-	@ManyToMany(mappedBy = "exercise")
-	@JsonIgnore
-	private Collection<TrainingDay> TrainingDays;
+	
 }

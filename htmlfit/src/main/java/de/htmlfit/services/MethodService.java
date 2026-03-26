@@ -35,7 +35,9 @@ public class MethodService{
 				
 				System.out.println("Exercise: "+e.getName());
 				
-				for (Muscle m2 : e.getMuscles()) {
+				Collection<Muscle> eGetMuscles = e.getMuscles();
+				
+				for (Muscle m2 : eGetMuscles) {
 					System.out.println("Exercise contains muscle "+ m2.getName());
 				}
 				
