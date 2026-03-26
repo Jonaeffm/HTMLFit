@@ -29,7 +29,7 @@ public class Muscle {
 	@Lob
 	byte[] image;
 
-	@JsonIgnore
+
 	@ManyToMany
 	@JoinTable(
 			  name = "exercisesH", 
@@ -37,7 +37,7 @@ public class Muscle {
 			  inverseJoinColumns = @JoinColumn(name = "EXERCISE_ID"))
 	private Collection<Exercise> exercise;
 	
-	@JsonIgnore
+
 	@ManyToMany
 	@JoinTable(
 			  name = "exercises", 

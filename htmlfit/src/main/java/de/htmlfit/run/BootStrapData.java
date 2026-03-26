@@ -245,8 +245,15 @@ public class BootStrapData implements CommandLineRunner{
 		burpeesMuscles.add(deltoids);
 		burpeesMuscles.add(legs);
 		
+		Collection<Exercise> temp = new ArrayList<Exercise>();
+		temp.add(burpees);
+		
+		legs.setExercise(temp);
+		
+		
 		burpees.setMuscles(burpeesMuscles);
 		es.save(burpees);
+		ms.save(legs);
 		
 		//-----------------------Mountain Climbers--------------------------------
 		Exercise mountainClimbers = new Exercise();
