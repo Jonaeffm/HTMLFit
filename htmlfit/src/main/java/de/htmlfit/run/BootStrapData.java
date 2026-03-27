@@ -315,10 +315,25 @@ public class BootStrapData implements CommandLineRunner{
 		burpees.setTrainingDays(emptyCollection);
 		
 		Collection<Muscle> burpeesMuscles = new ArrayList<Muscle>();
+		
 		burpeesMuscles.add(buttocks);
+		
+		Collection<Exercise> buttocksEx = buttocks.getExercise();
+		buttocksEx.add(burpees);
+		buttocks.setExercise(buttocksEx);
+		
 		burpeesMuscles.add(abs);
 
+		Collection<Exercise> absEx = abs.getExercise();
+		absEx.add(burpees);
+		abs.setExercise(absEx);
+		
 		burpeesMuscles.add(pectorals);
+		
+		Collection<Exercise> pectEx = pectorals.getExercise();
+		pectEx.add(burpees);
+		pectorals.setExercise(pectEx);
+		
 		burpeesMuscles.add(triceps);
 		burpeesMuscles.add(deltoids);
 		burpeesMuscles.add(legs);
