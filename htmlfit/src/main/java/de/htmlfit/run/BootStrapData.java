@@ -95,11 +95,21 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle gastrocnemius = new Muscle();
 		gastrocnemius.setName("Gastrocnemius");
 		gastrocnemius.setImage(imageJPG("src/main/resources/static/Gastrocnemius.jpg"));// ______TESTFILE1
+
+		Collection<Exercise> temp = new ArrayList<Exercise>();
+		gastrocnemius.setExercise(temp);
+		
 		ms.save(gastrocnemius);
+		
+
 		
 		Muscle legs = new Muscle();
 		legs.setName("Quadriceps Femoris");
 		legs.setImage(imageJPG("src/main/resources/static/Quadriceps.jpg"));// ______TESTFILE1
+		
+		Collection<Exercise> temp2 = new ArrayList<Exercise>();
+		legs.setExercise(temp2);
+		
 		ms.save(legs);
 		
 		/*Muscle shoulders = new Muscle();
@@ -109,6 +119,10 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle triceps = new Muscle();
 		triceps.setName("Triceps");
 		triceps.setImage(imageJPG("src/main/resources/static/Triceps.jpg"));// ______TESTFILE1
+		
+		Collection<Exercise> temp3 = new ArrayList<Exercise>();
+		triceps.setExercise(temp3);
+		
 		ms.save(triceps);
 		/* 
 		Muscle breast = new Muscle();
@@ -123,16 +137,28 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle abs = new Muscle();
 		abs.setName("Rectus Abdominis");
 		abs.setImage(imageJPG("src/main/resources/static/Rectusabdominis.jpg"));// ______TESTFILE1
+		
+		Collection<Exercise> temp4 = new ArrayList<Exercise>();
+		abs.setExercise(temp4);
+		
 		ms.save(abs);
 		
 		Muscle buttocks = new Muscle();
 		buttocks.setName("Gluteus Maximus");
 		buttocks.setImage(imageJPG("src/main/resources/static/Gluteusmaximus.jpg"));	
+		
+		Collection<Exercise> temp5 = new ArrayList<Exercise>();
+		buttocks.setExercise(temp5);
+		
 		ms.save(buttocks);
 		
 		Muscle hamstrings = new Muscle();
 		hamstrings.setName("Hamstrings");
 		hamstrings.setImage(imageJPG("src/main/resources/static/Hamstrings.jpg"));	
+		
+		Collection<Exercise> temp6 = new ArrayList<Exercise>();
+		hamstrings.setExercise(temp6);
+		
 		ms.save(hamstrings);
 		
 		/*Muscle glutes = new Muscle();
@@ -143,11 +169,19 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle hipFlexors = new Muscle();
 		hipFlexors.setName("Hip Flexors");
 		hipFlexors.setImage(imageJPG("src/main/resources/static/Hipflexors.jpg"));	
+		
+		Collection<Exercise> temp7 = new ArrayList<Exercise>();
+		hipFlexors.setExercise(temp7);
+		
 		ms.save(hipFlexors);
 		
 		Muscle calves = new Muscle();
 		calves.setName("Calves");
 		calves.setImage(imageJPG("src/main/resources/static/Calves.jpg"));	
+		
+		Collection<Exercise> temp8 = new ArrayList<Exercise>();
+		calves.setExercise(temp8);
+		
 		ms.save(calves);
 		/*
 		Muscle quads = new Muscle();
@@ -157,6 +191,10 @@ public class BootStrapData implements CommandLineRunner{
 		Muscle biceps = new Muscle();
 		biceps.setName("Biceps");
 		biceps.setImage(imageJPG("src/main/resources/static/Biceps.jpg"));// ______TESTFILE1
+		
+		Collection<Exercise> temp9 = new ArrayList<Exercise>();
+		biceps.setExercise(temp9);
+		
 		ms.save(biceps);
 		
 		/*Muscle propel = new Muscle();
@@ -167,12 +205,18 @@ public class BootStrapData implements CommandLineRunner{
 		trapezius.setName("Trapezius");
 		trapezius.setImage(imageJPG("src/main/resources/static/Trapezius.jpg"));	
 
+		Collection<Exercise> temp10 = new ArrayList<Exercise>();
+		trapezius.setExercise(temp10);
+		
 		ms.save(trapezius);
 		
 		Muscle rhomboid = new Muscle();
 		rhomboid.setName("Rhomboid");
 		rhomboid.setImage(imageJPG("src/main/resources/static/Rhonboid.jpg"));	
 
+		Collection<Exercise> temp11 = new ArrayList<Exercise>();
+		rhomboid.setExercise(temp11);
+		
 		ms.save(rhomboid);
 		
 
@@ -189,44 +233,78 @@ public class BootStrapData implements CommandLineRunner{
 		latissimus.setName("Latissimus");
 		latissimus.setImage(imageJPG("src/main/resources/static/Latissimus.jpg"));	
 
+		Collection<Exercise> temp12 = new ArrayList<Exercise>();
+		latissimus.setExercise(temp12);
+		
 		ms.save(latissimus);
 
 		Muscle pectorals = new Muscle();
 		pectorals.setName("Pectorals");
 		pectorals.setImage(imageJPG("src/main/resources/static/Pectoralis.jpg"));	
 
+		Collection<Exercise> temp13 = new ArrayList<Exercise>();
+		pectorals.setExercise(temp13);
+		
 		ms.save(pectorals);
 		
 		Muscle serratusAnterior = new Muscle();
 		serratusAnterior.setName("Serratus Anterior");
 		serratusAnterior.setImage(imageJPG("src/main/resources/static/Serratusanterior.jpg"));
+		
+		Collection<Exercise> temp14 = new ArrayList<Exercise>();
+		serratusAnterior.setExercise(temp14);
+		
 		ms.save(serratusAnterior);
 		
 		Muscle deltoids = new Muscle();
 		deltoids.setName("Deltoids");
 		deltoids.setImage(imageJPG("src/main/resources/static/Deltoid.jpg"));
+		
+		Collection<Exercise> temp15 = new ArrayList<Exercise>();
+		deltoids.setExercise(temp15);
+		
 		ms.save(deltoids);
 		
 		Muscle moa = new Muscle();
 		moa.setName("Musculus Obliquus Abdominis");
 		moa.setImage(imageJPG("src/main/resources/static/Musculusobliquusabdominis.jpg"));
+		
+		Collection<Exercise> temp16 = new ArrayList<Exercise>();
+		moa.setExercise(temp16);
+		
 		ms.save(moa);
 		
 		Muscle teresMajor = new Muscle();
 		teresMajor.setName("Teres Major");
+		
+		Collection<Exercise> temp17 = new ArrayList<Exercise>();
+		teresMajor.setExercise(temp17);
+		
 		ms.save(teresMajor);
 		
 		Muscle teresMinor = new Muscle();
 		teresMinor.setName("Teres Minor");
+		
+		Collection<Exercise> temp18 = new ArrayList<Exercise>();
+		teresMinor.setExercise(temp18);
+		
 		ms.save(teresMinor);
 		
 		Muscle brachialis = new Muscle();
 		brachialis.setName("Brachialis");
 		brachialis.setImage(imageJPG("src/main/resources/static/Brachialis.jpg"));
+		
+		Collection<Exercise> temp19 = new ArrayList<Exercise>();
+		brachialis.setExercise(temp19);
+		
 		ms.save(brachialis);
 		
 		Muscle hipAdductor = new Muscle();
 		hipAdductor.setName("Hip Adductor");
+		
+		Collection<Exercise> temp20 = new ArrayList<Exercise>();
+		hipAdductor.setExercise(temp20);
+		
 		ms.save(hipAdductor);
 		
 		Collection<TrainingDay> emptyCollection = new ArrayList<TrainingDay>();
@@ -245,10 +323,7 @@ public class BootStrapData implements CommandLineRunner{
 		burpeesMuscles.add(deltoids);
 		burpeesMuscles.add(legs);
 		
-		Collection<Exercise> temp = new ArrayList<Exercise>();
-		temp.add(burpees);
-		
-		legs.setExercise(temp);
+
 		
 		
 		burpees.setMuscles(burpeesMuscles);
