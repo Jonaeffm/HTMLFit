@@ -335,15 +335,34 @@ public class BootStrapData implements CommandLineRunner{
 		pectorals.setExercise(pectEx);
 		
 		burpeesMuscles.add(triceps);
+		
+		Collection<Exercise> triEx = triceps.getExercise();
+		triEx.add(burpees);
+		triceps.setExercise(triEx);
+		
 		burpeesMuscles.add(deltoids);
+		
+		Collection<Exercise> delEx = deltoids.getExercise();
+		delEx.add(burpees);
+		deltoids.setExercise(delEx);
+		
 		burpeesMuscles.add(legs);
 		
-
-		
+		Collection<Exercise> legEx = legs.getExercise();
+		legEx.add(burpees);
+		legs.setExercise(legEx);
 		
 		burpees.setMuscles(burpeesMuscles);
 		es.save(burpees);
+		
 		ms.save(legs);
+		ms.save(deltoids);
+		ms.save(triceps);
+		ms.save(pectorals);
+		ms.save(abs);
+		ms.save(buttocks);
+		
+		
 		
 		//-----------------------Mountain Climbers--------------------------------
 		Exercise mountainClimbers = new Exercise();
