@@ -371,13 +371,44 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Collection<Muscle> mountainClimbersMuscles = new ArrayList<Muscle>();
 		mountainClimbersMuscles.add(deltoids);
+		
+		Collection<Exercise> deltoidEx = deltoids.getExercise();
+		deltoidEx.add(mountainClimbers);
+		deltoids.setExercise(deltoidEx);
+		
 		mountainClimbersMuscles.add(triceps);
+		
+		Collection<Exercise> tricepsEx = triceps.getExercise();
+		tricepsEx.add(mountainClimbers);
+		triceps.setExercise(tricepsEx);
+		
 		mountainClimbersMuscles.add(abs);
+		
+		Collection<Exercise> absEx2 = abs.getExercise();
+		absEx2.add(mountainClimbers);
+		abs.setExercise(absEx2);
+		
 		mountainClimbersMuscles.add(legs);
+		
+		Collection<Exercise> legsEx = legs.getExercise();
+		legsEx.add(mountainClimbers);
+		legs.setExercise(legsEx);
+		
 		mountainClimbersMuscles.add(hamstrings);
+		
+		Collection<Exercise> hamstringEx = hamstrings.getExercise();
+		hamstringEx.add(mountainClimbers);
+		hamstrings.setExercise(hamstringEx);
 		
 		mountainClimbers.setMuscles(mountainClimbersMuscles);
 		es.save(mountainClimbers);
+		
+		ms.save(deltoids);
+		ms.save(triceps);
+		ms.save(abs);
+		ms.save(legs);
+		ms.save(hamstrings);
+		
 		
 		//-----------------------Jumping Jack--------------------------------
 		Exercise jumpingJacks = new Exercise();
