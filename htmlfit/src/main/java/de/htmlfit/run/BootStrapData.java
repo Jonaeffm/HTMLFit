@@ -456,6 +456,13 @@ public class BootStrapData implements CommandLineRunner{
 		jumpingJacks.setMuscles(jumpingJackMuscles);
 		es.save(jumpingJacks);
 		
+		ms.save(hipFlexors);
+		ms.save(buttocks);
+		ms.save(legs);
+		ms.save(abs);
+		ms.save(hamstrings);
+		ms.save(deltoids);
+		
 		//-----------------------High Knees--------------------------------
 		Exercise highKnees = new Exercise();
 		highKnees.setName("High Knees");
@@ -489,21 +496,63 @@ public class BootStrapData implements CommandLineRunner{
 		highKnees.setMuscles(highKneesMuscles);
 		es.save(highKnees);
 		
+		ms.save(legs);
+		ms.save(buttocks);
+		ms.save(hamstrings);
+		ms.save(calves);
+		
 		//-----------------------Squat Jumps--------------------------------
 		Exercise squatJumps = new Exercise();
 		squatJumps.setName("Squat Jumps");
 		squatJumps.setTrainingDays(emptyCollection);
 		
 		Collection<Muscle> squatJumpsMuscles = new ArrayList<Muscle>();
+		
 		squatJumpsMuscles.add(buttocks);
+		
+		Collection<Exercise> buttocksEx4 = buttocks.getExercise();
+		buttocksEx4.add(squatJumps);
+		buttocks.setExercise(buttocksEx4);
+		
 		squatJumpsMuscles.add(hamstrings);
+		
+		Collection<Exercise> hamstringsEx3 = hamstrings.getExercise();
+		hamstringsEx3.add(squatJumps);
+		hamstrings.setExercise(hamstringsEx3);
+		
 		squatJumpsMuscles.add(calves);
+		
+		Collection<Exercise> calvesEx2 = calves.getExercise();
+		calvesEx2.add(squatJumps);
+		calves.setExercise(calvesEx2);
+		
 		squatJumpsMuscles.add(legs);
+		
+		Collection<Exercise> legsEx4 = legs.getExercise();
+		legsEx4.add(squatJumps);
+		legs.setExercise(legsEx4);
+		
 		squatJumpsMuscles.add(biceps);
+		
+		Collection<Exercise> bicepsEx = biceps.getExercise();
+		bicepsEx.add(squatJumps);
+		biceps.setExercise(bicepsEx);
+		
 		squatJumpsMuscles.add(triceps);
+		
+		Collection<Exercise> tricepsEx2 = triceps.getExercise();
+		tricepsEx2.add(squatJumps);
+		triceps.setExercise(tricepsEx2);
 		
 		squatJumps.setMuscles(squatJumpsMuscles);
 		es.save(squatJumps);
+		
+		ms.save(buttocks);
+		ms.save(hamstrings);
+		ms.save(calves);
+		ms.save(legs);
+		ms.save(biceps);
+		ms.save(triceps);
 		
 		//-----------------------Plank--------------------------------
 		Exercise plank = new Exercise();
