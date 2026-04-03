@@ -416,12 +416,43 @@ public class BootStrapData implements CommandLineRunner{
 		jumpingJacks.setTrainingDays(emptyCollection);
 		
 		Collection<Muscle> jumpingJackMuscles = new ArrayList<Muscle>();
+		
 		jumpingJackMuscles.add(hipFlexors);
+		
+		Collection<Exercise> hipFlexorsEx = hipFlexors.getExercise();
+		hipFlexorsEx.add(jumpingJacks);
+		hipFlexors.setExercise(hipFlexorsEx);
+		
 		jumpingJackMuscles.add(buttocks);
+		
+		Collection<Exercise> buttocksEx2 = buttocks.getExercise();
+		buttocksEx2.add(jumpingJacks);
+		buttocks.setExercise(buttocksEx2);
+		
 		jumpingJackMuscles.add(legs);
+		
+		Collection<Exercise> legsEx2 = legs.getExercise();
+		legsEx2.add(jumpingJacks);
+		legs.setExercise(legsEx2);
+		
 		jumpingJackMuscles.add(abs);
+		
+		Collection<Exercise> absEx3 = abs.getExercise();
+		absEx3.add(jumpingJacks);
+		abs.setExercise(absEx3);
+		
 		jumpingJackMuscles.add(hamstrings);
+		
+		Collection<Exercise> hamstringsEx = hamstrings.getExercise();
+		hamstringsEx.add(jumpingJacks);
+		hamstrings.setExercise(hamstringsEx);
+		
 		jumpingJackMuscles.add(deltoids);
+		
+		Collection<Exercise> deltoidsEx = deltoids.getExercise();
+		deltoidsEx.add(jumpingJacks);
+		deltoids.setExercise(deltoidsEx);
+		
 		jumpingJacks.setMuscles(jumpingJackMuscles);
 		es.save(jumpingJacks);
 		
