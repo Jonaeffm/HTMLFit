@@ -674,7 +674,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		pushup.setMuscles(pMuscles);
 		es.save(pushup);
-		
+		//------------------------Exercise Build------------------------
 		//------------------------curls--------------------------------
 		ExerciseBuild curls = new ExerciseBuild();
 		curls.setName("Curls");
