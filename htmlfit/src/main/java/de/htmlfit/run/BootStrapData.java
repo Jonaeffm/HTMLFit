@@ -560,20 +560,68 @@ public class BootStrapData implements CommandLineRunner{
 		plank.setTrainingDays(emptyCollection);
 		
 		Collection<Muscle> plankMuscles = new ArrayList<Muscle>();
+		
 		plankMuscles.add(trapezius);
+		
+		Collection<Exercise> trapEx = trapezius.getExercise();
+		trapEx.add(plank);
+		trapezius.setExercise(trapEx);
+		
 		plankMuscles.add(rhomboid);
+		
+		Collection<Exercise> rhombEx = rhomboid.getExercise();
+		rhombEx.add(plank);
+		rhomboid.setExercise(rhombEx);
+		
 /*		plankMuscles.add(major);
 		plankMuscles.add(minor);*/
 		plankMuscles.add(latissimus);
+		
+		Collection<Exercise> latEx = latissimus.getExercise();
+		latEx.add(plank);
+		latissimus.setExercise(latEx);
+		
 		plankMuscles.add(pectorals);
+		
+		Collection<Exercise> pectEx2 = pectorals.getExercise();
+		pectEx2.add(plank);
+		pectorals.setExercise(pectEx2);
+		
 		plankMuscles.add(biceps);
+		
+		Collection<Exercise> biEx = biceps.getExercise();
+		biEx.add(plank);
+		biceps.setExercise(biEx);
+		
 		plankMuscles.add(serratusAnterior);
+		
+		Collection<Exercise> serraEx = serratusAnterior.getExercise();
+		serraEx.add(plank);
+		serratusAnterior.setExercise(serraEx);
+		
 		plankMuscles.add(triceps);
+		
+		Collection<Exercise> triEx2 = triceps.getExercise();
+		triEx2.add(plank);
+		triceps.setExercise(triEx2);
+		
 		plankMuscles.add(deltoids);
+		
+		Collection<Exercise> deltEx = deltoids.getExercise();
+		deltEx.add(plank);
+		deltoids.setExercise(deltEx);
 		
 		plank.setMuscles(plankMuscles);
 		es.save(plank);
 		
+		ms.save(trapezius);
+		ms.save(rhomboid);
+		ms.save(latissimus);
+		ms.save(pectorals);
+		ms.save(biceps);
+		ms.save(serratusAnterior);
+		ms.save(triceps);
+		ms.save(deltoids);
 		//-----------------------Jumps--------------------------------
 		Exercise jumps = new Exercise();
 		jumps.setName("High Jumps");
