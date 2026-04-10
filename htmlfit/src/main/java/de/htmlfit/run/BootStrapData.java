@@ -687,6 +687,10 @@ public class BootStrapData implements CommandLineRunner{
 		
 		burpeesWJ.setMuscles(bwjMuscles);
 		es.save(burpeesWJ);
+		
+		ms.save(legs);
+		ms.save(hamstrings);
+		ms.save(buttocks);
 	
 		//-----------------------Split Jumps--------------------------------
 		Exercise splitJumps = new Exercise();
@@ -695,11 +699,37 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Collection<Muscle> sjMuscles = new ArrayList<Muscle>();
 		sjMuscles.add(legs);
+		
+		Collection<Exercise> legEx4 = legs.getExercise();
+		legEx4.add(jumps);
+		legs.setExercise(legEx4);
+		
 		sjMuscles.add(hamstrings);
+		
+		Collection<Exercise> hamEx3 = hamstrings.getExercise();
+		hamEx3.add(jumps);
+		hamstrings.setExercise(hamEx3);
+		
 		sjMuscles.add(buttocks);
+		
+		Collection<Exercise> buEx3 = buttocks.getExercise();
+		buEx3.add(jumps);
+		buttocks.setExercise(buEx3);
+		
 		sjMuscles.add(calves);
+		
+		Collection<Exercise> calEx2 = calves.getExercise();
+		calEx2.add(jumps);
+		calves.setExercise(calEx2);
+		
 		splitJumps.setMuscles(sjMuscles);
 		es.save(splitJumps);
+		
+		ms.save(legs);
+		ms.save(hamstrings);
+		ms.save(buttocks);
+		ms.save(calves);
+		
 		
 		//-----------------------Pushup--------------------------------
 		Exercise pushup = new Exercise();
