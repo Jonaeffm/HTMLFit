@@ -661,14 +661,30 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(legs);
 		ms.save(buttocks);
 		//-----------------------Burpees Without Jumps--------------------------------
+		
 		Exercise burpeesWJ = new Exercise();
 		burpeesWJ.setName("Burpees Without Jumps");
 		burpeesWJ.setTrainingDays(emptyCollection);
 		
 		Collection<Muscle> bwjMuscles = new ArrayList<Muscle>();
 		bwjMuscles.add(legs);
+		
+		Collection<Exercise> legEx3 = legs.getExercise();
+		legEx3.add(jumps);
+		legs.setExercise(legEx3);
+				
 		bwjMuscles.add(hamstrings);
+		
+		Collection<Exercise> hamEx2 = hamstrings.getExercise();
+		hamEx2.add(jumps);
+		hamstrings.setExercise(hamEx2);
+		
 		bwjMuscles.add(buttocks);
+		
+		Collection<Exercise> buEx2 = buttocks.getExercise();
+		buEx2.add(jumps);
+		buttocks.setExercise(buEx2);
+		
 		burpeesWJ.setMuscles(bwjMuscles);
 		es.save(burpeesWJ);
 	
