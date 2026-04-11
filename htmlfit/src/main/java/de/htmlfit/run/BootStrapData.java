@@ -738,12 +738,36 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Collection<Muscle> pMuscles = new ArrayList<Muscle>();
 		pMuscles.add(triceps);
+		
+		Collection<Exercise> triEx3 = triceps.getExercise();
+		triEx3.add(plank);
+		triceps.setExercise(triEx3);
+		
 		pMuscles.add(pectorals);
+		
+		Collection<Exercise> pectEx3 = pectorals.getExercise();
+		pectEx3.add(plank);
+		pectorals.setExercise(pectEx3);
+		
 		pMuscles.add(deltoids);
+		
+		Collection<Exercise> deltEx2 = deltoids.getExercise();
+		deltEx2.add(plank);
+		deltoids.setExercise(deltEx2);
+		
 		pMuscles.add(latissimus);
+		
+		Collection<Exercise> latEx2 = latissimus.getExercise();
+		latEx2.add(plank);
+		latissimus.setExercise(latEx2);
 		
 		pushup.setMuscles(pMuscles);
 		es.save(pushup);
+		
+		ms.save(triceps);
+		ms.save(pectorals);
+		ms.save(deltoids);
+		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		//------------------------curls--------------------------------
 		ExerciseBuild curls = new ExerciseBuild();
@@ -754,6 +778,10 @@ public class BootStrapData implements CommandLineRunner{
 		
 		ArrayList<Muscle> curlsMuscles = new ArrayList<Muscle>();
 		curlsMuscles.add(biceps);
+		
+		Collection<ExerciseBuild> biExB = biceps.getExerciseBuild();
+		biExB.add(curls);
+		biceps.setExerciseBuild(biExB);
 		
 		curls.setMuscles(curlsMuscles);
 		curls.setTrainingEquipment(curlEquipment);
