@@ -816,17 +816,65 @@ public class BootStrapData implements CommandLineRunner{
 		
 		ArrayList<Muscle> pullUpMuscles = new ArrayList<Muscle>();
 		pullUpMuscles.add(biceps);
+		
+		Collection<ExerciseBuild> biExB3 = biceps.getExerciseBuild();
+		biExB3.add(pullup);
+		biceps.setExerciseBuild(biExB3);
+		
 		pullUpMuscles.add(deltoids);
+		
+		Collection<ExerciseBuild> delExB = deltoids.getExerciseBuild();
+		delExB.add(pullup);
+		deltoids.setExerciseBuild(delExB);
+		
 		pullUpMuscles.add(pectorals);
+		
+		Collection<ExerciseBuild> pecExB = pectorals.getExerciseBuild();
+		pecExB.add(pullup);
+		pectorals.setExerciseBuild(pecExB);
+		
 		pullUpMuscles.add(triceps);
+		
+		Collection<ExerciseBuild> triExB = triceps.getExerciseBuild();
+		triExB.add(pullup);
+		triceps.setExerciseBuild(triExB);
+		
 		pullUpMuscles.add(abs);
+		
+		Collection<ExerciseBuild> absExB = abs.getExerciseBuild();
+		absExB.add(pullup);
+		abs.setExerciseBuild(absExB);
+		
 		pullUpMuscles.add(moa);
+		
+		Collection<ExerciseBuild> moaExB = moa.getExerciseBuild();
+		moaExB.add(pullup);
+		moa.setExerciseBuild(moaExB);
+		
 		pullUpMuscles.add(teresMinor);
+		
+		Collection<ExerciseBuild> teMExB = teresMinor.getExerciseBuild();
+		teMExB.add(pullup);
+		teresMinor.setExerciseBuild(teMExB);
+		
 		pullUpMuscles.add(teresMajor);
+		
+		Collection<ExerciseBuild> teMaExB = teresMajor.getExerciseBuild();
+		teMaExB.add(pullup);
+		teresMajor.setExerciseBuild(teMaExB);
 		
 		pullup.setMuscles(pullUpMuscles);
 		pullup.setTrainingEquipment(pullUpEquipment);
 		ebs.save(pullup);
+		
+		ms.save(biceps);
+		ms.save(deltoids);
+		ms.save(pectorals);
+		ms.save(triceps);
+		ms.save(abs);
+		ms.save(moa);
+		ms.save(teresMinor);
+		ms.save(teresMajor);
 		
 		//-----------------------one armed rowing---------------------------
 		ExerciseBuild oar = new ExerciseBuild();
