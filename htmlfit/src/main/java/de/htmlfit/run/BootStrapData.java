@@ -926,16 +926,44 @@ public class BootStrapData implements CommandLineRunner{
 				
 		ArrayList<Muscle> durMuscles = new ArrayList<Muscle>();
 		durMuscles.add(trapezius);
+		
+		Collection<ExerciseBuild> trapExB2 = trapezius.getExerciseBuild();
+		trapExB2.add(dur);
+		trapezius.setExerciseBuild(trapExB2);
+		
 		durMuscles.add(deltoids);
+		
+		Collection<ExerciseBuild> delExB2 = deltoids.getExerciseBuild();
+		delExB2.add(dur);
+		deltoids.setExerciseBuild(delExB2);
+		
 		durMuscles.add(biceps);
+		
+		Collection<ExerciseBuild> biExB4 = biceps.getExerciseBuild();
+		biExB4.add(dur);
+		biceps.setExerciseBuild(biExB4);
+		
 		durMuscles.add(brachialis);
+		
+		Collection<ExerciseBuild> braExB = brachialis.getExerciseBuild();
+		braExB.add(dur);
+		brachialis.setExerciseBuild(braExB);
+		
 		durMuscles.add(serratusAnterior);
-				
-				
+		
+		Collection<ExerciseBuild> serrExB = serratusAnterior.getExerciseBuild();
+		serrExB.add(dur);
+		serratusAnterior.setExerciseBuild(serrExB);
+						
 		dur.setMuscles(durMuscles);
 		dur.setTrainingEquipment(durEquipment);
 		ebs.save(dur);
 				
+		ms.save(trapezius);
+		ms.save(deltoids);
+		ms.save(biceps);
+		ms.save(brachialis);
+		ms.save(serratusAnterior);
 		//-----------------------close grip pullup-----------------------------------------
 		ExerciseBuild cgpullup = new ExerciseBuild();
 		cgpullup.setName("Close Grip Pull Up");
