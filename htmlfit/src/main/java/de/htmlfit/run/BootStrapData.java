@@ -886,16 +886,37 @@ public class BootStrapData implements CommandLineRunner{
 		
 		ArrayList<Muscle> oarMuscles = new ArrayList<Muscle>();
 		oarMuscles.add(trapezius);
+		
+		Collection<ExerciseBuild> trapExB = trapezius.getExerciseBuild();
+		trapExB.add(oar);
+		trapezius.setExerciseBuild(trapExB);
+		
 		oarMuscles.add(teresMinor);
+		
+		Collection<ExerciseBuild> teMExB2 = teresMinor.getExerciseBuild();
+		teMExB2.add(oar);
+		teresMinor.setExerciseBuild(teMExB2);
+		
 		oarMuscles.add(latissimus);
+		
+		Collection<ExerciseBuild> latExB = latissimus.getExerciseBuild();
+		latExB.add(oar);
+		latissimus.setExerciseBuild(latExB);
+		
 		oarMuscles.add(rhomboid);
 
-		
+		Collection<ExerciseBuild> rhoExB = rhomboid.getExerciseBuild();
+		rhoExB.add(oar);
+		rhomboid.setExerciseBuild(rhoExB);
 		
 		oar.setMuscles(oarMuscles);
 		oar.setTrainingEquipment(oarEquipment);
 		ebs.save(oar);
 		
+		ms.save(trapezius);
+		ms.save(teresMinor);
+		ms.save(latissimus);
+		ms.save(rhomboid);
 		//-----------------------dumbbell upright row---------------------------
 		ExerciseBuild dur = new ExerciseBuild();
 		dur.setName("Dumbbell Upright Row");
