@@ -1067,14 +1067,44 @@ public class BootStrapData implements CommandLineRunner{
 								
 		ArrayList<Muscle> dPushUpMuscles = new ArrayList<Muscle>();
 		dPushUpMuscles.add(triceps);
+		
+		Collection<ExerciseBuild> triExB3 = triceps.getExerciseBuild();
+		triExB3.add(dPushupBuild);
+		triceps.setExerciseBuild(triExB3);
+		
 		dPushUpMuscles.add(deltoids);
+		
+		Collection<ExerciseBuild> delExB4 = deltoids.getExerciseBuild();
+		delExB4.add(dPushupBuild);
+		deltoids.setExerciseBuild(delExB4);
+		
 		dPushUpMuscles.add(abs);
+		
+		Collection<ExerciseBuild> absExB3 = abs.getExerciseBuild();
+		absExB3.add(dPushupBuild);
+		abs.setExerciseBuild(absExB3);
+		
 		dPushUpMuscles.add(pectorals);
+		
+		Collection<ExerciseBuild> pecExB4 = pectorals.getExerciseBuild();
+		pecExB4.add(dPushupBuild);
+		pectorals.setExerciseBuild(pecExB4);
+		
 		dPushUpMuscles.add(serratusAnterior);
-								
+			
+		Collection<ExerciseBuild> serrExB3 = serratusAnterior.getExerciseBuild();
+		serrExB3.add(dPushupBuild);
+		serratusAnterior.setExerciseBuild(serrExB3);		
+		
 		dPushupBuild.setMuscles(dPushUpMuscles);
 		dPushupBuild.setTrainingEquipment(dPushUpEquipment);
 		ebs.save(dPushupBuild);
+		
+		ms.save(triceps);
+		ms.save(deltoids);
+		ms.save(abs);
+		ms.save(pectorals);
+		ms.save(serratusAnterior);		
 		
 		//-----------------------standing shoulder press-----------------------------------------
 		ExerciseBuild ssp = new ExerciseBuild();
