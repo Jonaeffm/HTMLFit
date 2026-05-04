@@ -1006,17 +1006,57 @@ public class BootStrapData implements CommandLineRunner{
 						
 		ArrayList<Muscle> pushUpMuscles = new ArrayList<Muscle>();
 		pushUpMuscles.add(triceps);
+		
+		Collection<ExerciseBuild> triExB2 = triceps.getExerciseBuild();
+		triExB2.add(pushupBuild);
+		triceps.setExerciseBuild(triExB2);
+		
 		pushUpMuscles.add(deltoids);
+		
+		Collection<ExerciseBuild> delExB3 = deltoids.getExerciseBuild();
+		delExB3.add(pushupBuild);
+		deltoids.setExerciseBuild(delExB3);
+		
 		pushUpMuscles.add(abs);
+		
+		Collection<ExerciseBuild> absExB2 = abs.getExerciseBuild();
+		absExB2.add(pushupBuild);
+		abs.setExerciseBuild(absExB2);
+		
 		pushUpMuscles.add(pectorals);
+		
+		Collection<ExerciseBuild> pecExB3 = pectorals.getExerciseBuild();
+		pecExB3.add(pushupBuild);
+		pectorals.setExerciseBuild(pecExB3);
+		
 		pushUpMuscles.add(serratusAnterior);
+		
+		Collection<ExerciseBuild> serrExB2 = serratusAnterior.getExerciseBuild();
+		serrExB2.add(pushupBuild);
+		serratusAnterior.setExerciseBuild(serrExB2);
+		
 		pushUpMuscles.add(legs);
+		
+		Collection<ExerciseBuild> legsExB = legs.getExerciseBuild();
+		legsExB.add(pushupBuild);
+		legs.setExerciseBuild(legsExB);
+		
 		pushUpMuscles.add(buttocks);
 				
-						
+		Collection<ExerciseBuild> buttocksExB = buttocks.getExerciseBuild();
+		buttocksExB.add(pushupBuild);
+		buttocks.setExerciseBuild(buttocksExB);
+		
 		pushupBuild.setMuscles(pushUpMuscles);
 		pushupBuild.setTrainingEquipment(pushUpEquipment);
 		ebs.save(pushupBuild);
+		ms.save(triceps);
+		ms.save(deltoids);
+		ms.save(abs);
+		ms.save(pectorals);
+		ms.save(serratusAnterior);
+		ms.save(legs);
+		ms.save(buttocks);
 		
 		//-----------------------diamond push-ups-----------------------------------------
 		ExerciseBuild dPushupBuild = new ExerciseBuild();
