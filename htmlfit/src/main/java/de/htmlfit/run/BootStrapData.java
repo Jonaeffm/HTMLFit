@@ -1189,10 +1189,22 @@ public class BootStrapData implements CommandLineRunner{
 												
 		ArrayList<Muscle> sCrunchesMuscles = new ArrayList<Muscle>();
 		sCrunchesMuscles.add(abs);
+		
+		Collection<ExerciseBuild> absExB5 = abs.getExerciseBuild();
+		absExB5.add(sCrunches);
+		abs.setExerciseBuild(absExB5);
+		
 		sCrunchesMuscles.add(moa);
+		
+		Collection<ExerciseBuild> moaExB3 = moa.getExerciseBuild();
+		moaExB3.add(sCrunches);
+		moa.setExerciseBuild(moaExB3);
 												
 		sCrunches.setMuscles(sCrunchesMuscles);
 		ebs.save(sCrunches);
+		
+		ms.save(abs);
+		ms.save(moa);
 		
 		//-----------------------zombie squats-----------------------------------------
 		ExerciseBuild zombieSquats = new ExerciseBuild();
