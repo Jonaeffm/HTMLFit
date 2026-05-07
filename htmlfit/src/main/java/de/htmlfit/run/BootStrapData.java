@@ -1283,9 +1283,9 @@ public class BootStrapData implements CommandLineRunner{
 		ArrayList<Muscle> kickBackMuscles = new ArrayList<Muscle>();
 		kickBackMuscles.add(triceps);
 							
-		Collection<ExerciseBuild> triExB4 = triceps.getExerciseBuild();
-		triExB4.add(kickBack);
-		triceps.setExerciseBuild(triExB4);
+		Collection<ExerciseBuild> triExB5 = triceps.getExerciseBuild();
+		triExB5.add(kickBack);
+		triceps.setExerciseBuild(triExB5);
 		
 		kickBack.setTrainingEquipment(kickBackEquipment);
 		kickBack.setMuscles(kickBackMuscles);
@@ -1302,14 +1302,31 @@ public class BootStrapData implements CommandLineRunner{
 																
 		ArrayList<Muscle> backflyMuscles = new ArrayList<Muscle>();
 		backflyMuscles.add(latissimus);
+		
+		
+		Collection<ExerciseBuild> latExB3 = latissimus.getExerciseBuild();
+		latExB3.add(backfly);
+		latissimus.setExerciseBuild(latExB3);
+		
 		backflyMuscles.add(rhomboid);
+		
+		Collection<ExerciseBuild> rhoExB2 = rhomboid.getExerciseBuild();
+		rhoExB2.add(backfly);
+		rhomboid.setExerciseBuild(rhoExB2);
+		
 		backflyMuscles.add(trapezius);
 							
+		Collection<ExerciseBuild> trapExB4 = trapezius.getExerciseBuild();
+		trapExB4.add(backfly);
+		trapezius.setExerciseBuild(trapExB4);
+		
 		backfly.setTrainingEquipment(backflyEquipment);
 		backfly.setMuscles(backflyMuscles);
 		ebs.save(backfly);
 		
-		
+		ms.save(latissimus);
+		ms.save(rhomboid);
+		ms.save(trapezius);
 		//-----------------------barbell upright row---------------------------
 		ExerciseBuild bur = new ExerciseBuild();
 		bur.setName("Barbell Upright Row");
