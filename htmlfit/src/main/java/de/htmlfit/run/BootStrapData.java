@@ -1249,11 +1249,29 @@ public class BootStrapData implements CommandLineRunner{
 																
 		ArrayList<Muscle> pSquatMuscles = new ArrayList<Muscle>();
 		pSquatMuscles.add(legs);
+		
+		Collection<ExerciseBuild> legsExB3 = legs.getExerciseBuild();
+		legsExB3.add(prisonerSquats);
+		legs.setExerciseBuild(legsExB3);
+				
 		pSquatMuscles.add(buttocks);
+		
+		Collection<ExerciseBuild> buttocksExB3 = buttocks.getExerciseBuild();
+		buttocksExB3.add(prisonerSquats);
+		buttocks.setExerciseBuild(buttocksExB3);
+		
 		pSquatMuscles.add(hamstrings);
-																
+										
+		Collection<ExerciseBuild> hamSExB = hamstrings.getExerciseBuild();
+		hamSExB.add(prisonerSquats);
+		hamstrings.setExerciseBuild(hamSExB);
+		
 		prisonerSquats.setMuscles(pSquatMuscles);
 		ebs.save(prisonerSquats);
+		
+		ms.save(legs);
+		ms.save(buttocks);
+		ms.save(hamstrings);
 		
 		//-----------------------kick back-----------------------------------------
 		ExerciseBuild kickBack = new ExerciseBuild();
