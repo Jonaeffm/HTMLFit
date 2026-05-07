@@ -1283,11 +1283,15 @@ public class BootStrapData implements CommandLineRunner{
 		ArrayList<Muscle> kickBackMuscles = new ArrayList<Muscle>();
 		kickBackMuscles.add(triceps);
 							
+		Collection<ExerciseBuild> triExB4 = triceps.getExerciseBuild();
+		triExB4.add(kickBack);
+		triceps.setExerciseBuild(triExB4);
+		
 		kickBack.setTrainingEquipment(kickBackEquipment);
 		kickBack.setMuscles(kickBackMuscles);
 		ebs.save(kickBack);
 		
-		
+		ms.save(triceps);
 		//--------------------------Backfly-------------------------------------------
 		ExerciseBuild backfly = new ExerciseBuild();
 		backfly.setName("Backfly");
