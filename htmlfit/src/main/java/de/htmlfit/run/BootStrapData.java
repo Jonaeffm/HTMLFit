@@ -799,6 +799,10 @@ public class BootStrapData implements CommandLineRunner{
 		Collection<TrainingEquipment> ccurlEquipment = new ArrayList<TrainingEquipment>();
 		ccurlEquipment.add(dumbbell);
 				
+		Collection<ExerciseBuild> dumbbellExB2 = dumbbell.getExerciseBuild();
+		dumbbellExB2.add(ccurls);
+		dumbbell.setExerciseBuild(dumbbellExB2);
+		
 		ArrayList<Muscle> ccurlsMuscles = new ArrayList<Muscle>();
 		ccurlsMuscles.add(biceps);
 		
@@ -809,7 +813,7 @@ public class BootStrapData implements CommandLineRunner{
 		ccurls.setTrainingEquipment(ccurlEquipment);
 		ccurls.setMuscles(ccurlsMuscles);
 		ebs.save(ccurls);
-		
+		tes.save(dumbbell);
 		ms.save(biceps);
 		//-----------------------pullup-----------------------------------------
 		ExerciseBuild pullup = new ExerciseBuild();
