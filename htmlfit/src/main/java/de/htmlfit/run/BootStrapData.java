@@ -1336,15 +1336,44 @@ public class BootStrapData implements CommandLineRunner{
 				
 		ArrayList<Muscle> burMuscles = new ArrayList<Muscle>();
 		burMuscles.add(trapezius);
+		
+		Collection<ExerciseBuild> trapExB5 = trapezius.getExerciseBuild();
+		trapExB5.add(bur);
+		trapezius.setExerciseBuild(trapExB5);
+		
 		burMuscles.add(deltoids);
+		
+		Collection<ExerciseBuild> delExB7 = deltoids.getExerciseBuild();
+		delExB7.add(bur);
+		deltoids.setExerciseBuild(delExB7);
+		
 		burMuscles.add(biceps);
+		
+		Collection<ExerciseBuild> biExB6 = biceps.getExerciseBuild();
+		biExB6.add(bur);
+		biceps.setExerciseBuild(biExB6);
+		
 		burMuscles.add(brachialis);
+		
+		Collection<ExerciseBuild> braExB2 = brachialis.getExerciseBuild();
+		braExB2.add(bur);
+		brachialis.setExerciseBuild(braExB2);
+		
 		burMuscles.add(serratusAnterior);
 				
+		Collection<ExerciseBuild> serrExB4 = serratusAnterior.getExerciseBuild();
+		serrExB4.add(bur);
+		serratusAnterior.setExerciseBuild(serrExB4);	
 				
 		bur.setMuscles(burMuscles);
 		bur.setTrainingEquipment(burEquipment);
 		ebs.save(bur);
+		
+		ms.save(trapezius);		
+		ms.save(deltoids);
+		ms.save(biceps);
+		ms.save(brachialis);
+		ms.save(serratusAnterior);
 		
 		ProgramUser a = new ProgramUser("a","a");
 		ProgramUser b = new ProgramUser("b","b");
