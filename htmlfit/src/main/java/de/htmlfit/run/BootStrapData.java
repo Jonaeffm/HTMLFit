@@ -1150,7 +1150,11 @@ public class BootStrapData implements CommandLineRunner{
 								
 		ArrayList<TrainingEquipment> sspEquipment = new ArrayList<TrainingEquipment>();
 		sspEquipment.add(dumbbell);
-								
+					
+		Collection<ExerciseBuild> dumbbellExB5 = dumbbell.getExerciseBuild();
+		dumbbellExB5.add(ssp);
+		dumbbell.setExerciseBuild(dumbbellExB5);
+		
 		ArrayList<Muscle> sspMuscles = new ArrayList<Muscle>();
 		sspMuscles.add(trapezius);
 		
@@ -1173,7 +1177,7 @@ public class BootStrapData implements CommandLineRunner{
 		ssp.setMuscles(sspMuscles);
 		ssp.setTrainingEquipment(sspEquipment);
 		ebs.save(ssp);
-		
+		tes.save(dumbbell);
 		ms.save(trapezius);
 		ms.save(deltoids);
 		ms.save(triceps);
