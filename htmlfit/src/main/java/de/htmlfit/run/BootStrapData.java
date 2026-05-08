@@ -1033,7 +1033,11 @@ public class BootStrapData implements CommandLineRunner{
 						
 		Collection<TrainingEquipment> pushUpEquipment = new ArrayList<TrainingEquipment>();
 		pushUpEquipment.add(trainingBench);
-						
+					
+		Collection<ExerciseBuild> trainingBenchExB2 = trainingBench.getExerciseBuild();
+		trainingBenchExB2.add(pushupBuild);
+		trainingBench.setExerciseBuild(trainingBenchExB2);
+		
 		ArrayList<Muscle> pushUpMuscles = new ArrayList<Muscle>();
 		pushUpMuscles.add(triceps);
 		
@@ -1087,7 +1091,7 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(serratusAnterior);
 		ms.save(legs);
 		ms.save(buttocks);
-		
+		tes.save(trainingBench);
 		//-----------------------diamond push-ups-----------------------------------------
 		ExerciseBuild dPushupBuild = new ExerciseBuild();
 		dPushupBuild.setName("Diamond Push-Ups");
