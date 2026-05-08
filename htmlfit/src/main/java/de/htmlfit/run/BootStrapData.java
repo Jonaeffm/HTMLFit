@@ -1188,7 +1188,11 @@ public class BootStrapData implements CommandLineRunner{
 										
 		Collection<TrainingEquipment> lrEquipment = new ArrayList<TrainingEquipment>();
 		lrEquipment.add(dumbbell);
-										
+					
+		Collection<ExerciseBuild> dumbbellExB6 = dumbbell.getExerciseBuild();
+		dumbbellExB6.add(lateralRaise);
+		dumbbell.setExerciseBuild(dumbbellExB6);
+		
 		ArrayList<Muscle> lrMuscles = new ArrayList<Muscle>();
 		lrMuscles.add(deltoids);
 		
@@ -1199,7 +1203,7 @@ public class BootStrapData implements CommandLineRunner{
 		lateralRaise.setMuscles(lrMuscles);
 		lateralRaise.setTrainingEquipment(lrEquipment);
 		ebs.save(lateralRaise);
-		
+		tes.save(dumbbell);
 		ms.save(deltoids);
 		
 		//-----------------------crunches-----------------------------------------
