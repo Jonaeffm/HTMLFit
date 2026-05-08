@@ -934,7 +934,7 @@ public class BootStrapData implements CommandLineRunner{
 		oar.setTrainingEquipment(oarEquipment);
 		ebs.save(oar);
 		tes.save(trainingBench);
-		tes.save(dumbbell)
+		tes.save(dumbbell);
 		ms.save(trapezius);
 		ms.save(teresMinor);
 		ms.save(latissimus);
