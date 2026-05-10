@@ -1340,7 +1340,7 @@ public class BootStrapData implements CommandLineRunner{
 		kickBack.setTrainingEquipment(kickBackEquipment);
 		kickBack.setMuscles(kickBackMuscles);
 		ebs.save(kickBack);
-		
+		tes.save(dumbbell);		
 		ms.save(triceps);
 		//--------------------------Backfly-------------------------------------------
 		ExerciseBuild backfly = new ExerciseBuild();
@@ -1348,8 +1348,17 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Collection<TrainingEquipment> backflyEquipment = new ArrayList<TrainingEquipment>();
 		backflyEquipment.add(trainingBench);
+		
+		Collection<ExerciseBuild> trainingBenchExB4 = trainingBench.getExerciseBuild();
+		trainingBenchExB4.add(backfly);
+		trainingBench.setExerciseBuild(trainingBenchExB4);
+		
 		backflyEquipment.add(dumbbell);
-																
+										
+		Collection<ExerciseBuild> dumbbellExB8 = dumbbell.getExerciseBuild();
+		dumbbellExB8.add(backfly);
+		dumbbell.setExerciseBuild(dumbbellExB8);
+		
 		ArrayList<Muscle> backflyMuscles = new ArrayList<Muscle>();
 		backflyMuscles.add(latissimus);
 		
@@ -1373,6 +1382,9 @@ public class BootStrapData implements CommandLineRunner{
 		backfly.setTrainingEquipment(backflyEquipment);
 		backfly.setMuscles(backflyMuscles);
 		ebs.save(backfly);
+		
+		tes.save(dumbbell);
+		tes.save(trainingBench);
 		
 		ms.save(latissimus);
 		ms.save(rhomboid);
