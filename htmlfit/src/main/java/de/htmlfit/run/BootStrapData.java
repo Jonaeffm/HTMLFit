@@ -1325,7 +1325,11 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Collection<TrainingEquipment> kickBackEquipment = new ArrayList<TrainingEquipment>();
 		kickBackEquipment.add(dumbbell);
-																
+		
+		Collection<ExerciseBuild> dumbbellExB7 = dumbbell.getExerciseBuild();
+		dumbbellExB7.add(kickBack);
+		dumbbell.setExerciseBuild(dumbbellExB7);
+		
 		ArrayList<Muscle> kickBackMuscles = new ArrayList<Muscle>();
 		kickBackMuscles.add(triceps);
 							
