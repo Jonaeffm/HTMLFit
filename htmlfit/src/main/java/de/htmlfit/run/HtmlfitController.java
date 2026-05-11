@@ -309,8 +309,13 @@ public class HtmlfitController extends HttpServlet{
 	}
 	
 	@PostMapping(value = "/show/{id}") 
-	public String show(@ModelAttribute("count") NumberBean count) {
+	public String show(@PathVariable("id") long id, @ModelAttribute("count") NumberBean count) {
 
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		td.get().setCount(count.getCount());
+		
+		trainingDaysService.save(td.get());
+		
 		countEx = count.getCount();
 		String returnStr = "redirect:/exerc/";
 		System.out.println("eingegeben :"+count.getCount() );
