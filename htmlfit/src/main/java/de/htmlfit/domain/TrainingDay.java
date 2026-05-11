@@ -27,6 +27,8 @@ public class TrainingDay {
 	@GeneratedValue
 	private Long id;
 	
+	private int count; 
+	
 	@ManyToOne()
 	@JsonIgnore
 	private ProgramUser programUser;
@@ -145,5 +147,13 @@ public class TrainingDay {
 
 	public void setTrainingPlan(TrainingPlan trainingPlan) {
 		TrainingPlan = trainingPlan;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 }
