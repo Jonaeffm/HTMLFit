@@ -18,7 +18,72 @@ public class MethodService{
 	@Autowired
 	private ExerciseService exerciseService;
 	
+	private ExerciseBuildService exerciseBuildService;
+	
 	public Collection<ExerciseBuild> exercisesBuild(TrainingDay td){
+		Collection<Muscle> selectedMuscles = td.getMuscles(); 
+		Collection<TrainingEquipment> selectedEquipment = td.getEquip();
+		
+		Collection<ExerciseBuild> allExercisesBuild = exerciseBuildService.findAll();
+		Collection<ExerciseBuild> exercisesBuildToAdd = new ArrayList<ExerciseBuild>();
+		
+		for(int i=0;i<4;i++) {
+			int j=0;
+			
+			int k=0;
+			
+			for(ExerciseBuild e : allExercisesBuild) {
+				for(TrainingEquipment te : selectedEquipment) {
+					if(!e.getTrainingEquipment().contains(te)) {
+						allExercisesBuild.remove(e);
+					}
+				}
+			}
+			
+			Exercise exerciseToAdd = new Exercise();
+			
+			for(Exercise e : allExercises) {
+				
+				System.out.println("Exercise: "+e.getName());
+				
+				Collection<Muscle> eGetMuscles = e.getMuscles();
+				
+				for (Muscle m2 : eGetMuscles) {
+					System.out.println("Exercise contains muscle "+ m2.getName());
+				}
+				
+				for (Muscle m: selectedMuscles) {
+					
+					System.out.println("Muscle: "+m.getName());
+					
+					if (e.getMuscles().contains(m)) {
+						k++;
+					}
+				}
+				if(k>j) {
+					j=k;
+					exerciseToAdd = e;
+					
+					System.out.println("Ex2Add "+ exerciseToAdd.getName());
+			
+
+				}
+			}
+			allExercises.remove(exerciseToAdd);
+			exercisesToAdd.add(exerciseToAdd);
+			
+			Collection<TrainingDay> trainingDays = exerciseToAdd.getTrainingDays();
+			if (trainingDays == null || trainingDays.isEmpty()) {
+				trainingDays = new ArrayList<TrainingDay>();
+			}
+			
+			trainingDays.add(td);
+			
+			exerciseToAdd.setTrainingDays(trainingDays);
+			
+			exerciseService.save(exerciseToAdd);
+		}
+		
 		return null;
 		
 	}
