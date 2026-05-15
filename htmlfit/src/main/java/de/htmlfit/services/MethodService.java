@@ -34,7 +34,58 @@ public class MethodService{
 				}
 			}
 		}
-		return null;
+		
+		for(int i=0;i<4;i++) {
+			int j=0;
+			
+			int k=0;
+			
+			ExerciseBuild exerciseBuildToAdd = new ExerciseBuild();
+			
+			for(ExerciseBuild e : allExercisesBuild) {
+				
+				System.out.println("Exercise: "+e.getName());
+				
+				Collection<Muscle> eGetMuscles = e.getMuscles();
+				
+				for (Muscle m2 : eGetMuscles) {
+					System.out.println("Exercise contains muscle "+ m2.getName());
+				}
+				
+				for (Muscle m: selectedMuscles) {
+					
+					System.out.println("Muscle: "+m.getName());
+					
+					if (e.getMuscles().contains(m)) {
+						k++;
+					}
+				}
+				if(k>j) {
+					j=k;
+					exerciseBuildToAdd = e;
+					
+					System.out.println("Ex2Add "+ exerciseBuildToAdd.getName());
+			
+
+				}
+			}
+			allExercisesBuild.remove(exerciseBuildToAdd);
+			exercisesBuildToAdd.add(exerciseBuildToAdd);
+			
+			TrainingDay trainingDay = exerciseBuildToAdd.getTrainingDay();
+			/*if (trainingDays == null || trainingDays.isEmpty()) {
+				trainingDays = new ArrayList<TrainingDay>();
+			}*/
+			
+			trainingDay=td;
+			
+			exerciseBuildToAdd.setTrainingDay(td);
+			
+			exerciseBuildService.save(exerciseBuildToAdd);
+		}
+		
+		return exercisesBuildToAdd;
+		
 		
 	}
 	
