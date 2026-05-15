@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import de.htmlfit.domain.Exercise;
+import de.htmlfit.domain.ExerciseBuild;
 import de.htmlfit.domain.Muscle;
 import de.htmlfit.domain.TrainingDay;
 import de.htmlfit.domain.TrainingEquipment;
@@ -16,6 +17,11 @@ public class MethodService{
 	
 	@Autowired
 	private ExerciseService exerciseService;
+	
+	public Collection<ExerciseBuild> exercisesBuild(TrainingDay td){
+		return null;
+		
+	}
 	
 	public Collection<Exercise> hiitExercises(TrainingDay td) {
 		

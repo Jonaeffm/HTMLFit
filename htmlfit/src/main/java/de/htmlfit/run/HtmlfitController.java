@@ -383,6 +383,8 @@ public class HtmlfitController extends HttpServlet{
 		
 		Collection<Exercise> exercises =  ms.hiitExercises(td.get());
 		
+		Collection<ExerciseBuild> exercisesBuild = ms.exercisesBuild(td.get());
+		
 		td.get().setExercise(exercises);
 		
 		trainingDaysService.save(td.get());
