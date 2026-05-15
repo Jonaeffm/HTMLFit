@@ -387,10 +387,13 @@ public class HtmlfitController extends HttpServlet{
 		
 		td.get().setExercise(exercises);
 		
+		td.get().setExerciseBuild(exercisesBuild);
+		
 		trainingDaysService.save(td.get());
 		
 		model.addAttribute("exercises",td.get().getExercise());
 		
+		model.addAttribute("exercisesBuild",td.get().getExerciseBuild());
 		/*
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
 		ArrayList<Muscle> musclesAsObject = (ArrayList<Muscle>) td.get().getMuscles(); 

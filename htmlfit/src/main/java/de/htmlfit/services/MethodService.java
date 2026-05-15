@@ -18,6 +18,7 @@ public class MethodService{
 	@Autowired
 	private ExerciseService exerciseService;
 	
+	@Autowired
 	private ExerciseBuildService exerciseBuildService;
 	
 	public Collection<ExerciseBuild> exercisesBuild(TrainingDay td){
