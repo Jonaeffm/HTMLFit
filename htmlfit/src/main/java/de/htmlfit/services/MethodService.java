@@ -28,13 +28,30 @@ public class MethodService{
 		Collection<ExerciseBuild> allExercisesBuild = exerciseBuildService.findAll();
 		Collection<ExerciseBuild> exercisesBuildToAdd = new ArrayList<ExerciseBuild>();
 		
-		for(ExerciseBuild e : allExercisesBuild) {
+	 /*for(ExerciseBuild e : allExercisesBuild) {
 			for(TrainingEquipment te : selectedEquipment) {
-				if(!e.getTrainingEquipment().contains(te)) {
+				if(e.getTrainingEquipment().contains(te)) {
+					
+				}
+				else {
 					allExercisesBuild.remove(e);
+					break;
+				}
+			}
+		}*/
+		
+		for(TrainingEquipment te : selectedEquipment) {
+			for(ExerciseBuild e : allExercisesBuild) {
+				if(e.getTrainingEquipment().contains(te)) {
+					
+				}
+				else {
+					allExercisesBuild.remove(e);
+					break;
 				}
 			}
 		}
+		
 		
 		for(int i=0;i<4;i++) {
 			int j=0;
@@ -72,13 +89,6 @@ public class MethodService{
 			}
 			allExercisesBuild.remove(exerciseBuildToAdd);
 			exercisesBuildToAdd.add(exerciseBuildToAdd);
-			
-			TrainingDay trainingDay = exerciseBuildToAdd.getTrainingDay();
-			/*if (trainingDays == null || trainingDays.isEmpty()) {
-				trainingDays = new ArrayList<TrainingDay>();
-			}*/
-			
-			trainingDay=td;
 			
 			exerciseBuildToAdd.setTrainingDay(td);
 			
