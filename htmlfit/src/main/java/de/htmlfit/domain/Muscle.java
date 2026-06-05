@@ -28,7 +28,7 @@ public class Muscle {
 	String name;
 	
 	//@JsonIgnore
-	@Basic(fetch = FetchType.LAZY)
+	//@Basic(fetch = FetchType.LAZY)
 	@Lob
 	byte[] image;
 

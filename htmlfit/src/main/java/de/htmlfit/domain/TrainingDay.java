@@ -31,7 +31,7 @@ public class TrainingDay {
 	private int count; 
 	
 	@ManyToOne()
-	@JsonIgnore
+	//@JsonIgnore
 	private ProgramUser programUser;
 
 	@ManyToMany
@@ -64,7 +64,7 @@ public class TrainingDay {
 	private Collection<ExerciseBuild> exerciseBuild;
 
 	@ManyToOne()
-	@JsonIgnore
+	//@JsonIgnore
 	private TrainingPlan TrainingPlan;
 	
 	@Override

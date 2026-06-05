@@ -26,7 +26,7 @@ public class ExerciseBuild {
 	private String name;
 	
 	@ManyToOne()
-	@JsonIgnore
+	//@JsonIgnore
 	private TrainingDay TrainingDay;
 	
 	@JsonBackReference

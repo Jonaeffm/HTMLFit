@@ -22,7 +22,7 @@ public class TrainingEquipment {
 	private Long id;
 	private String name;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@Lob
 	byte[] image;
 	
