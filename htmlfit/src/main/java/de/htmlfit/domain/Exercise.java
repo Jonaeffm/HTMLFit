@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import de.htmlfit.domain.Muscle;
@@ -27,6 +28,7 @@ public class Exercise {
 	private Long id;
 	
 	private String name;
+	@JsonBackReference
 	@ManyToMany(mappedBy = "exercise")
 	private Collection<Muscle> Muscles;
 	@ManyToMany(mappedBy = "exercise")

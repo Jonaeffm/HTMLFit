@@ -3,6 +3,7 @@ package de.htmlfit.domain;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -28,6 +29,7 @@ public class ExerciseBuild {
 	@JsonIgnore
 	private TrainingDay TrainingDay;
 	
+	@JsonBackReference
 	@ManyToMany()
 	private Collection<Muscle> Muscles;
 		
