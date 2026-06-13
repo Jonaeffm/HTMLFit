@@ -335,7 +335,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle teresMajor = new Muscle();
 		teresMajor.setName("Teres Major");
-		teresMajor.setImage(imageJPG("src/main/resources/static/TeresMajor.jpg"));	
+		teresMajor.setImage(imageJPG("src/main/resources/static/TeresMajor.jpeg"));	
 		
 		Collection<Exercise> temp17 = new ArrayList<Exercise>();
 		teresMajor.setExercise(temp17);
@@ -347,7 +347,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		Muscle teresMinor = new Muscle();
 		teresMinor.setName("Teres Minor");
-		teresMinor.setImage(imageJPG("src/main/resources/static/TeresMinor.jpg"));
+		teresMinor.setImage(imageJPG("src/main/resources/static/TeresMinor.jpeg"));
 		
 		Collection<Exercise> temp18 = new ArrayList<Exercise>();
 		teresMinor.setExercise(temp18);
@@ -372,7 +372,7 @@ public class BootStrapData implements CommandLineRunner{
 	
 		Muscle hipAdductor = new Muscle();
 		hipAdductor.setName("Hip Adductor");
-		hipAdductor.setImage(imageJPG("src/main/resources/static/hipadductor.jpg"));
+		hipAdductor.setImage(imageJPG("src/main/resources/static/hipadductor.jpeg"));
 		
 		Collection<Exercise> temp20 = new ArrayList<Exercise>();
 		hipAdductor.setExercise(temp20);
