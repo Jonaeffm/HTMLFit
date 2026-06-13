@@ -74,15 +74,21 @@
 	const out = document.getElementById('text');
 
 	function writeId() {
-		out.innerHTML="		<a th:each="image, index : ${images}"  id="chooseImage">  <img  th:if="${muscle.id == image.key}" th:src="${image.value}" alt="" class="img"  width="320"  th:data-images="${image.value}" th:data-key="${image.key}" th:data-text="${muscle.name}"  th:onclick="showImage(this.getAttribute('data-key'),this.getAttribute('data-text'),this.getAttribute('data-images'))" id="imgObj" /></a>";
-
+		out.innerHTML= "test : "+id.toString();
 		}
 		//muscles.forEach((muscle) => {if(parseInt(muscle.id, 10) == parseInt(sel.value, 10)){out.textContent = sel.value;}console.log(sel.value);}); } /*{  const id = parseInt(sel.value, 10);  out.textContent = Number.isNaN(id) ? '' : id;}*/
 	
 	        document.getElementById("selectField").addEventListener("change", function () {
-	            writeId();
+	            
+				const selectedOption = sel.options[sel.selectedIndex];  
+				const id = selectedOption.id || selectedOption.getAttribute('id') || null;
+				
+				writeId(id);
 	        });
 	    
 			
 			/*]]>*/		
 </script>
+
+"		<a th:each="image, index : ${images}"  id="chooseImage">  <img  th:if="${muscle.id == image.key}" th:src="${image.value}" alt="" class="img"  width="320"  th:data-images="${image.value}" th:data-key="${image.key}" th:data-text="${muscle.name}"  th:onclick="showImage(this.getAttribute('data-key'),this.getAttribute('data-text'),this.getAttribute('data-images'))" id="imgObj" /></a>";
+
