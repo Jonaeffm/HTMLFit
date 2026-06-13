@@ -121,6 +121,14 @@ public class HtmlfitController extends HttpServlet{
 		muscleList = muscleService.findAll();
 		model.addAttribute("muscles", muscleList);
 		
+		Map<Long, String> productBase64Images = new HashMap<>();
+		for (Muscle muscle : muscleList) {
+			String contHeader = new String(muscle.getImage());
+			contHeader= "data:image/jpeg;charset=utf-8;base64,"+contHeader;
+			productBase64Images.put(muscle.getId(), contHeader);
+		}
+		
+		model.addAttribute("images", productBase64Images);
 		
 		Muscle muscleForResult=new Muscle();
 		model.addAttribute("muscle",muscleForResult);
