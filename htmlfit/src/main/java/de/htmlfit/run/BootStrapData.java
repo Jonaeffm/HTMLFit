@@ -332,9 +332,10 @@ public class BootStrapData implements CommandLineRunner{
 		
 		ms.save(moa);
 		
+		
 		Muscle teresMajor = new Muscle();
 		teresMajor.setName("Teres Major");
-		
+		teresMajor.setImage(img);		
 		Collection<Exercise> temp17 = new ArrayList<Exercise>();
 		teresMajor.setExercise(temp17);
 		
@@ -366,6 +367,7 @@ public class BootStrapData implements CommandLineRunner{
 		
 		ms.save(brachialis);
 		
+	
 		Muscle hipAdductor = new Muscle();
 		hipAdductor.setName("Hip Adductor");
 		
