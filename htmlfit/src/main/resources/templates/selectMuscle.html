@@ -81,7 +81,7 @@
 	        document.getElementById("selectField").addEventListener("change", function () {
 	            
 				const selectedOption = sel.options[sel.selectedIndex];  
-				const id = selectedOption.id || selectedOption.getAttribute('id') || null;
+				const id = selectedOption.value; 
 				
 				writeId(id);
 	        });
