@@ -75,7 +75,7 @@
 
 	function writeId(idsel) {
 		
-		const mimage = null;
+		const srcList = [];
 		
 		/*for (const image of images){
 			if (image.key == id){
@@ -89,16 +89,18 @@
 						}*/
 		//	});
 		
-		Object.entries(images).forEach(([id, src]) => {  /*const img = document.createElement("img");  img.src = src;  img.alt = `muscle ${id}`;  document.body.appendChild(img);*/
+		Object.entries(images).forEach(([id, src]) => { /* const img = document.createElement("img");  img.src = src;  img.alt = `muscle ${id}`;  document.body.appendChild(img);*/
 	
 		 if(id == idsel){
-			//mimage = src;
+			 srcList.push({ id, src });
 		 }
 	
 		});
-			
-		out.innerHTML= "test : " + idsel;
-		/*out.innerHTML= "<img src='data:image/png;base64,"+mimage.value+"'/>"*/
+
+		const firstSrc = srcList[0]?.src;  
+		
+		//out.innerHTML= "test : " + idsel;
+		out.innerHTML= "<img src='"+firstSrc+"'/>"
 		}
 		/*muscles.forEach((muscle) => {if(parseInt(muscle.id, 10) == parseInt(sel.value, 10)){out.textContent = sel.value;}console.log(sel.value);}); } /*{  const id = parseInt(sel.value, 10);  out.textContent = Number.isNaN(id) ? '' : id;}*/
 	
