@@ -68,21 +68,33 @@
 <script layout:fragment="script" th:inline="javascript">
 
 	/*<![CDATA[*/  const muscles = /*[[${muscles}]]*/ [];  
-		const images = JSON.parse(/*[[${images}]]*/ '[]');  
+		const images = /*[[${images}]]*/ [];  
 		
 	const sel = document.getElementById('selectField');	
 	const out = document.getElementById('text');
 
 	function writeId(id) {
 		
-		const mimage;
+		const mimage = null;
 		
-		for (const image of images){
+		/*for (const image of images){
 			if (image.key == id){
 				mimage = image;
 			}
-		}
+		}*/
 		
+		//images.forEach((img, i) => {
+			/*if (image.key == id){
+							mimage = image;
+						}*/
+		//	});
+		
+		Object.entries(images).forEach(([id, src]) => {  /*const img = document.createElement("img");  img.src = src;  img.alt = `muscle ${id}`;  document.body.appendChild(img);*/
+	
+		
+	
+		});
+			
 		out.innerHTML= "test : " + id;
 		/*out.innerHTML= "<img src='data:image/png;base64,"+mimage.value+"'/>"*/
 		}
