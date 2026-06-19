@@ -74,7 +74,17 @@
 	const out = document.getElementById('text');
 
 	function writeId(id) {
+		
+		const mimage
+		
+		for (const image of images){
+			if (image.key == id){
+				mimage = image;
+			}
+		}
+		
 		out.innerHTML= "test : " + id;
+		//out.innerHTML= "<img src='data:image/png;base64,"+mimage.value+"'/>"
 		}
 		//muscles.forEach((muscle) => {if(parseInt(muscle.id, 10) == parseInt(sel.value, 10)){out.textContent = sel.value;}console.log(sel.value);}); } /*{  const id = parseInt(sel.value, 10);  out.textContent = Number.isNaN(id) ? '' : id;}*/
 	
