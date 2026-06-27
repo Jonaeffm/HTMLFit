@@ -5,6 +5,9 @@
 <title>Select muscles</title>
 
 	<style>
+		
+		.stack{  display: flex;  flex-direction: column;}
+	
          .imgbox3 {
         display: grid;
             width: 600px;
@@ -53,12 +56,15 @@
 	<div class="media">
 	 	<form method="post">
   
-			<a id="text">This text is bold</a> 
+			<div class="stack">  <div><a id="text">This text is bold</a> </div>  <div>			<select id="selectField" th:field="${muscle.id}"  class="form-control selectpicker">
+			    			<option  th:each="muscleChoice : ${muscles}"  th:value="${muscleChoice.id}" th:text="${muscleChoice.name}" th:data-content="${muscleChoice.image}"></option>
+			 			</select> </div>
 			
-    		<select id="selectField" th:field="${muscle.id}"  class="form-control selectpicker">
-    			<option  th:each="muscleChoice : ${muscles}"  th:value="${muscleChoice.id}" th:text="${muscleChoice.name}" th:data-content="${muscleChoice.image}"></option>
- 			</select>               
- 
+			
+			
+    		              
+ 			
+			</div>
 <!--    <button type="submit" class="btn btn-primary">Sign in</button> -->
 			<input type="submit" value="Submit" class="btn btn-primary" />
 		</form>
