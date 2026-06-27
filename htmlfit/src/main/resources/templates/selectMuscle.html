@@ -57,7 +57,7 @@
 	 	<form method="post">
   
 			<div class="stack">  
-				<div><a id="text">This text is bold</a> </div>  
+				<div><a id="text">selected muscle</a> </div>  
 				<div>			
 					<select id="selectField" th:field="${muscle.id}"  class="form-control selectpicker">
 			    			<option  th:each="muscleChoice : ${muscles}"  th:value="${muscleChoice.id}" th:text="${muscleChoice.name}" th:data-content="${muscleChoice.image}"></option>
