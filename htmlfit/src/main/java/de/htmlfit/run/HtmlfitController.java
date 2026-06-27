@@ -307,6 +307,8 @@ public class HtmlfitController extends HttpServlet{
 		
 		model.addAttribute("resultMuscles",musclesAsObjectCol);
 		
+		model.addAttribute("id",id);
+		
 		Map<Long, String> productBase64Images = new HashMap<>();
 		for (Muscle muscle : musclesAsObjectCol) {
 			String contHeader = new String(muscle.getImage());
@@ -323,7 +325,7 @@ public class HtmlfitController extends HttpServlet{
 	public String show(@PathVariable("id") long id, @ModelAttribute("count") NumberBean count) {
 
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
-		td.get().setCount(count.getCount());
+	
 		
 		trainingDaysService.save(td.get());
 		
