@@ -49,8 +49,8 @@
 	<div class="media"> 
     	<div sec:authorize="isAuthenticated()" >Authenticated as <span sec:authentication="name"></span>
 				<br/>
- 
-             <a href="/select/">add muscle</a>
+				<a th:href="@{'/select/' + ${id}}">add muscle</a>
+           
               <br/>
               <a href="/delete/">delete muscles</a>
 	</div>
