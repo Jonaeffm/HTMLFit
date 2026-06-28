@@ -62,7 +62,7 @@
         	<th>Id</th>
             <th>Muscle Name</th>
         </tr>
-        <tr th:each="muscleA, stat :${resultMusclesA}">
+        <tr th:each="muscleA, stat :${muscles}">
              <td th:text = "${muscleA.id}"></td>
              <td th:text = "${muscleA.name}"></td>
         </tr>
