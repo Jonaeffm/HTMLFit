@@ -398,6 +398,8 @@ public class HtmlfitController extends HttpServlet{
 		
 		Collection<ExerciseBuild> exercisesBuild = ms.exercisesBuild(td.get());
 		
+		
+		
 		td.get().setExercise(exercises);
 		
 		td.get().setExerciseBuild(exercisesBuild);
@@ -457,6 +459,80 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		return returnStr;
 	}
+	
+	
+	@RequestMapping(value = "/exercload/{id}",method = RequestMethod.GET)
+	public String showExercLoaded(@PathVariable("id") long id,Model model) {
+		String returnStr = "showExerciss";
+		
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
+		Collection<Exercise> exercises =  td.get().getExercise();
+		
+		Collection<ExerciseBuild> exercisesBuild = td.get().getExerciseBuild();
+		
+		Collection<Muscle> chosenMuscles = td.get().getMuscles();
+		
+		
+		
+		model.addAttribute("exercises",exercises);
+		
+		model.addAttribute("exercisesBuild",exercisesBuild);
+		
+		model.addAttribute("muscles",chosenMuscles);
+		
+		/*
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		ArrayList<Muscle> musclesAsObject = (ArrayList<Muscle>) td.get().getMuscles(); 
+		
+		if (musclesAsObject.size()>0)
+		{
+			
+			//model.addAttribute("resultMusclesA",musclesSelected);
+			
+			selectExercise(td.get(),musclesAsObject,4);
+
+			
+			selectExerciseBuild();
+			//model.addAttribute("exercisesBuild",selectedExercisesBuild);
+			
+			TrainingDay trDay = new TrainingDay();
+			ArrayList<Exercise> ExTrDay = new ArrayList<Exercise>();
+			ArrayList<ExerciseBuild> ExBTrDay = new ArrayList<ExerciseBuild>();
+			
+Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			
+			ProgramUser aut = userRepository.findByUsername(authentication.getName());
+			
+			
+			trDay.setProgramUser(aut);
+			
+			for (Exercise Ex : selectedExercises)
+			{
+				ExTrDay.add(exerciseService.findById(Ex.getId()).get());
+			}
+			
+		
+			for (ExerciseBuild ExB : selectedExercisesBuild)
+			{
+				ExBTrDay.add(exerciseBuildService.findById(ExB.getId()).get());
+			}
+		
+			trDay.setExercise(ExTrDay);
+			
+			trDay.setExerciseBuild(ExBTrDay);
+			
+			
+			//trDay.setUd(userRepository.findByUsername(authentication.getName()));
+			trainingDaysService.save(trDay);
+
+			
+		}*/
+		
+		return returnStr;
+	}
+	
+	//Collection<Muscle> chosenMuscles = td.get().getMuscles();
 	
 	@RequestMapping(value = "/tDays/",method = RequestMethod.GET)
 	public String showTDays(Model model) {
