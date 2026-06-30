@@ -323,7 +323,7 @@ public class HtmlfitController extends HttpServlet{
 	
 	@PostMapping(value = "/show/{id}") 
 	public String show(@PathVariable("id") long id, @ModelAttribute("count") NumberBean count) {
-
+		
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
 	
 		
@@ -661,6 +661,21 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	    trainingDaysService.deleteById(id);
 
 		return returnStr;
+	}
+	
+	@GetMapping("/deleteMuscles/{id}")
+	public String delMus(@PathVariable("id") long id) {
+		
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
+		Collection<Muscle> muscles = new ArrayList<Muscle>();
+		
+		td.get().setMuscles(muscles);
+		
+		trainingDaysService.save(td.get());
+		
+		return null;
+		
 	}
 	
 	@GetMapping("/deleteTP/{id}")
