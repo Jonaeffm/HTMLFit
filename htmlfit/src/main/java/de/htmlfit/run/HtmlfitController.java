@@ -330,6 +330,11 @@ public class HtmlfitController extends HttpServlet{
 		trainingDaysService.save(td.get());
 		
 		countEx = count.getCount();
+		
+		td.get().setCount(countEx);
+		
+		trainingDaysService.save(td.get());
+		
 		String returnStr = "redirect:/exerc/"+id;
 		System.out.println("eingegeben :"+count.getCount() );
 		return returnStr;
@@ -396,7 +401,7 @@ public class HtmlfitController extends HttpServlet{
 		
 		Collection<Exercise> exercises =  ms.hiitExercises(td.get());
 		
-		Collection<ExerciseBuild> exercisesBuild = ms.exercisesBuild(td.get());
+		Collection<ExerciseBuild> exercisesBuild = ms.exercisesBuild(td.get(),td.get().getCount());
 		
 		Collection<Muscle> chosenMuscles = td.get().getMuscles();
 		

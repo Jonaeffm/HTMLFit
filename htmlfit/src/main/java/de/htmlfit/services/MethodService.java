@@ -21,7 +21,7 @@ public class MethodService{
 	@Autowired
 	private ExerciseBuildService exerciseBuildService;
 	
-	public Collection<ExerciseBuild> exercisesBuild(TrainingDay td){
+	public Collection<ExerciseBuild> exercisesBuild(TrainingDay td, int count){
 		Collection<Muscle> selectedMuscles = td.getMuscles(); 
 		Collection<TrainingEquipment> selectedEquipment = td.getEquip();
 		
@@ -53,7 +53,7 @@ public class MethodService{
 		}
 		
 		
-		for(int i=0;i<4;i++) {
+		for(int i=0;i<count;i++) {
 			int j=0;
 			
 			int k=0;
