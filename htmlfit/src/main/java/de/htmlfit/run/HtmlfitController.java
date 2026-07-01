@@ -674,7 +674,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		trainingDaysService.save(td.get());
 		
-		return null;
+		return "redirect:/show/" + Long.toString(id);
 		
 	}
 	
