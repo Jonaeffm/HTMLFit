@@ -663,6 +663,21 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
+	@GetMapping("/deleteTE/{id}")
+	public String delTE(@PathVariable("id") long id) {
+		
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
+		Collection<TrainingEquipment> te = new ArrayList<TrainingEquipment>();
+		
+		td.get().setEquip(te);
+		
+		trainingDaysService.save(td.get());
+		
+		return "redirect:/showEq/" + Long.toString(id);
+		
+	}
+	
 	@GetMapping("/deleteMuscles/{id}")
 	public String delMus(@PathVariable("id") long id) {
 		
