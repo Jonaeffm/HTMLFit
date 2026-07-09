@@ -31,10 +31,20 @@ public class ExerciseBuild {
 	private Long id;
 	private String name;
 	
-	@ManyToOne()
+	@ManyToMany()
 	//@JsonIgnore
-	private TrainingDay TrainingDay;
+	private Collection<TrainingDay> TrainingDay;
 	
+	public Collection<TrainingDay> getTrainingDay() {
+		return TrainingDay;
+	}
+
+
+	public void setTrainingDay(Collection<TrainingDay> trainingDay) {
+		TrainingDay = trainingDay;
+	}
+
+
 	@JsonBackReference
 	@ManyToMany()
 	private Collection<Muscle> Muscles;
@@ -64,14 +74,7 @@ public class ExerciseBuild {
 	}
 
 
-	public TrainingDay getTrainingDay() {
-		return TrainingDay;
-	}
-
-
-	public void setTrainingDay(TrainingDay trainingDay) {
-		TrainingDay = trainingDay;
-	}
+	
 
 
 	public Collection<Muscle> getMuscles() {

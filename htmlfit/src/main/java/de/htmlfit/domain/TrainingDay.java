@@ -62,7 +62,7 @@ public class TrainingDay {
 			  inverseJoinColumns = @JoinColumn(name = "TRAININGEQUIPMENT_ID"))
 	private Collection<TrainingEquipment> equip;
 	
-	@OneToMany
+	@ManyToMany
 	@JoinTable(
 	          name="BodyBuildExercises",
 	          joinColumns = @JoinColumn( name="TRAININGDAY_ID"),
