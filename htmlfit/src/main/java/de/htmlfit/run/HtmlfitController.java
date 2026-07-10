@@ -24,6 +24,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -655,6 +656,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
+	@Transactional
 	@GetMapping("/delete/{id}")
 	public String showTd(@PathVariable("id") long id) {
 		String returnStr = "redirect:/tDays/";
@@ -668,7 +670,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	
 		for (Exercise ex : exc) {
 			Collection<TrainingDay> tdc = ex.getTrainingDays();
-			tdc.remove(td);
+			tdc.remove(td.get());
 			ex.setTrainingDays(tdc);
 			exerciseService.save(ex);
 		}
@@ -679,7 +681,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		for (ExerciseBuild ex : excB) {
 			Collection<TrainingDay> tdc = ex.getTrainingDay();
-			tdc.remove(td);
+			tdc.remove(td.get());
 			ex.setTrainingDay(tdc);
 			exerciseBuildService.save(ex);
 		}
@@ -689,7 +691,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		for (TrainingEquipment te : tEq) {
 			Collection<TrainingDay> tdc = te.getTrainingDays();
-			tdc.remove(td);
+			tdc.remove(td.get());
 			te.setTrainingDays(tdc);
 			trainingEquipmentService.save(te);
 		}
@@ -698,7 +700,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		for (Muscle m : mus) {
 			Collection<TrainingDay> tdc = m.getTrainingDays();
-			tdc.remove(td);
+			tdc.remove(td.get());
 			m.setTrainingDays(tdc);
 			muscleService.save(m);
 		}

@@ -86,8 +86,8 @@ public class TrainingDay {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		final Muscle other = (Muscle) obj;
-		if (!Objects.equals(this.id, other.id)) {
+		final TrainingDay other = (TrainingDay) obj;
+		if (!Objects.equals(this.id, other.getId())) {
 			return false;
 		}
 		return true;
