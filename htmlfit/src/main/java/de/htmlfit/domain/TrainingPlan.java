@@ -31,7 +31,7 @@ public class TrainingPlan {
 	
 	@OneToMany
 	@JoinTable(
-	          name="TrainingDAys",
+	          name="TrainingDays",
 	          joinColumns = @JoinColumn( name="TRAININGPLAN_ID"),
 	          inverseJoinColumns = @JoinColumn( name="TRAININGDAY_ID"))
 	private Collection<TrainingDay> trainingDays;

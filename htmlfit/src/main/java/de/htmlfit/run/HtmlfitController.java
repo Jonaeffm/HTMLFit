@@ -656,15 +656,20 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
-	@Transactional
+
 	@GetMapping("/delete/{id}")
+	@Transactional
 	public String showTd(@PathVariable("id") long id) {
 		String returnStr = "redirect:/tDays/";
 		
 
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
 		
-	
+		TrainingPlan tp = td.get().getTrainingPlan();
+		Collection<TrainingDay> tDays = tp.getTrainingDays();
+		tDays.remove(td);
+		tp.setTrainingDays(tDays);
+		trainingPlanService.save(tp);
 		
 		Collection<Exercise> exc = td.get().getExercise();
 	
@@ -677,13 +682,11 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 
 		
-		Collection<ExerciseBuild> excB = td.get().getExerciseBuild();
-		
-		for (ExerciseBuild ex : excB) {
-			Collection<TrainingDay> tdc = ex.getTrainingDay();
-			tdc.remove(td.get());
-			ex.setTrainingDay(tdc);
-			exerciseBuildService.save(ex);
+		for (ExerciseBuild eb : new ArrayList<>(exerciseBuildService.findAll())) 
+		{        
+			if (eb.getTrainingDay() != null && eb.getTrainingDay().remove(td.get())) {
+				exerciseBuildService.save(eb);        
+			}    
 		}
 		
 
