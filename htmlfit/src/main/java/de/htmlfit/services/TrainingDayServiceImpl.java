@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.htmlfit.domain.ProgramUser;
 import de.htmlfit.domain.TrainingDay;
@@ -46,4 +47,20 @@ public class TrainingDayServiceImpl implements TrainingDayService{
 		return repository.save(e);
 	}
 
+
+	 @Transactional  
+	 public void deleteWithJoinCleanup(long id) 
+	 {    
+		 TrainingDay td = repository.findById(id).orElseThrow();
+	 
+	    
+		 td.getExercise().clear();    
+		 td.getExerciseBuild().clear();    
+		 td.getEquip().clear();    
+		 td.getMuscles().clear();
+	    
+		 repository.save(td);   // forces join-table updates in the transaction    
+		 repository.delete(td); // or repo.deleteById(id)  
+	 }
+	
 }

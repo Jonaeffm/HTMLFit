@@ -659,7 +659,10 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	public String showTd(@PathVariable("id") long id) {
 		String returnStr = "redirect:/tDays/";
 		
+
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
+	
 		
 		Collection<Exercise> exc = td.get().getExercise();
 	
@@ -700,8 +703,24 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			muscleService.save(m);
 		}
 		
+	
+		/*
 		
-	    trainingDaysService.deleteById(id);
+		Collection<Exercise> cEx =  new ArrayList<Exercise>();
+		td.get().setExercise(cEx);
+		
+		Collection<ExerciseBuild> cExB = new ArrayList<ExerciseBuild>();
+		td.get().setExerciseBuild(cExB);
+		
+		Collection<TrainingEquipment> tEq2 = new ArrayList<TrainingEquipment>();
+		td.get().setEquip(tEq2);
+		
+		Collection<Muscle> cMus = new ArrayList<Muscle>();
+		td.get().setMuscles(cMus);
+		
+		trainingDaysService.save(td.get());*/
+		
+		 trainingDaysService.deleteWithJoinCleanup(id);
 
 		return returnStr;
 	}
