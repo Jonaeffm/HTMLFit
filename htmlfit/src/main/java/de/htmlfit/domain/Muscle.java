@@ -58,6 +58,14 @@ public class Muscle {
 	@ManyToMany(mappedBy = "muscles")
 	private Collection<TrainingDay> TrainingDays;
 	
+	public Collection<TrainingDay> getTrainingDays() {
+		return TrainingDays;
+	}
+
+	public void setTrainingDays(Collection<TrainingDay> trainingDays) {
+		TrainingDays = trainingDays;
+	}
+
 	@Override
 	public String toString() {
 		return "Muscle [id=" + id + ", name=" + name + "]";

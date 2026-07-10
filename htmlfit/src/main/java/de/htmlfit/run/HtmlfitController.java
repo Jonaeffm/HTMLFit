@@ -667,7 +667,10 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			Collection<TrainingDay> tdc = ex.getTrainingDays();
 			tdc.remove(td);
 			ex.setTrainingDays(tdc);
+			exerciseService.save(ex);
 		}
+		
+
 		
 		Collection<ExerciseBuild> excB = td.get().getExerciseBuild();
 		
@@ -675,6 +678,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			Collection<TrainingDay> tdc = ex.getTrainingDay();
 			tdc.remove(td);
 			ex.setTrainingDay(tdc);
+			exerciseBuildService.save(ex);
 		}
 		
 
@@ -684,6 +688,16 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			Collection<TrainingDay> tdc = te.getTrainingDays();
 			tdc.remove(td);
 			te.setTrainingDays(tdc);
+			trainingEquipmentService.save(te);
+		}
+		
+		Collection<Muscle> mus = td.get().getMuscles();
+		
+		for (Muscle m : mus) {
+			Collection<TrainingDay> tdc = m.getTrainingDays();
+			tdc.remove(td);
+			m.setTrainingDays(tdc);
+			muscleService.save(m);
 		}
 		
 		
