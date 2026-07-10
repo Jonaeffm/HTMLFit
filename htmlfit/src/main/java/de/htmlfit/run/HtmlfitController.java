@@ -677,6 +677,14 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			ex.setTrainingDay(tdc);
 		}
 		
+
+		Collection<TrainingEquipment> tEq = td.get().getEquip();
+		
+		for (TrainingEquipment te : tEq) {
+			Collection<TrainingDay> tdc = te.getTrainingDays();
+			tdc.remove(td);
+			te.setTrainingDays(tdc);
+		}
 		
 		
 	    trainingDaysService.deleteById(id);
