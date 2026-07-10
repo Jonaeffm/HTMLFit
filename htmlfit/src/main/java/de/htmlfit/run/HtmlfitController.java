@@ -658,6 +658,19 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	@GetMapping("/delete/{id}")
 	public String showTd(@PathVariable("id") long id) {
 		String returnStr = "redirect:/tDays/";
+		
+		Optional<TrainingDay> td = trainingDaysService.findById(id);
+		
+		Collection<Exercise> exc = td.get().getExercise();
+	
+		for (Exercise ex : exc) {
+			Collection<TrainingDay> tdc = ex.getTrainingDays();
+			tdc.remove(td);
+			ex.setTrainingDays(tdc);
+		}
+		
+		
+		
 	    trainingDaysService.deleteById(id);
 
 		return returnStr;
