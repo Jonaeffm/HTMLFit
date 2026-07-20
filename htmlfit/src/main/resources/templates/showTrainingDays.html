@@ -96,6 +96,10 @@
 </html>
 <script layout:fragment="script" th:inline="javascript">
 
+	document.querySelectorAll('input[name="tDay"]').forEach(cb => {  cb.addEventListener('change', function () {    console.log('changed id:', this.value);    
+		// this.checked tells you the state    
+		// // do something with this.value when checked/unchecked  
+		});});
 	
 </script>
 
