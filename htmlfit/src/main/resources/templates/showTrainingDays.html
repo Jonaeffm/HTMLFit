@@ -81,7 +81,7 @@
             	 	<td th:text = "${TD.id}"></td>
              		<td> <a th:href="@{/exercload/{id}(id=${TD.id})}">open</a></td>
              		<td> <a th:href="@{/delete/{id}(id=${TD.id})}">delete</a></td>
-					<td><input type="checkbox" id="tDay" name="tDay" value="choose"></td>
+					<td><input type="checkbox" th:id="'tDay_' + ${TD.id}" name="tDay[]" th:value="${TD.id}"></td>
         		</tr>
      		</table>
      	
@@ -93,4 +93,9 @@
 </div>
     
 </body>
-</html>_
+</html>
+<script layout:fragment="script" th:inline="javascript">
+
+	
+</script>
+
