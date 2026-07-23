@@ -91,15 +91,15 @@
     
 
 </div>
-    
-</body>
-</html>
+
+
 <script layout:fragment="script" th:inline="javascript">
+
 
 	/*<![CDATA[*/  const tDays = /*[[${trainingDays}]]*/ [];  
 	/*]]>*/		
-	
-	var chosen = new  Array(tDays.length).fill(0);
+
+	//var chosen = new  Array(tDays.length).fill(0);
 	
 	document.querySelectorAll('input[name="tDay"]').forEach(cb => {  cb.addEventListener('change', function () {    console.log('changed id:', this.value);    
 		// this.checked tells you the state    
@@ -107,4 +107,7 @@
 		});});
 	
 </script>
+    
+</body>
+</html>
 
