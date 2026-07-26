@@ -101,12 +101,16 @@
 	/*<![CDATA[*/  const tDays = /*[[${trainingDays}]]*/ [];  
 	/*]]>*/		
 
-	//var chosen = new  Array(tDays.length).fill(0);
+	var chosen = new  Array(tDays.length).fill(false);
 	
 	document.addEventListener('DOMContentLoaded', () => {  const container = document.querySelector('table'); 
 	
 	container.addEventListener('change', (e) => {    const cb = e.target.closest('input[type="checkbox"][name="tDay[]"]');    if (!cb) return;
-	    console.log('changed id:', cb.value);    console.log('checked:', cb.checked);  });});
+	    console.log('changed id:', cb.value);    
+		console.log('checked:', cb.checked);
+		chosen[cb.value]=!chosen[cb.value];
+		console.log('chosen:', chosen[cb.value]);
+	  });});
 	
 </script>
     
