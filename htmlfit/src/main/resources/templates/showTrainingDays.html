@@ -103,6 +103,8 @@
 
 	var chosen = new  Array(tDays.length).fill(false);
 	
+	var tDaysChosen = [];
+	
 	function stringBuilder(chosenArr){
 		
 		var buildedString = '';
@@ -123,6 +125,19 @@
 		chosen[cb.value]=!chosen[cb.value];
 		console.log('chosen:', chosen[cb.value]);
 		stringBuilder(chosen);
+		
+		if(cb.checked == true){
+			tDaysChosen.push(cb.value);
+		}
+		else{
+			tDaysChosen.filter(x => x !== cb.value);
+		}
+		
+		for (const element of tDaysChosen){
+			console.log('element ' + element);
+		}
+		
+		
 	  });});
 	
 </script>
