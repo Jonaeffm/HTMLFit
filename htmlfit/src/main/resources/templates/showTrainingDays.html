@@ -130,8 +130,8 @@
 			tDaysChosen.push(cb.value);
 		}
 		else{
-			const index = arr.indexOf(cb.value);
-			if (index !== -1) arr.splice(index, 1);
+			const index = tDaysChosen.indexOf(cb.value);
+			if (index !== -1) tDaysChosen.splice(index, 1);
 		}
 		
 		for (const element of tDaysChosen){
