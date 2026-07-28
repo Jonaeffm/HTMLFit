@@ -103,6 +103,18 @@
 
 	var chosen = new  Array(tDays.length).fill(false);
 	
+	function stringBuilder(chosenArr){
+		
+		var buildedString = '';
+		
+		for (const element of chosenArr){
+			buildedString = buildedString + String(element) + ','
+		}
+		
+		console.log('String:', buildedString );
+			
+	}
+	
 	document.addEventListener('DOMContentLoaded', () => {  const container = document.querySelector('table'); 
 	
 	container.addEventListener('change', (e) => {    const cb = e.target.closest('input[type="checkbox"][name="tDay[]"]');    if (!cb) return;
@@ -110,6 +122,7 @@
 		console.log('checked:', cb.checked);
 		chosen[cb.value]=!chosen[cb.value];
 		console.log('chosen:', chosen[cb.value]);
+		stringBuilder(chosen);
 	  });});
 	
 </script>
