@@ -124,7 +124,7 @@
 		console.log('checked:', cb.checked);
 		chosen[cb.value]=!chosen[cb.value];
 		console.log('chosen:', chosen[cb.value]);
-		stringBuilder(chosen);
+		
 		
 		if(cb.checked == true){
 			tDaysChosen.push(cb.value);
@@ -137,6 +137,8 @@
 		for (const element of tDaysChosen){
 			console.log('element ' + element);
 		}
+		stringBuilder(tDaysChosen);
+		
 		
 		
 	  });});
