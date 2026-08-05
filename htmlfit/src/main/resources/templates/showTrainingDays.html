@@ -85,7 +85,7 @@
         		</tr>
      		</table>
      	
-     		<a>create training plan</a>
+     		<a id="myLink">create training plan</a>
     	</div>
     
     
@@ -105,6 +105,8 @@
 	
 	var tDaysChosen = [];
 	
+	var b64;
+	
 	function stringBuilder(chosenArr){
 		
 		var buildedString = '';
@@ -114,7 +116,7 @@
 		}
 		
 		console.log('String:', buildedString );
-		const b64 = btoa(unescape(encodeURIComponent(buildedString)));console.log(b64);
+		b64 = btoa(unescape(encodeURIComponent(buildedString)));console.log(b64);
 		console.log(b64);
 	}
 	
@@ -144,6 +146,13 @@
 		
 	  });});
 	
+	  
+	  const myLink = document.getElementById("myLink");
+	    myLink.addEventListener("click", (e) => {    e.preventDefault(); // stop default navigation (so we can change it)
+	      // change href to whatever you need    
+		   myLink.href = "TEST/"+b64;
+	      // now navigate using the updated href    
+		   window.location.href = myLink.href;  });
 </script>
     
 </body>
