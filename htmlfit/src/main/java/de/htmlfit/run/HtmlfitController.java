@@ -792,7 +792,7 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
         return "redirect:/";
         }
 	
-	@RequestMapping(value = "/trainingplan/{array}",method = RequestMethod.GET)
+	@RequestMapping(value = "/tDays/trainingplan/{array}",method = RequestMethod.GET)
 	public String generateTrainingPlan(@PathVariable("array") String array,Model model) {
 	
 		System.out.println("TEST training plan path" + array);		
