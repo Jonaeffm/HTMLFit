@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -795,7 +796,13 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 	@GetMapping("/tDays/trainingplan/{array}")
 	public String generateTrainingPlan(@PathVariable("array") String array,Model model) {
 	
-		System.out.println("TEST training plan path" + array);		
+		System.out.println("TEST training plan path" + array);
+		
+		byte[] decoded = Base64.getDecoder().decode(array);  
+		String arrayText = new String(decoded, StandardCharsets.UTF_8);
+		
+		System.out.println("Test Klartext: "+arrayText);
+		
 		return "";
 	}
 
