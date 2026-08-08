@@ -803,6 +803,24 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		System.out.println("Test Klartext: "+arrayText);
 		
+		String[] parts = arrayText.split(",");
+		long[] arr = new long[parts.length];
+		
+		int idx = 0;
+		for (String p : parts) 
+		{    
+			if (p == null || p.isEmpty()) continue; 
+			// skips the empty after trailing comma    
+			arr[idx++] = Long.parseLong(p);
+			
+		}
+		// if you want exact size, trim:long[] exact = java.util.Arrays.copyOf(arr, idx);		
+		
+		for (long l: arr)
+		{
+			System.out.print("TEST "+l+", ");
+		}
+		
 		return "";
 	}
 
