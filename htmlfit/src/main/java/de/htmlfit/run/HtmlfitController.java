@@ -277,14 +277,27 @@ public class HtmlfitController extends HttpServlet{
 		
 		trainingDaysService.save(trainingDay);
 		
-		trainingDays.add(trainingDay);
+		//TrainingPlan trainingPlan = new TrainingPlan();
 		
-		TrainingPlan trainingPlan = new TrainingPlan();
+		//trainingDay.setTrainingPlan(trainingPlan);
+		
+	
+		
+		/*trainingDays.add(trainingDay);
+		
+
 		
 		trainingPlan.setProgramUser(aut);
-		trainingPlan.setTrainingDays(trainingDays);
+		trainingPlan.setTrainingDays(trainingDays);*/
 		
-		trainingPlanService.save(trainingPlan);
+		/*
+		for (TrainingDay tDay : trainingDays) {
+			tDay.setTrainingPlan(trainingPlan);
+			trainingDaysService.save(tDay);
+		}*/
+		
+		//trainingPlanService.save(trainingPlan);
+		//trainingDaysService.save(trainingDay);
 		
 		String returnStr="redirect:/selectTE/"+trainingDay.getId().toString();
 		
@@ -665,11 +678,11 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 
 		Optional<TrainingDay> td = trainingDaysService.findById(id);
 		
-		TrainingPlan tp = td.get().getTrainingPlan();
+		/*TrainingPlan tp = td.get().getTrainingPlan();
 		Collection<TrainingDay> tDays = tp.getTrainingDays();
 		tDays.remove(td);
 		tp.setTrainingDays(tDays);
-		trainingPlanService.save(tp);
+		trainingPlanService.save(tp);*/
 		
 		Collection<Exercise> exc = td.get().getExercise();
 	
@@ -778,5 +791,12 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
  
         return "redirect:/";
         }
+	
+	@RequestMapping(value = "/trainingplan/{array}",method = RequestMethod.GET)
+	public String generateTrainingPlan(@PathVariable("array") String array,Model model) {
+	
+		System.out.println("TEST training plan path" + array);		
+		return "";
+	}
 
 }
