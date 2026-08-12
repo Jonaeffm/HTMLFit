@@ -1524,17 +1524,6 @@ public class BootStrapData implements CommandLineRunner{
 		uR.save(a);
 		uR.save(b);
 		
-		TrainingPlan TPA = new TrainingPlan();
-		TPA.setName("Test1");
-		TPA.setProgramUser(a);
-		
-		TrainingPlan TPB = new TrainingPlan();
-		TPB.setName("Test2");
-		TPB.setProgramUser(a);
-		
-		tps.save(TPA);
-		tps.save(TPB);
-		
 
 	}
 	

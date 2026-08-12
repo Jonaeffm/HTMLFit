@@ -831,6 +831,8 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			
 		}
 		
+		newTP.setTrainingDays(newTPDays);
+		
 		trainingPlanService.save(newTP);
 		
 		Collection<TrainingPlan> allTP = new ArrayList<TrainingPlan>();
