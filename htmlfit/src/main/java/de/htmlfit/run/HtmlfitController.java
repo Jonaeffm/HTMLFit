@@ -821,7 +821,24 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			System.out.print("TEST "+l+", ");
 		}
 		
-		return "";
+		TrainingPlan newTP = new TrainingPlan();
+		Collection<TrainingDay> newTPDays = new ArrayList<TrainingDay>();
+		
+
+		for (long l: arr)
+		{
+			newTPDays.add(trainingDaysService.findById(l).get());
+			
+		}
+		
+		trainingPlanService.save(newTP);
+		
+		Collection<TrainingPlan> allTP = new ArrayList<TrainingPlan>();
+		allTP = trainingPlanService.findAll();
+		
+		model.addAttribute("trainingPlans", allTP);
+		
+		return "showTrainingPlans";
 	}
 
 }
