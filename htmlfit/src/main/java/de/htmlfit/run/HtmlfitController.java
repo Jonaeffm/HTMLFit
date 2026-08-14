@@ -576,6 +576,28 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		return returnStr;
 	}
 	
+	@RequestMapping(value = "/tPlan/tDays/{id}",method = RequestMethod.GET)
+	public String showTDaysOfTPlan(@PathVariable("id") long id,Model model) {
+		String returnStr = "showTrainingDays";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		ProgramUser aut = userRepository.findByUsername(authentication.getName());
+		ArrayList<TrainingDay> trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
+		
+		Iterator<TrainingDay> it = trainingDays.iterator();
+		while (it.hasNext()) 
+		{    
+			TrainingDay td = it.next();    
+			if (td.getTrainingPlan() != null) { 
+				if (td.getTrainingPlan().getId()!= id) 
+					{        it.remove();    }
+			}
+		}
+		
+		model.addAttribute("trainingDays",trainingDays);
+		return returnStr;
+	}	
+	
 	@RequestMapping(value = "/configureTPlans/",method = RequestMethod.GET)
 	public String confTPlans(Model model) {
 		String returnStr = "configureTrainingPlan";
