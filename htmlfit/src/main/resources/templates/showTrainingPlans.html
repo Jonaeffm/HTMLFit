@@ -79,7 +79,7 @@
         		</tr>
         		<tr th:each="TP, stat :${trainingPlans}">
             	 	<td th:text = "${TP.id}"></td>
-             		<td> <a th:href="@{/showTP/{id}(id=${TP.id})}">open</a></td>
+             		<td> <a th:href="@{/tPlan/tDays/{id}(id=${TP.id})}">open</a></td>
              		<td th:text = "${TP.name}"></td>
              		<td> <a th:href="@{/deleteTP/{id}(id=${TP.id})}">delete</a></td>
 
