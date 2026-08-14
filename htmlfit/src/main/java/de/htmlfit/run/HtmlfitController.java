@@ -827,7 +827,12 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 
 		for (long l: arr)
 		{
-			newTPDays.add(trainingDaysService.findById(l).get());
+			TrainingDay actualTD = trainingDaysService.findById(l).get();
+			
+			newTPDays.add(actualTD);
+			
+			actualTD.setTrainingPlan(newTP);
+			trainingDaysService.save(actualTD);
 			
 		}
 		
