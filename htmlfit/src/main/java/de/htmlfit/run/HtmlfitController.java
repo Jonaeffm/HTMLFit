@@ -731,7 +731,15 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 			muscleService.save(m);
 		}
 		
-	
+		if (td.get().getTrainingPlan() != null) {
+		
+			TrainingPlan p = td.get().getTrainingPlan();
+		
+			Collection<TrainingDay> tdp = p.getTrainingDays();
+			tdp.remove(td.get());
+			p.setTrainingDays(tdp);
+			trainingPlanService.save(p);
+		}
 		/*
 		
 		Collection<Exercise> cEx =  new ArrayList<Exercise>();
