@@ -563,6 +563,13 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		
 		ProgramUser aut = userRepository.findByUsername(authentication.getName());
 		ArrayList<TrainingDay> trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
+		
+		for(TrainingDay td:trainingDays) {
+			if (td.getTrainingPlan()!= null) {
+				trainingDays.remove(td);
+			}
+		}
+		
 		model.addAttribute("trainingDays",trainingDays);
 		return returnStr;
 	}
