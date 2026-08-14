@@ -564,10 +564,12 @@ Authentication authentication = SecurityContextHolder.getContext().getAuthentica
 		ProgramUser aut = userRepository.findByUsername(authentication.getName());
 		ArrayList<TrainingDay> trainingDays = (ArrayList<TrainingDay>) trainingDaysService.findByProgramUser(aut);
 		
-		for(TrainingDay td:trainingDays) {
-			if (td.getTrainingPlan()!= null) {
-				trainingDays.remove(td);
-			}
+		Iterator<TrainingDay> it = trainingDays.iterator();
+		while (it.hasNext()) 
+		{    
+			TrainingDay td = it.next();    
+			if (td.getTrainingPlan() != null) 
+			{        it.remove();    }
 		}
 		
 		model.addAttribute("trainingDays",trainingDays);
