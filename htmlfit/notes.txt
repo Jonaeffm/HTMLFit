@@ -101,4 +101,6 @@ java.lang.NullPointerException: Cannot invoke "java.util.Collection.add(Object)"
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.8.jar:10.1.8]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+	
+	für Gastrocnemius gibt es keine Übungen -> Fehler
 
