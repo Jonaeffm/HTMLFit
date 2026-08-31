@@ -90,7 +90,13 @@ public class MethodService{
 			allExercisesBuild.remove(exerciseBuildToAdd);
 			exercisesBuildToAdd.add(exerciseBuildToAdd);
 			
+			
 			Collection<TrainingDay> TDaysToAdd = exerciseBuildToAdd.getTrainingDay();		
+			if(TDaysToAdd == null)
+			{
+				TDaysToAdd = new ArrayList<TrainingDay>();
+			}
+			
 			TDaysToAdd.add(td);
 			exerciseBuildToAdd.setTrainingDay(TDaysToAdd);
 			
