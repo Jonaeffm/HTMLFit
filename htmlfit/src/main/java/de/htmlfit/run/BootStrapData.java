@@ -854,6 +854,53 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//---------------------band pull-apart-------------------------
+		
+		ExerciseBuild bandPullApart = new ExerciseBuild();
+		bandPullApart.setName("Band Pull-Apart");
+		
+		Collection<TrainingEquipment> bpaEquipment = new ArrayList<TrainingEquipment>();
+		bpaEquipment.add(resistanceBand);
+		
+		Collection<ExerciseBuild> bpaExB = resistanceBand.getExerciseBuild();
+		bpaExB.add(bandPullApart);
+		resistanceBand.setExerciseBuild(bpaExB);
+		
+		ArrayList<Muscle> bpaMuscles = new ArrayList<Muscle>();
+		bpaMuscles.add(deltoids);
+		
+		Collection<ExerciseBuild> deltoidsExB = deltoids.getExerciseBuild();
+		deltoidsExB.add(bandPullApart);
+		deltoids.setExerciseBuild(deltoidsExB);
+		
+		bpaMuscles.add(rhomboid);
+		
+		Collection<ExerciseBuild> rhomboidExB = rhomboid.getExerciseBuild();
+		rhomboidExB.add(bandPullApart);
+		rhomboid.setExerciseBuild(rhomboidExB);
+		
+		bpaMuscles.add(teresMajor);
+		
+		Collection<ExerciseBuild> tmExB = teresMajor.getExerciseBuild();
+		tmExB.add(bandPullApart);
+		teresMajor.setExerciseBuild(tmExB);
+		
+		bpaMuscles.add(teresMinor);
+		
+		Collection<ExerciseBuild> tmiExB = teresMinor.getExerciseBuild();
+		tmiExB.add(bandPullApart);
+		teresMinor.setExerciseBuild(tmiExB);
+		
+		bandPullApart.setMuscles(bpaMuscles);
+		bandPullApart.setTrainingEquipment(bpaEquipment);
+		
+		ebs.save(bandPullApart);
+		tes.save(resistanceBand);
+		ms.save(deltoids);
+		ms.save(rhomboid);
+		ms.save(teresMinor);
+		ms.save(teresMajor);
+		
 		//--------------------standing calf raise----------------------
 		
 		ExerciseBuild standingCalfRaise = new ExerciseBuild();
