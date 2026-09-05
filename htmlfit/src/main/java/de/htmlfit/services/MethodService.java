@@ -21,6 +21,9 @@ public class MethodService{
 	@Autowired
 	private ExerciseBuildService exerciseBuildService;
 	
+	@Autowired
+	private TrainingEquipmentService trainingEquipmentService;
+	
 	public Collection<ExerciseBuild> exercisesBuild(TrainingDay td, int count){
 		Collection<Muscle> selectedMuscles = td.getMuscles(); 
 		Collection<TrainingEquipment> selectedEquipment = td.getEquip();
@@ -40,7 +43,28 @@ public class MethodService{
 			}
 		}*/
 		
-		for(TrainingEquipment te : selectedEquipment) {
+		Collection<TrainingEquipment> allTE = trainingEquipmentService.findAll();
+		
+		
+		for (TrainingEquipment te2 : selectedEquipment) {
+			if(allTE.contains(te2)) {
+				allTE.remove(te2);
+			}
+		}
+		
+		for(TrainingEquipment te : allTE) {
+			for(ExerciseBuild e : allExercisesBuild) {
+				if(e.getTrainingEquipment().contains(te)) {
+					allExercisesBuild.remove(e);
+					break;
+				}
+				else {
+					
+				}
+			}
+		}
+		
+	/*	for(TrainingEquipment te : selectedEquipment) {
 			for(ExerciseBuild e : allExercisesBuild) {
 				if(e.getTrainingEquipment().contains(te)) {
 					
@@ -50,7 +74,7 @@ public class MethodService{
 					break;
 				}
 			}
-		}
+		}*/
 		
 		
 		for(int i=0;i<count;i++) {
