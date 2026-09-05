@@ -100,6 +100,15 @@ public class BootStrapData implements CommandLineRunner{
 		tes.save(dumbbell);
 		tes.save(barbell);
 		
+		TrainingEquipment resistanceBand = new TrainingEquipment();
+		resistanceBand.setName("Resistance Band");
+		resistanceBand.setImage(imageJPG("src/main/resources/static/resistanceband.jpeg"));
+		
+		Collection<ExerciseBuild> temp60 = new ArrayList<ExerciseBuild>();
+		resistanceBand.setExerciseBuild(temp60);		
+		tes.save(resistanceBand);
+		tes.save(barbell);
+		
 		//-------------------muscles--------------------------
 		
 		Muscle gastrocnemius = new Muscle();
