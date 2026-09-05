@@ -1033,6 +1033,64 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(teresMinor);
 		ms.save(latissimus);
 		ms.save(rhomboid);
+		
+		//------------------------dumbbell reverse fly--------------------------
+		
+		ExerciseBuild dumbbellReverseFly = new ExerciseBuild();
+		
+		dumbbellReverseFly.setName("Dumbbell Reverse Fly");
+		
+		Collection<TrainingEquipment> drfEquipment = new ArrayList<TrainingEquipment>();
+		drfEquipment.add(trainingBench);
+		
+		Collection<ExerciseBuild> trainingBenchExB14 = trainingBench.getExerciseBuild();
+		trainingBenchExB14.add(dumbbellReverseFly);
+		trainingBench.setExerciseBuild(trainingBenchExB14);
+		
+		drfEquipment.add(dumbbell);
+		
+		Collection<ExerciseBuild> dumbbellExerc = dumbbell.getExerciseBuild();
+		dumbbellExerc.add(dumbbellReverseFly);
+		dumbbell.setExerciseBuild(dumbbellExerc);
+		
+		ArrayList<Muscle> drfMuscles = new ArrayList<Muscle>();
+		drfMuscles.add(deltoids);
+		
+		Collection<ExerciseBuild> delExB12 = deltoids.getExerciseBuild();
+		delExB12.add(dumbbellReverseFly);
+		deltoids.setExerciseBuild(delExB12);
+		
+		drfMuscles.add(rhomboid);
+		
+		Collection<ExerciseBuild> delExB13 = rhomboid.getExerciseBuild();
+		delExB13.add(dumbbellReverseFly);
+		rhomboid.setExerciseBuild(delExB13);
+		
+		drfMuscles.add(teresMajor);
+		
+		Collection<ExerciseBuild> delExB14 = teresMajor.getExerciseBuild();
+		delExB14.add(dumbbellReverseFly);
+		teresMajor.setExerciseBuild(delExB14);
+		
+		drfMuscles.add(teresMinor);
+		
+		Collection<ExerciseBuild> delExB15 = teresMinor.getExerciseBuild();
+		delExB15.add(dumbbellReverseFly);
+		teresMinor.setExerciseBuild(delExB15);
+		
+		dumbbellReverseFly.setMuscles(drfMuscles);
+		dumbbellReverseFly.setTrainingEquipment(drfEquipment);
+		
+		ebs.save(dumbbellReverseFly);
+
+		tes.save(trainingBench);
+		tes.save(dumbbell);
+		
+		ms.save(teresMinor);
+		ms.save(teresMajor);
+		ms.save(deltoids);
+		ms.save(rhomboid);
+		
 		//-----------------------dumbbell upright row---------------------------
 		ExerciseBuild dur = new ExerciseBuild();
 		dur.setName("Dumbbell Upright Row");
