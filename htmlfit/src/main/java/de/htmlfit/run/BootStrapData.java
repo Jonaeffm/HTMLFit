@@ -857,7 +857,7 @@ public class BootStrapData implements CommandLineRunner{
 		//------------------------Bent-Over-Row------------------------
 		
 		ExerciseBuild bandOverRow = new ExerciseBuild();
-		bandOverRow.setName("Band-Over Row");
+		bandOverRow.setName("Bent-Over Row");
 		
 		Collection<TrainingEquipment> borEquipment = new ArrayList<TrainingEquipment>();
 		borEquipment.add(resistanceBand);
