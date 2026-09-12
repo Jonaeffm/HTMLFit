@@ -854,6 +854,32 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Drag Curl-----------------
+				ExerciseBuild dragCurl = new ExerciseBuild();
+				dragCurl.setName("Drag Curl");
+				
+				Collection<TrainingEquipment> dcEquipment = new ArrayList<TrainingEquipment>();
+				dcEquipment.add(barbell);
+				
+				Collection<ExerciseBuild> dcExB = barbell.getExerciseBuild();
+				dcExB.add(dragCurl);
+				barbell.setExerciseBuild(dcExB);
+				
+				ArrayList<Muscle> dcMuscles = new ArrayList<Muscle>();
+				
+				dcMuscles.add(biceps);
+				
+				Collection<ExerciseBuild> biceps3ExB = biceps.getExerciseBuild();
+				biceps3ExB.add(dragCurl);
+				biceps.setExerciseBuild(biceps3ExB);
+				
+				dragCurl.setMuscles(dcMuscles);
+				dragCurl.setTrainingEquipment(dcEquipment);
+				
+				ebs.save(dragCurl);
+				tes.save(barbell);
+				ms.save(biceps);
+		
 		//------------------------Standing Biceps Curl-----------------
 		ExerciseBuild standingBicepsCurl = new ExerciseBuild();
 		standingBicepsCurl.setName("Standing Biceps Curl");
