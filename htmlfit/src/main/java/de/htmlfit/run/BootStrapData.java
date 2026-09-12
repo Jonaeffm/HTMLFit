@@ -854,6 +854,67 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Bent-Over-Row------------------------
+		
+		ExerciseBuild bandOverRow = new ExerciseBuild();
+		bandOverRow.setName("Band-Over Row");
+		
+		Collection<TrainingEquipment> borEquipment = new ArrayList<TrainingEquipment>();
+		borEquipment.add(resistanceBand);
+		
+		Collection<ExerciseBuild> borExB = resistanceBand.getExerciseBuild();
+		borExB.add(bandOverRow);
+		resistanceBand.setExerciseBuild(borExB);
+		
+		ArrayList<Muscle> borMuscles = new ArrayList<Muscle>();
+		borMuscles.add(latissimus);
+		
+		Collection<ExerciseBuild> latissimusExB = latissimus.getExerciseBuild();
+		latissimusExB.add(bandOverRow);
+		latissimus.setExerciseBuild(latissimusExB);
+		
+		borMuscles.add(biceps);
+		
+		Collection<ExerciseBuild> bicepsExB = biceps.getExerciseBuild();
+		bicepsExB.add(bandOverRow);
+		biceps.setExerciseBuild(bicepsExB);
+		
+		borMuscles.add(trapezius);
+		
+		Collection<ExerciseBuild> trapeziusExB = trapezius.getExerciseBuild();
+		trapeziusExB.add(bandOverRow);
+		trapezius.setExerciseBuild(trapeziusExB);
+		
+		borMuscles.add(rhomboid);
+		
+		Collection<ExerciseBuild> rhomboid2ExB = rhomboid.getExerciseBuild();
+		rhomboid2ExB.add(bandOverRow);
+		rhomboid.setExerciseBuild(rhomboid2ExB);
+		
+		borMuscles.add(brachialis);
+		
+		Collection<ExerciseBuild> brachialisExB = brachialis.getExerciseBuild();
+		brachialisExB.add(bandOverRow);
+		brachialis.setExerciseBuild(brachialisExB);
+		
+		borMuscles.add(teresMajor);
+		
+		Collection<ExerciseBuild> teresMajorExB = teresMajor.getExerciseBuild();
+		teresMajorExB.add(bandOverRow);
+		teresMajor.setExerciseBuild(teresMajorExB);
+		
+		bandOverRow.setMuscles(borMuscles);
+		bandOverRow.setTrainingEquipment(borEquipment);
+		
+		ebs.save(bandOverRow);
+		tes.save(resistanceBand);
+		ms.save(latissimus);
+		ms.save(biceps);
+		ms.save(trapezius);
+		ms.save(rhomboid);
+		ms.save(brachialis);
+		ms.save(teresMajor);
+		
 		//---------------------band pull-apart-------------------------
 		
 		ExerciseBuild bandPullApart = new ExerciseBuild();
