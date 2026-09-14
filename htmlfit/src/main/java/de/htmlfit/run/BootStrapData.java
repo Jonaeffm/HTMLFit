@@ -927,15 +927,15 @@ public class BootStrapData implements CommandLineRunner{
 				
 				shcMuscles.add(abs);
 				
-				Collection<ExerciseBuild> absExB = abs.getExerciseBuild();
-				absExB.add(standingHamstringCurl);
-				abs.setExerciseBuild(absExB);
+				Collection<ExerciseBuild> abs2ExB = abs.getExerciseBuild();
+				abs2ExB.add(standingHamstringCurl);
+				abs.setExerciseBuild(abs2ExB);
 				
 				shcMuscles.add(calves);
 				
-				Collection<ExerciseBuild> calvesExB = calves.getExerciseBuild();
-				calvesExB.add(standingHamstringCurl);
-				calves.setExerciseBuild(calvesExB);
+				Collection<ExerciseBuild> calves2ExB = calves.getExerciseBuild();
+				calves2ExB.add(standingHamstringCurl);
+				calves.setExerciseBuild(calves2ExB);
 				
 				standingHamstringCurl.setMuscles(shcMuscles);
 				standingHamstringCurl.setTrainingEquipment(shcEquipment);
