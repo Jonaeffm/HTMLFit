@@ -925,13 +925,26 @@ public class BootStrapData implements CommandLineRunner{
 				hamstringsExB.add(standingHamstringCurl);
 				hamstrings.setExerciseBuild(hamstringsExB);
 				
+				shcMuscles.add(abs);
+				
+				Collection<ExerciseBuild> absExB = abs.getExerciseBuild();
+				absExB.add(standingHamstringCurl);
+				abs.setExerciseBuild(absExB);
+				
+				shcMuscles.add(calves);
+				
+				Collection<ExerciseBuild> calvesExB = calves.getExerciseBuild();
+				calvesExB.add(standingHamstringCurl);
+				calves.setExerciseBuild(calvesExB);
+				
 				standingHamstringCurl.setMuscles(shcMuscles);
 				standingHamstringCurl.setTrainingEquipment(shcEquipment);
 				
 				ebs.save(standingHamstringCurl);
 				tes.save(resistanceBand);
 				ms.save(hamstrings);
-				
+				ms.save(abs);		
+				ms.save(calves);
 		
 		//------------------------Bent-Over-Row------------------------
 		
