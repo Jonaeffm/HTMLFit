@@ -28,6 +28,13 @@ public class MethodService{
 		Collection<Muscle> selectedMuscles = td.getMuscles(); 
 		Collection<TrainingEquipment> selectedEquipment = td.getEquip();
 		
+		
+		System.out.println("Equipment: ");
+		for (TrainingEquipment equip : td.getEquip()) {
+			
+			System.out.println(equip.getName());
+			
+		}
 		Collection<ExerciseBuild> allExercisesBuild = exerciseBuildService.findAll();
 		Collection<ExerciseBuild> exercisesBuildToAdd = new ArrayList<ExerciseBuild>();
 		
@@ -52,17 +59,19 @@ public class MethodService{
 			}
 		}
 		
-		for(TrainingEquipment te : allTE) {
+		/*for(TrainingEquipment te : allTE) {
 			for(ExerciseBuild e : allExercisesBuild) {
 				if(e.getTrainingEquipment().contains(te)) {
 					allExercisesBuild.remove(e);
-					break;
+					
 				}
 				else {
 					
 				}
 			}
-		}
+		}*/
+		
+		allExercisesBuild.removeIf(e ->    allTE.stream().anyMatch(te ->        e.getTrainingEquipment().contains(te)    ));
 		
 	/*	for(TrainingEquipment te : selectedEquipment) {
 			for(ExerciseBuild e : allExercisesBuild) {
