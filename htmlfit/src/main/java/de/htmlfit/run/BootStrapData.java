@@ -854,6 +854,50 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Lizard Pose---------------------------
+		
+		ExerciseBuild lizardPose = new ExerciseBuild();
+		lizardPose.setName("Lizard Pose");
+		
+		Collection<TrainingEquipment> lpEquipment = new ArrayList<TrainingEquipment>();
+		
+		ArrayList<Muscle> lpMuscles = new ArrayList<Muscle>();
+		
+		lpMuscles.add(legs);
+		
+		Collection<ExerciseBuild> legsExB = legs.getExerciseBuild();
+		legsExB.add(lizardPose);
+		legs.setExerciseBuild(legsExB);
+		
+		lpMuscles.add(buttocks);
+		
+		Collection<ExerciseBuild> buttocksExB = buttocks.getExerciseBuild();
+		buttocksExB.add(lizardPose);
+		buttocks.setExerciseBuild(buttocksExB);		
+		
+		lpMuscles.add(hipAdductor);
+		
+		Collection<ExerciseBuild> haExB = hipAdductor.getExerciseBuild();
+		haExB.add(lizardPose);
+		hipAdductor.setExerciseBuild(haExB);		
+		
+		lpMuscles.add(hamstrings);
+		
+		Collection<ExerciseBuild> hsExB = hamstrings.getExerciseBuild();
+		hsExB.add(lizardPose);
+		hamstrings.setExerciseBuild(hsExB);		
+		
+		
+		lizardPose.setMuscles(lpMuscles);
+		lizardPose.setTrainingEquipment(lpEquipment);
+		
+		ebs.save(lizardPose);
+		
+		ms.save(legs);
+		ms.save(buttocks);
+		ms.save(hipAdductor);
+		ms.save(hamstrings);
+		
 		//------------------------Drag Curl-----------------
 				ExerciseBuild dragCurl = new ExerciseBuild();
 				dragCurl.setName("Drag Curl");
@@ -1478,15 +1522,15 @@ public class BootStrapData implements CommandLineRunner{
 		
 		pushUpMuscles.add(legs);
 		
-		Collection<ExerciseBuild> legsExB = legs.getExerciseBuild();
-		legsExB.add(pushupBuild);
-		legs.setExerciseBuild(legsExB);
+		Collection<ExerciseBuild> legs2ExB = legs.getExerciseBuild();
+		legs2ExB.add(pushupBuild);
+		legs.setExerciseBuild(legs2ExB);
 		
 		pushUpMuscles.add(buttocks);
 				
-		Collection<ExerciseBuild> buttocksExB = buttocks.getExerciseBuild();
-		buttocksExB.add(pushupBuild);
-		buttocks.setExerciseBuild(buttocksExB);
+		Collection<ExerciseBuild> buttocks2ExB = buttocks.getExerciseBuild();
+		buttocks2ExB.add(pushupBuild);
+		buttocks.setExerciseBuild(buttocks2ExB);
 		
 		pushupBuild.setMuscles(pushUpMuscles);
 		pushupBuild.setTrainingEquipment(pushUpEquipment);
