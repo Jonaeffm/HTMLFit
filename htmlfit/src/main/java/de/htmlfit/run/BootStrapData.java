@@ -870,6 +870,45 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Barbell Seated Calf Raise------------
+		
+		ExerciseBuild bscRaise = new ExerciseBuild();
+		bscRaise.setName("Barbell Seated Calf Raise");
+		
+		Collection<TrainingEquipment> bscrEq = new ArrayList<TrainingEquipment>();
+		bscrEq.add(barbell);
+		
+		Collection<ExerciseBuild> dcXExB = barbell.getExerciseBuild();
+		dcXExB.add(bscRaise);
+		barbell.setExerciseBuild(dcXExB);
+		
+		bscrEq.add(trainingBench);
+		
+		Collection<ExerciseBuild> bscTBExB = trainingBench.getExerciseBuild();
+		bscTBExB.add(bscRaise);
+		trainingBench.setExerciseBuild(bscTBExB);
+	
+
+		
+		Collection<Muscle> bscMuscles = new ArrayList<Muscle>();
+				
+		bscMuscles.add(gastrocnemius);
+		
+		Collection<ExerciseBuild> gastroXExB = gastrocnemius.getExerciseBuild();
+		gastroXExB.add(bscRaise);
+		gastrocnemius.setExerciseBuild(gastroXExB);
+		
+		bscRaise.setMuscles(bscMuscles);
+		bscRaise.setTrainingEquipment(bscrEq);
+		
+		ebs.save(bscRaise);
+		
+		tes.save(barbell);
+		tes.save(trainingBench);
+
+		
+		ms.save(gastrocnemius);
+		
 		//------------------------Lizard Pose---------------------------
 		
 		ExerciseBuild lizardPose = new ExerciseBuild();
