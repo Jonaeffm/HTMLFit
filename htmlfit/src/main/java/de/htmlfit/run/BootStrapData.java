@@ -870,6 +870,49 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Floor Presses---------------------------------------
+		
+		ExerciseBuild floorPresses = new ExerciseBuild();
+		floorPresses.setName("Floor Presses");	
+		
+		Collection<TrainingEquipment> fPEq = new ArrayList<TrainingEquipment>();
+		fPEq.add(barbell);
+		
+		Collection<ExerciseBuild> bb2ExB = barbell.getExerciseBuild();
+		bb2ExB.add(floorPresses);
+		trainingBench.setExerciseBuild(bb2ExB);
+		
+		Collection<Muscle> fpMuscles = new ArrayList<Muscle>();
+		
+		fpMuscles.add(triceps);
+		
+		Collection<ExerciseBuild> tricExB = triceps.getExerciseBuild();
+		tricExB.add(floorPresses);
+		triceps.setExerciseBuild(tricExB);
+		
+		fpMuscles.add(pectorals);
+		
+		Collection<ExerciseBuild> pec2ExB = pectorals.getExerciseBuild();
+		pec2ExB.add(floorPresses);
+		pectorals.setExerciseBuild(pec2ExB);
+		
+		fpMuscles.add(deltoids);
+		
+		Collection<ExerciseBuild> del2ExB = deltoids.getExerciseBuild();
+		del2ExB.add(floorPresses);
+		deltoids.setExerciseBuild(del2ExB);
+		
+		floorPresses.setMuscles(fpMuscles);
+		floorPresses.setTrainingEquipment(fPEq);
+		
+		ebs.save(floorPresses);
+		
+		tes.save(barbell);
+		
+		ms.save(triceps);
+		ms.save(pectorals);
+		ms.save(deltoids);
+		
 		//------------------------Bulgarian Split Squats--------------------------------
 		
 				ExerciseBuild bsq = new ExerciseBuild();
