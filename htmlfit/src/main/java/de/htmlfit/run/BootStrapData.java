@@ -870,6 +870,32 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Bulgarian Split Squats------------------------------
+		
+		ExerciseBuild bsSquats = new ExerciseBuild();
+		bsSquats.setName("Bulgarian Split Squats");
+		
+		Collection<Muscle> bsSquatsMuscles = new ArrayList<Muscle>();
+		
+		bsSquatsMuscles.add(buttocks);
+		
+		Collection<ExerciseBuild> butExB = buttocks.getExerciseBuild();
+		butExB.add(bsSquats);
+		buttocks.setExerciseBuild(butExB);
+		
+		bsSquatsMuscles.add(legs);
+		
+		Collection<ExerciseBuild> legs10ExB = legs.getExerciseBuild();
+		legs10ExB.add(bsSquats);
+		legs.setExerciseBuild(legs10ExB);
+		
+		bsSquats.setMuscles(bsSquatsMuscles);
+		
+		ebs.save(bsSquats);
+		
+		ms.save(buttocks);
+		ms.save(legs);
+		
 		//------------------------Floor Presses---------------------------------------
 		
 		ExerciseBuild floorPresses = new ExerciseBuild();
