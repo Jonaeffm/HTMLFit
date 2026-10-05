@@ -870,6 +870,49 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Romanian Deadlift-----------------------------------
+		
+		ExerciseBuild rDl = new ExerciseBuild();
+		rDl.setName("Romanian Deadlift");
+		
+		Collection<TrainingEquipment> rdEq = new ArrayList<TrainingEquipment>();
+		rdEq.add(barbell);
+		
+		Collection<ExerciseBuild> bb3ExB = barbell.getExerciseBuild();
+		bb3ExB.add(rDl);
+		trainingBench.setExerciseBuild(bb3ExB);
+		
+		Collection<Muscle> rDlMuscles = new ArrayList<Muscle>();
+		
+		rDlMuscles.add(buttocks);
+		
+		Collection<ExerciseBuild> but2ExB = buttocks.getExerciseBuild();
+		but2ExB.add(rDl);
+		buttocks.setExerciseBuild(but2ExB);
+		
+		rDlMuscles.add(legs);
+		
+		Collection<ExerciseBuild> legs11ExB = legs.getExerciseBuild();
+		legs11ExB.add(rDl);
+		legs.setExerciseBuild(legs11ExB);
+		
+		rDlMuscles.add(hamstrings);
+		
+		Collection<ExerciseBuild> hamExB = hamstrings.getExerciseBuild();
+		hamExB.add(rDl);
+		hamstrings.setExerciseBuild(hamExB);
+		
+		rDl.setMuscles(rDlMuscles);
+		rDl.setTrainingEquipment(rdEq);
+		
+		ebs.save(rDl);
+		
+		tes.save(barbell);
+		
+		ms.save(legs);
+		ms.save(buttocks);
+		ms.save(hamstrings);
+		
 		//------------------------Bulgarian Split Squats------------------------------
 		
 		ExerciseBuild bsSquats = new ExerciseBuild();
