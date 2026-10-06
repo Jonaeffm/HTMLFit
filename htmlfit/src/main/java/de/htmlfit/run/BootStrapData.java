@@ -870,6 +870,51 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Dumbbell Pullovers---------------------------------
+		
+		ExerciseBuild dbpo = new ExerciseBuild();
+		dbpo.setName("Dumbbell Pullovers");
+		
+		Collection<TrainingEquipment> dbpoEq = new ArrayList<TrainingEquipment>();
+		dbpoEq.add(dumbbell);
+		
+		Collection<ExerciseBuild> dbExB = dumbbell.getExerciseBuild();
+		dbExB.add(dbpo);
+		dumbbell.setExerciseBuild(dbExB);
+		
+		Collection<Muscle> dbpoMuscles = new ArrayList<Muscle>();
+		
+		dbpoMuscles.add(latissimus);
+		
+		Collection<ExerciseBuild> latissimus2ExB = latissimus.getExerciseBuild();
+		latissimus2ExB.add(dbpo);
+		latissimus.setExerciseBuild(latissimus2ExB);
+		
+		dbpoMuscles.add(pectorals);
+		
+		Collection<ExerciseBuild> pectoralsExB = pectorals.getExerciseBuild();
+		pectoralsExB.add(dbpo);
+		pectorals.setExerciseBuild(pectoralsExB);
+		
+		dbpoMuscles.add(abs);
+		
+		Collection<ExerciseBuild> abs3ExB = abs.getExerciseBuild();
+		abs3ExB.add(dbpo);
+		abs.setExerciseBuild(abs3ExB);
+		
+		dbpo.setTrainingEquipment(dbpoEq);
+		dbpo.setMuscles(dbpoMuscles);
+		
+		ebs.save(dbpo);
+		
+		tes.save(dumbbell);
+		
+		ms.save(latissimus);
+		ms.save(pectorals);
+		ms.save(abs);
+		
+		
+		
 		//------------------------Romanian Deadlift-----------------------------------
 		
 		ExerciseBuild rDl = new ExerciseBuild();
