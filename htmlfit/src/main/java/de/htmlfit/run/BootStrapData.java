@@ -870,6 +870,25 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Hip Raises----------------------------------------
+		
+		ExerciseBuild hipRaises = new ExerciseBuild();
+		hipRaises.setName("Hip Raises");
+		
+		Collection<Muscle> hrMuscles = new ArrayList<Muscle>();
+		
+		hrMuscles.add(serratusAnterior);
+		
+		Collection<ExerciseBuild> serAntExB = serratusAnterior.getExerciseBuild();
+		serAntExB.add(hipRaises);
+		serratusAnterior.setExerciseBuild(serAntExB);
+		
+		hipRaises.setMuscles(hrMuscles);
+		
+		ebs.save(hipRaises);
+		
+		ms.save(serratusAnterior);
+		
 		//------------------------Dumbbell Pullovers---------------------------------
 		
 		ExerciseBuild dbpo = new ExerciseBuild();
