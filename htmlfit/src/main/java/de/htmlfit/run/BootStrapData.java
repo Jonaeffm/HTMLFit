@@ -870,6 +870,57 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Sumo Squats--------------------------------------
+		
+		ExerciseBuild sumoSquats = new ExerciseBuild();
+		sumoSquats.setName("Sumo Squats");
+		
+		Collection<TrainingEquipment> ssTEq = new ArrayList<TrainingEquipment>();
+		
+		ssTEq.add(dumbbell);
+		
+		Collection<ExerciseBuild> db2ExB = dumbbell.getExerciseBuild();
+		db2ExB.add(sumoSquats);
+		dumbbell.setExerciseBuild(db2ExB);
+		
+		Collection<Muscle> sSMuscles = new ArrayList<Muscle>();
+		
+		sSMuscles.add(hipAdductor);
+		
+		Collection<ExerciseBuild> ha2ExB = hipAdductor.getExerciseBuild();
+		ha2ExB.add(sumoSquats);
+		hipAdductor.setExerciseBuild(ha2ExB);
+		
+		sSMuscles.add(legs);
+		
+		Collection<ExerciseBuild> quadricepsExB = legs.getExerciseBuild();
+		quadricepsExB.add(sumoSquats);
+		legs.setExerciseBuild(quadricepsExB);
+		
+		sSMuscles.add(hamstrings);
+		
+		Collection<ExerciseBuild> hamsExB = hamstrings.getExerciseBuild();
+		hamsExB.add(sumoSquats);
+		hamstrings.setExerciseBuild(hamsExB);
+		
+		sSMuscles.add(buttocks);
+		
+		Collection<ExerciseBuild> glutesExB = buttocks.getExerciseBuild();
+		glutesExB.add(sumoSquats);
+		buttocks.setExerciseBuild(glutesExB);
+		
+		sumoSquats.setMuscles(sSMuscles);
+		sumoSquats.setTrainingEquipment(ssTEq);
+		
+		ebs.save(sumoSquats);
+		
+		tes.save(dumbbell);
+		
+		ms.save(hipAdductor);
+		ms.save(legs);
+		ms.save(hamstrings);
+		ms.save(buttocks);
+		
 		//------------------------Low Lunges----------------------------------------
 		
 		ExerciseBuild lowLunges = new ExerciseBuild();
@@ -893,8 +944,7 @@ public class BootStrapData implements CommandLineRunner{
 		lowLunges.setMuscles(llMuscles);
 		
 		ebs.save(lowLunges);
-		
-		
+				
 		ms.save(calves);
 		ms.save(hipAdductor);
 		//------------------------Hip Raises----------------------------------------
