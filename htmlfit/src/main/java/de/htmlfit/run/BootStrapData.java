@@ -870,6 +870,41 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(latissimus);
 		//------------------------Exercise Build------------------------
 		
+		//------------------------Dumbbell Chest Fly-------------------------------
+		
+		ExerciseBuild dumbbellChestFly =new ExerciseBuild();
+		dumbbellChestFly.setName("Dumbbell Chest Fly");
+		
+		Collection<TrainingEquipment> dCFTE = new ArrayList<TrainingEquipment>();
+		
+		dCFTE.add(trainingBench);
+		
+		Collection<ExerciseBuild> tbExercises = trainingBench.getExerciseBuild();
+		tbExercises.add(dumbbellChestFly);
+		trainingBench.setExerciseBuild(tbExercises);
+		
+		dCFTE.add(dumbbell);
+		
+		Collection<ExerciseBuild> dbExercises=dumbbell.getExerciseBuild();
+		dbExercises.add(dumbbellChestFly);
+		dumbbell.setExerciseBuild(dbExercises);
+		
+		Collection<Muscle> dCFMuscles = new ArrayList<Muscle>();
+		
+		dCFMuscles.add(pectorals);
+		
+		Collection<ExerciseBuild> pecEx = pectorals.getExerciseBuild();
+		pecEx.add(dumbbellChestFly);
+		pectorals.setExerciseBuild(pecEx);
+		
+		dumbbellChestFly.setMuscles(dCFMuscles);
+		dumbbellChestFly.setTrainingEquipment(dCFTE);
+		
+		ebs.save(dumbbellChestFly);
+		
+		tes.save(trainingBench);
+		tes.save(dumbbell);
+		ms.save(pectorals);
 		//-----------------------Copenhagen Planks---------------------------------
 		
 		ExerciseBuild copenhagenPlanks = new ExerciseBuild();
