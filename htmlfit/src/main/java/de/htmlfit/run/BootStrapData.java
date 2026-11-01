@@ -1304,6 +1304,42 @@ public class BootStrapData implements CommandLineRunner{
 				
 				ms.save(legs);
 		
+		//------------------------Dumbbell Seated One Leg Calf Raise----
+				
+		ExerciseBuild dbsolr = new ExerciseBuild();
+		dbsolr.setName("Dumbbell Seated One Leg Calf Raise");
+		
+		Collection<TrainingEquipment> dbTE = new ArrayList<TrainingEquipment>();
+		dbTE.add(dumbbell);
+		
+		Collection<ExerciseBuild> dbExB2 = dumbbell.getExerciseBuild();
+		dbExB2.add(dbsolr);
+		dumbbell.setExerciseBuild(dbExB2);
+		
+		dbTE.add(trainingBench);
+		
+		Collection<ExerciseBuild> tbExB = trainingBench.getExerciseBuild();
+		tbExB.add(dbsolr);
+		trainingBench.setExerciseBuild(tbExB);
+		
+		Collection<Muscle> dbsolrMuscles = new ArrayList<Muscle>();
+		
+		dbsolrMuscles.add(gastrocnemius);
+		
+		Collection<ExerciseBuild> gasExB = gastrocnemius.getExerciseBuild();
+		gasExB.add(dbsolr);
+		gastrocnemius.setExerciseBuild(gasExB);
+		
+		dbsolr.setTrainingEquipment(dbTE);
+		dbsolr.setMuscles(dbsolrMuscles);
+		
+		ebs.save(dbsolr);
+		
+		tes.save(dumbbell);
+		tes.save(trainingBench);
+		
+		ms.save(gastrocnemius);
+				
 		//------------------------Lunges--------------------------------
 		
 		ExerciseBuild lunges = new ExerciseBuild();
