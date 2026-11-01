@@ -446,6 +446,33 @@ public class BootStrapData implements CommandLineRunner{
 		ms.save(abs);
 		ms.save(buttocks);
 		
+		//------------------------knee Tap Push-Ups------------------------------
+		
+		Exercise kneeTabPushUps = new Exercise();
+		kneeTabPushUps.setName("Knee Tab Push-Ups");
+		kneeTabPushUps.setTrainingDays(emptyCollection);
+		
+		Collection<Muscle> knTPUMuscles = new ArrayList<Muscle>();
+		
+		knTPUMuscles.add(pectorals);
+		
+		Collection<Exercise> pectoEx2 = pectorals.getExercise();
+		pectoEx2.add(kneeTabPushUps);
+		pectorals.setExercise(pectoEx2);
+		
+		knTPUMuscles.add(abs);
+		
+		Collection<Exercise> absExe2 = abs.getExercise();
+		absExe2.add(kneeTabPushUps);
+		abs.setExercise(absExe2);
+		
+		kneeTabPushUps.setMuscles(knTPUMuscles);
+		
+		es.save(kneeTabPushUps);
+		
+		ms.save(pectorals);
+		ms.save(abs);
+		
 		//------------------------Diamond Push-Up--------------------------------
 		
 		Exercise diamondPushUps = new Exercise();
